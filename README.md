@@ -1,6 +1,6 @@
 ### Structure blueprint
 
-```nix
+```
 nixDots
 ├── flake.lock
 ├── flake.nix
