@@ -2,11 +2,14 @@
   description = "Monsterflake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
   outputs =
-    { self, nixpkgs }@inputs:
+    {
+      self,
+      nixpkgs,
+    }@inputs:
     {
       nixosConfigurations.virtual-nix = nixpkgs.lib.nixosSystem {
         modules = [
