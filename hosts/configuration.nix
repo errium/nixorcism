@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
     ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.git.enable = true;
   services.openssh.enable = true;
 
@@ -20,7 +21,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "virtual-nix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -41,7 +42,7 @@
 
   # Enable the Budgie Desktop environment.
   services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.budgie.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -90,8 +91,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    helix
+    fastfetch
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
