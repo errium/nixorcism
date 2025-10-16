@@ -13,7 +13,7 @@
     {
       nixosConfigurations.virtual-nix = nixpkgs.lib.nixosSystem {
         modules = [
-          ./hosts/virtual-nix/configuration.nix
+          ./hosts/virtual-nix
         ];
       };
     };
