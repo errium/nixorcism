@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/core
   ];
 
   nix.settings.experimental-features = [
@@ -11,9 +12,6 @@
   ];
   programs.git.enable = true;
   services.openssh.enable = true;
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
