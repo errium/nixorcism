@@ -1,10 +1,9 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/core
-    ../../modules/desktop
+    ../../modules
   ];
 
   networking.hostName = "virtual-nix";
@@ -16,8 +15,6 @@
 
   #=======================
 
-  programs.git.enable = true;
-  services.openssh.enable = true;
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
