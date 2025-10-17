@@ -1,5 +1,5 @@
 {
-  description = "Monsterflake";
+  description = "Itsa mother-flakin' flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
