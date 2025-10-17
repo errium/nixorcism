@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home-manager.users.errium = {
+  hm = {
     programs.helix = {
       enable = true;
 

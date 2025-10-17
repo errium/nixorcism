@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home-manager.users.errium = {
+  hm = {
     home.packages = with pkgs; [
       tree
     ];

@@ -1,5 +1,5 @@
 {
-  home-manager.users.errium = {
+  hm = {
     programs.fastfetch = {
       enable = true;
 
