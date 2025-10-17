@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home-manager.users.errium = {
     programs.helix = {
       enable = true;
@@ -10,7 +8,7 @@
 
         editor = {
           line-number = "relative";
-          rulers = [ 80 ];
+          rulers = [80];
           mouse = true;
           auto-save = true;
           cursorline = true;
@@ -78,7 +76,7 @@
           {
             name = "nix";
             auto-format = true;
-            formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
+            formatter.command = "${pkgs.alejandra}/bin/alejandra";
           }
           {
             name = "markdown";
@@ -87,7 +85,7 @@
               "marksman"
               {
                 name = "mpls";
-                only-features = [ "workspace-command" ];
+                only-features = ["workspace-command"];
               }
             ];
             formatter = {
@@ -104,7 +102,7 @@
             language-servers = [
               {
                 name = "ruff";
-                except-features = [ "format" ];
+                except-features = ["format"];
               }
             ];
           }

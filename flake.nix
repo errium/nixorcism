@@ -10,24 +10,31 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-    }@inputs:
-    {
-      nixosConfigurations.virtual-nix = nixpkgs.lib.nixosSystem {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+  } @ inputs: let
+    username = "errium";
+
+    mkSystem = hostname:
+      nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs username;};
         modules = [
-          ./hosts/virtual-nix/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = {inherit inputs username;};
           }
+          ./hosts/${hostname}/configuration.nix
         ];
       };
+  in {
+    nixosConfigurations = {
+      # dudos-machine = mkSystem "dudos-machine";
+      virtual-nix = mkSystem "virtual-nix";
     };
+  };
 }
