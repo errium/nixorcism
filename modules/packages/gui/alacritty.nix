@@ -6,8 +6,12 @@
       theme = "oxocarbon";
 
       settings = {
-        font.normal.family = "${pkgs.nerd-fonts.jetbrains-mono}";
+        font.normal.family = "JetBrainsMono Nerd Font";
       };
     };
+
+    home.packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+    ];
   };
 }
