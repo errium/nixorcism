@@ -4,6 +4,6 @@
     ./core
     ./desktop
     ./services
-    ./programs
+    ./packages
   ];
 }
