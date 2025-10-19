@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options = {
-    nixDots.packages.cli.fastfetch.enable = lib.mkEnableOption "Enables fastfetch";
+  options.nixDots.packages.cli = {
+    fastfetch.enable = lib.mkEnableOption "Enables fastfetch";
   };
 
   config = lib.mkIf config.nixDots.packages.cli.fastfetch.enable {

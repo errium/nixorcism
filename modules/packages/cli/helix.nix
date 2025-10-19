@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: {
-  options = {
-    nixDots.packages.cli.helix.enable = lib.mkEnableOption "Enables helix";
+  options.nixDots.packages.cli = {
+    helix.enable = lib.mkEnableOption "Enables helix";
   };
 
   config = lib.mkIf config.nixDots.packages.cli.helix.enable {
