@@ -1,125 +1,136 @@
-{pkgs, ...}: {
-  hm = {
-    programs.helix = {
-      enable = true;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  options = {
+    nixDots.packages.cli.helix.enable = lib.mkEnableOption "Enables helix";
+  };
 
-      settings = {
-        theme = "carbon";
+  config = lib.mkIf config.nixDots.packages.cli.helix.enable {
+    hm = {
+      programs.helix = {
+        enable = true;
 
-        editor = {
-          line-number = "relative";
-          rulers = [80];
-          mouse = true;
-          auto-save = true;
-          cursorline = true;
-          cursorcolumn = true;
-          bufferline = "always";
+        settings = {
+          theme = "carbon";
 
-          soft-wrap = {
-            enable = true;
+          editor = {
+            line-number = "relative";
+            rulers = [80];
+            mouse = true;
+            auto-save = true;
+            cursorline = true;
+            cursorcolumn = true;
+            bufferline = "always";
+
+            soft-wrap = {
+              enable = true;
+            };
+
+            cursor-shape = {
+              normal = "block";
+              insert = "bar";
+              select = "underline";
+            };
+
+            indent-guides = {
+              render = true;
+            };
+
+            lsp = {
+              display-messages = true;
+              display-inlay-hints = true;
+            };
+
+            statusline = {
+              left = [
+                "mode"
+                "spinner"
+                "diagnostics"
+              ];
+              center = [
+                "file-name"
+                "read-only-indicator"
+                "file-modification-indicator"
+              ];
+              right = [
+                "position"
+                "separator"
+                "total-line-numbers"
+              ];
+              separator = "|";
+              mode = {
+                normal = "NORMAL";
+                insert = "INSERT";
+                select = "VISUAL";
+              };
+            };
           };
 
-          cursor-shape = {
-            normal = "block";
-            insert = "bar";
-            select = "underline";
-          };
-
-          indent-guides = {
-            render = true;
-          };
-
-          lsp = {
-            display-messages = true;
-            display-inlay-hints = true;
-          };
-
-          statusline = {
-            left = [
-              "mode"
-              "spinner"
-              "diagnostics"
-            ];
-            center = [
-              "file-name"
-              "read-only-indicator"
-              "file-modification-indicator"
-            ];
-            right = [
-              "position"
-              "separator"
-              "total-line-numbers"
-            ];
-            separator = "|";
-            mode = {
-              normal = "NORMAL";
-              insert = "INSERT";
-              select = "VISUAL";
+          keys.normal = {
+            space = {
+              space = ":fmt";
+              w = ":w";
+              q = ":q";
+              f = "file_picker";
+              tab = ":buffer-next";
+              s.tab = ":buffer-previous";
             };
           };
         };
 
-        keys.normal = {
-          space = {
-            space = ":fmt";
-            w = ":w";
-            q = ":q";
-            f = "file_picker";
-            tab = ":buffer-next";
-            s.tab = ":buffer-previous";
-          };
-        };
-      };
+        languages = {
+          language = [
+            {
+              name = "nix";
+              auto-format = true;
+              formatter.command = "${pkgs.alejandra}/bin/alejandra";
+            }
+            {
+              name = "markdown";
+              auto-format = true;
+              language-servers = [
+                "marksman"
+                {
+                  name = "mpls";
+                  only-features = ["workspace-command"];
+                }
+              ];
+              formatter = {
+                command = "${pkgs.prettier}/bin/prettier";
+                args = [
+                  "--parser"
+                  "markdown"
+                ];
+              };
+            }
+            {
+              name = "python";
+              auto-format = false;
+              language-servers = [
+                {
+                  name = "ruff";
+                  except-features = ["format"];
+                }
+              ];
+            }
+          ];
 
-      languages = {
-        language = [
-          {
-            name = "nix";
-            auto-format = true;
-            formatter.command = "${pkgs.alejandra}/bin/alejandra";
-          }
-          {
-            name = "markdown";
-            auto-format = true;
-            language-servers = [
-              "marksman"
-              {
-                name = "mpls";
-                only-features = ["workspace-command"];
-              }
-            ];
-            formatter = {
-              command = "${pkgs.prettier}/bin/prettier";
+          language-server = {
+            nixd.command = "${pkgs.nixd}/bin/nixd";
+            marksman.command = "${pkgs.marksman}/bin/marksman";
+            mpls = {
+              command = "${pkgs.mpls}/bin/mpls";
               args = [
-                "--parser"
-                "markdown"
+                "--no-auto"
+                "--enable-emoji"
+                "--dark-mode"
               ];
             };
-          }
-          {
-            name = "python";
-            auto-format = false;
-            language-servers = [
-              {
-                name = "ruff";
-                except-features = ["format"];
-              }
-            ];
-          }
-        ];
-
-        language-server = {
-          nixd.command = "${pkgs.nixd}/bin/nixd";
-          marksman.command = "${pkgs.marksman}/bin/marksman";
-          mpls = {
-            command = "${pkgs.mpls}/bin/mpls";
-            args = [
-              "--no-auto"
-              "--enable-emoji"
-              "--dark-mode"
-            ];
+            ruff.command = "${pkgs.ruff}/bin/ruff";
           };
-          ruff.command = "${pkgs.ruff}/bin/ruff";
         };
       };
     };

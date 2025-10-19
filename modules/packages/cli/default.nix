@@ -7,6 +7,8 @@
   ];
 
   nixDots.packages.cli = lib.mkDefault {
-    fastfetch.enable = false;
+    git.enable = true;
+    fastfetch.enable = true;
+    helix.enable = true;
   };
 }
