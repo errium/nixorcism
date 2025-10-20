@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./btop.nix
+    ./cava.nix
     ./git.nix
     ./helix.nix
     ./fastfetch.nix

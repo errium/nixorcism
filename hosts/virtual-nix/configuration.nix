@@ -13,6 +13,7 @@
     packages = {
       cli = {
         pkgArray.enable = true;
+        cava.enable = true;
         btop.enable = true;
         fastfetch.enable = true;
         git.enable = true;
