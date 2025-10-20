@@ -7,6 +7,7 @@
   imports = [
     ./alacritty.nix
     ./librewolf.nix
+    ./spicetify.nix
   ];
 
   options.nixDots.packages.gui = {
