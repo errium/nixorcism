@@ -12,6 +12,7 @@
   nixDots = {
     packages = {
       cli = {
+        pkgArray.enable = true;
         btop.enable = true;
         fastfetch.enable = true;
         git.enable = true;
@@ -19,6 +20,7 @@
       };
 
       gui = {
+        pkgArray.enable = true;
         alacritty.enable = true;
         librewolf.enable = true;
       };
