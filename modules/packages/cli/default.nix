@@ -25,6 +25,8 @@
       nsnake
       ninvaders
       ranger
+      toilet
+      figlet
     ];
   };
 }
