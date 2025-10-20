@@ -1,17 +1,28 @@
-{pkgs, ...}: {
-  hm = {
-    programs.alacritty = {
-      enable = true;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  options.nixDots.packages.gui = {
+    alacritty.enable = lib.mkEnableOption "Enables alacritty";
+  };
 
-      theme = "oxocarbon";
+  config = lib.mkIf config.nixDots.packages.gui.alacritty.enable {
+    hm = {
+      programs.alacritty = {
+        enable = true;
 
-      settings = {
-        font.normal.family = "JetBrainsMono Nerd Font";
+        theme = "oxocarbon";
+
+        settings = {
+          font.normal.family = "JetBrainsMono Nerd Font";
+        };
       };
-    };
 
-    home.packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-    ];
+      home.packages = with pkgs; [
+        nerd-fonts.jetbrains-mono
+      ];
+    };
   };
 }
