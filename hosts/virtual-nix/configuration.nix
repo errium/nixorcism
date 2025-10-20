@@ -13,7 +13,6 @@
     packages = {
       cli = {
         pkgArray.enable = true;
-        cava.enable = true;
         btop.enable = true;
         fastfetch.enable = true;
         git.enable = true;
@@ -24,7 +23,6 @@
         pkgArray.enable = true;
         alacritty.enable = true;
         librewolf.enable = true;
-        spicetify.enable = true;
       };
     };
   };
