@@ -28,5 +28,4 @@
   #=======================
 
   boot.loader.grub.useOSProber = false;
-  programs.firefox.enable = true;
 }
