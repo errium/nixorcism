@@ -19,6 +19,7 @@
     self,
     nixpkgs,
     home-manager,
+    ...
   } @ inputs: let
     username = "errium";
 
