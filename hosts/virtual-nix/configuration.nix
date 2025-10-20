@@ -23,6 +23,7 @@
         pkgArray.enable = true;
         alacritty.enable = true;
         librewolf.enable = true;
+        spicetify.enable = true;
       };
     };
   };
