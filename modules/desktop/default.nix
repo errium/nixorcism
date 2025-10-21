@@ -1,5 +1,7 @@
 {
   imports = [
+    ./niri
+    ./hyprland
     ./ly.nix
     ./sound.nix
     ./xfce.nix
