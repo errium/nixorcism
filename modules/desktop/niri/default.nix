@@ -20,10 +20,7 @@
     };
 
     hm = {
-      imports = [
-        inputs.niri.homeModules.niri
-        ./config
-      ];
+      imports = [inputs.niri.homeModules.niri];
     };
   };
 }
