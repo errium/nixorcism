@@ -9,10 +9,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  nixDots.desktop = {
-    niri.enable = true;
-  };
-
   nixDots.packages.cli = {
     pkgArray.enable = true;
     btop.enable = true;
