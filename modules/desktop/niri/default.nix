@@ -19,8 +19,8 @@
       package = pkgs.niri-unstable;
     };
 
-    hm = {
-      imports = [inputs.niri.homeModules.niri];
-    };
+    # hm = {
+    #   imports = [inputs.niri.homeModules.niri];
+    # };
   };
 }
