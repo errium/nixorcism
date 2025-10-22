@@ -10,7 +10,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixDots.desktop = {
-    niri.enable = false;
+    niri.enable = true;
     hyprland.enable = false;
   };
 
@@ -26,6 +26,7 @@
     pkgArray.enable = true;
     alacritty.enable = true;
     librewolf.enable = true;
+    spicetify.enable = true;
   };
 
   #=======================
