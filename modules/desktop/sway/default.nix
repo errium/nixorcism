@@ -19,6 +19,9 @@
     };
 
     hm = {
+      wayland.windowManager.sway = {
+        enable = true;
+      };
     };
   };
 }
