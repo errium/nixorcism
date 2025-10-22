@@ -3,6 +3,10 @@
   lib,
   ...
 }: {
+  imports = [
+    ./config
+  ];
+
   options.nixDots.desktop = {
     sway.enable = lib.mkEnableOption "Enables sway";
   };
@@ -14,6 +18,7 @@
       wrapperFeatures.gtk = true;
     };
 
-    hm = {};
+    hm = {
+    };
   };
 }
