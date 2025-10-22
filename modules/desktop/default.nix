@@ -1,5 +1,6 @@
 {
   imports = [
+    ./sway
     ./niri
     ./hyprland
     ./ly.nix

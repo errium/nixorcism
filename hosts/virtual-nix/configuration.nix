@@ -10,7 +10,8 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixDots.desktop = {
-    niri.enable = true;
+    sway.enable = true;
+    niri.enable = false;
     hyprland.enable = false;
   };
 
