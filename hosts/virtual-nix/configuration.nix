@@ -11,7 +11,7 @@
 
   nixDots.desktop = {
     niri.enable = false;
-    hyprland.enable = true;
+    hyprland.enable = false;
   };
 
   nixDots.packages.cli = {
