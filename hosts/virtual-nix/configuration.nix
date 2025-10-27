@@ -10,21 +10,25 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixorcism.desktop = {
+    xfce.enable = true;
+    sound.enable = true;
   };
 
-  nixorcism.packages.cli = {
-    pkgArray.enable = true;
-    btop.enable = true;
-    fastfetch.enable = true;
-    git.enable = true;
-    helix.enable = true;
-  };
+  nixorcism.packages = {
+    cli = {
+      pkgArray.enable = true;
+      btop.enable = true;
+      fastfetch.enable = true;
+      git.enable = true;
+      helix.enable = true;
+    };
 
-  nixorcism.packages.gui = {
-    pkgArray.enable = true;
-    alacritty.enable = true;
-    librewolf.enable = true;
-    spicetify.enable = true;
+    gui = {
+      pkgArray.enable = true;
+      alacritty.enable = true;
+      librewolf.enable = true;
+      spicetify.enable = true;
+    };
   };
 
   #=======================
