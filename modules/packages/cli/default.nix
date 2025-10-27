@@ -12,11 +12,11 @@
     ./fastfetch.nix
   ];
 
-  options.nixDots.packages.cli = {
+  options.nixorcism.packages.cli = {
     pkgArray.enable = lib.mkEnableOption "Enables array";
   };
 
-  config = lib.mkIf config.nixDots.packages.cli.pkgArray.enable {
+  config = lib.mkIf config.nixorcism.packages.cli.pkgArray.enable {
     hm.home.packages = with pkgs; [
       tree
       bat

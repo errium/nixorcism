@@ -8,11 +8,11 @@
     ./steam.nix
   ];
 
-  options.nixDots.packages.gaming = {
+  options.nixorcism.packages.gaming = {
     pkgArray.enable = lib.mkEnableOption "Enables array";
   };
 
-  config = lib.mkIf config.nixDots.packages.gaming.pkgArray.enable {
+  config = lib.mkIf config.nixorcism.packages.gaming.pkgArray.enable {
     hm.home.packages = with pkgs; [
       mindustry
     ];

@@ -5,11 +5,11 @@
   pkgs,
   ...
 }: {
-  options.nixDots.packages.gui = {
+  options.nixorcism.packages.gui = {
     spicetify.enable = lib.mkEnableOption "Enables spicetify";
   };
 
-  config = lib.mkIf config.nixDots.packages.gui.spicetify.enable {
+  config = lib.mkIf config.nixorcism.packages.gui.spicetify.enable {
     hm = {
       imports = [
         inputs.spicetify-nix.homeManagerModules.default

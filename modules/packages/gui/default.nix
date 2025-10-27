@@ -10,11 +10,11 @@
     ./spicetify.nix
   ];
 
-  options.nixDots.packages.gui = {
+  options.nixorcism.packages.gui = {
     pkgArray.enable = lib.mkEnableOption "Enables array";
   };
 
-  config = lib.mkIf config.nixDots.packages.gui.pkgArray.enable {
+  config = lib.mkIf config.nixorcism.packages.gui.pkgArray.enable {
     hm.home.packages = with pkgs; [
       telegram-desktop
       nemo

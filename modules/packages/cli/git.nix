@@ -3,11 +3,11 @@
   lib,
   ...
 }: {
-  options.nixDots.packages.cli = {
+  options.nixorcism.packages.cli = {
     git.enable = lib.mkEnableOption "Enables git";
   };
 
-  config = lib.mkIf config.nixDots.packages.cli.git.enable {
+  config = lib.mkIf config.nixorcism.packages.cli.git.enable {
     programs.git.enable = true;
   };
 }

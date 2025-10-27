@@ -9,10 +9,10 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  nixDots.desktop = {
+  nixorcism.desktop = {
   };
 
-  nixDots.packages.cli = {
+  nixorcism.packages.cli = {
     pkgArray.enable = true;
     btop.enable = true;
     fastfetch.enable = true;
@@ -20,7 +20,7 @@
     helix.enable = true;
   };
 
-  nixDots.packages.gui = {
+  nixorcism.packages.gui = {
     pkgArray.enable = true;
     alacritty.enable = true;
     librewolf.enable = true;

@@ -4,11 +4,11 @@
   lib,
   ...
 }: {
-  options.nixDots.packages.cli = {
+  options.nixorcism.packages.cli = {
     btop.enable = lib.mkEnableOption "Enables btop";
   };
 
-  config = lib.mkIf config.nixDots.packages.cli.btop.enable {
+  config = lib.mkIf config.nixorcism.packages.cli.btop.enable {
     hm = {
       programs.btop = {
         enable = true;

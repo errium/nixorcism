@@ -4,11 +4,11 @@
   pkgs,
   ...
 }: {
-  options.nixDots.packages.cli = {
+  options.nixorcism.packages.cli = {
     helix.enable = lib.mkEnableOption "Enables helix";
   };
 
-  config = lib.mkIf config.nixDots.packages.cli.helix.enable {
+  config = lib.mkIf config.nixorcism.packages.cli.helix.enable {
     hm = {
       programs.helix = {
         enable = true;

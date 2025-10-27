@@ -3,11 +3,11 @@
   lib,
   ...
 }: {
-  options.nixDots.packages.cli = {
+  options.nixorcism.packages.cli = {
     cava.enable = lib.mkEnableOption "Enables cava";
   };
 
-  config = lib.mkIf config.nixDots.packages.cli.cava.enable {
+  config = lib.mkIf config.nixorcism.packages.cli.cava.enable {
     hm = {
       programs.cava = {
         enable = true;

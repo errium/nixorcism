@@ -7,11 +7,11 @@
 }: {
   imports = [inputs.niri.nixosModules.niri];
 
-  options.nixDots.desktop = {
+  options.nixorcism.desktop = {
     niri.enable = lib.mkEnableOption "Enables niri";
   };
 
-  config = lib.mkIf config.nixDots.desktop.niri.enable {
+  config = lib.mkIf config.nixorcism.desktop.niri.enable {
     nixpkgs.overlays = [inputs.niri.overlays.niri];
 
     programs.niri = {

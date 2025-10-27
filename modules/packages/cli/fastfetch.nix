@@ -3,11 +3,11 @@
   lib,
   ...
 }: {
-  options.nixDots.packages.cli = {
+  options.nixorcism.packages.cli = {
     fastfetch.enable = lib.mkEnableOption "Enables fastfetch";
   };
 
-  config = lib.mkIf config.nixDots.packages.cli.fastfetch.enable {
+  config = lib.mkIf config.nixorcism.packages.cli.fastfetch.enable {
     hm = {
       programs.fastfetch = {
         enable = true;
