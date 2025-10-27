@@ -10,8 +10,10 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixorcism.desktop = {
-    xfce.enable = true;
+    ly.enable = true;
     sound.enable = true;
+    xfce.enable = true;
+    xkb.enable = true;
   };
 
   nixorcism.packages = {
