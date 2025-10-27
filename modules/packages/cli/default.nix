@@ -27,6 +27,8 @@
       ranger
       toilet
       figlet
+      pipes
+      tty-clock
     ];
   };
 }
