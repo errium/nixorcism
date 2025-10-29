@@ -26,8 +26,8 @@
 
         # Move column
         "Mod+Shift+Left".action.move-column-left = [];
-        "Mod+Shift+Down".action.move-column-down-or-to-workspace-down = [];
-        "Mod+Shift+Up".action.move-column-up-or-to-workspace-up = [];
+        "Mod+Shift+Down".action.move-window-down-or-to-workspace-down = [];
+        "Mod+Shift+Up".action.move-window-up-or-to-workspace-up = [];
         "Mod+Shift+Right".action.move-column-right = [];
 
         # Resize column
