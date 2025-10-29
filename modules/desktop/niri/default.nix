@@ -33,14 +33,14 @@
           "gnome"
           "wlr"
         ];
-
-        extraPortals = with pkgs; [
-          xdg-desktop-portal-gtk
-          xdg-desktop-portal-gnome
-          xdg-desktop-portal-wlr
-          xdg-desktop-portal
-        ];
       };
+
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal
+      ];
     };
 
     systemd.user.services.xdg-desktop-portal.after = ["niri.service"];
