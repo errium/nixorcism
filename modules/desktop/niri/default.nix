@@ -5,7 +5,10 @@
   lib,
   ...
 }: {
-  imports = [inputs.niri.nixosModules.niri];
+  imports = [
+    inputs.niri.nixosModules.niri
+    ./config
+  ];
 
   options.nixorcism.desktop = {
     niri.enable = lib.mkEnableOption "Enables niri";
