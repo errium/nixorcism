@@ -41,9 +41,9 @@
           xdg-desktop-portal
         ];
       };
-
-      systemd.user.services.xdg-desktop-portal.after = ["niri.service"];
-      systemd.user.services.xdg-desktop-portal-gnome.after = ["niri.service"];
     };
+
+    systemd.user.services.xdg-desktop-portal.after = ["niri.service"];
+    systemd.user.services.xdg-desktop-portal-gnome.after = ["niri.service"];
   };
 }
