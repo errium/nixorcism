@@ -7,7 +7,11 @@
     hm = {
       programs.niri.settings.outputs = {
         eDP-1 = {
-          mode = "2560x1600@165.002";
+          mode = {
+            width = 2560;
+            height = 1600;
+            refresh = 165.002;
+          };
           scale = 1;
           variable-refresh-rate = true;
         };
