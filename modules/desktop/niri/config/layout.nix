@@ -28,15 +28,15 @@
 
         focus-ring = {
           width = 3;
-          active-color = "#3ddbd9";
-          inactive-color = "#262626";
+          active.color = "#3ddbd9";
+          inactive.color = "#262626";
         };
 
         # border = {
         #   width = 3;
-        #   active-color = "#3ddbd9";
-        #   inactive-color = "#262626";
-        #   urgent-color = "#ee5396";
+        #   active.color = "#3ddbd9";
+        #   inactive.color = "#262626";
+        #   urgent.color = "#ee5396";
         # };
 
         tab-indicator = {
