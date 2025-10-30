@@ -6,75 +6,63 @@
   config = lib.mkIf config.nixorcism.desktop.niri.enable {
     hm = {
       programs.niri.settings.animations = {
-        workspace-switch = {
-          spring = {
-            damping-ratio = 1.0;
-            stiffness = 1000;
-            epsilon = 0.0001;
-          };
+        enable = true;
+
+        workspace-switch.kind.spring = {
+          damping-ratio = 1.0;
+          stiffness = 1000;
+          epsilon = 0.0001;
         };
 
-        window-open = {
+        window-open.kind.easing = {
           duration-ms = 150;
           curve = "ease-out-expo";
         };
 
-        window-close = {
+        window-close.kind.easing = {
           duration-ms = 150;
           curve = "ease-out-quad";
         };
 
-        horizontal-view-movement = {
-          spring = {
-            damping-ratio = 1.0;
-            stiffness = 800;
-            epsilon = 0.0001;
-          };
+        horizontal-view-movement.kind.spring = {
+          damping-ratio = 1.0;
+          stiffness = 800;
+          epsilon = 0.0001;
         };
 
-        window-movement = {
-          spring = {
-            damping-ratio = 1.0;
-            stiffness = 800;
-            epsilon = 0.0001;
-          };
+        window-movement.kind.spring = {
+          damping-ratio = 1.0;
+          stiffness = 800;
+          epsilon = 0.0001;
         };
 
-        window-resize = {
-          spring = {
-            damping-ratio = 1.0;
-            stiffness = 800;
-            epsilon = 0.0001;
-          };
+        window-resize.kind.spring = {
+          damping-ratio = 1.0;
+          stiffness = 800;
+          epsilon = 0.0001;
         };
 
-        config-notification-open-close = {
-          spring = {
-            damping-ratio = 0.6;
-            stiffness = 1000;
-            epsilon = 0.001;
-          };
+        config-notification-open-close.kind.spring = {
+          damping-ratio = 0.6;
+          stiffness = 1000;
+          epsilon = 0.001;
         };
 
-        exit-confirmation-open-close = {
-          spring = {
-            damping-ratio = 0.6;
-            stiffness = 500;
-            epsilon = 0.01;
-          };
+        exit-confirmation-open-close.kind.spring = {
+          damping-ratio = 0.6;
+          stiffness = 500;
+          epsilon = 0.01;
         };
 
-        screenshot-ui-open = {
+        screenshot-ui-open.kind.easing = {
           duration-ms = 200;
           curve = "ease-out-quad";
         };
 
-        overview-open-close = {
-          spring = {
-            damping-ratio = 1.0;
-            stiffness = 800;
-            epsilon = 0.0001;
-          };
+        overview-open-close.kind.spring = {
+          damping-ratio = 1.0;
+          stiffness = 800;
+          epsilon = 0.0001;
         };
       };
     };
