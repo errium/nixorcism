@@ -15,6 +15,14 @@
           scale = 1;
           variable-refresh-rate = true;
         };
+
+        Virtual-1 = {
+          mode = {
+            width = 2048;
+            height = 1152;
+          };
+          scale = 1;
+        };
       };
     };
   };
