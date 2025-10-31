@@ -6,7 +6,7 @@
   config = lib.mkIf config.nixorcism.desktop.niri.enable {
     hm = {
       programs.niri.settings.window-rules = let
-        radius = 0;
+        radius = 0.0;
       in [
         {
           matches = [];
