@@ -24,12 +24,16 @@
         # };
 
         # Wallpaper in overview
-        layer-rule = {
-          match = {
-            namespace = "^wallpaper$";
-          };
-          place-within-backdrop = true;
-        };
+        layer-rules = [
+          {
+            matches = [
+              {
+                namespace = "^wallpaper$";
+              }
+            ];
+            place-within-backdrop = true;
+          }
+        ];
 
         # Disable hot corners
         gestures = {
