@@ -7,9 +7,10 @@
   imports = [
     ./btop.nix
     ./cava.nix
+    ./fastfetch.nix
     ./git.nix
     ./helix.nix
-    ./fastfetch.nix
+    ./nix-search-tv.nix
   ];
 
   options.nixorcism.packages.cli = {
