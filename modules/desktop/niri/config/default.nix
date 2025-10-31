@@ -7,5 +7,6 @@
     ./layout.nix
     ./misc.nix
     ./monitors.nix
+    ./window-rules.nix
   ];
 }
