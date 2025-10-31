@@ -34,7 +34,7 @@
         # Disable hot corners
         gestures = {
           hot-corners = {
-            off = true;
+            enable = false;
           };
         };
       };
