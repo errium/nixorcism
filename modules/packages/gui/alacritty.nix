@@ -16,12 +16,12 @@
         theme = "oxocarbon";
 
         settings = {
-          font.normal.family = "JetBrainsMono Nerd Font";
+          font.normal.family = "IosevkaTerm Nerd Font";
         };
       };
 
       home.packages = with pkgs; [
-        nerd-fonts.jetbrains-mono
+        nerd-fonts.iosevka-term
       ];
     };
   };
