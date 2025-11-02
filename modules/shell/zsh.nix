@@ -15,6 +15,14 @@
     programs.zsh = {
       enable = true;
 
+      shellAliases = {
+        c = "clear";
+        ll = "eza -l";
+        la = "eza -a";
+        ff = "fastfetch";
+        helix = "hx";
+      };
+
       autosuggestions = {
         enable = true;
         async = true;
@@ -40,11 +48,57 @@
       programs.zsh = {
         enable = true;
 
+        zsh-abbr = let
+          confDir = "$HOME/nixorcism";
+          sudo = "sudo";
+        in {
+          enable = true;
+          abbreviations = {
+            nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
+            gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
+            ngc = "${sudo} nix-collect-garbage -d";
+            upd = "nix flake update --flake ${confDir}";
+            upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
+          };
+        };
+
+        plugins = [
+          {
+            name = "fzf-tab";
+            inherit (pkgs.zsh-fzf-tab) src;
+          }
+        ];
+
+        enableCompletion = true;
         completionInit = ''
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
           zstyle ':completion:*' menu no
           zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
         '';
+
+        history = {
+          size = 5000;
+          save = 5000;
+          share = true;
+          append = true;
+          ignoreSpace = true;
+          ignoreAllDups = true;
+          ignoreDups = true;
+          saveNoDups = true;
+          findNoDups = true;
+          expireDuplicatesFirst = true;
+        };
+      };
+
+      programs.zoxide = {
+        enable = true;
+        enableZshIntegration = true;
+        options = ["--cmd cd"];
+      };
+
+      programs.fzf = {
+        enable = true;
+        enableZshIntegration = true;
       };
     };
   };
