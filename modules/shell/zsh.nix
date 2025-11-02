@@ -67,6 +67,10 @@
             name = "fzf-tab";
             inherit (pkgs.zsh-fzf-tab) src;
           }
+          {
+            name = "zsh-defer";
+            inherit (pkgs.zsh-defer) src;
+          }
         ];
 
         enableCompletion = true;
