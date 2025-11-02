@@ -4,6 +4,7 @@
     ./desktop
     ./packages
     ./services
+    ./shell
     ./home.nix
   ];
 }
