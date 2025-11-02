@@ -10,8 +10,12 @@
   };
 
   config = lib.mkIf config.nixorcism.shell.zsh.enable {
-    programs.zsh.enable = true;
     users.users.${username}.shell = pkgs.zsh;
+
+    programs.zsh = {
+      enable = true;
+      autosuggestions.enable = true;
+    };
 
     hm = {
       programs.zsh = {
