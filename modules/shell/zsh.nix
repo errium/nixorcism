@@ -49,29 +49,19 @@
         enable = true;
         zprof.enable = true;
 
-        # zsh-abbr = let
-        #   confDir = "~/nixorcism";
-        #   sudo = "sudo";
-        # in {
-        #   enable = true;
-        #   abbreviations = {
-        #     nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
-        #     gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
-        #     ngc = "${sudo} nix-collect-garbage -d";
-        #     upd = "nix flake update --flake ${confDir}";
-        #     upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
-        #   };
-        # };
-
-        initContent = ''
-          zsh-defer -t 0.1 source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh
-          zsh-defer abbr --session nrs="sudo nixos-rebuild switch --flake ~/nixorcism"
-          zsh-defer abbr --session gen="sudo nix-env -p /nix/var/nix/profiles/system --list-generations"
-          zsh-defer abbr --session ngc="sudo nix-collect-garbage -d"
-          zsh-defer abbr --session upd="nix flake update --flake ~/nixorcism"
-          zsh-defer abbr --session upg="sudo nixos-rebuild switch --upgrade --flake ~/nixorcism"
-          zsh-defer -c 'autoload -Uz compinit && compinit -C'
-        '';
+        zsh-abbr = let
+          confDir = "~/nixorcism";
+          sudo = "sudo";
+        in {
+          enable = true;
+          abbreviations = {
+            nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
+            gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
+            ngc = "${sudo} nix-collect-garbage -d";
+            upd = "nix flake update --flake ${confDir}";
+            upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
+          };
+        };
 
         plugins = [
           {
