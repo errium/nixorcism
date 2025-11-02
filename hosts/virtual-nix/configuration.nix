@@ -34,6 +34,10 @@
     };
   };
 
+  nixorcism.shell = {
+    zsh.enable = true;
+  };
+
   #=======================
 
   boot.loader.grub.useOSProber = false;
