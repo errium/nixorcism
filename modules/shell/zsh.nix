@@ -49,7 +49,7 @@
         enable = true;
 
         zsh-abbr = let
-          confDir = "$HOME/nixorcism";
+          confDir = "~/nixorcism";
           sudo = "sudo";
         in {
           enable = true;
