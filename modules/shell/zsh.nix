@@ -22,6 +22,14 @@
 
       syntaxHighlighting = {
         enable = true;
+        highlighters = [
+          "main"
+          "brackets"
+          "pattern"
+          "line"
+          "cursor"
+          "root"
+        ];
         styles = {
           "alias" = "fg=magenta,bold";
         };
