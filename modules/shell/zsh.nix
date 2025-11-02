@@ -49,30 +49,29 @@
         enable = true;
         zprof.enable = true;
 
-        zsh-abbr = let
-          confDir = "~/nixorcism";
-          sudo = "sudo";
-        in {
-          enable = true;
-          abbreviations = {
-            nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
-            gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
-            ngc = "${sudo} nix-collect-garbage -d";
-            upd = "nix flake update --flake ${confDir}";
-            upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
-          };
-        };
+        # zsh-abbr = let
+        #   confDir = "~/nixorcism";
+        #   sudo = "sudo";
+        # in {
+        #   enable = true;
+        #   abbreviations = {
+        #     nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
+        #     gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
+        #     ngc = "${sudo} nix-collect-garbage -d";
+        #     upd = "nix flake update --flake ${confDir}";
+        #     upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
+        #   };
+        # };
 
-        # initContent = ''
-        #   typeset -g ZSH_START_TIME=$EPOCHREALTIME
-        #   precmd() {
-        #     if [[ -n $ZSH_START_TIME ]]; then
-        #       local ms=$(( (EPOCHREALTIME - ZSH_START_TIME) * 1000 ))
-        #       printf "⚡ Shell loaded in %.2fms\n" $ms
-        #       unset ZSH_START_TIME
-        #     fi
-        #   }
-        # '';
+        initContent = ''
+          zsh-defer -t 0.1 source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh
+          zsh-defer abbr --session nrs="sudo nixos-rebuild switch --flake ~/nixorcism"
+          zsh-defer abbr --session gen="sudo nix-env -p /nix/var/nix/profiles/system --list-generations"
+          zsh-defer abbr --session ngc="sudo nix-collect-garbage -d"
+          zsh-defer abbr --session upd="nix flake update --flake ~/nixorcism"
+          zsh-defer abbr --session upg="sudo nixos-rebuild switch --upgrade --flake ~/nixorcism"
+          zsh-defer -c 'autoload -Uz compinit && compinit -C'
+        '';
 
         plugins = [
           {
@@ -83,7 +82,7 @@
 
         enableCompletion = true;
         completionInit = ''
-          zstyle ':completion:*' use-cache on
+          zstyle ':completion:*' use-cache true
           zstyle ':completion:*' cache-path "$HOME/.zsh/cache"
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
           zstyle ':completion:*' menu no
