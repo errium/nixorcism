@@ -64,16 +64,35 @@
 
         plugins = [
           {
+            name = "zsh-defer";
+            inherit (pkgs.zsh-defer) src;
+          }
+          {
             name = "fzf-tab";
             inherit (pkgs.zsh-fzf-tab) src;
           }
         ];
 
         enableCompletion = true;
+        initContent = ''
+          typeset -g ZSH_START_TIME=$EPOCHREALTIME
+
+          zsh-defer -c 'compinit -C'
+
+          zsh-defer precmd() {
+            if [[ -n $ZSH_START_TIME ]]; then
+              local load_time=$(( EPOCHREALTIME - ZSH_START_TIME ))
+              printf "⚡ Shell loaded in %.3fms\n" $(( load_time * 1000 ))
+              unset ZSH_START_TIME
+            fi
+          }
+        '';
         completionInit = ''
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
           zstyle ':completion:*' menu no
           zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+          zstyle ':completion:*' use-cache on
+          zstyle ':completion:*' cache-path "$HOME/.zsh/cache"
         '';
 
         history = {
