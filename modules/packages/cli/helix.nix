@@ -106,16 +106,6 @@
                 ];
               };
             }
-            {
-              name = "python";
-              auto-format = false;
-              language-servers = [
-                {
-                  name = "ruff";
-                  except-features = ["format"];
-                }
-              ];
-            }
           ];
 
           language-server = {
@@ -129,7 +119,6 @@
                 "--dark-mode"
               ];
             };
-            ruff.command = "${pkgs.ruff}/bin/ruff";
           };
         };
       };
