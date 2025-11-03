@@ -60,7 +60,18 @@
           upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
         };
 
-        enableCompletion = true;
+        enableCompletions = false;
+
+        initContent = lib.mkOrder 550 ''
+          source ${(pkgs.zsh-defer)}/share/zsh-defer/zsh-defer.plugin.zsh
+
+          zsh-defer -t 0.5s 'autoload -Uz compinit && compinit -u'
+
+          zsh-defer -t 1s 'compaudit >/dev/null 2>&1 || true'
+
+          zsh-defer -t 0.3s 'source ${pkgs.oh-my-zsh}/share/oh-my-zsh/oh-my-zsh.sh'
+        '';
+
         completionInit = ''
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
           zstyle ':completion:*' menu no
