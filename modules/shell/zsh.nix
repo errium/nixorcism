@@ -49,11 +49,35 @@
         enable = true;
         zprof.enable = true;
 
-        zsh-abbr = let
+        # zsh-abbr = let
+        #   confDir = "~/nixorcism";
+        #   sudo = "sudo";
+        # in {
+        #   enable = true;
+        #   abbreviations = {
+        #     nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
+        #     gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
+        #     ngc = "${sudo} nix-collect-garbage -d";
+        #     upd = "nix flake update --flake ${confDir}";
+        #     upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
+        #   };
+        # };
+
+        plugins = [
+          {
+            name = "zsh-defer";
+            inherit (pkgs.zsh-defer) src;
+          }
+          {
+            name = "fzf-tab";
+            inherit (pkgs.zsh-fzf-tab) src;
+          }
+        ];
+
+        initExtra = let
           confDir = "~/nixorcism";
           sudo = "sudo";
-        in {
-          enable = true;
+
           abbreviations = {
             nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
             gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
@@ -61,19 +85,43 @@
             upd = "nix flake update --flake ${confDir}";
             upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
           };
-        };
 
-        plugins = [
-          {
-            name = "fzf-tab";
-            inherit (pkgs.zsh-fzf-tab) src;
-          }
-        ];
+          mkAbbrCommands = lib.concatStringsSep "\n" (
+            lib.mapAttrsToList (
+              name: value: "  abbr --quiet --session ${name}=${lib.escapeShellArg value}"
+            )
+            abbreviations
+          );
+        in ''
+              typeset -g ZSH_START_TIME=$EPOCHREALTIME
 
-        enableCompletion = true;
+              zsh-defer -t 0 () {
+                # Completion
+                autoload -Uz compinit
+                compinit -C -d "$HOME/.zcompdump"
+
+                # zsh-abbr
+                source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh
+          ${mkAbbrCommands}
+              }
+
+              precmd() {
+                if [[ -n $ZSH_START_TIME ]]; then
+                  local ms=$(( (EPOCHREALTIME - ZSH_START_TIME) * 1000 ))
+                  if (( ms < 50 )); then
+                    printf "\033[32m⚡ Blazingly fast!\033[0m %.2fms\n" $ms
+                  elif (( ms < 100 )); then
+                    printf "\033[33m⚡ Pretty quick.\033[0m %.2fms\n" $ms
+                  else
+                    printf "\033[31m🐌 Could be faster...\033[0m %.2fms\n" $ms
+                  fi
+                  unset ZSH_START_TIME
+                fi
+              }
+        '';
+
+        # enableCompletion = true;
         completionInit = ''
-          zstyle ':completion:*' use-cache true
-          zstyle ':completion:*' cache-path "$HOME/.zsh/cache"
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
           zstyle ':completion:*' menu no
           zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
