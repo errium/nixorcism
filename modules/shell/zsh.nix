@@ -49,19 +49,23 @@
         enable = true;
         zprof.enable = true;
 
-        zsh-abbr = let
+        shellAliases = let
           confDir = "~/nixorcism";
           sudo = "sudo";
         in {
-          enable = true;
-          abbreviations = {
-            nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
-            gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
-            ngc = "${sudo} nix-collect-garbage -d";
-            upd = "nix flake update --flake ${confDir}";
-            upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
-          };
+          nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
+          gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
+          ngc = "${sudo} nix-collect-garbage -d";
+          upd = "nix flake update --flake ${confDir}";
+          upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
         };
+
+        enableCompletion = true;
+        completionInit = ''
+          zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+          zstyle ':completion:*' menu no
+          zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+        '';
 
         plugins = [
           {
@@ -74,12 +78,14 @@
           }
         ];
 
-        enableCompletion = true;
-        completionInit = ''
-          zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-          zstyle ':completion:*' menu no
-          zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-        '';
+        oh-my-zsh = {
+          enable = true;
+          plugins = [
+            "sudo"
+            "colored-man-pages"
+            "command-not-found"
+          ];
+        };
 
         history = {
           size = 5000;
