@@ -60,14 +60,6 @@
           upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
         };
 
-        enableCompletions = false;
-
-        initContent = lib.mkOrder 550 ''
-          source ${(pkgs.zsh-defer)}/share/zsh-defer/zsh-defer.plugin.zsh
-          zsh-defer -t 0.5s 'autoload -Uz compinit && compinit -u'
-          zsh-defer -t 1s 'compaudit >/dev/null 2>&1 || true'
-        '';
-
         completionInit = ''
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
           zstyle ':completion:*' menu no
@@ -75,10 +67,6 @@
         '';
 
         plugins = [
-          {
-            name = "zsh-defer";
-            inherit (pkgs.zsh-defer) src;
-          }
           {
             name = "fzf-tab";
             inherit (pkgs.zsh-fzf-tab) src;
