@@ -49,19 +49,19 @@
         enable = true;
         zprof.enable = true;
 
-        # zsh-abbr = let
-        #   confDir = "~/nixorcism";
-        #   sudo = "sudo";
-        # in {
-        #   enable = true;
-        #   abbreviations = {
-        #     nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
-        #     gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
-        #     ngc = "${sudo} nix-collect-garbage -d";
-        #     upd = "nix flake update --flake ${confDir}";
-        #     upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
-        #   };
-        # };
+        zsh-abbr = let
+          confDir = "~/nixorcism";
+          sudo = "sudo";
+        in {
+          enable = true;
+          abbreviations = {
+            nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
+            gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
+            ngc = "${sudo} nix-collect-garbage -d";
+            upd = "nix flake update --flake ${confDir}";
+            upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
+          };
+        };
 
         plugins = [
           {
@@ -74,53 +74,7 @@
           }
         ];
 
-        initExtra = let
-          confDir = "~/nixorcism";
-          sudo = "sudo";
-
-          abbreviations = {
-            nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
-            gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
-            ngc = "${sudo} nix-collect-garbage -d";
-            upd = "nix flake update --flake ${confDir}";
-            upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
-          };
-
-          mkAbbrCommands = lib.concatStringsSep "\n" (
-            lib.mapAttrsToList (
-              name: value: "  abbr --quiet --session ${name}=${lib.escapeShellArg value}"
-            )
-            abbreviations
-          );
-        in ''
-              typeset -g ZSH_START_TIME=$EPOCHREALTIME
-
-              zsh-defer -t 0 () {
-                # Completion
-                autoload -Uz compinit
-                compinit -C -d "$HOME/.zcompdump"
-
-                # zsh-abbr
-                source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh
-          ${mkAbbrCommands}
-              }
-
-              precmd() {
-                if [[ -n $ZSH_START_TIME ]]; then
-                  local ms=$(( (EPOCHREALTIME - ZSH_START_TIME) * 1000 ))
-                  if (( ms < 50 )); then
-                    printf "\033[32m⚡ Blazingly fast!\033[0m %.2fms\n" $ms
-                  elif (( ms < 100 )); then
-                    printf "\033[33m⚡ Pretty quick.\033[0m %.2fms\n" $ms
-                  else
-                    printf "\033[31m🐌 Could be faster...\033[0m %.2fms\n" $ms
-                  fi
-                  unset ZSH_START_TIME
-                fi
-              }
-        '';
-
-        # enableCompletion = true;
+        enableCompletion = true;
         completionInit = ''
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
           zstyle ':completion:*' menu no
