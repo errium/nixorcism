@@ -64,26 +64,22 @@
       #   zsh-defer -t 0.5 'autoload compinit -U && compinit'
       # '';
 
-      zplug = {
-        enable = true;
-        plugins = [
-          {name = "zsh-users/zsh-completions";}
-          {name = "zsh-users/zsh-autosuggestions";}
-          {name = "zdharma-continuum/fast-syntax-highlighting";}
-          {name = "romkatv/zsh-defer";}
-          {name = "Aloxaf/fzf-tab";}
-          {
-            name = "plugins/sudo";
-            tags = ["from:oh-my-zsh"];
-          }
-          {
-            name = "plugins/command-not-found";
-            tags = ["from:oh-my-zsh"];
-          }
-        ];
-      };
-
       initContent = ''
+        source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.zsh
+
+        zsh-defer autoload -Uz compinit && compinit
+
+        zsh-defer zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+        zsh-defer zstyle ':completion:*' menu no
+        zsh-defer zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
+        zsh-defer source ${pkgs.zsh-completions}/share/zsh-completions/zsh-completions.zsh
+        zsh-defer source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        zsh-defer source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        zsh-defer source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+
+        zsh-defer source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/sudo/sudo.plugin.zsh
+        zsh-defer source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/command-not-found/command-not-found.zsh
       '';
     };
 
