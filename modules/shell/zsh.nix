@@ -65,7 +65,7 @@
       # '';
 
       initContent = ''
-        source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.zsh
+        source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
 
         zsh-defer autoload -Uz compinit && compinit
 
@@ -73,7 +73,6 @@
         zsh-defer zstyle ':completion:*' menu no
         zsh-defer zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-        zsh-defer source ${pkgs.zsh-completions}/share/zsh-completions/zsh-completions.zsh
         zsh-defer source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
         zsh-defer source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         zsh-defer source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
