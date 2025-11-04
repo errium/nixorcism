@@ -61,7 +61,7 @@
       '';
     };
 
-    programs = {
+    hm.programs = {
       fzf = {
         enable = true;
         enableZshIntegration = true;
