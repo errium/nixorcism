@@ -44,16 +44,39 @@
         expireDuplicatesFirst = true;
       };
 
-      antidote = {
+      # antidote = {
+      #   enable = true;
+      #   plugins = [
+      #     "zsh-users/zsh-completions"
+      #     "zsh-users/zsh-autosuggestions"
+      #     "zdharma-continuum/fast-syntax-highlighting"
+      #     "romkatv/zsh-defer"
+      #     "ohmyzsh/ohmyzsh path:plugins/sudo"
+      #     "ohmyzsh/ohmyzsh path:plugins/command-not-found"
+      #     "Aloxaf/fzf-tab"
+      #   ];
+      # };
+
+      # initContent = ''
+      #   zsh-defer -t 0.5 'autoload compinit -U && compinit'
+      # '';
+
+      zplug = {
         enable = true;
         plugins = [
-          "zsh-users/zsh-completions"
-          "zsh-users/zsh-autosuggestions"
-          "zdharma-continuum/fast-syntax-highlighting"
-          "ohmyzsh/ohmyzsh path:plugins/sudo"
-          "ohmyzsh/ohmyzsh path:plugins/command-not-found"
-          "Aloxaf/fzf-tab"
-          "chitoku-k/fzf-zsh-completions"
+          {name = "zsh-users/zsh-completions";}
+          {name = "zsh-users/zsh-autosuggestions";}
+          {name = "zdharma-continuum/fast-syntax-highlighting";}
+          {name = "romkatv/zsh-defer";}
+          {name = "Aloxaf/fzf-tab";}
+          {
+            name = "plugins/sudo";
+            tags = ["from:oh-my-zsh"];
+          }
+          {
+            name = "plugins/command-not-found";
+            tags = ["from:oh-my-zsh"];
+          }
         ];
       };
 
