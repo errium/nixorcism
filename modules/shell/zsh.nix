@@ -86,7 +86,6 @@
       # MIXED
       autosuggestion = {
         enable = true;
-        async = true;
       };
 
       syntaxHighlighting = {
