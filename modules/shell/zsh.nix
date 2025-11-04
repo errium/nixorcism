@@ -12,6 +12,7 @@
   config = lib.mkIf config.nixorcism.shell.zsh.enable {
     hm.programs.zsh = {
       enable = true;
+      enableCompletion = false; # To load manually
       zprof.enable = true;
 
       shellAliases = let
@@ -43,7 +44,28 @@
         expireDuplicatesFirst = true;
       };
 
-      enableCompletion = false;
+      antidote = {
+        enable = true;
+        plugins = [
+          "zsh-users/zsh-completions"
+          "zsh-users/zsh-autosuggestions"
+          "zdharma-continuum/fast-syntax-highlighting"
+          "ohmyzsh/ohmyzsh path:plugins/sudo"
+          "ohmyzsh/ohmyzsh path:plugins/command-not-found"
+          "Aloxaf/fzf-tab"
+          "chitoku-k/fzf-zsh-completions"
+        ];
+      };
+
+      initContent = ''
+      '';
+    };
+
+    programs = {
+      fzf = {
+        enable = true;
+        enableZshIntegration = true;
+      };
     };
   };
 }
