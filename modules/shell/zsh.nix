@@ -84,7 +84,7 @@
       # '';
 
       # MIXED
-      autosuggestions = {
+      autosuggestion = {
         enable = true;
         async = true;
       };
