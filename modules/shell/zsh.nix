@@ -73,12 +73,12 @@
           }
         ];
 
-        oh-my-zsh = {
+        antidote = {
           enable = true;
           plugins = [
-            "sudo"
-            "colored-man-pages"
-            "command-not-found"
+            "ohmyzsh/ohmyzsh path:plugins/sudo"
+            "ohmyzsh/ohmyzsh path:plugins/colored-man-pages"
+            "ohmyzsh/ohmyzsh path:plugins/command-not-found"
           ];
         };
 
