@@ -30,6 +30,13 @@
           "$line_break"
           "$character"
         ];
+
+        username = {
+          show_always = true;
+        };
+        fill = {
+          symbol = " ";
+        };
       };
     };
   };
