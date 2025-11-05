@@ -17,28 +17,21 @@
           error_symbol = "[>](bold red)";
         };
 
-        format = [
-          ''
-            $character\
-            [](fg:white bg:bright-black)\
-            [█](fg:bright-black bg:black)\
-            $directory\
-            [█](fg:bright-black bg:black)\
-            [$git_branch\
-            $git_state\
-            $git_status](bold bg:black fg:white)\
-            $fill\
-            $cmd_duration\
-            [](fg:red bg:black)\
-            [ ](fg:black bg:red)\
-            $username\
-            [](fg:green bg:bright-black)\
-            [󰌽 ](fg:green bg:black inverted)\
-            $hostname\
-            $line_break\
-            [‎]()"""
-          ''
-        ];
+        format = lib.concatStrings ''
+          $directory\
+          [█](fg:bright-black bg:black)\
+          [$git_branch$git_state$git_status](bold bg:black fg:white)\
+          $fill\
+          $cmd_duration\
+          [](fg:red bg:black)\
+          [ ](fg:black bg:red)\
+          $username\
+          [](fg:green bg:bright-black)\
+          [󰌽 ](fg:green bg:black inverted)\
+          $hostname\
+          $line_break\
+          [‎]()
+        '';
 
         username.show_always = true;
         fill.symbol = " ";
