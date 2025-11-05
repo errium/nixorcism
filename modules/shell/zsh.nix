@@ -56,12 +56,6 @@
         upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
       };
 
-      zsh-abbr = {
-        abbreviations = {
-          penis = "echo 'penis'";
-        };
-      };
-
       history = {
         size = 5000;
         save = 5000;
@@ -78,11 +72,14 @@
       initContent = lib.mkOrder 550 ''
         source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
 
-        zsh-defer zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+        _load_plugins() {
+          source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+          source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/sudo/sudo.plugin.zsh
+          unset -f _load_plugins
+        }
+        zsh-defer _load_plugins
 
-        zsh-defer source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh
-        zsh-defer source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-        zsh-defer source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/sudo/sudo.plugin.zsh
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
       '';
 
       completionInit = ''
