@@ -204,8 +204,6 @@
         pijul_channel.format = ''\[[$symbol$channel]($style)\]'';
         pixi.format = ''\[[$symbol$version( $environment)]($style)\]'';
         pulumi.format = ''\[[$symbol$stack]($style)\]'';
-        purescript.format = ''\[[$symbol($version)]($style)\]'';
-        python.format = ''\[[\${symbol}\${pyenv_prefix}(\${version})(\(\${virtualenv}\))]($style)\]'';
         quarto.format = ''\[[$symbol($version)]($style)\]'';
         raku.format = ''\[[$symbol($version-$vm_version)]($style)\]'';
         red.format = ''\[[$symbol($version)]($style)\]'';
