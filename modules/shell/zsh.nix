@@ -15,7 +15,7 @@
     programs.zsh = {
       enable = true;
 
-      autosuggestions = {
+      autosuggestion = {
         enable = true;
         async = true;
       };
@@ -69,11 +69,22 @@
         expireDuplicatesFirst = true;
       };
 
+      # enableCompletion = false;
       initContent = lib.mkOrder 550 ''
         source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
 
+        zsh-defer zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
         zsh-defer source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
         zsh-defer source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/sudo/sudo.plugin.zsh
+      '';
+
+      completionInit = ''
+        zsh-defer autoload -Uz compinit
+        zsh-defer compinit
+
+        zsh-defer zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+        zsh-defer zstyle ':completion:*' menu no
       '';
     };
 
