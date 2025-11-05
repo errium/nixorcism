@@ -15,7 +15,7 @@
     programs.zsh = {
       enable = true;
 
-      autosuggestion = {
+      autosuggestions = {
         enable = true;
         async = true;
       };
