@@ -18,10 +18,27 @@
         };
 
         format = lib.concatStrings [
-          "$directory (bg:red)"
+          "$directory"
+          "$git_branch"
+          "$git_status"
+
+          "$fill"
+
+          "$cmd_duration"
+          "[](fg:red bg:black)"
+          "[ ](fg:black bg:red)"
+          "$username"
+          "[](fg:green bg:bright-black)"
+          "[󰌽 ](fg:green bg:black inverted)"
+          "$hostname"
+
+          "$line_break"
+
+          "$character"
         ];
 
         username.show_always = true;
+        hostname.show_always = true;
         fill.symbol = " ";
 
         #==============================================
