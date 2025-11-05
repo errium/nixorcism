@@ -93,7 +93,7 @@
     };
 
     hm.programs = {
-      oh-my-posh = {
+      starship = {
         enableZshIntegration = true;
       };
       fzf = {
