@@ -36,7 +36,7 @@
 
   nixorcism.shell = {
     zsh.enable = true;
-    starship.enable = true;
+    oh-my-posh.enable = true;
   };
 
   #=======================
