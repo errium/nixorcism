@@ -18,7 +18,6 @@
         };
 
         format = lib.concatStrings [
-          "$os"
           "$username"
           "$directory"
           "$git_branch"
@@ -26,15 +25,13 @@
 
           "$fill"
 
+          "$nix_shell"
           "$cmd_duration"
 
           "$line_break"
           "$character"
         ];
 
-        os = {
-          disabled = false;
-        };
         username = {
           show_always = true;
         };
