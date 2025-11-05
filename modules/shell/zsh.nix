@@ -93,6 +93,9 @@
     };
 
     hm.programs = {
+      starship = {
+        enableZshIntegration = true;
+      };
       fzf = {
         enable = true;
         enableZshIntegration = true;
