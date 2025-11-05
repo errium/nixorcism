@@ -18,6 +18,7 @@
         };
 
         format = lib.concatStrings [
+          "$os"
           "$username"
           "$directory"
           "$git_branch"
@@ -31,6 +32,9 @@
           "$character"
         ];
 
+        os = {
+          disabled = false;
+        };
         username = {
           show_always = true;
         };
