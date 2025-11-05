@@ -26,6 +26,9 @@
           "$fill"
 
           "$cmd_duration"
+
+          "$line_break"
+          "$character"
         ];
       };
     };
