@@ -19,7 +19,7 @@
         spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
       in {
         enable = true;
-        wayland = false;
+        wayland = null;
 
         # theme = spicePkgs.themes.catppuccin;
         # colorScheme = "frappe";
