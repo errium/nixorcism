@@ -72,14 +72,20 @@
       initContent = lib.mkOrder 550 ''
         source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
 
+        _load_zstyle() {
+          zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+          zstyle ':completion:*' menu no
+          zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+          unset -f _load_zstyle
+        }
+        zsh-defer _load_zstyle
+
         _load_plugins() {
           source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
           source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/sudo/sudo.plugin.zsh
           unset -f _load_plugins
         }
         zsh-defer _load_plugins
-
-        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
       '';
 
       completionInit = ''
@@ -89,9 +95,6 @@
         else
           zsh-defer compinit -C
         fi
-
-        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-        zstyle ':completion:*' menu no
       '';
     };
 
