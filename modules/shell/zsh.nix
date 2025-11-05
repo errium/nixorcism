@@ -10,12 +10,34 @@
   };
 
   config = lib.mkIf config.nixorcism.shell.zsh.enable {
-    programs.zsh.enable = true;
     users.users.${username}.shell = pkgs.zsh;
+
+    programs.zsh = {
+      enable = true;
+
+      autosuggestion = {
+        enable = true;
+        async = true;
+      };
+
+      syntaxHighlighting = {
+        enable = true;
+        highlighters = [
+          "main"
+          "brackets"
+          "pattern"
+        ];
+        styles = {
+          "alias" = "fg=magenta,bold";
+        };
+        patterns = {
+          "rm -rf *" = "fg=red,bold";
+        };
+      };
+    };
 
     hm.programs.zsh = {
       enable = true;
-      enableCompletion = false; # To load manually
       zprof.enable = true;
 
       shellAliases = let
@@ -47,73 +69,11 @@
         expireDuplicatesFirst = true;
       };
 
-      # ANTIDOTE
-      # antidote = {
-      #   enable = true;
-      #   plugins = [
-      #     "zsh-users/zsh-completions"
-      #     "zsh-users/zsh-autosuggestions"
-      #     "zdharma-continuum/fast-syntax-highlighting"
-      #     "romkatv/zsh-defer"
-      #     "ohmyzsh/ohmyzsh path:plugins/sudo"
-      #     "ohmyzsh/ohmyzsh path:plugins/command-not-found"
-      #     "Aloxaf/fzf-tab"
-      #   ];
-      # };
-
-      # initContent = ''
-      #   zsh-defer -t 0.5 'autoload compinit -U && compinit'
-      # '';
-
-      # MANUAL
-      # initContent = ''
-      #   source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
-
-      #   zsh-defer autoload -Uz compinit && compinit
-
-      #   zsh-defer zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-      #   zsh-defer zstyle ':completion:*' menu no
-      #   zsh-defer zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-
-      #   zsh-defer source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-      #   zsh-defer source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-      #   zsh-defer source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-
-      #   zsh-defer source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/sudo/sudo.plugin.zsh
-      #   zsh-defer source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/command-not-found/command-not-found.zsh
-      # '';
-
-      # MIXED
-      autosuggestion = {
-        enable = true;
-      };
-
-      syntaxHighlighting = {
-        enable = true;
-        highlighters = [
-          "main"
-          "brackets"
-          "pattern"
-        ];
-        styles = {
-          "alias" = "fg=magenta,bold";
-        };
-        patterns = {
-          "rm -rf *" = "fg=red,bold";
-        };
-      };
-
-      initContent = ''
+      initContent = lib.mkOrder 550 ''
         source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
-
-        zsh-defer autoload -Uz compinit && zsh-defer compinit
-        zsh-defer zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-        zsh-defer zstyle ':completion:*' menu no
-        zsh-defer zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
         zsh-defer source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
         zsh-defer source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/sudo/sudo.plugin.zsh
-        zsh-defer source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/command-not-found/command-not-found.zsh
       '';
     };
 
