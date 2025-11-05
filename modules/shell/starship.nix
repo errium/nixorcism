@@ -51,7 +51,6 @@
         elixir.symbol = " ";
         elm.symbol = " ";
         fennel.symbol = " ";
-        fortran.symbol = " ";
         fossil_branch.symbol = " ";
         gcloud.symbol = " ";
         git_branch.symbol = " ";
