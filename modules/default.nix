@@ -2,9 +2,10 @@
   imports = [
     ./core
     ./desktop
+    ./home.nix
     ./packages
     ./services
     ./shell
-    ./home.nix
+    ./shell/starship.nix
   ];
 }
