@@ -134,7 +134,6 @@
         scala.symbol = " ";
         status.symbol = " ";
         swift.symbol = " ";
-        xmake.symbol = " ";
         zig.symbol = " ";
       };
     };
