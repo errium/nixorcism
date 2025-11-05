@@ -14,7 +14,7 @@
         enable = true;
 
         settings = {
-          theme = "carbon";
+          # theme = "carbon";
 
           editor = {
             line-number = "relative";

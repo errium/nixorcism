@@ -2,6 +2,7 @@
   inputs,
   config,
   lib,
+  pkgs,
   ...
 }: {
   imports = [
@@ -14,6 +15,15 @@
     stylix = {
       enable = true;
       polarity = "dark";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa-dragon.yaml";
+    };
+
+    hm.stylix = {
+      enable = true;
+
+      targets = {
+        niri.enable = false;
+      };
     };
   };
 }

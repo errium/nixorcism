@@ -15,7 +15,7 @@
         package = pkgs.btop-cuda;
 
         settings = {
-          color_theme = "TTY";
+          # color_theme = "TTY";
           theme_background = false;
           rounded_corners = false;
           update_ms = 200;

@@ -15,9 +15,9 @@
 
         theme = "oxocarbon";
 
-        settings = {
-          font.normal.family = "IosevkaTerm Nerd Font";
-        };
+        # settings = {
+        #   font.normal.family = "IosevkaTerm Nerd Font";
+        # };
       };
 
       home.packages = with pkgs; [

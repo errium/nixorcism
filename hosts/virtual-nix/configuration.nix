@@ -9,6 +9,10 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  nixorcism = {
+    stylix.enable = true;
+  };
+
   nixorcism.desktop = {
     ly.enable = true;
     sound.enable = true;
