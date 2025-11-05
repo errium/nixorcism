@@ -15,6 +15,13 @@
     programs.zsh = {
       enable = true;
 
+      shellAliases = {
+        c = "clear";
+        ll = "eza -l";
+        la = "eza -a";
+        ff = "fastfetch";
+      };
+
       autosuggestions = {
         enable = true;
         async = true;
@@ -38,17 +45,11 @@
 
     hm.programs.zsh = {
       enable = true;
-      zprof.enable = true;
 
       shellAliases = let
         confDir = "~/nixorcism";
         sudo = "sudo";
       in {
-        c = "clear";
-        ll = "eza -l";
-        la = "eza -a";
-        ff = "fastfetch";
-
         nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
         gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
         ngc = "${sudo} nix-collect-garbage -d";
@@ -69,52 +70,25 @@
         expireDuplicatesFirst = true;
       };
 
-      antidote = {
-        enable = true;
-        plugins = [
-          "Aloxaf/fzf-tab"
-          "ohmyzsh/ohmyzsh path:plugins/sudo"
-        ];
-      };
-
       initContent = lib.mkOrder 550 ''
         source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
 
-        _load_zstyle() {
-          zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-          zstyle ':completion:*' menu no
-          zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-          unset -f _load_zstyle
+        _load_plugins() {
+          source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+          source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/sudo/sudo.plugin.zsh
+          source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/bgnotify/bgnotify.plugin.zsh
+          unset -f _load_plugins
         }
-        zsh-defer _load_zstyle
+        zsh-defer _load_plugins
       '';
-
-      # initContent = lib.mkOrder 550 ''
-      #   source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
-
-      #   _load_zstyle() {
-      #     zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-      #     zstyle ':completion:*' menu no
-      #     zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-      #     unset -f _load_zstyle
-      #   }
-      #   zsh-defer _load_zstyle
-
-      #   _load_plugins() {
-      #     source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-      #     source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/sudo/sudo.plugin.zsh
-      #     unset -f _load_plugins
-      #   }
-      #   zsh-defer _load_plugins
-      # '';
 
       completionInit = ''
         autoload -Uz compinit
-        if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
-          zsh-defer compinit
-        else
-          zsh-defer compinit -C
-        fi
+        zsh-defer compinit
+
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+        zstyle ':completion:*' menu no
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
       '';
     };
 
