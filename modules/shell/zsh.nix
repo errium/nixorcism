@@ -56,6 +56,12 @@
         upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
       };
 
+      zsh-abbr = {
+        abbreviations = {
+          penis = "echo 'penis'";
+        };
+      };
+
       history = {
         size = 5000;
         save = 5000;
@@ -69,22 +75,26 @@
         expireDuplicatesFirst = true;
       };
 
-      # enableCompletion = false;
       initContent = lib.mkOrder 550 ''
         source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
 
         zsh-defer zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+        zsh-defer source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh
         zsh-defer source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
         zsh-defer source ${pkgs.oh-my-zsh}/share/oh-my-zsh/plugins/sudo/sudo.plugin.zsh
       '';
 
       completionInit = ''
-        zsh-defer autoload -Uz compinit
-        zsh-defer compinit
+        autoload -Uz compinit
+        if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+          zsh-defer compinit
+        else
+          zsh-defer compinit -C
+        fi
 
-        zsh-defer zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-        zsh-defer zstyle ':completion:*' menu no
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+        zstyle ':completion:*' menu no
       '';
     };
 
