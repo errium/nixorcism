@@ -6,6 +6,5 @@
     ./packages
     ./services
     ./shell
-    ./shell/starship.nix
   ];
 }
