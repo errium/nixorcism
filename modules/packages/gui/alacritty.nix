@@ -12,17 +12,7 @@
     hm = {
       programs.alacritty = {
         enable = true;
-
-        theme = "oxocarbon";
-
-        # settings = {
-        #   font.normal.family = "IosevkaTerm Nerd Font";
-        # };
       };
-
-      home.packages = with pkgs; [
-        nerd-fonts.iosevka-term
-      ];
     };
   };
 }
