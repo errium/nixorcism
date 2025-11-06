@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  username,
   ...
 }: {
   options.nixorcism.shell = {
@@ -10,17 +9,8 @@
   };
 
   config = lib.mkIf config.nixorcism.shell.zsh.enable {
-    users.users.${username}.shell = pkgs.zsh;
-
     programs.zsh = {
       enable = true;
-
-      shellAliases = {
-        c = "clear";
-        ll = "eza -l";
-        la = "eza -a";
-        ff = "fastfetch";
-      };
 
       autosuggestions = {
         enable = true;
@@ -45,17 +35,6 @@
 
     hm.programs.zsh = {
       enable = true;
-
-      shellAliases = let
-        confDir = "~/nixorcism";
-        sudo = "sudo";
-      in {
-        nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
-        gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
-        ngc = "${sudo} nix-collect-garbage -d";
-        upd = "nix flake update --flake ${confDir}";
-        upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
-      };
 
       history = {
         size = 5000;
@@ -93,17 +72,9 @@
     };
 
     hm.programs = {
-      starship = {
-        enableZshIntegration = true;
-      };
       fzf = {
         enable = true;
         enableZshIntegration = true;
-      };
-      zoxide = {
-        enable = true;
-        enableZshIntegration = true;
-        options = ["--cmd cd"];
       };
       command-not-found = {
         enable = true;

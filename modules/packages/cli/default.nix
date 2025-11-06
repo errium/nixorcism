@@ -11,6 +11,7 @@
     ./git.nix
     ./helix.nix
     ./nix-search-tv.nix
+    ./zoxide.nix
   ];
 
   options.nixorcism.packages.cli = {

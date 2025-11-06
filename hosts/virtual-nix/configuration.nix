@@ -28,6 +28,7 @@
       fastfetch.enable = true;
       git.enable = true;
       helix.enable = true;
+      zoxide.enable = true;
     };
 
     gui = {
@@ -40,6 +41,7 @@
 
   nixorcism.shell = {
     zsh.enable = true;
+    fish.enable = true;
     starship.enable = true;
   };
 

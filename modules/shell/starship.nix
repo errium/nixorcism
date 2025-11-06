@@ -11,6 +11,9 @@
     hm.programs.starship = {
       enable = true;
 
+      enableZshIntegration = config.nixorcism.shell.zsh.enable;
+      enableFishIntegration = config.nixorcism.shell.fish.enable;
+
       settings = {
         add_newline = false;
 
