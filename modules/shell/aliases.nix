@@ -17,6 +17,8 @@
       confDir = "~/nixorcism";
       sudo = "sudo";
     in {
+      ll = "eza -l";
+      la = "eza -a";
       ff = "fastfetch";
 
       nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
