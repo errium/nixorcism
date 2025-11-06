@@ -18,6 +18,7 @@
       colored-man-pages
       done
       sponge
+      fzf-fish
     ];
 
     hm.programs.fish = {
