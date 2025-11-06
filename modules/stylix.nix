@@ -47,7 +47,7 @@
           applications = 10;
           desktop = 10;
           popups = 10;
-          terminal = 10;
+          terminal = 12;
         };
       };
     };
@@ -55,6 +55,7 @@
     hm.stylix = {
       enable = true;
       targets = {
+        helix.enable = false;
         btop.enable = false;
         niri.enable = false;
       };

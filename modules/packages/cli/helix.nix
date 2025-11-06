@@ -14,7 +14,7 @@
         enable = true;
 
         settings = {
-          # theme = "carbon";
+          theme = "kanagawa-dragon";
 
           editor = {
             line-number = "relative";
