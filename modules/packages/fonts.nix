@@ -17,7 +17,7 @@
   };
   emoji = {
     name = "Noto Color Emoji";
-    package = pkgs.noto-fonts-emoji;
+    package = pkgs.noto-fonts-color-emoji;
   };
 in {
   options.nixorcism.myFonts = {
@@ -40,7 +40,7 @@ in {
       liberation_ttf
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
     ];
   };
 }
