@@ -14,11 +14,9 @@
     };
 
     environment.systemPackages = with pkgs.fishPlugins; [
-      async-prompt
       bang-bang
       colored-man-pages
       done
-      fifc
       sponge
     ];
 
