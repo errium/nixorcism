@@ -11,6 +11,10 @@
   config = lib.mkIf config.nixorcism.shell.fish.enable {
     programs.fish = {
       enable = true;
+      shellInit = ''
+        set -U fish_greeting ""
+        fastfetch
+      '';
     };
 
     environment.systemPackages = with pkgs.fishPlugins; [
@@ -18,7 +22,6 @@
       colored-man-pages
       done
       sponge
-      fzf-fish
     ];
 
     hm.programs.fish = {
