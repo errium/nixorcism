@@ -11,6 +11,9 @@
     environment.shellAliases = {
       ll = "ls -l";
       la = "ls -a";
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
     };
 
     hm.home.shellAliases = let
