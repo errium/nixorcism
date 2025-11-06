@@ -40,6 +40,7 @@
   };
 
   nixorcism.shell = {
+    userShell = "zsh";
     zsh.enable = true;
     fish.enable = true;
     starship.enable = true;
