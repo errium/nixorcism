@@ -18,7 +18,6 @@
 
     environment.systemPackages = with pkgs.fishPlugins; [
       bang-bang
-      colored-man-pages
       done
       sponge
     ];
