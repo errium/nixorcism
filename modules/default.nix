@@ -5,7 +5,6 @@
     ./packages
     ./services
     ./shell
-
     ./home.nix
     ./stylix.nix
   ];

@@ -29,6 +29,7 @@
       git.enable = true;
       helix.enable = true;
       zoxide.enable = true;
+      fzf.enable = true;
     };
 
     gui = {
@@ -40,7 +41,7 @@
   };
 
   nixorcism.shell = {
-    userShell = "zsh";
+    userShell = "fish";
     aliases.enable = true;
     zsh.enable = true;
     fish.enable = true;

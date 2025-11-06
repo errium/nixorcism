@@ -41,10 +41,6 @@
     };
 
     hm.programs = {
-      fzf = {
-        enable = true;
-        enableFishIntegration = true;
-      };
       command-not-found = {
         enable = true;
       };

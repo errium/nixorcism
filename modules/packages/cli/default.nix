@@ -8,6 +8,7 @@
     ./btop.nix
     ./cava.nix
     ./fastfetch.nix
+    ./fzf.nix
     ./git.nix
     ./helix.nix
     ./nix-search-tv.nix
