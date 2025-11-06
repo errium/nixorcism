@@ -41,6 +41,7 @@
 
   nixorcism.shell = {
     userShell = "zsh";
+    aliases.enable = true;
     zsh.enable = true;
     fish.enable = true;
     starship.enable = true;
