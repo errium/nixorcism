@@ -42,11 +42,18 @@
         sansSerif = config.nixorcism.myFonts.sansSerif;
         monospace = config.nixorcism.myFonts.monospace;
         emoji = config.nixorcism.myFonts.emoji;
+
+        sizes = {
+          applications = 10;
+          desktop = 10;
+          popups = 10;
+          terminal = 10;
+        };
       };
     };
 
     hm.stylix = {
-      enable = true; # <- Idk why I need this, but shit breaks without it
+      enable = true;
       targets = {
         btop.enable = false;
         niri.enable = false;

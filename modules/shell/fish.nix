@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options.nixorcism.shell = {
@@ -12,8 +13,33 @@
       enable = true;
     };
 
+    environment.systemPackages = with pkgs.fishPlugins; [
+      async-prompt
+      bang-bang
+      colored-man-pages
+      done
+      fifc
+      sponge
+    ];
+
     hm.programs.fish = {
       enable = true;
+      preferAbbrs = true;
+
+      shellAbbrs = let
+        confDir = "~/nixorcism";
+        sudo = "sudo";
+      in {
+        ll = "eza -l";
+        la = "eza -a";
+        ff = "fastfetch";
+
+        nrs = "${sudo} nixos-rebuild switch --flake ${confDir}";
+        gen = "${sudo} nix-env -p /nix/var/nix/profiles/system --list-generations";
+        ngc = "${sudo} nix-collect-garbage -d";
+        upd = "nix flake update --flake ${confDir}";
+        upg = "${sudo} nixos-rebuild switch --upgrade --flake ${confDir}";
+      };
     };
 
     hm.programs = {
