@@ -23,7 +23,7 @@
         };
 
         format = lib.concatStrings [
-          "$directory"
+          "$directory(fg:black bg:white)"
           "$git_branch"
           "$git_status"
 
