@@ -13,7 +13,6 @@
         version = 3;
         final_space = false;
         transient_prompt = {
-          newline = true;
           foreground_templates = [
             "{{if gt .Code 0}}red{{end}}"
             "{{if eq .Code 0}}green{{end}}"
@@ -30,22 +29,21 @@
           {
             type = "prompt";
             alignment = "left";
-            leading_diamond = "";
-            trailing_diamond = "";
+            newline = true;
             segments = [
               {
                 type = "text";
-                style = "diamond";
+                style = "plain";
                 foreground = "black";
                 background = "blue";
-                template = ''{{if .Env.IN_NIX_SHELL}}NIXSHELL{{end}}'';
+                template = ''{{if .Env.IN_NIX_SHELL}} NIXSHELL {{end}}'';
               }
               {
                 type = "path";
-                style = "diamond";
+                style = "plain";
                 foreground = "black";
                 background = "white";
-                template = "{{.Path}}";
+                template = " {{.Path}} ";
               }
               {
                 type = "git";
@@ -64,8 +62,7 @@
           {
             type = "rprompt";
             overflow = "hidden";
-            leading_diamond = "";
-            trailing_diamond = "";
+            newline = true;
             segments = [
               {
                 type = "executiontime";
@@ -80,21 +77,21 @@
               }
               {
                 type = "shell";
-                style = "diamond";
+                style = "plain";
                 foreground = "black";
                 background = "white";
                 properties.mapped_shell_names = {
                   fish = "FISH";
                   zsh = "ZSH";
                 };
-                template = "{{.Name}}";
+                template = " {{.Name}} ";
               }
               {
                 type = "session";
-                style = "diamond";
+                style = "plain";
                 foreground = "black";
                 background = "yellow";
-                template = "{{.UserName}}@{{.HostName}}";
+                template = " {{.UserName}}@{{.HostName}} ";
               }
             ];
           }
