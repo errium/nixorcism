@@ -30,24 +30,22 @@
           {
             type = "prompt";
             alignment = "left";
+            leading_diamond = "";
+            trailing_diamond = "";
             segments = [
               {
                 type = "text";
-                style = "powerline";
-                leading_powerline_symbol = "";
-                powerline_symbol = "";
+                style = "diamond";
                 foreground = "black";
                 background = "blue";
-                template = ''{{if .Env.IN_NIX_SHELL}} NIXSHELL {{end}}'';
+                template = ''{{if .Env.IN_NIX_SHELL}}NIXSHELL{{end}}'';
               }
               {
                 type = "path";
-                style = "powerline";
-                leading_powerline_symbol = "";
-                powerline_symbol = "";
+                style = "diamond";
                 foreground = "black";
                 background = "white";
-                template = " {{.Path}} ";
+                template = "{{.Path}}";
               }
               {
                 type = "git";
@@ -66,13 +64,15 @@
           {
             type = "rprompt";
             overflow = "hidden";
+            leading_diamond = "";
+            trailing_diamond = "";
             segments = [
               {
                 type = "executiontime";
                 style = "plain";
                 foreground = "grey";
                 background = "transparent";
-                template = " took {{.FormattedMs}} ";
+                template = "took {{.FormattedMs}}";
                 properties = {
                   threshold = 5000;
                   style = "round";
@@ -80,25 +80,21 @@
               }
               {
                 type = "shell";
-                style = "powerline";
-                leading_powerline_symbol = "";
-                powerline_symbol = "";
+                style = "diamond";
                 foreground = "black";
                 background = "white";
                 properties.mapped_shell_names = {
                   fish = "FISH";
                   zsh = "ZSH";
                 };
-                template = " {{.Name}} ";
+                template = "{{.Name}}";
               }
               {
                 type = "session";
-                style = "powerline";
-                leading_powerline_symbol = "";
-                powerline_symbol = "";
+                style = "diamond";
                 foreground = "black";
                 background = "yellow";
-                template = " {{.UserName}}@{{.HostName}} ";
+                template = "{{.UserName}}@{{.HostName}}";
               }
             ];
           }
