@@ -19,22 +19,25 @@
             alignment = "left";
             segments = [
               {
-                type = "shell";
+                type = "path";
                 style = "powerline";
                 foreground = "black";
                 background = "white";
+                leading_diamond = "";
                 trailing_diamond = "";
-                properties.mapped_shell_names = {
-                  zsh = "ZSH";
-                  fish = "FISH";
-                };
               }
               {
-                type = "path";
+                type = "git";
                 style = "powerline";
-                foreground = "white";
-                background = "brightBlack";
+                foreground = "grey";
+                background = "black";
+                leading_diamond = "";
                 trailing_diamond = "";
+                properties = {
+                  fetch_status = true;
+                  fetch_push_status = true;
+                  fetch_upstream_icon = true;
+                };
               }
             ];
           }
