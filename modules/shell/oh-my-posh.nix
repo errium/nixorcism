@@ -14,6 +14,7 @@
         final_space = false;
 
         blocks = [
+          # LEFT
           {
             type = "prompt";
             alignment = "left";
@@ -46,10 +47,18 @@
                   fetch_upstream_icon = true;
                 };
               }
+            ];
+          }
+
+          # NEW LINE
+          {
+            type = "prompt";
+            alignment = "left";
+            newline = true;
+            segments = [
               {
                 type = "text";
                 style = "plain";
-                newline = true;
                 foreground = "white";
                 background = "transparent";
                 template = ''{{ if eq .Shell "fish"}}> {{else if eq .Shell "zsh"}}% {{else}}$ {{end}}'';
