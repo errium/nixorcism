@@ -74,12 +74,12 @@
                 template = "  {{.FormattedMs}} ";
                 properties = {
                   threshold = 5000;
-                  style = "austin";
+                  style = "round";
                 };
               }
               {
                 type = "shell";
-                style = "powershell";
+                style = "diamond";
                 foreground = "black";
                 background = "magenta";
                 properties.mapped_shell_names = {
