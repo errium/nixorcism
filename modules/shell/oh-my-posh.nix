@@ -19,45 +19,88 @@
             "{{if eq .Code 0}}green{{end}}"
           ];
           background = "transparent";
-          template = "> ";
+          template = "❯ ";
         };
-
+        secondary_prompt = {
+          foreground = "green";
+          background = "transparent";
+          template = "❯❯ ";
+        };
         blocks = [
-          # LEFT
           {
             type = "prompt";
             alignment = "left";
-            leading_diamond = "";
-            trailing_diamond = "";
             segments = [
               {
                 type = "text";
-                style = "plain";
+                style = "powerline";
                 foreground = "black";
                 background = "blue";
-                template = ''{{ if .Env.IN_NIX_SHELL }}󱄅 NIXSHELL {{ end }}'';
+                template = ''{{ if .Env.IN_NIX_SHELL }} 󱄅 NIXSHELL {{ end }}'';
               }
               {
                 type = "path";
                 style = "powerline";
                 foreground = "black";
                 background = "white";
+                template = "󰉋 {{ .Path }}";
               }
               {
                 type = "git";
-                style = "powerline";
+                style = "plain";
                 foreground = "grey";
-                background = "black";
+                background = "transparent";
                 properties = {
                   fetch_status = true;
                   fetch_push_status = true;
-                  fetch_upstream_icon = true;
                 };
               }
             ];
           }
 
-          # NEW LINE
+          {
+            type = "rprompt";
+            overflow = "hidden";
+            segments = [
+              {
+                type = "executiontime";
+                style = "plain";
+                foreground = "grey";
+                background = "transparent";
+                template = " {{ .FormattedMs }}";
+                properties = {
+                  threshold = 5000;
+                  style = "austin";
+                };
+              }
+              {
+                type = "shell";
+                style = "powershell";
+                foreground = "black";
+                background = "magenta";
+                properties.mapped_shell_names = {
+                  fish = "FISH";
+                  zsh = "ZSH";
+                };
+                template = " {{ .Name }}";
+              }
+              {
+                type = "session";
+                style = "powerline";
+                foreground = "black";
+                background = "red";
+                template = " {{ .UserName }}";
+              }
+              {
+                type = "session";
+                style = "powerline";
+                foreground = "black";
+                background = "green";
+                template = " {{.HostName}}";
+              }
+            ];
+          }
+
           {
             type = "prompt";
             alignment = "left";
