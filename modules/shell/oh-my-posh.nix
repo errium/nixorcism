@@ -30,22 +30,20 @@
           {
             type = "prompt";
             alignment = "left";
-            leading_diamond = "";
-            trailing_diamond = "";
             segments = [
               {
                 type = "text";
                 style = "diamond";
                 foreground = "black";
                 background = "blue";
-                template = ''{{if .Env.IN_NIX_SHELL}} 󱄅 NIXSHELL {{end}}'';
+                template = ''{{if .Env.IN_NIX_SHELL}} NIXSHELL {{end}}'';
               }
               {
                 type = "path";
                 style = "diamond";
                 foreground = "black";
                 background = "white";
-                template = " 󰉋 {{.Path}} ";
+                template = " {{.Path}} ";
               }
               {
                 type = "git";
@@ -53,6 +51,7 @@
                 foreground = "grey";
                 background = "transparent";
                 properties = {
+                  branch_icon = "";
                   fetch_status = true;
                   fetch_push_status = true;
                 };
@@ -63,15 +62,13 @@
           {
             type = "rprompt";
             overflow = "hidden";
-            leading_diamond = "";
-            trailing_diamond = "";
             segments = [
               {
                 type = "executiontime";
                 style = "plain";
                 foreground = "grey";
                 background = "transparent";
-                template = "  {{.FormattedMs}} ";
+                template = " took {{.FormattedMs}} ";
                 properties = {
                   threshold = 5000;
                   style = "round";
@@ -86,21 +83,21 @@
                   fish = "FISH";
                   zsh = "ZSH";
                 };
-                template = "  {{.Name}} ";
+                template = " {{.Name}} ";
               }
               {
                 type = "session";
                 style = "diamond";
                 foreground = "black";
                 background = "red";
-                template = "  {{.UserName}} ";
+                template = " {{.UserName}} ";
               }
               {
                 type = "session";
                 style = "diamond";
                 foreground = "black";
                 background = "green";
-                template = "  {{.HostName}} ";
+                template = " {{.HostName}} ";
               }
             ];
           }
