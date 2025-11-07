@@ -19,12 +19,14 @@
             alignment = "left";
             segments = [
               {
-                type = "path";
+                type = "shell";
                 style = "powerline";
-                powerline_symbol = "";
                 foreground = "black";
                 background = "white";
-                properties.style = "folder";
+                properties.mapped_shell_names = {
+                  zsh = "ZSH";
+                  fish = "FISH";
+                };
               }
             ];
           }
