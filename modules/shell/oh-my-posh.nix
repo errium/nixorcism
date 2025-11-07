@@ -12,6 +12,11 @@
       settings = {
         version = 3;
         final_space = false;
+        transient_prompt = {
+          foreground = "green";
+          background = "transparent";
+          template = "> ";
+        };
 
         blocks = [
           # LEFT
@@ -59,7 +64,7 @@
               {
                 type = "text";
                 style = "plain";
-                foreground = "white";
+                foreground = "green";
                 background = "transparent";
                 template = ''{{ if eq .Shell "fish"}}> {{else if eq .Shell "zsh"}}% {{else}}$ {{end}}'';
               }
