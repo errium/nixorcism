@@ -20,6 +20,13 @@
             alignment = "left";
             segments = [
               {
+                type = "text";
+                style = "plain";
+                foreground = "black";
+                background = "blue";
+                template = ''{{ if .Env.IN_NIX_SHELL }}NIXSHELL {{ end }}'';
+              }
+              {
                 type = "path";
                 style = "powerline";
                 foreground = "black";
