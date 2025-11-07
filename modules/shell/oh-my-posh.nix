@@ -11,8 +11,7 @@
 
       settings = {
         version = 3;
-        final_space = true;
-        newline = true;
+        final_space = false;
 
         blocks = [
           {
@@ -24,7 +23,7 @@
                 style = "plain";
                 foreground = "black";
                 background = "blue";
-                template = ''{{ if .Env.IN_NIX_SHELL }}NIXSHELL {{ end }}'';
+                template = ''{{ if .Env.IN_NIX_SHELL }}󱄅 NIXSHELL {{ end }}'';
               }
               {
                 type = "path";
@@ -50,6 +49,7 @@
               {
                 type = "text";
                 style = "plain";
+                newline = true;
                 foreground = "white";
                 background = "transparent";
                 template = ''{{ if eq .Shell "fish"}}> {{else if eq .Shell "zsh"}}% {{else}}$ {{end}}'';
