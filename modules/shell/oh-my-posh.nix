@@ -33,7 +33,7 @@
                 type = "path";
                 style = "powerline";
                 foreground = "white";
-                background = "darkGray";
+                background = "gray";
                 trailing_diamond = "";
               }
             ];
