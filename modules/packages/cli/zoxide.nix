@@ -10,7 +10,6 @@
   config = lib.mkIf config.nixorcism.packages.cli.zoxide.enable {
     hm.programs.zoxide = {
       enable = true;
-
       enableZshIntegration = config.nixorcism.shell.zsh.enable;
       enableFishIntegration = config.nixorcism.shell.fish.enable;
 

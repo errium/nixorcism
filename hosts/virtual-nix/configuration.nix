@@ -46,6 +46,7 @@
     zsh.enable = true;
     fish.enable = true;
     starship.enable = true;
+    ohMyPosh.enable = true;
   };
 
   #=======================

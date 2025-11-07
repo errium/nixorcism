@@ -9,6 +9,7 @@
     ./aliases.nix
     ./bash.nix
     ./fish.nix
+    ./oh-my-posh.nix
     ./starship.nix
     ./zsh.nix
   ];
