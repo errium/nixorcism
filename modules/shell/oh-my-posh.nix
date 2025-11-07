@@ -12,6 +12,8 @@
       settings = {
         version = 3;
         final_space = true;
+        newline = true;
+        async = true;
 
         blocks = [
           {
