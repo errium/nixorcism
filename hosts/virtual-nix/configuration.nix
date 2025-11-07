@@ -42,7 +42,7 @@
 
   nixorcism.shell = {
     userShell = "fish";
-    userPrompt = "starship";
+    userPrompt = "oh-my-posh";
     aliases.enable = true;
     zsh.enable = true;
     fish.enable = true;
