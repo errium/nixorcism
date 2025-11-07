@@ -20,6 +20,12 @@
       default = null;
       description = "Default shell for the user";
     };
+
+    userPrompt = lib.mkOption {
+      type = lib.types.nullOr (lib.types.enum ["starship" "oh-my-posh"]);
+      default = null;
+      description = "Default prompt for the user";
+    };
   };
 
   config = lib.mkIf (config.nixorcism.shell.userShell != null) {
