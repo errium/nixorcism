@@ -13,7 +13,11 @@
         version = 3;
         final_space = false;
         transient_prompt = {
-          foreground = "green";
+          newline = true;
+          foreground_templates = [
+            "{{if gt .Code 0}}red{{end}}"
+            "{{if eq .Code 0}}green{{end}}"
+          ];
           background = "transparent";
           template = "> ";
         };
@@ -23,6 +27,8 @@
           {
             type = "prompt";
             alignment = "left";
+            leading_diamond = "";
+            trailing_diamond = "";
             segments = [
               {
                 type = "text";
@@ -36,16 +42,12 @@
                 style = "powerline";
                 foreground = "black";
                 background = "white";
-                leading_diamond = "";
-                trailing_diamond = "";
               }
               {
                 type = "git";
                 style = "powerline";
                 foreground = "grey";
                 background = "black";
-                leading_diamond = "";
-                trailing_diamond = "";
                 properties = {
                   fetch_status = true;
                   fetch_push_status = true;
@@ -64,9 +66,12 @@
               {
                 type = "text";
                 style = "plain";
-                foreground = "green";
+                foreground_templates = [
+                  "{{if gt .Code 0}}red{{end}}"
+                  "{{if eq .Code 0}}green{{end}}"
+                ];
                 background = "transparent";
-                template = ''{{ if eq .Shell "fish"}}> {{else if eq .Shell "zsh"}}% {{else}}$ {{end}}'';
+                template = "❯ ";
               }
             ];
           }
