@@ -13,7 +13,6 @@
         version = 3;
         final_space = true;
         newline = true;
-        async = true;
 
         blocks = [
           {
@@ -40,6 +39,13 @@
                   fetch_push_status = true;
                   fetch_upstream_icon = true;
                 };
+              }
+              {
+                type = "text";
+                style = "plain";
+                foreground = "white";
+                background = "transparent";
+                template = ''{{ if eq .Shell "fish"}}> {{if eq .Shell "zsh"}}% {{else}}$ {{end}}'';
               }
             ];
           }
