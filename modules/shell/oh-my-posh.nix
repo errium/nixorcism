@@ -45,7 +45,7 @@
                 style = "plain";
                 foreground = "white";
                 background = "transparent";
-                template = ''{{ if eq .Shell "fish"}}> {{if eq .Shell "zsh"}}% {{else}}$ {{end}}'';
+                template = ''{{ if eq .Shell "fish"}}> {{else if eq .Shell "zsh"}}% {{else}}$ {{end}}'';
               }
             ];
           }
