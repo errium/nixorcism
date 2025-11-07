@@ -23,10 +23,18 @@
                 style = "powerline";
                 foreground = "black";
                 background = "white";
+                trailing_diamond = "";
                 properties.mapped_shell_names = {
                   zsh = "ZSH";
                   fish = "FISH";
                 };
+              }
+              {
+                type = "path";
+                style = "powerline";
+                foreground = "white";
+                background = "darkGray";
+                trailing_diamond = "";
               }
             ];
           }
