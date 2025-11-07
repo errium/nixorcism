@@ -33,14 +33,18 @@
             segments = [
               {
                 type = "text";
-                style = "diamond";
+                style = "powerline";
+                leading_powerline_symbol = "";
+                powerline_symbol = "";
                 foreground = "black";
                 background = "blue";
                 template = ''{{if .Env.IN_NIX_SHELL}} NIXSHELL {{end}}'';
               }
               {
                 type = "path";
-                style = "diamond";
+                style = "powerline";
+                leading_powerline_symbol = "";
+                powerline_symbol = "";
                 foreground = "black";
                 background = "white";
                 template = " {{.Path}} ";
@@ -76,9 +80,11 @@
               }
               {
                 type = "shell";
-                style = "diamond";
+                style = "powerline";
+                leading_powerline_symbol = "";
+                powerline_symbol = "";
                 foreground = "black";
-                background = "magenta";
+                background = "white";
                 properties.mapped_shell_names = {
                   fish = "FISH";
                   zsh = "ZSH";
@@ -87,17 +93,12 @@
               }
               {
                 type = "session";
-                style = "diamond";
+                style = "powerline";
+                leading_powerline_symbol = "";
+                powerline_symbol = "";
                 foreground = "black";
-                background = "red";
-                template = " {{.UserName}} ";
-              }
-              {
-                type = "session";
-                style = "diamond";
-                foreground = "black";
-                background = "green";
-                template = " {{.HostName}} ";
+                background = "yellow";
+                template = " {{.UserName}}@{{.HostName}} ";
               }
             ];
           }

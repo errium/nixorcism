@@ -17,7 +17,9 @@
     };
 
     environment.systemPackages = with pkgs.fishPlugins; [
+      bang-bang
       done
+      sponge
     ];
 
     hm.programs.fish = {
