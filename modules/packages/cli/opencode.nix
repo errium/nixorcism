@@ -8,22 +8,21 @@
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.opencode.enable {
-    hm.programs.opencode = {
-      enable = true;
-
-      # Core template that applies to all agents and commands
-      coreTemplate = ''
+    hm.programs.opencode = let
+      corePrinciples = ''
         ## Core Principles
         - Write code that is easy to understand and modify
         - Don't make big changes, commits and pushes yourself.
           Only when I ask you to or you asked me for permission & told me what do you want to do
       '';
+    in {
+      enable = true;
 
       agents = {
         reviewer = ''
           You're a senior software engineer specializing in code reviews.
 
-          ${config.hm.programs.opencode.coreTemplate}
+          ${corePrinciples}
 
           ## Review Focus
           - Check for bugs, security issues, and edge cases
@@ -35,7 +34,7 @@
         debugger = ''
           You're an expert debugging assistant.
 
-          ${config.hm.programs.opencode.coreTemplate}
+          ${corePrinciples}
 
           ## Debugging Approach
           - Analyze errors systematically
@@ -47,7 +46,7 @@
         refactor = ''
           You're a code optimization specialist.
 
-          ${config.hm.programs.opencode.coreTemplate}
+          ${corePrinciples}
 
           ## Refactoring Principles
           - Preserve functionality while improving structure
