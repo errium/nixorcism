@@ -57,7 +57,6 @@
       targets = {
         helix.enable = false;
         btop.enable = false;
-        niri.enable = false;
       };
     };
   };
