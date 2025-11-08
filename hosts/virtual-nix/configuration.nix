@@ -30,6 +30,7 @@
       helix.enable = true;
       zoxide.enable = true;
       fzf.enable = true;
+      opencode.enable = true;
     };
 
     gui = {

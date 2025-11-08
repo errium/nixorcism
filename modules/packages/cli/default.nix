@@ -12,6 +12,7 @@
     ./git.nix
     ./helix.nix
     ./nix-search-tv.nix
+    ./opencode.nix
     ./zoxide.nix
   ];
 
