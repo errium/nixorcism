@@ -10,11 +10,12 @@
 
   options.nixorcism.stylix.enable = lib.mkEnableOption "Enable stylix";
 
-  config = lib.mkIf config.nixorcism.stylix.enable {
+  config = lib.mkIf true {
     stylix = let
       stylixColors = import ./stylixColors.nix;
     in {
       enable = true;
+      autoEnable = config.nixorcism.stylix.enable;
       polarity = "dark";
       base16Scheme = stylixColors.vague;
 
@@ -34,7 +35,6 @@
     };
 
     hm.stylix = {
-      enable = true;
       targets = {
         btop.enable = false;
       };
