@@ -8,6 +8,7 @@
     ./alacritty.nix
     ./librewolf.nix
     ./spicetify.nix
+    ./vesktop.nix
   ];
 
   options.nixorcism.packages.gui = {
