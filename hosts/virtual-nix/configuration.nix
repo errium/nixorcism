@@ -10,7 +10,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixorcism = {
-    stylix.enable = true;
+    stylix.enable = false;
   };
 
   nixorcism.desktop = {

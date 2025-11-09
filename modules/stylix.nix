@@ -16,6 +16,7 @@
     in {
       enable = true;
       autoEnable = config.nixorcism.stylix.enable;
+
       polarity = "dark";
       base16Scheme = stylixColors.vague;
 
