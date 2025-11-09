@@ -6,6 +6,7 @@
 }: {
   imports = [
     inputs.stylix.nixosModules.stylix
+    ./stylixColors.nix
   ];
 
   options.nixorcism.stylix.enable = lib.mkEnableOption "Enable stylix";

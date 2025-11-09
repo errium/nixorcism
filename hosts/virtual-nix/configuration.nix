@@ -38,6 +38,7 @@
       alacritty.enable = true;
       librewolf.enable = true;
       spicetify.enable = true;
+      vesktop.enable = true;
     };
   };
 

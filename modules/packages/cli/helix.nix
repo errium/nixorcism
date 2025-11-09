@@ -15,8 +15,6 @@
         defaultEditor = true;
 
         settings = {
-          theme = "kanagawa-dragon";
-
           editor = {
             line-number = "relative";
             rulers = [80];
