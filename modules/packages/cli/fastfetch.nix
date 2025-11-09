@@ -14,7 +14,7 @@
 
         settings = {
           logo = {
-            type = "auto";
+            type = "data";
             source = ''
               $1          ▗▄▄▄       $2.*#&.    ,~=,
               $1          ▜███▙       $2&*+)^  %*^@*
@@ -38,10 +38,10 @@
               $1         ▝▀▀▀    ▀▀▀▀▘       $2"*="
             '';
             position = "left";
-            # color = {
-            #   "1" = "blue";
-            #   "2" = "blue";
-            # };
+            color = {
+              "1" = "blue";
+              "2" = "green";
+            };
           };
 
           display = {
