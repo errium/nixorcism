@@ -11,8 +11,9 @@
     hm.programs.fastfetch = let
       logoColor1 = "blue";
       logoColor2 = "green";
-      keyColor1 = "green";
+      keyColor1 = "cyan";
       keyColor2 = "blue";
+      titleColor = "green";
     in {
       enable = true;
 
@@ -49,64 +50,75 @@
         };
 
         display = {
-          separator = "  ";
+          separator = " |  ";
+          color = {
+            "title" = titleColor;
+            "keys" = keyColor2;
+          };
+          bar = {
+            width = 10;
+            char.elapsed = "■";
+            char.total = "-";
+          };
+          percent = {
+            type = ["num" "bar"];
+          };
         };
 
         modules = [
           {
-            key = "";
-            keyColor = keyColor1;
             type = "title";
-            format = "{user-name} @ {host-name}";
+            title = keyColor1;
+            format = "{user-name-colored}@{host-name-colored}";
+          }
+          {
+            type = "separator";
           }
 
-          "custom"
-
           {
-            key = "";
+            key = "OS  ";
             keyColor = keyColor2;
             type = "os";
             format = "{pretty-name}";
           }
           {
-            key = "󰍹";
+            key = "KRNL";
+            keyColor = keyColor2;
+            type = "kernel";
+          }
+          {
+            key = "HOST";
             keyColor = keyColor2;
             type = "host";
             format = "{family}";
           }
           {
-            key = "";
-            keyColor = keyColor2;
-            type = "kernel";
-          }
-          {
-            key = "󰅕";
-            keyColor = keyColor2;
-            type = "bootmgr";
-            format = "{name}";
-          }
-          {
-            key = "";
+            key = "PKGS";
             keyColor = keyColor2;
             type = "packages";
           }
 
           "custom"
-
           {
-            key = "";
+            key = "DE  ";
             keyColor = keyColor1;
             type = "de";
             format = "{pretty-name}";
           }
           {
-            key = "";
+            type = "wm";
+            key = "WM  ";
+            keyColor = keyColor1;
+            format = "{pretty-name}";
+          }
+          {
+            key = "TERM";
             keyColor = keyColor1;
             type = "terminal";
             format = "{pretty-name}";
           }
           {
-            key = "";
+            key = "SH  ";
             keyColor = keyColor1;
             type = "shell";
           }
@@ -114,45 +126,47 @@
           "custom"
 
           {
-            key = "";
+            key = "CPU ";
             keyColor = keyColor2;
             type = "cpu";
-            format = "{name} - {freq-max} {temperature}";
+            format = "{name} @ {freq-max} - {temperature}";
             temp = true;
           }
           {
-            key = "";
+            key = "GPU ";
             keyColor = keyColor2;
             type = "gpu";
-            format = "{name} {core-usage-num}";
+            format = "{name} @ {frequency} - {core-usage-num}";
             driverSpecific = true;
           }
           {
-            key = "";
+            key = "RAM ";
             keyColor = keyColor2;
             type = "memory";
-            format = "{used} / {total} {percentage}";
+            format = "{percentage-bar} {used} / {total} ({percentage})";
           }
           {
-            key = "󰾴";
+            key = "SWAP";
             keyColor = keyColor2;
             type = "swap";
-            format = "{used} / {total} {percentage}";
+            format = "{percentage-bar} {used} / {total} ({percentage})";
           }
 
           "custom"
 
           {
-            key = "";
+            key = "AGE ";
             keyColor = keyColor1;
             type = "disk";
             format = "{days} days old";
           }
           {
-            key = "";
+            key = "UP  ";
             keyColor = keyColor1;
             type = "uptime";
           }
+          "custom"
+          "colors"
         ];
       };
     };
