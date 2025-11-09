@@ -36,10 +36,6 @@
         notifyAboutUpdates = false;
         useQuickCss = true;
 
-        themeLinks = [
-          "https://raw.githubusercontent.com/vivifalls/oxocarbon-discord/refs/heads/main/oxocarbondiscord.theme.css"
-        ];
-
         plugins = {
           CallTimer = {
             enabled = true;
