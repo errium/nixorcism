@@ -6,16 +6,17 @@
 }: {
   imports = [
     inputs.stylix.nixosModules.stylix
-    ./stylixColors.nix
   ];
 
   options.nixorcism.stylix.enable = lib.mkEnableOption "Enable stylix";
 
   config = lib.mkIf config.nixorcism.stylix.enable {
-    stylix = {
+    stylix = let
+      stylixColors = import ./stylixColors.nix;
+    in {
       enable = true;
       polarity = "dark";
-      base16Scheme = config.nixorcism.stylixColors.vague;
+      base16Scheme = stylixColors.vague;
 
       fonts = {
         serif = config.nixorcism.myFonts.serif;

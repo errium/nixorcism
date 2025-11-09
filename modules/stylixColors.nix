@@ -1,4 +1,4 @@
-{lib, ...}: let
+{
   vague = {
     base00 = "#141415";
     base01 = "#252530";
@@ -35,15 +35,5 @@
     base0D = "#33b1ff";
     base0E = "#be95ff";
     base0F = "#3ddbd9";
-  };
-in {
-  options.nixorcism.stylixColors = {
-    vague = lib.mkOption {type = lib.types.attrs;};
-    oxocarbon = lib.mkOption {type = lib.types.attrs;};
-  };
-
-  config.nixorcism.stylixColors = {
-    vague = vague;
-    oxocarbon = oxocarbon;
   };
 }
