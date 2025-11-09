@@ -19,7 +19,7 @@
       enable = true;
 
       agents = {
-        reviewer = ''
+        review = ''
           You're a senior software engineer specializing in code reviews.
 
           ${corePrinciples}
@@ -31,7 +31,7 @@
           - Verify error handling and documentation
         '';
 
-        debugger = ''
+        debug = ''
           You're an expert debugging assistant.
 
           ${corePrinciples}
@@ -63,11 +63,17 @@
           Use conventional commit format when appropriate (feat:, fix:, docs:, etc.).
           Separate unrelated changes into multiple commits.
           Keep messages under 72 characters for the first line.
+          Don't write much outside of the first line, if that's not necessary.
         '';
 
         push = ''
           Check for uncommitted changes.
           If changes exist: stage them, create an appropriate commit message, and push.
+          Write concise, yet not repetitive commit message.
+          Use conventional commit format if/when appropriate (feat:, fix:, docs:, etc.).
+          Separate unrelated changes into multiple commits.
+          Keep messages under 72 characters for the first line.
+          Don't write much outside of the first line, if that's not necessary.
           If no changes: simply push current branch to remote.
           Handle merge conflicts if they arise during push.
           Ensure the branch is up to date before pushing.
