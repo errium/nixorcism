@@ -9,11 +9,13 @@
 
   config = lib.mkIf config.nixorcism.packages.cli.fastfetch.enable {
     hm.programs.fastfetch = let
-      logoColor1 = "blue";
-      logoColor2 = "green";
-      keyColor1 = "cyan";
-      keyColor2 = "blue";
-      titleColor = "green";
+      colors = {
+        logo1 = "blue";
+        logo2 = "green";
+        keys1 = "cyan";
+        keys2 = "blue";
+        title = "green";
+      };
     in {
       enable = true;
 
@@ -44,16 +46,16 @@
           '';
           position = "left";
           color = {
-            "1" = logoColor1;
-            "2" = logoColor2;
+            "1" = colors.logo1;
+            "2" = colors.logo2;
           };
         };
 
         display = {
           separator = " |  ";
           color = {
-            "title" = titleColor;
-            "keys" = keyColor2;
+            "title" = colors.title;
+            "keys" = colors.keys2;
           };
           bar = {
             width = 10;
@@ -68,7 +70,7 @@
         modules = [
           {
             type = "title";
-            title = keyColor1;
+            title = colors.keys1;
             format = "{user-name-colored}@{host-name-colored}";
           }
           {
@@ -77,49 +79,50 @@
 
           {
             key = "OS  ";
-            keyColor = keyColor2;
+            keyColor = colors.keys2;
             type = "os";
             format = "{pretty-name}";
           }
           {
             key = "KRNL";
-            keyColor = keyColor2;
+            keyColor = colors.keys2;
             type = "kernel";
           }
           {
             key = "HOST";
-            keyColor = keyColor2;
+            keyColor = colors.keys2;
             type = "host";
             format = "{family}";
           }
           {
             key = "PKGS";
-            keyColor = keyColor2;
+            keyColor = colors.keys2;
             type = "packages";
           }
 
           "custom"
+
           {
             key = "DE  ";
-            keyColor = keyColor1;
+            keyColor = colors.keys1;
             type = "de";
             format = "{pretty-name}";
           }
           {
             type = "wm";
             key = "WM  ";
-            keyColor = keyColor1;
+            keyColor = colors.keys1;
             format = "{pretty-name}";
           }
           {
             key = "TERM";
-            keyColor = keyColor1;
+            keyColor = colors.keys1;
             type = "terminal";
             format = "{pretty-name}";
           }
           {
             key = "SH  ";
-            keyColor = keyColor1;
+            keyColor = colors.keys1;
             type = "shell";
           }
 
@@ -127,27 +130,27 @@
 
           {
             key = "CPU ";
-            keyColor = keyColor2;
+            keyColor = colors.keys2;
             type = "cpu";
             format = "{name} @ {freq-max} - {temperature}";
             temp = true;
           }
           {
             key = "GPU ";
-            keyColor = keyColor2;
+            keyColor = colors.keys2;
             type = "gpu";
             format = "{name} @ {frequency} - {core-usage-num}";
             driverSpecific = true;
           }
           {
             key = "RAM ";
-            keyColor = keyColor2;
+            keyColor = colors.keys2;
             type = "memory";
             format = "{percentage-bar} {used} / {total} ({percentage})";
           }
           {
             key = "SWAP";
-            keyColor = keyColor2;
+            keyColor = colors.keys2;
             type = "swap";
             format = "{percentage-bar} {used} / {total} ({percentage})";
           }
@@ -156,16 +159,18 @@
 
           {
             key = "AGE ";
-            keyColor = keyColor1;
+            keyColor = colors.keys1;
             type = "disk";
             format = "{days} days old";
           }
           {
             key = "UP  ";
-            keyColor = keyColor1;
+            keyColor = colors.keys1;
             type = "uptime";
           }
+
           "custom"
+
           "colors"
         ];
       };
