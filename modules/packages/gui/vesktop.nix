@@ -10,7 +10,6 @@
   config = lib.mkIf config.nixorcism.packages.gui.vesktop.enable {
     hm.programs.vesktop = {
       enable = true;
-
       settings = {
         discordBranch = "stable";
         tray = true;
