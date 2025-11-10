@@ -58,6 +58,7 @@
 
       commands = {
         commit = ''
+          Briefly review the change to make an appropriate message.
           Create a git commit with proper message formatting.
           Write concise, yet not repetitive commit messages.
           Use conventional commit format when appropriate (feat:, fix:, docs:, etc.).
@@ -69,6 +70,7 @@
         push = ''
           Check for uncommitted changes.
           If changes exist: stage them, create an appropriate commit message, and push.
+          Briefly review the change to make an appropriate message.
           Write concise, yet not repetitive commit message.
           Use conventional commit format if/when appropriate (feat:, fix:, docs:, etc.).
           Separate unrelated changes into multiple commits.
