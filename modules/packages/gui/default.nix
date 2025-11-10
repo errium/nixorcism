@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./alacritty.nix
+    ./foot.nix
     ./librewolf.nix
     ./spicetify.nix
     ./vesktop.nix
