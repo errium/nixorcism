@@ -52,7 +52,7 @@
         };
 
         display = {
-          separator = " |  ";
+          separator = " ";
           color = {
             "title" = colors.title;
             "keys" = colors.keys2;
