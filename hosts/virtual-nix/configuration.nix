@@ -36,6 +36,7 @@
     gui = {
       pkgArray.enable = true;
       alacritty.enable = true;
+      foot.enable = true;
       librewolf.enable = true;
       spicetify.enable = true;
       vesktop.enable = true;
