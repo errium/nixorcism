@@ -9,19 +9,16 @@
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.nix-search-tv.enable {
-    hm = {
-      home.packages = with pkgs; [
-        (pkgs.writeShellApplication {
-          name = "nst";
+    hm.home.packages = with pkgs; [
+      (pkgs.writeShellApplication
+        {
+          name = "ns";
           runtimeInputs = with pkgs; [
             fzf
-            (nix-search-tv.overrideAttrs {
-              env.GOEXPERIMENT = "jsonv2";
-            })
+            nix-search-tv
           ];
-          text = ''exec "${pkgs.nix-search-tv.src}/nixpkgs.sh" "$@"'';
+          text = builtins.readFile "${pkgs.nix-search-tv.src}/nixpkgs.sh";
         })
-      ];
-    };
+    ];
   };
 }
