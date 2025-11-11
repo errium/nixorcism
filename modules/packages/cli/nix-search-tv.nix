@@ -12,7 +12,7 @@
     hm.home.packages = with pkgs; [
       (pkgs.writeShellApplication
         {
-          name = "ns";
+          name = "nst";
           runtimeInputs = with pkgs; [
             fzf
             nix-search-tv
