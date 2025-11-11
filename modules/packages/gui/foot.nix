@@ -10,6 +10,11 @@
   config = lib.mkIf config.nixorcism.packages.gui.foot.enable {
     hm.programs.foot = {
       enable = true;
+      settings = {
+        cursor = {
+          style = "beam";
+        };
+      };
     };
   };
 }
