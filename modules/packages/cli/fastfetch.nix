@@ -52,7 +52,7 @@
         };
 
         display = {
-          separator = " ";
+          separator = "  ";
           color = {
             "title" = colors.title;
             "keys" = colors.keys2;
@@ -76,7 +76,6 @@
           {
             type = "separator";
           }
-
           {
             key = "OS  ";
             keyColor = colors.keys2;
