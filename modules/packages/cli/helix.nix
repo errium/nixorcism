@@ -129,7 +129,7 @@
               "--dark-mode"
             ];
           };
-          typescript-language-server = "${pkgs.typescript-language-server}/bin/typescript-language-server";
+          typescript-language-server.command = "${pkgs.typescript-language-server}/bin/typescript-language-server";
         };
       };
     };
