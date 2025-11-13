@@ -9,116 +9,127 @@
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.helix.enable {
-    hm = {
-      programs.helix = {
-        enable = true;
-        defaultEditor = true;
+    hm.programs.helix = {
+      enable = true;
+      defaultEditor = true;
 
-        settings = {
-          editor = {
-            line-number = "relative";
-            rulers = [80];
-            mouse = true;
-            auto-save = true;
-            cursorline = true;
-            cursorcolumn = true;
-            bufferline = "always";
+      settings = {
+        editor = {
+          line-number = "relative";
+          rulers = [80];
+          mouse = true;
+          auto-save = true;
+          cursorline = true;
+          cursorcolumn = true;
+          bufferline = "always";
 
-            soft-wrap = {
-              enable = true;
-            };
-
-            cursor-shape = {
-              normal = "block";
-              insert = "bar";
-              select = "underline";
-            };
-
-            indent-guides = {
-              render = true;
-            };
-
-            lsp = {
-              display-messages = true;
-              display-inlay-hints = true;
-            };
-
-            statusline = {
-              left = [
-                "mode"
-                "spinner"
-                "diagnostics"
-              ];
-              center = [
-                "file-name"
-                "read-only-indicator"
-                "file-modification-indicator"
-              ];
-              right = [
-                "position"
-                "separator"
-                "total-line-numbers"
-              ];
-              separator = "|";
-              mode = {
-                normal = "NORMAL";
-                insert = "INSERT";
-                select = "VISUAL";
-              };
-            };
+          soft-wrap = {
+            enable = true;
           };
 
-          keys.normal = {
-            space = {
-              space = ":fmt";
-              w = ":w";
-              q = ":q";
-              f = "file_picker";
-              tab = ":buffer-next";
-              s.tab = ":buffer-previous";
+          cursor-shape = {
+            normal = "block";
+            insert = "bar";
+            select = "underline";
+          };
+
+          indent-guides = {
+            render = true;
+          };
+
+          lsp = {
+            display-messages = true;
+            display-inlay-hints = true;
+          };
+
+          statusline = {
+            left = [
+              "mode"
+              "spinner"
+              "diagnostics"
+            ];
+            center = [
+              "file-name"
+              "read-only-indicator"
+              "file-modification-indicator"
+            ];
+            right = [
+              "position"
+              "separator"
+              "total-line-numbers"
+            ];
+            separator = "|";
+            mode = {
+              normal = "NORMAL";
+              insert = "INSERT";
+              select = "VISUAL";
             };
           };
         };
 
-        languages = {
-          language = [
-            {
-              name = "nix";
-              auto-format = true;
-              formatter.command = "${pkgs.alejandra}/bin/alejandra";
-            }
-            {
-              name = "markdown";
-              auto-format = true;
-              language-servers = [
-                "marksman"
-                {
-                  name = "mpls";
-                  only-features = ["workspace-command"];
-                }
-              ];
-              formatter = {
-                command = "${pkgs.prettier}/bin/prettier";
-                args = [
-                  "--parser"
-                  "markdown"
-                ];
-              };
-            }
-          ];
+        keys.normal = {
+          space = {
+            space = ":fmt";
+            w = ":w";
+            q = ":q";
+            f = "file_picker";
+            tab = ":buffer-next";
+            S-tab = ":buffer-previous";
+            i = ":toggle lsp.display-inlay-hints";
+          };
+        };
+      };
 
-          language-server = {
-            nixd.command = "${pkgs.nixd}/bin/nixd";
-            marksman.command = "${pkgs.marksman}/bin/marksman";
-            mpls = {
-              command = "${pkgs.mpls}/bin/mpls";
+      languages = {
+        language = [
+          {
+            name = "nix";
+            auto-format = true;
+            formatter.command = "${pkgs.alejandra}/bin/alejandra";
+          }
+          {
+            name = "markdown";
+            auto-format = true;
+            language-servers = [
+              "marksman"
+              {
+                name = "mpls";
+                only-features = ["workspace-command"];
+              }
+            ];
+            formatter = {
+              command = "${pkgs.prettier}/bin/prettier";
               args = [
-                "--no-auto"
-                "--enable-emoji"
-                "--dark-mode"
+                "--parser"
+                "markdown"
               ];
             };
+          }
+          {
+            name = "javascript";
+            auto-format = true;
+            formatter = {
+              command = "${pkgs.prettier}/bin/prettier";
+              args = [
+                "--parser"
+                "typescript"
+              ];
+            };
+          }
+        ];
+
+        language-server = {
+          nixd.command = "${pkgs.nixd}/bin/nixd";
+          marksman.command = "${pkgs.marksman}/bin/marksman";
+          mpls = {
+            command = "${pkgs.mpls}/bin/mpls";
+            args = [
+              "--no-auto"
+              "--enable-emoji"
+              "--dark-mode"
+            ];
           };
+          typescript-language-server = "${pkgs.typescript-language-server}/bin/typescript-language-server";
         };
       };
     };

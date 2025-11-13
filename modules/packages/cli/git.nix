@@ -8,6 +8,8 @@
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.git.enable {
-    programs.git.enable = true;
+    programs.git = {
+      enable = true;
+    };
   };
 }

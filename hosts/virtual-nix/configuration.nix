@@ -31,6 +31,7 @@
       zoxide.enable = true;
       fzf.enable = true;
       opencode.enable = true;
+      nix-search-tv.enable = true;
     };
 
     gui = {
