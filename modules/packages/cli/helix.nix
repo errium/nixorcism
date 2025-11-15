@@ -11,7 +11,6 @@
   config = lib.mkIf config.nixorcism.packages.cli.helix.enable {
     hm.programs.helix = {
       enable = true;
-      defaultEditor = true;
 
       settings = {
         editor = {
