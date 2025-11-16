@@ -22,6 +22,7 @@
       nemo
       protonvpn-gui
       file-roller
+      bitwarden-desktop
     ];
   };
 }
