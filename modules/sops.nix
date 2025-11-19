@@ -1,14 +1,10 @@
-{
-  inputs,
-  username,
-  ...
-}: {
+{inputs, ...}: {
   imports = [inputs.sops-nix.nixosModules.sops];
 
   sops = {
     defaultSopsFile = ../.secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+    age.keyFile = "/var/lib/sops-nix/key.txt";
     secrets = {
       user-password.neededForUsers = true;
     };
