@@ -10,6 +10,7 @@
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
     secrets = {
+      root-password.neededForUsers = true;
       user-password.neededForUsers = true;
     };
   };
