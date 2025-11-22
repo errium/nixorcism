@@ -1,7 +1,7 @@
 {
   disko.devices = {
     disk = {
-      my-disk = {
+      main = {
         device = "/dev/vda";
         type = "disk";
         content = {
@@ -28,12 +28,10 @@
             };
 
             swap = {
-              priority = 2;
-              start = "1G";
-              end = "9G";
+              priority = -2;
+              size = "5G";
               content = {
                 type = "swap";
-                randomEncryption = true;
               };
             };
           };
