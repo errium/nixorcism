@@ -8,22 +8,23 @@
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.opencode.enable {
-    hm.programs.opencode = let
-      corePrinciples = ''
+    hm.programs.opencode = {
+      enable = true;
+
+      settings = {
+        theme = "system";
+      };
+
+      rules = ''
         ## Core Principles
         - Write code that is easy to understand and modify
-        - Don't make big changes, commits and pushes yourself.
-          Only when I ask you to or you asked me for permission & told me what do you want to do
+        - Don't make big changes, commits and pushes yourself
+        - Only when I ask you to or you asked me for permission & told me what do you want to do
       '';
-    in {
-      enable = true;
 
       agents = {
         review = ''
           You're a senior software engineer specializing in code reviews.
-
-          ${corePrinciples}
-
           ## Review Focus
           - Check for bugs, security issues, and edge cases
           - Ensure code follows best practices
@@ -33,9 +34,6 @@
 
         debug = ''
           You're an expert debugging assistant.
-
-          ${corePrinciples}
-
           ## Debugging Approach
           - Analyze errors systematically
           - Identify root causes
@@ -45,9 +43,6 @@
 
         refactor = ''
           You're a code optimization specialist.
-
-          ${corePrinciples}
-
           ## Refactoring Principles
           - Preserve functionality while improving structure
           - Apply design patterns appropriately
