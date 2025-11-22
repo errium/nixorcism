@@ -38,7 +38,9 @@
     };
 
     hm.stylix = {
-      targets = {};
+      targets = {
+        opencode.enable = false;
+      };
     };
   };
 }
