@@ -38,9 +38,7 @@
     };
 
     hm.stylix = {
-      targets = {
-        btop.enable = false;
-      };
+      targets = {};
     };
   };
 }
