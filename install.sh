@@ -32,13 +32,31 @@ print_banner() {
 check_internet() {
 	local RESET="\033[0m"
 	local BOLD="\033[1m"
-	local RED="\033[0;31m"
-	local GREEN="\033[0;32m"
+	local BOLD_RED="\033[1;31m"
+	local BOLD_GREEN="\033[1;32m"
 
 	if ping -c 1 nixos.org >/dev/null 2>&1; then
-		echo -e "${BOLD}[  ${GREEN}OK${RESET}${BOLD}  ] Internet is up"
+		echo -e "${BOLD}[  ${BOLD_GREEN}OK${RESET}${BOLD}  ] Internet is up"
 	else
-		echo -e "${BOLD}[${RED}FAILED${RESET}${BOLD}] No internet connection"
+		echo -e "${BOLD}[${BOLD_RED}FAILED${RESET}${BOLD}] No internet connection"
+		exit 1
+	fi
+}
+
+# ┏━╸╻╺┳╸
+# ┃╺┓┃ ┃
+# ┗━┛╹ ╹
+check_git() {
+	local RESET="\033[0m"
+	local BOLD="\033[1m"
+	local BOLD_RED="\033[1;31m"
+	local BOLD_GREEN="\033[1;32m"
+
+	if which git >/dev/null 2>&1; then
+		echo -e "${BOLD}[  ${BOLD_GREEN}OK${RESET}${BOLD}  ] Git is available"
+	else
+		echo -e "${BOLD}[${BOLD_RED}FAILED${RESET}] Git is not available"
+		exit 1
 	fi
 }
 
@@ -56,3 +74,4 @@ check_internet() {
 clear
 print_banner
 check_internet
+check_git
