@@ -3,7 +3,7 @@
     ./bootloader.nix
     ./nix.nix
     ./networking.nix
-    ./users.nix
+    ./user.nix
     ./locale-time.nix
   ];
 }
