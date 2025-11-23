@@ -35,26 +35,23 @@ print_banner() {
 	done
 }
 
-# ╻┏┓╻╺┳╸┏━╸┏━┓┏┓╻┏━╸╺┳╸
-# ┃┃┗┫ ┃ ┣╸ ┣┳┛┃┗┫┣╸  ┃
-# ╹╹ ╹ ╹ ┗━╸╹┗╸╹ ╹┗━╸ ╹
+# ┏━╸╻ ╻┏━╸┏━╸╻┏ ┏━┓
+# ┃  ┣━┫┣╸ ┃  ┣┻┓┗━┓
+# ┗━╸╹ ╹┗━╸┗━╸╹ ╹┗━┛
 check_internet() {
 	if ping -c 1 nixos.org >/dev/null 2>&1; then
-		echo -e "${BOLD}[  ${BOLD_GREEN}OK${RESET}${BOLD}  ] Internet is up"
+		echo -e "[  ${BOLD_GREEN}OK${RESET}  ] Internet is up"
 	else
-		echo -e "${BOLD}[${BOLD_RED}FAILED${RESET}${BOLD}] No internet connection"
+		echo -e "[${BOLD_RED}FAILED${RESET}] No internet connection"
 		exit 1
 	fi
 }
 
-# ┏━╸╻╺┳╸
-# ┃╺┓┃ ┃
-# ┗━┛╹ ╹
 check_git() {
 	if which git >/dev/null 2>&1; then
-		echo -e "${BOLD}[  ${BOLD_GREEN}OK${RESET}${BOLD}  ] Git is available"
+		echo -e "[  ${BOLD_GREEN}OK${RESET}  ] Git is available"
 	else
-		echo -e "${BOLD}[${BOLD_RED}FAILED${RESET}${BOLD}] Git is not available"
+		echo -e "[${BOLD_RED}FAILED${RESET}] Git is not available"
 		exit 1
 	fi
 }
@@ -73,44 +70,32 @@ prompt_host() {
 	done
 
 	if [[ ${#hosts[@]} -eq 0 ]]; then
-		echo -e "${BOLD}[${BOLD_RED}FAILED${RESET}${BOLD}] No host configurations found"
+		echo -e "[${BOLD_RED}FAILED${RESET}] No host configurations found"
 		exit 1
 	fi
 
-	echo -e "${BOLD}[${BOLD_MAGENTA}PROMPT${RESET}${BOLD}] Select hostname:"
+	echo -e "[${BOLD_MAGENTA}PROMPT${RESET}] Available hosts:"
 	for i in "${!hosts[@]}"; do
-		echo -e "$((i + 1)) - ${hosts[i]}"
+		echo -e "${BOLD_MAGENTA}$((i + 1))${RESET} ${hosts[i]}"
 	done
 
 	while true; do
-		echo -e "${BOLD}Enter choice (1-${#hosts[@]}):${RESET}"
+		echo -ne "└ Choose a host ${DIM}(1-${#hosts[@]})${RESET}: "
 		read -r choice
 
 		case "$choice" in
 		[0-9]*)
 			if ((choice >= 1 && choice <= ${#hosts[@]})); then
 				HOSTNAME="${hosts[choice - 1]}"
-				echo -e "${BOLD}[  ${BOLD_GREEN}OK${RESET}${BOLD}  ] Hostname set to: ${BOLD_MAGENTA}${HOSTNAME}"
+				echo -e "[ ${BOLD_YELLOW}INFO${RESET} ] Hostname set to: ${BOLD_MAGENTA}${HOSTNAME}"
 				break
 			fi
 			;;
 		esac
 
-		echo -e "${BOLD}[${BOLD_RED}FAILED${RESET}${BOLD}] Invalid choice"
+		echo -e "[${BOLD_RED}FAILED${RESET}] Invalid choice"
 	done
 }
-
-# ┏━┓┏━┓┏━┓╺┳╸╻╺┳╸╻┏━┓┏┓╻╻┏┓╻┏━╸
-# ┣━┛┣━┫┣┳┛ ┃ ┃ ┃ ┃┃ ┃┃┗┫┃┃┗┫┃╺┓
-# ╹  ╹ ╹╹┗╸ ╹ ╹ ╹ ╹┗━┛╹ ╹╹╹ ╹┗━┛
-
-# ╻┏┓╻┏━┓╺┳╸┏━┓╻  ╻  ┏━┓╺┳╸╻┏━┓┏┓╻
-# ┃┃┗┫┗━┓ ┃ ┣━┫┃  ┃  ┣━┫ ┃ ┃┃ ┃┃┗┫
-# ╹╹ ╹┗━┛ ╹ ╹ ╹┗━╸┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹
-
-# regen_hwconfig() {
-# 	nixos-generate-config --show-hardware-config >/mnt/etc/nixos/hosts/virtual-nix/hardware-configuration.nix
-# }
 
 # ┏━┓╻ ╻┏┓╻┏┓╻╻┏┓╻┏━╸
 # ┣┳┛┃ ┃┃┗┫┃┗┫┃┃┗┫┃╺┓
@@ -119,4 +104,5 @@ clear
 print_banner
 check_internet
 check_git
+echo ""
 prompt_host
