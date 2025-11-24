@@ -10,6 +10,7 @@
             ESP = {
               type = "EF00";
               size = "500M";
+              priority = 1;
               content = {
                 type = "filesystem";
                 format = "vfat";
@@ -28,7 +29,6 @@
             };
 
             swap = {
-              priority = -2;
               size = "5G";
               content = {
                 type = "swap";

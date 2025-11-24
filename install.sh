@@ -15,6 +15,42 @@ BOLD_BLUE="\033[1;34m"
 BOLD_YELLOW="\033[1;33m"
 BOLD_MAGENTA="\033[1;35m"
 
+print_status() {
+	local status="$1"
+	local message="$2"
+	local color
+	local formatted_status
+
+	case "$status" in
+	"OK")
+		color="$BOLD_GREEN"
+		formatted_status="  OK  "
+		;;
+	"WARN")
+		color="$BOLD_YELLOW"
+		formatter_status=" WARN "
+		;;
+	"FAILED")
+		color="$BOLD_RED"
+		formatted_status="FAILED"
+		;;
+	"INFO")
+		color="$BOLD_YELLOW"
+		formatted_status=" INFO "
+		;;
+	"PROMPT")
+		color="$BOLD_MAGENTA"
+		formatted_status="PROMPT"
+		;;
+	*)
+		color="$BOLD"
+		formatted_status="$status"
+		;;
+	esac
+
+	echo -e "${DIM}[${RESET}${color}${formatted_status}${RESET}${DIM}]${RESET} ${message}"
+}
+
 # ┏┓ ┏━┓┏┓╻┏┓╻┏━╸┏━┓
 # ┣┻┓┣━┫┃┗┫┃┗┫┣╸ ┣┳┛
 # ┗━┛╹ ╹╹ ╹╹ ╹┗━╸╹┗╸
@@ -40,18 +76,18 @@ print_banner() {
 # ┗━╸╹ ╹┗━╸┗━╸╹ ╹┗━┛
 check_internet() {
 	if ping -c 1 nixos.org >/dev/null 2>&1; then
-		echo -e "[  ${BOLD_GREEN}OK${RESET}  ] Internet is up"
+		print_status "OK" "Internet is up"
 	else
-		echo -e "[${BOLD_RED}FAILED${RESET}] No internet connection"
+		print_status "FAILED" "No internet connection"
 		exit 1
 	fi
 }
 
 check_git() {
 	if which git >/dev/null 2>&1; then
-		echo -e "[  ${BOLD_GREEN}OK${RESET}  ] Git is available"
+		print_status "OK" "Git is available"
 	else
-		echo -e "[${BOLD_RED}FAILED${RESET}] Git is not available"
+		print_status "FAILED" "Git is not available"
 		exit 1
 	fi
 }
@@ -70,30 +106,30 @@ prompt_host() {
 	done
 
 	if [[ ${#hosts[@]} -eq 0 ]]; then
-		echo -e "[${BOLD_RED}FAILED${RESET}] No host configurations found"
+		print_status "FAILED" "No host configurations found"
 		exit 1
 	fi
 
-	echo -e "[${BOLD_MAGENTA}PROMPT${RESET}] Available hosts:"
+	print_status "PROMPT" "Available hosts:"
 	for i in "${!hosts[@]}"; do
 		echo -e "${BOLD_MAGENTA}$((i + 1))${RESET} ${hosts[i]}"
 	done
 
 	while true; do
-		echo -ne "└ Choose a host ${DIM}(1-${#hosts[@]})${RESET}: "
+		echo -ne "${DIM}└${RESET} Choose a host ${DIM}(1-${#hosts[@]})${RESET}: "
 		read -r choice
 
 		case "$choice" in
 		[0-9]*)
 			if ((choice >= 1 && choice <= ${#hosts[@]})); then
 				HOSTNAME="${hosts[choice - 1]}"
-				echo -e "[ ${BOLD_YELLOW}INFO${RESET} ] Hostname set to: ${HOSTNAME}"
+				print_status "INFO" "Hostname set to: ${HOSTNAME}"
 				break
 			fi
 			;;
 		esac
 
-		echo -e "[${BOLD_RED}FAILED${RESET}] Invalid choice"
+		print_status "FAILED" "Invalid choice"
 	done
 }
 
