@@ -87,7 +87,7 @@ prompt_host() {
 		[0-9]*)
 			if ((choice >= 1 && choice <= ${#hosts[@]})); then
 				HOSTNAME="${hosts[choice - 1]}"
-				echo -e "[ ${BOLD_YELLOW}INFO${RESET} ] Hostname set to: ${BOLD_MAGENTA}${HOSTNAME}"
+				echo -e "[ ${BOLD_YELLOW}INFO${RESET} ] Hostname set to: ${HOSTNAME}"
 				break
 			fi
 			;;
