@@ -100,7 +100,7 @@ prompt_host() {
 	local hosts=()
 
 	for dir in "$hosts_dir"/*; do
-		if [[ -d "$dir" ]] && [[ -f "$dir/configuration.nix" ]]; then
+		if [[ -d "$dir" ]] && [[ -f "$dir/disko.nix" ]]; then
 			hosts+=("$(basename "$dir")")
 		fi
 	done
@@ -132,6 +132,32 @@ prompt_host() {
 		print_status "FAILED" "Invalid choice"
 	done
 }
+# ┏━╸┏━┓┏┓╻┏━╸╻┏━┓┏┳┓┏━┓╺┳╸╻┏━┓┏┓╻
+# ┃  ┃ ┃┃┗┫┣╸ ┃┣┳┛┃┃┃┣━┫ ┃ ┃┃ ┃┃┗┫
+# ┗━╸┗━┛╹ ╹╹  ╹╹┗╸╹ ╹╹ ╹ ╹ ╹┗━┛╹ ╹
+# confirm() {
+# 	print_status "PROMPT" "Confirmation:"
+# 	echo "Host is set to ${HOSTNAME}"
+# 	# Correct host? >>
+# 	# Have you checked the disko configuration? >>
+# 	echo "This is the current state of the drives"
+# 	lsblk -o NAME,SIZE,MODEL
+# 	echo "Are you sure that disko won't f*ck something up?"
+
+# 	echo "This will destroy all of the data on the target disk!"
+# 	echo "Final question: continue installation?"
+# }
+
+confirm_host() {
+	print_status "PROMPT" "Confirm the host:"
+	echo "Host is currently set to ${HOSTNAME}"
+	echo -ne "${DIM}└${RESET} Is that correct?: "
+	# read -r choice
+}
+
+# ╻┏┓╻┏━┓╺┳╸┏━┓╻  ╻  ┏━┓╺┳╸╻┏━┓┏┓╻
+# ┃┃┗┫┗━┓ ┃ ┣━┫┃  ┃  ┣━┫ ┃ ┃┃ ┃┃┗┫
+# ╹╹ ╹┗━┛ ╹ ╹ ╹┗━╸┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹
 
 # ┏━┓╻ ╻┏┓╻┏┓╻╻┏┓╻┏━╸
 # ┣┳┛┃ ┃┃┗┫┃┗┫┃┃┗┫┃╺┓
@@ -142,3 +168,5 @@ check_internet
 check_git
 echo ""
 prompt_host
+echo ""
+confirm_host
