@@ -28,7 +28,7 @@ print_status() {
 		;;
 	"WARN")
 		color="$BOLD_YELLOW"
-		formatter_status=" WARN "
+		formatted_status=" WARN "
 		;;
 	"FAILED")
 		color="$BOLD_RED"
@@ -71,9 +71,9 @@ print_banner() {
 	done
 }
 
-# ┏━╸╻ ╻┏━╸┏━╸╻┏ ┏━┓
-# ┃  ┣━┫┣╸ ┃  ┣┻┓┗━┓
-# ┗━╸╹ ╹┗━╸┗━╸╹ ╹┗━┛
+# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ╺┓          ┏━╸╻ ╻┏━╸┏━╸╻┏ ┏━┓
+# ┗━┓ ┃ ┣━┫┃╺┓┣╸     ┃    ╺━╸   ┃  ┣━┫┣╸ ┃  ┣┻┓┗━┓
+# ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ╺┻╸         ┗━╸╹ ╹┗━╸┗━╸╹ ╹┗━┛
 check_internet() {
 	if ping -c 1 nixos.org >/dev/null 2>&1; then
 		print_status "OK" "Internet is up"
@@ -92,9 +92,16 @@ check_git() {
 	fi
 }
 
-# ┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳╸┏━┓
-# ┣━┛┣┳┛┃ ┃┃┃┃┣━┛ ┃ ┗━┓
-# ╹  ╹┗╸┗━┛╹ ╹╹   ╹ ┗━┛
+# Running
+clear
+print_banner
+echo "<< Stage 1 - Checks >>"
+check_internet
+check_git
+
+# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓         ┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳╸┏━┓
+# ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┏━┛   ╺━╸   ┣━┛┣┳┛┃ ┃┃┃┃┣━┛ ┃ ┗━┓
+# ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━╸         ╹  ╹┗╸┗━┛╹ ╹╹   ╹ ┗━┛
 prompt_host() {
 	local hosts_dir="hosts"
 	local hosts=()
@@ -132,41 +139,123 @@ prompt_host() {
 		print_status "FAILED" "Invalid choice"
 	done
 }
-# ┏━╸┏━┓┏┓╻┏━╸╻┏━┓┏┳┓┏━┓╺┳╸╻┏━┓┏┓╻
-# ┃  ┃ ┃┃┗┫┣╸ ┃┣┳┛┃┃┃┣━┫ ┃ ┃┃ ┃┃┗┫
-# ┗━╸┗━┛╹ ╹╹  ╹╹┗╸╹ ╹╹ ╹ ╹ ╹┗━┛╹ ╹
-# confirm() {
-# 	print_status "PROMPT" "Confirmation:"
-# 	echo "Host is set to ${HOSTNAME}"
-# 	# Correct host? >>
-# 	# Have you checked the disko configuration? >>
-# 	echo "This is the current state of the drives"
-# 	lsblk -o NAME,SIZE,MODEL
-# 	echo "Are you sure that disko won't f*ck something up?"
 
-# 	echo "This will destroy all of the data on the target disk!"
-# 	echo "Final question: continue installation?"
-# }
-
-confirm_host() {
-	print_status "PROMPT" "Confirm the host:"
-	echo "Host is currently set to ${HOSTNAME}"
-	echo -ne "${DIM}└${RESET} Is that correct?: "
-	# read -r choice
-}
-
-# ╻┏┓╻┏━┓╺┳╸┏━┓╻  ╻  ┏━┓╺┳╸╻┏━┓┏┓╻
-# ┃┃┗┫┗━┓ ┃ ┣━┫┃  ┃  ┣━┫ ┃ ┃┃ ┃┃┗┫
-# ╹╹ ╹┗━┛ ╹ ╹ ╹┗━╸┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹
-
-# ┏━┓╻ ╻┏┓╻┏┓╻╻┏┓╻┏━╸
-# ┣┳┛┃ ┃┃┗┫┃┗┫┃┃┗┫┃╺┓
-# ╹┗╸┗━┛╹ ╹╹ ╹╹╹ ╹┗━┛
+# Running
 clear
 print_banner
-check_internet
-check_git
-echo ""
+echo "<< Stage 2 - Prompts >>"
 prompt_host
-echo ""
+
+# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓         ┏━╸┏━┓┏┓╻┏━╸╻┏━┓┏┳┓┏━┓╺┳╸╻┏━┓┏┓╻
+# ┗━┓ ┃ ┣━┫┃╺┓┣╸    ╺━┫   ╺━╸   ┃  ┃ ┃┃┗┫┣╸ ┃┣┳┛┃┃┃┣━┫ ┃ ┃┃ ┃┃┗┫
+# ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━┛         ┗━╸┗━┛╹ ╹╹  ╹╹┗╸╹ ╹╹ ╹ ╹ ╹┗━┛╹ ╹
+confirm_host() {
+	print_status "PROMPT" "Confirm host configuration"
+	echo -e "Selected host: ${BOLD_BLUE}${HOSTNAME}${RESET}"
+
+	while true; do
+		read -p "$(echo -e "${DIM}└${RESET} Is this correct? (yes/no): ")" response
+
+		case "$response" in
+		yes)
+			print_status "OK" "Host confirmed"
+			break
+			;;
+		no)
+			print_status "FAILED" "Host selection aborted"
+			exit 0
+			;;
+		*)
+			print_status "FAILED" "Please type 'yes' or 'no'"
+			;;
+		esac
+	done
+	echo ""
+}
+
+confirm_disko() {
+	print_status "PROMPT" "Review disko configuration"
+	echo -e "${DIM}Disko config location: ${RESET}hosts/${HOSTNAME}/disko.nix"
+	echo -e "${BOLD}Please verify the disk configuration before proceeding.${RESET}"
+
+	while true; do
+		read -p "$(echo -e "${DIM}└${RESET} Have you checked the disko.nix file? (yes/no): ")" response
+
+		case "$response" in
+		yes)
+			print_status "OK" "Disko configuration acknowledged"
+			break
+			;;
+		no)
+			print_status "INFO" "Please review hosts/${HOSTNAME}/disko.nix before continuing"
+			exit 1
+			;;
+		*)
+			print_status "FAILED" "Please type 'yes' or 'no'"
+			;;
+		esac
+	done
+	echo ""
+}
+
+confirm_disks() {
+	print_status "INFO" "Current disk state:"
+	lsblk -o NAME,SIZE,TYPE,MODEL
+	# echo -e "${BOLD_RED}⚠️  WARNING: Disko will format the target disk!${RESET}"
+	# echo -e "${BOLD_RED}⚠️  ALL DATA on the target disk WILL BE DESTROYED!${RESET}"
+
+	while true; do
+		read -p "$(echo -e "${DIM}└${RESET} Are you sure the disko config targets the correct disk? (yes/no): ")" response
+
+		case "$response" in
+		yes)
+			print_status "OK" "Disk configuration confirmed"
+			break
+			;;
+		no)
+			print_status "FAILED" "Installation aborted - please fix disko.nix"
+			exit 0
+			;;
+		*)
+			print_status "FAILED" "Please type 'yes' or 'no'"
+			;;
+		esac
+	done
+	echo ""
+}
+
+confirm_final() {
+	print_status "PROMPT" "Final confirmation"
+	echo -e "${BOLD}Ready to install:${RESET}"
+	echo -e " - Host: ${BOLD_BLUE}${HOSTNAME}${RESET}"
+	echo -e " - Config: ${DIM}hosts/${HOSTNAME}/${RESET}"
+	# echo -e "${BOLD_RED}⚠️  This is your last chance to abort!${RESET}"
+	# echo -e "${BOLD_RED}⚠️  The target disk will be completely erased!${RESET}"
+
+	while true; do
+		read -p "$(echo -e "${BOLD}Continue with installation? (yes/no): ${RESET}")" response
+
+		case "$response" in
+		yes)
+			print_status "OK" "Starting installation"
+			break
+			;;
+		no)
+			print_status "FAILED" "Installation aborted by user"
+			exit 0
+			;;
+		*)
+			print_status "FAILED" "Please type 'yes' or 'no'"
+			;;
+		esac
+	done
+	echo ""
+}
+
+clear
+print_banner
+echo "<< Stage 3 - Confirmation >>"
 confirm_host
+confirm_disko
+confirm_disks
+confirm_final

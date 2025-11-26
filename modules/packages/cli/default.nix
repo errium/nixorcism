@@ -28,7 +28,7 @@
       kew
       nsnake
       ninvaders
-      ranger
+      yazi
       toilet
       figlet
       pipes
