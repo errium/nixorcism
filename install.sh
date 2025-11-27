@@ -96,6 +96,7 @@ check_git() {
 clear
 print_banner
 echo "<< Stage 1 - Checks >>"
+echo ""
 check_internet
 check_git
 
@@ -130,7 +131,6 @@ prompt_host() {
 		[0-9]*)
 			if ((choice >= 1 && choice <= ${#hosts[@]})); then
 				HOSTNAME="${hosts[choice - 1]}"
-				print_status "INFO" "Hostname set to: ${HOSTNAME}"
 				break
 			fi
 			;;
@@ -144,6 +144,7 @@ prompt_host() {
 clear
 print_banner
 echo "<< Stage 2 - Prompts >>"
+echo ""
 prompt_host
 
 # ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓         ┏━╸┏━┓┏┓╻┏━╸╻┏━┓┏┳┓┏━┓╺┳╸╻┏━┓┏┓╻
@@ -255,6 +256,7 @@ confirm_final() {
 clear
 print_banner
 echo "<< Stage 3 - Confirmation >>"
+echo ""
 confirm_host
 confirm_disko
 confirm_disks
