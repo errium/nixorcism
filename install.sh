@@ -95,6 +95,20 @@ print_banner() {
 # ┏━┓╺┳╸┏━┓┏━╸┏━╸   ╺┓          ┏━╸╻ ╻┏━╸┏━╸╻┏ ┏━┓
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸     ┃    ╺━╸   ┃  ┣━┫┣╸ ┃  ┣┻┓┗━┓
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ╺┻╸         ┗━╸╹ ╹┗━╸┗━╸╹ ╹┗━┛
+clear
+print_banner
+echo -e "${DIM}Stage 1 * Checks${RESET}"
+echo ""
+
+check_root() {
+	if [[ $EUID -eq 0 ]]; then
+		print_status "OK" "Running as root"
+	else
+		print_status "FAILED" "This script must be run as root"
+		exit 1
+	fi
+}
+
 check_internet() {
 	if ping -c 1 nixos.org >/dev/null 2>&1; then
 		print_status "OK" "Internet is up"
@@ -104,26 +118,17 @@ check_internet() {
 	fi
 }
 
-check_git() {
-	if which git >/dev/null 2>&1; then
-		print_status "OK" "Git is available"
-	else
-		print_status "FAILED" "Git is not available"
-		exit 1
-	fi
-}
-
 # Running
-clear
-print_banner
-echo -e "${DIM}Stage 1 * Checks${RESET}"
-echo ""
+check_root
 check_internet
-check_git
 
 # ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓         ┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳╸┏━┓
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┏━┛   ╺━╸   ┣━┛┣┳┛┃ ┃┃┃┃┣━┛ ┃ ┗━┓
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━╸         ╹  ╹┗╸┗━┛╹ ╹╹   ╹ ┗━┛
+echo ""
+echo -e "${DIM}Stage 2 * Prompts${RESET}"
+echo ""
+
 prompt_host() {
 	local hosts_dir="hosts"
 	local hosts=()
@@ -160,15 +165,16 @@ prompt_host() {
 }
 
 # Running
-clear
-print_banner
-echo -e "${DIM}Stage 2 * Prompts${RESET}"
-echo ""
 prompt_host
 
 # ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓         ┏━╸┏━┓┏┓╻┏━╸╻┏━┓┏┳┓┏━┓╺┳╸╻┏━┓┏┓╻
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸    ╺━┫   ╺━╸   ┃  ┃ ┃┃┗┫┣╸ ┃┣┳┛┃┃┃┣━┫ ┃ ┃┃ ┃┃┗┫
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━┛         ┗━╸┗━┛╹ ╹╹  ╹╹┗╸╹ ╹╹ ╹ ╹ ╹┗━┛╹ ╹
+clear
+print_banner
+echo -e "${DIM}Stage 3 * Confirmation${RESET}"
+echo ""
+
 confirm_host() {
 	print_status "PROMPT" "${BOLD}Confirm host configuration${RESET}"
 	echo -e "Selected host: ${BOLD_BLUE}${HOSTNAME}${RESET}"
@@ -228,11 +234,18 @@ confirm_final() {
 	echo ""
 }
 
-clear
-print_banner
-echo -e "${DIM}Stage 3 * Confirmation${RESET}"
-echo ""
 confirm_host
 confirm_disko
 confirm_disks
 confirm_final
+
+# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ╻ ╻         ╻┏┓╻┏━┓╺┳╸┏━┓╻  ╻  ┏━┓╺┳╸╻┏━┓┏┓╻
+# ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┗━┫   ╺━╸   ┃┃┗┫┗━┓ ┃ ┣━┫┃  ┃  ┣━┫ ┃ ┃┃ ┃┃┗┫
+# ┗━┛ ╹ ╹ ╹┗━┛┗━╸     ╹         ╹╹ ╹┗━┛ ╹ ╹ ╹┗━╸┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹
+run_disko() {
+	nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- \
+		--mode destroy,format,mount \
+		./hosts/${HOSTNAME}/disko.nix
+}
+
+run_disko
