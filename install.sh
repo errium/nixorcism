@@ -190,7 +190,7 @@ confirm_disko() {
 	if prompt_confirm "Have you checked the disko.nix file?"; then
 		print_status "OK" "Disko configuration acknowledged"
 	else
-		print_status "INFO" "Please review ${BOLD_MAGENTA}hosts/${HOSTNAME}/disko.nix${RESET} before continuing"
+		print_status "INFO" "Please review ${BOLD_CYAN}hosts/${HOSTNAME}/disko.nix${RESET} before continuing"
 		exit 1
 	fi
 	echo ""
