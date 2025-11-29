@@ -4,13 +4,15 @@ set -euo pipefail
 # ┏━╸╻  ┏━┓┏┓ ┏━┓╻  ┏━┓
 # ┃╺┓┃  ┃ ┃┣┻┓┣━┫┃  ┗━┓
 # ┗━┛┗━╸┗━┛┗━┛╹ ╹┗━╸┗━┛
+readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 readonly RESET="\033[0m"
 readonly WHITE="\033[0;37m"
 readonly BOLD="\033[1m"
 readonly DIM="\033[2m"
 readonly BOLD_RED="\033[1;31m"
-readonly BOLD_BLUE="\033[1;34m"
 readonly BOLD_YELLOW="\033[1;33m"
+readonly BOLD_BLUE="\033[1;34m"
 readonly BOLD_CYAN="\033[1;36m"
 
 print_status() {
@@ -243,9 +245,22 @@ confirm_final
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┗━┫   ╺━╸   ┃┃┗┫┗━┓ ┃ ┣━┫┃  ┃  ┣━┫ ┃ ┃┃ ┃┃┗┫
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸     ╹         ╹╹ ╹┗━┛ ╹ ╹ ╹┗━╸┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹
 run_disko() {
-	nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- \
+	nix --experimental-features "nix-command flakes" \
+		run github:nix-community/disko/latest -- \
 		--mode destroy,format,mount \
-		./hosts/${HOSTNAME}/disko.nix
+		${SCRIPT_DIR}/hosts/${HOSTNAME}/disko.nix \
+		--yes-wipe-all-disks
+}
+
+regen_hwconfig() {
+	nixos-generate-config --show-hardware-config --root /mnt |
+		tee ${SCRIPT_DIR}/hosts/${HOSTNAME}/hardware-configuration.nix >/dev/null
+}
+
+install() {
+	nixos-install --flake ${SCRIPT_DIR}#${HOSTNAME}
 }
 
 run_disko
+regen_hwconfig
+install
