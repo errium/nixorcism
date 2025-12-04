@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri.url = "github:sodiboo/niri-flake";
+    # niri.url = "github:sodiboo/niri-flake"; # FIX
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";

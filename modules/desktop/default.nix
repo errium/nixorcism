@@ -1,6 +1,6 @@
 {
   imports = [
-    ./niri
+    # ./niri # FIX
     ./ly.nix
     ./sound.nix
     ./xfce.nix
