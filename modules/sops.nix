@@ -16,7 +16,7 @@
       root-password.neededForUsers = true;
       user-password.neededForUsers = true;
 
-      ssh-private-key =
+      ssh-private =
         lib.mkIf keyExists
         {
           owner = username;
@@ -25,7 +25,7 @@
           path = "/home/${username}/.ssh/id_ed25519";
         };
 
-      ssh-public-key =
+      ssh-public =
         lib.mkIf keyExists
         {
           owner = username;

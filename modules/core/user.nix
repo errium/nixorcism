@@ -7,15 +7,6 @@
   users.users = let
     keyExists = builtins.pathExists "/home/${username}/.config/sops/age/keys.txt";
   in {
-    root = {
-      hashedPasswordFile =
-        lib.mkIf keyExists
-        config.sops.secrets.root-password.path;
-      initialPassword =
-        lib.mkIf (!keyExists)
-        "password";
-    };
-
     ${username} = {
       isNormalUser = true;
       description = "Errium";
