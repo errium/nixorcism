@@ -11,9 +11,9 @@
       hashedPasswordFile =
         lib.mkIf keyExists
         config.sops.secrets.root-password.path;
-      initialHashedPassword =
+      initialPassword =
         lib.mkIf (!keyExists)
-        "$y$j9T$7uBk7C2pQGx3Wt0JxNB5W/$FtEF1HGlK.Qozr0E2tiLGu78X4ujtVyjfN8zVeTa0l5";
+        "password";
     };
 
     ${username} = {

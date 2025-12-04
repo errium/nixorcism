@@ -33,6 +33,8 @@
       figlet
       pipes
       tty-clock
+      dysk
+      gdu
     ];
   };
 }
