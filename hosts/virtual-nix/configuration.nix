@@ -18,7 +18,7 @@
     sound.enable = true;
     xfce.enable = true;
     xkb.enable = true;
-    # niri.enable = true; # FIX
+    niri.enable = true;
   };
 
   nixorcism.packages = {
