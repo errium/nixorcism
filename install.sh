@@ -96,6 +96,7 @@ greeting_banner() {
 
 finish_banner() {
 	local lines=(
+		""
 		"▄▄▄▄   ▄▄▄  ▄▄  ▄▄ ▄▄▄▄▄  ██ "
 		"██▀██ ██▀██ ███▄██ ██▄▄   ██ "
 		"████▀ ▀███▀ ██ ▀██ ██▄▄▄  ▄▄ "
@@ -279,7 +280,17 @@ install() {
 		--flake ${SCRIPT_DIR}#${HOSTNAME}
 }
 
+move_config() {
+	local username=$(awk -F: '$3 >= 1000 && $3 < 2000 {print $1; exit}' /mnt/etc/passwd)
+	local target_dir="/mnt/home/${username}/nixorcism"
+
+	mkdir -p "$target_dir"
+	cp -r "${SCRIPT_DIR}/"* "$target_dir/"
+	chown -R 1000:1000 "$target_dir"
+}
+
 run_disko
 regen_hwconfig
 install
+move_config
 finish_banner
