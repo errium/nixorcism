@@ -76,9 +76,9 @@ prompt_confirm() {
 	done
 }
 
-# ┏┓ ┏━┓┏┓╻┏┓╻┏━╸┏━┓
-# ┣┻┓┣━┫┃┗┫┃┗┫┣╸ ┣┳┛
-# ┗━┛╹ ╹╹ ╹╹ ╹┗━╸╹┗╸
+# ┏┓ ┏━┓┏┓╻┏┓╻┏━╸┏━┓┏━┓
+# ┣┻┓┣━┫┃┗┫┃┗┫┣╸ ┣┳┛┗━┓
+# ┗━┛╹ ╹╹ ╹╹ ╹┗━╸╹┗╸┗━┛
 greeting_banner() {
 	local lines=(
 		"▄▄  ▄▄ ▄▄ ▄▄ ▄▄  ▄▄▄  ▄▄▄▄   ▄▄▄▄ ▄▄  ▄▄▄▄ ▄▄   ▄▄ "
@@ -103,7 +103,7 @@ finish_banner() {
 		""
 	)
 
-	local grads=("$BOLD" "$BOLD_BLUE" "$BOLD_CYAN" "$WHITE" "$WHITE" "$WHITE")
+	local grads=("$BOLD" "$BOLD" "$BOLD_BLUE" "$BOLD_CYAN")
 	for i in "${!lines[@]}"; do
 		local clr=${grads[$((i % ${#grads[@]}))]}
 		printf "%b%s%b\n" "$clr" "${lines[i]}" "$RESET"
@@ -114,6 +114,7 @@ finish_banner() {
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸     ┃    ╺━╸   ┃  ┣━┫┣╸ ┃  ┣┻┓┗━┓
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ╺┻╸         ┗━╸╹ ╹┗━╸┗━╸╹ ╹┗━┛
 clear
+finish_banner
 greeting_banner
 echo -e "${DIM}Stage 1 * Checks${RESET}"
 echo ""
@@ -286,7 +287,7 @@ move_config() {
 
 	mkdir -p "$target_dir"
 	cp -r "${SCRIPT_DIR}/"* "$target_dir/"
-	chown -R 1000:100 "$target_dir"
+	chown -R ${username}:100 "$target_dir"
 }
 
 run_disko

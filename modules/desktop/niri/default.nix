@@ -14,9 +14,10 @@
       enable = true;
     };
 
-    hm.home.file.".config/niri/config.kdl".source =
-      config.lib.file.mkOutOfStoreSymlink
-      /home/${username}/nixorcism/modules/desktop/niri/config.kdl;
+    # FIX
+    # hm.home.file.".config/niri/config.kdl".source =
+    #   config.lib.file.mkOutOfStoreSymlink
+    #   /home/${username}/nixorcism/modules/desktop/niri/config.kdl;
 
     xdg.portal = {
       enable = true;
