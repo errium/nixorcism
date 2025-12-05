@@ -1,26 +1,22 @@
 {
-  inputs,
   pkgs,
   config,
   lib,
+  username,
   ...
 }: {
-  imports = [
-    inputs.niri.nixosModules.niri
-    ./config
-  ];
-
   options.nixorcism.desktop = {
     niri.enable = lib.mkEnableOption "Enables niri";
   };
 
   config = lib.mkIf config.nixorcism.desktop.niri.enable {
-    nixpkgs.overlays = [inputs.niri.overlays.niri];
-
     programs.niri = {
       enable = true;
-      package = pkgs.niri-unstable;
     };
+
+    hm.home.file.".config/niri/config.kdl".source =
+      config.lib.file.mkOutOfStoreSymlink
+      /home/${username}/nixorcism/modules/desktop/niri/config.kdl;
 
     xdg.portal = {
       enable = true;
