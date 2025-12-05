@@ -79,7 +79,7 @@ prompt_confirm() {
 # ┏┓ ┏━┓┏┓╻┏┓╻┏━╸┏━┓
 # ┣┻┓┣━┫┃┗┫┃┗┫┣╸ ┣┳┛
 # ┗━┛╹ ╹╹ ╹╹ ╹┗━╸╹┗╸
-print_banner() {
+greeting_banner() {
 	local lines=(
 		"▄▄  ▄▄ ▄▄ ▄▄ ▄▄  ▄▄▄  ▄▄▄▄   ▄▄▄▄ ▄▄  ▄▄▄▄ ▄▄   ▄▄ "
 		"███▄██ ██ ▀█▄█▀ ██▀██ ██▄█▄ ██▀▀▀ ██ ███▄▄ ██▀▄▀██ "
@@ -94,11 +94,26 @@ print_banner() {
 	done
 }
 
+finish_banner() {
+	local lines=(
+		"▄▄▄▄   ▄▄▄  ▄▄  ▄▄ ▄▄▄▄▄  ██ "
+		"██▀██ ██▀██ ███▄██ ██▄▄   ██ "
+		"████▀ ▀███▀ ██ ▀██ ██▄▄▄  ▄▄ "
+		""
+	)
+
+	local grads=("$BOLD" "$BOLD_BLUE" "$BOLD_CYAN" "$WHITE" "$WHITE" "$WHITE")
+	for i in "${!lines[@]}"; do
+		local clr=${grads[$((i % ${#grads[@]}))]}
+		printf "%b%s%b\n" "$clr" "${lines[i]}" "$RESET"
+	done
+}
+
 # ┏━┓╺┳╸┏━┓┏━╸┏━╸   ╺┓          ┏━╸╻ ╻┏━╸┏━╸╻┏ ┏━┓
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸     ┃    ╺━╸   ┃  ┣━┫┣╸ ┃  ┣┻┓┗━┓
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ╺┻╸         ┗━╸╹ ╹┗━╸┗━╸╹ ╹┗━┛
 clear
-print_banner
+greeting_banner
 echo -e "${DIM}Stage 1 * Checks${RESET}"
 echo ""
 
@@ -173,7 +188,7 @@ prompt_host
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸    ╺━┫   ╺━╸   ┃  ┃ ┃┃┗┫┣╸ ┃┣┳┛┃┃┃┣━┫ ┃ ┃┃ ┃┃┗┫
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━┛         ┗━╸┗━┛╹ ╹╹  ╹╹┗╸╹ ╹╹ ╹ ╹ ╹┗━┛╹ ╹
 clear
-print_banner
+greeting_banner
 echo -e "${DIM}Stage 3 * Confirmation${RESET}"
 echo ""
 
@@ -258,9 +273,13 @@ regen_hwconfig() {
 }
 
 install() {
-	nixos-install --flake ${SCRIPT_DIR}#${HOSTNAME}
+	nixos-install \
+		--option extra-substituters https://install.determinate.systems \
+		--option extra-trusted-public-keys cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM= \
+		--flake ${SCRIPT_DIR}#${HOSTNAME}
 }
 
 run_disko
 regen_hwconfig
 install
+finish_banner
