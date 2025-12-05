@@ -286,7 +286,7 @@ move_config() {
 
 	mkdir -p "$target_dir"
 	cp -r "${SCRIPT_DIR}/"* "$target_dir/"
-	chown -R 1000:1000 "$target_dir"
+	chown -R 1000:100 "$target_dir"
 }
 
 run_disko
