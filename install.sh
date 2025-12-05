@@ -297,9 +297,9 @@ create_user_dirs() {
 	echo "en_US" >"${HOME_DIR}/.config/user-dirs.locale"
 
 	HOME="${HOME_DIR}" \
-		XDG_CONFIG_HOME="${HOME_DIR}/.config" \
+		XDG_CONFIG_HOME="${CONFIG_DIR}" \
 		LANG=en_US.UTF-8 \
-		xdg-user-dirs-update --force
+		nix-shell -p xdg-user-dirs --run "xdg-user-dirs-update --force"
 
 	chown -R "${username}:users" "${HOME_DIR}"
 }
