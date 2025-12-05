@@ -114,7 +114,6 @@ finish_banner() {
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸     ┃    ╺━╸   ┃  ┣━┫┣╸ ┃  ┣┻┓┗━┓
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ╺┻╸         ┗━╸╹ ╹┗━╸┗━╸╹ ╹┗━┛
 clear
-finish_banner
 greeting_banner
 echo -e "${DIM}Stage 1 * Checks${RESET}"
 echo ""
@@ -287,7 +286,7 @@ move_config() {
 
 	mkdir -p "$target_dir"
 	cp -r "${SCRIPT_DIR}/"* "$target_dir/"
-	chown -R ${username}:100 "$target_dir"
+	nixos-enter --root /mnt -c "chown -R ${username}:users /home/${username}/nixorcism"
 }
 
 run_disko
