@@ -289,24 +289,8 @@ move_config() {
 	nixos-enter --root /mnt -c "chown -R ${username}:users /home/${username}/nixorcism"
 }
 
-create_user_dirs() {
-	local username=$(awk -F: '$3 >= 1000 && $3 < 2000 {print $1; exit}' /mnt/etc/passwd)
-	local HOME_DIR="/mnt/home/${username}"
-
-	mkdir -p "${HOME_DIR}/.config"
-	echo "en_US" >"${HOME_DIR}/.config/user-dirs.locale"
-
-	HOME="${HOME_DIR}" \
-		XDG_CONFIG_HOME="${HOME_DIR}/.config" \
-		LANG=en_US.UTF-8 \
-		nix-shell -p xdg-user-dirs --run "xdg-user-dirs-update --force"
-
-	chown -R "${username}:users" "${HOME_DIR}"
-}
-
 run_disko
 regen_hwconfig
 install
 move_config
-create_user_dirs
 finish_banner
