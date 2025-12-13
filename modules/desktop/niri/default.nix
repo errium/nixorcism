@@ -24,9 +24,9 @@
       config = {
         common = {
           default = "gtk gnome";
+          "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
           "org.freedesktop.impl.portal.ScreenCast" = "gnome";
           "org.freedesktop.impl.portal.Screenshot" = "gnome";
-          "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
         };
         niri.default = [
           "gtk"
@@ -36,10 +36,10 @@
       };
 
       extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-gnome
-        xdg-desktop-portal-wlr
         xdg-desktop-portal
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-wlr
       ];
     };
 

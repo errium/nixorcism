@@ -18,11 +18,11 @@
 
   config = lib.mkIf config.nixorcism.packages.gui.pkgArray.enable {
     hm.home.packages = with pkgs; [
-      telegram-desktop
+      bitwarden-desktop
+      file-roller
       nemo
       protonvpn-gui
-      file-roller
-      bitwarden-desktop
+      telegram-desktop
     ];
   };
 }
