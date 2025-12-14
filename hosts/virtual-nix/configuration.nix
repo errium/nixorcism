@@ -44,6 +44,10 @@
     };
   };
 
+  nixorcism.services = {
+    ssh.enable = true;
+  };
+
   nixorcism.shell = {
     userShell = "fish";
     userPrompt = "starship";
