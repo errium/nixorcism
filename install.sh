@@ -277,6 +277,7 @@ install() {
 	nixos-install \
 		--option extra-substituters https://install.determinate.systems \
 		--option extra-trusted-public-keys cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM= \
+		--no-root-password --max-jobx $(nproc) \
 		--flake ${SCRIPT_DIR}#${HOSTNAME}
 }
 
@@ -285,7 +286,7 @@ move_config() {
 	local target_dir="/mnt/home/${username}/nixorcism"
 
 	mkdir -p "$target_dir"
-	cp -r "${SCRIPT_DIR}/"* "$target_dir/"
+	cp -rT "${SCRIPT_DIR}" "$target_dir"
 	nixos-enter --root /mnt -c "chown -R ${username}:users /home/${username}/nixorcism"
 }
 
