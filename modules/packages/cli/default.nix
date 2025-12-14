@@ -22,17 +22,19 @@
 
   config = lib.mkIf config.nixorcism.packages.cli.pkgArray.enable {
     hm.home.packages = with pkgs; [
-      tree
       bat
+      dysk
       eza
-      kew
-      nsnake
-      ninvaders
-      yazi
-      toilet
       figlet
+      gdu
+      kew
+      ninvaders
+      nsnake
       pipes
+      toilet
+      tree
       tty-clock
+      yazi
     ];
   };
 }

@@ -1,9 +1,10 @@
 {
   imports = [
     ./bootloader.nix
-    ./nix.nix
-    ./networking.nix
-    ./user.nix
     ./locale-time.nix
+    ./networking.nix
+    ./nix.nix
+    ./user.nix
+    ./zram.nix
   ];
 }

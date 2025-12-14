@@ -5,7 +5,7 @@
   ];
 
   networking.hostName = "virtual-nix";
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -42,6 +42,10 @@
       spicetify.enable = true;
       vesktop.enable = true;
     };
+  };
+
+  nixorcism.services = {
+    ssh.enable = true;
   };
 
   nixorcism.shell = {

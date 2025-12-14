@@ -76,10 +76,10 @@ prompt_confirm() {
 	done
 }
 
-# ┏┓ ┏━┓┏┓╻┏┓╻┏━╸┏━┓
-# ┣┻┓┣━┫┃┗┫┃┗┫┣╸ ┣┳┛
-# ┗━┛╹ ╹╹ ╹╹ ╹┗━╸╹┗╸
-print_banner() {
+# ┏┓ ┏━┓┏┓╻┏┓╻┏━╸┏━┓┏━┓
+# ┣┻┓┣━┫┃┗┫┃┗┫┣╸ ┣┳┛┗━┓
+# ┗━┛╹ ╹╹ ╹╹ ╹┗━╸╹┗╸┗━┛
+greeting_banner() {
 	local lines=(
 		"▄▄  ▄▄ ▄▄ ▄▄ ▄▄  ▄▄▄  ▄▄▄▄   ▄▄▄▄ ▄▄  ▄▄▄▄ ▄▄   ▄▄ "
 		"███▄██ ██ ▀█▄█▀ ██▀██ ██▄█▄ ██▀▀▀ ██ ███▄▄ ██▀▄▀██ "
@@ -94,11 +94,27 @@ print_banner() {
 	done
 }
 
+finish_banner() {
+	local lines=(
+		""
+		"▄▄▄▄   ▄▄▄  ▄▄  ▄▄ ▄▄▄▄▄  ██ "
+		"██▀██ ██▀██ ███▄██ ██▄▄   ██ "
+		"████▀ ▀███▀ ██ ▀██ ██▄▄▄  ▄▄ "
+		""
+	)
+
+	local grads=("$BOLD" "$BOLD" "$BOLD_BLUE" "$BOLD_CYAN")
+	for i in "${!lines[@]}"; do
+		local clr=${grads[$((i % ${#grads[@]}))]}
+		printf "%b%s%b\n" "$clr" "${lines[i]}" "$RESET"
+	done
+}
+
 # ┏━┓╺┳╸┏━┓┏━╸┏━╸   ╺┓          ┏━╸╻ ╻┏━╸┏━╸╻┏ ┏━┓
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸     ┃    ╺━╸   ┃  ┣━┫┣╸ ┃  ┣┻┓┗━┓
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ╺┻╸         ┗━╸╹ ╹┗━╸┗━╸╹ ╹┗━┛
 clear
-print_banner
+greeting_banner
 echo -e "${DIM}Stage 1 * Checks${RESET}"
 echo ""
 
@@ -173,7 +189,7 @@ prompt_host
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸    ╺━┫   ╺━╸   ┃  ┃ ┃┃┗┫┣╸ ┃┣┳┛┃┃┃┣━┫ ┃ ┃┃ ┃┃┗┫
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━┛         ┗━╸┗━┛╹ ╹╹  ╹╹┗╸╹ ╹╹ ╹ ╹ ╹┗━┛╹ ╹
 clear
-print_banner
+greeting_banner
 echo -e "${DIM}Stage 3 * Confirmation${RESET}"
 echo ""
 
@@ -258,9 +274,24 @@ regen_hwconfig() {
 }
 
 install() {
-	nixos-install --flake ${SCRIPT_DIR}#${HOSTNAME}
+	nixos-install \
+		--option extra-substituters https://install.determinate.systems \
+		--option extra-trusted-public-keys cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM= \
+		--no-root-password \
+		--flake ${SCRIPT_DIR}#${HOSTNAME}
+}
+
+move_config() {
+	local username=$(awk -F: '$3 >= 1000 && $3 < 2000 {print $1; exit}' /mnt/etc/passwd)
+	local target_dir="/mnt/home/${username}/nixorcism"
+
+	mkdir -p "$target_dir"
+	cp -rT "${SCRIPT_DIR}" "$target_dir"
+	nixos-enter --root /mnt -c "chown -R ${username}:users /home/${username}/nixorcism"
 }
 
 run_disko
 regen_hwconfig
 install
+move_config
+finish_banner

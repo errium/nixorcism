@@ -1,35 +1,32 @@
 {
-  inputs,
   pkgs,
   config,
   lib,
+  username,
   ...
 }: {
-  imports = [
-    inputs.niri.nixosModules.niri
-    ./config
-  ];
-
   options.nixorcism.desktop = {
     niri.enable = lib.mkEnableOption "Enables niri";
   };
 
   config = lib.mkIf config.nixorcism.desktop.niri.enable {
-    nixpkgs.overlays = [inputs.niri.overlays.niri];
-
     programs.niri = {
       enable = true;
-      package = pkgs.niri-unstable;
     };
+
+    # FIX
+    # hm.home.file.".config/niri/config.kdl".source =
+    #   config.lib.file.mkOutOfStoreSymlink
+    #   /home/${username}/nixorcism/modules/desktop/niri/config.kdl;
 
     xdg.portal = {
       enable = true;
       config = {
         common = {
           default = "gtk gnome";
+          "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
           "org.freedesktop.impl.portal.ScreenCast" = "gnome";
           "org.freedesktop.impl.portal.Screenshot" = "gnome";
-          "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
         };
         niri.default = [
           "gtk"
@@ -39,10 +36,10 @@
       };
 
       extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-gnome
-        xdg-desktop-portal-wlr
         xdg-desktop-portal
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-wlr
       ];
     };
 
