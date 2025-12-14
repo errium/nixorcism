@@ -18,7 +18,6 @@
     sound.enable = true;
     xfce.enable = true;
     xkb.enable = true;
-    niri.enable = true;
   };
 
   nixorcism.packages = {
@@ -37,10 +36,6 @@
     gui = {
       pkgArray.enable = true;
       alacritty.enable = true;
-      foot.enable = true;
-      librewolf.enable = true;
-      spicetify.enable = true;
-      vesktop.enable = true;
     };
   };
 
