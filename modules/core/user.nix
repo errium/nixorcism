@@ -1,10 +1,10 @@
 {
   config,
-  username,
   lib,
+  username,
   ...
 }: let
-  sopsAvailable = config.sops.secrets ? root-password && config.sops.secrets ? user-password;
+  sopsAvailable = config.sops.secrets != {};
 in {
   users = {
     mutableUsers = false;
@@ -31,12 +31,12 @@ in {
           "$y$j9T$Hao7G9TGibBoEN6X1d2sW0$kemp6XaOm1RYTRWC4M0qvqJzTuwy2eO.wYpg3wQeQi5";
 
         extraGroups = [
-          "networkmanager"
-          "wheel"
           "audio"
+          "networkmanager"
+          "render"
           "sound"
           "video"
-          "render"
+          "wheel"
         ];
       };
     };
