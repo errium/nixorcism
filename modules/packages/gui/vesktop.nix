@@ -30,9 +30,9 @@
 
     hm.programs.vesktop.vencord = {
       settings = {
-        autoUpdate = false;
-        autoUpdateNotification = false;
-        notifyAboutUpdates = false;
+        autoUpdate = true;
+        autoUpdateNotification = true;
+        notifyAboutUpdates = true;
         useQuickCss = true;
 
         plugins = {

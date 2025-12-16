@@ -148,7 +148,7 @@ echo -e "${DIM}Stage 2 * Prompts${RESET}"
 echo ""
 
 prompt_host() {
-	local hosts_dir="hosts"
+	local hosts_dir="${SCRIPT_DIR}/hosts"
 	local hosts=()
 
 	for dir in "$hosts_dir"/*; do
@@ -274,8 +274,10 @@ regen_hwconfig() {
 }
 
 install() {
+	export NIXOS_INITIAL_INSTALL=1
 	nixos-install \
 		--no-root-password \
+		--impure \
 		--flake ${SCRIPT_DIR}#${HOSTNAME}
 }
 
