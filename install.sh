@@ -274,10 +274,8 @@ regen_hwconfig() {
 }
 
 install() {
-	export NIXOS_INITIAL_INSTALL=1
 	nixos-install \
 		--no-root-password \
-		--impure \
 		--flake ${SCRIPT_DIR}#${HOSTNAME}
 }
 
