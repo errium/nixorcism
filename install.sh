@@ -90,13 +90,13 @@ greeting_banner() {
 		" ▄     ${CLR2B}▀▀        "
 		" ████▄▀██▀██ ██▀ "
 		" ██ ██ ██  ███   "
-		"${CLR1}▄██ ▀█▄██▄██ ██▄▄"
+		"▄██ ▀█▄██▄██ ██▄▄"
 	)
 	local accent2=(
 		"                 ${CLR1B}▀▀${CLR2B}       ▄"
 		"▄███▄ ████▄▄███▀ ██ ▄██▀█ ███▄███▄"
 		"██ ██ ██   ██    ██ ▀███▄ ██ ██ ██"
-		"${DIM}▀███▀▄█▀   ▀███▄▄███▄▄██▀▄██ ██ ▀█"
+		"${CLR2}▀███▀▄█▀   ▀███▄▄███▄▄██▀▄██ ██ ▀█"
 	)
 
 	for i in {0..3}; do
@@ -111,14 +111,14 @@ finish_banner() {
 		"    ██       ▄          "
 		" ▄████ ▄███▄ ████▄ ▄█▀█▄"
 		" ██ ██ ██ ██ ██ ██ ██▄█▀"
-		"${DIM}▄█▀███▄▀███▀▄██ ▀█▄▀█▄▄▄"
+		"${CLR1}▄█▀███▄▀███▀▄██ ▀█▄▀█▄▄▄"
 	)
 	local accent2=(
 		"▄█"
 		"██"
 		"██"
 		"  "
-		"${CLR2}██"
+		"██"
 	)
 
 	echo ""
@@ -164,6 +164,8 @@ stage1_checks() {
 # ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓         ┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳╸┏━┓
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┏━┛   ╺━╸   ┣━┛┣┳┛┃ ┃┃┃┃┣━┛ ┃ ┗━┓
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━╸         ╹  ╹┗╸┗━┛╹ ╹╹   ╹ ┗━┛
+# FIXIT
+# Design inconsistency, lack of prompt
 prompt_host() {
 	local hosts_dir="${SCRIPT_DIR}/hosts"
 	local hosts=()
@@ -200,6 +202,12 @@ prompt_host() {
 	echo ""
 }
 
+# TODO
+# prompt_disk() and modifications to run_disko()
+
+# FIXIT
+# One of the passes applies twice
+# Design inconsistency, fields are not bold
 prompt_password() {
 	local user_type="$1"
 	local color="$2"
@@ -329,6 +337,8 @@ move_config() {
 	echo "*move_config*"
 }
 
+# NOTE
+# Maybe make it look cooler and show some info?
 stage4_installation() {
 	clear
 	greeting_banner
