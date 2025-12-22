@@ -181,7 +181,7 @@ prompt_host() {
 		exit 1
 	fi
 
-	print_status "PROMPT" "${BOLD}Choose a host${RESET}"
+	print_status "PROMPT" "Choose a host"
 	for i in "${!hosts[@]}"; do
 		echo -e "  ${CLR2}$((i + 1))${RESET} ${hosts[i]}"
 	done
@@ -204,9 +204,36 @@ prompt_host() {
 
 # TODO
 # prompt_disk() and modifications to run_disko()
+prompt_disk() {
+	local disks=()
+
+	print_status "PROMPT" "Choose a disk"
+
+	while IFS= read -r line; do
+		disks+=("$line")
+	done < <(lsblk -ndo NAME,SIZE,MODEL | grep -v 'loop')
+
+	for i in "${!disks[@]}"; do
+		echo -e "  ${CLR2}$((i + 1))${RESET} ${disks[i]}"
+	done
+
+	while true; do
+		prompt_input "Choice: " choice
+		case "$choice" in
+		[0-9]*)
+			if ((choice >= 1 && choice <= ${#disks[@]})); then
+				DISK="/dev/$(echo "${disks[choice - 1]}" | awk '{print $1}')"
+				break
+			fi
+			;;
+		esac
+
+		print_status "FAILED" "Invalid choice"
+	done
+	echo ""
+}
 
 # FIXIT
-# One of the passes applies twice
 # Design inconsistency, fields are not bold
 prompt_password() {
 	local user_type="$1"
@@ -236,6 +263,7 @@ stage2_prompts() {
 	echo ""
 
 	prompt_host
+	prompt_disk
 	prompt_password "root" "$CLR1" "ROOT_PASS"
 	prompt_password "user" "$CLR2" "USER_PASS"
 
@@ -301,8 +329,9 @@ run_disko() {
 	# nix --experimental-features "nix-command flakes" \
 	# 	run github:nix-community/disko/latest -- \
 	# 	--mode destroy,format,mount \
-	# 	${SCRIPT_DIR}/hosts/${HOSTNAME}/disko.nix \
-	# 	--yes-wipe-all-disks
+	# 	--yes-wipe-all-disks \
+	# 	--arg device '"'${DISK}'"' \
+	# 	${SCRIPT_DIR}/hosts/${HOSTNAME}/disko.nix
 	echo "*run_disko*"
 }
 
@@ -337,19 +366,32 @@ move_config() {
 	echo "*move_config*"
 }
 
-# NOTE
-# Maybe make it look cooler and show some info?
 stage4_installation() {
 	clear
 	greeting_banner
 	echo -e "${DIM}Stage 4 - Installation${RESET}"
 	echo ""
 
+	print_status "INFO" "Running disko..."
 	run_disko
+	echo ""
+
+	print_status "INFO" "Regenerating hardware config..."
 	regen_hwconfig
+	echo ""
+
+	print_status "INFO" "Installing NixOS..."
 	install
+	echo ""
+
+	print_status "INFO" "Setting passwords..."
 	set_passwords
+	echo ""
+
+	print_status "INFO" "Moving config..."
 	move_config
+	echo ""
+
 	finish_banner
 }
 
