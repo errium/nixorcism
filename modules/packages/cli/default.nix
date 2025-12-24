@@ -11,6 +11,7 @@
     ./fzf.nix
     ./git.nix
     ./helix.nix
+    ./nh.nix
     ./nix-search-tv.nix
     ./opencode.nix
     ./zoxide.nix

@@ -22,20 +22,21 @@
 
   nixorcism.packages = {
     cli = {
-      pkgArray.enable = true;
       btop.enable = true;
       fastfetch.enable = true;
+      fzf.enable = true;
       git.enable = true;
       helix.enable = true;
-      zoxide.enable = true;
-      fzf.enable = true;
-      opencode.enable = true;
+      nh.enable = true;
       nix-search-tv.enable = true;
+      opencode.enable = true;
+      pkgArray.enable = true;
+      zoxide.enable = true;
     };
 
     gui = {
-      pkgArray.enable = true;
       alacritty.enable = true;
+      pkgArray.enable = true;
     };
   };
 
@@ -47,9 +48,9 @@
     userShell = "fish";
     userPrompt = "starship";
     aliases.enable = true;
-    zsh.enable = true;
-    fish.enable = true;
     bash.enable = true;
+    fish.enable = true;
+    zsh.enable = true;
   };
 
   #=======================

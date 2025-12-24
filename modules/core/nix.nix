@@ -1,9 +1,17 @@
-{
-  nixpkgs.config.allowUnfree = true;
-  documentation.nixos.enable = false;
+{config, ...}: {
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = ["nix-command" "flakes"];
+    };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+    gc = {
+      automatic = !config.nixorcism.packages.cli.nh.enable;
+      dates = "daily";
+      options = "--delete-older-than 2d";
+    };
+  };
+
+  documentation.nixos.enable = false;
+  nixpkgs.config.allowUnfree = true;
 }
