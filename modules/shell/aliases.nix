@@ -11,7 +11,7 @@
     environment.shellAliases = {
       la = "ls -a";
       ll = "ls -lh";
-      lla = "ls -lah"
+      lla = "ls -lah";
       ".." = "cd ..";
       "..." = "cd ../..";
       "...." = "cd ../../..";
