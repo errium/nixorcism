@@ -17,10 +17,15 @@ readonly CLR2B="\033[1;36m" # BOLD_CYAN
 
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# ╻ ╻┏━╸╻  ┏━┓┏━╸┏━┓┏━┓
+# ┣━┫┣╸ ┃  ┣━┛┣╸ ┣┳┛┗━┓
+# ╹ ╹┗━╸┗━╸╹  ┗━╸╹┗╸┗━┛
+# Extract username from newly installed system
 get_username() {
 	awk -F: '$3 >= 1000 && $3 < 2000 {print $1; exit}' /mnt/etc/passwd
 }
 
+# Print colored status messages with icons
 print_status() {
 	local status="$1"
 	local message="$2"
@@ -29,7 +34,7 @@ print_status() {
 	case "$status" in
 	"OK")
 		color="$CLR2B"
-		icon="*"
+		icon="✓"
 		;;
 	"WARNING")
 		color="$BOLD_YELLOW"
@@ -55,6 +60,7 @@ print_status() {
 	echo -e "${color}${icon}${RESET} ${BOLD}${message}${RESET}"
 }
 
+# Prompt for text input
 prompt_input() {
 	local prompt="$1"
 	local var_name="$2"
@@ -63,21 +69,16 @@ prompt_input() {
 	read -r "$var_name"
 }
 
+# Prompt for yes/no confirmation
 prompt_confirm() {
 	local prompt="$1"
 	local color="${2:-$DIM}"
 	while true; do
 		read -p "$(echo -e "${color}>${RESET} ${BOLD}${prompt}${RESET} ${DIM}[y/n]${RESET}: ")" response
 		case "$response" in
-		y)
-			return 0
-			;;
-		n)
-			return 1
-			;;
-		*)
-			print_status "FAILED" "Please type 'y' or 'n'"
-			;;
+		y) return 0 ;;
+		n) return 1 ;;
+		*) print_status "FAILED" "Please type 'y' or 'n'" ;;
 		esac
 	done
 }
@@ -105,7 +106,7 @@ greeting_banner() {
 	echo ""
 }
 
-finish_banner() {
+completion_banner() {
 	local accent1=(
 		"    █▄                  "
 		"    ██       ▄          "
@@ -149,6 +150,15 @@ check_internet() {
 	fi
 }
 
+check_git() {
+	if which git >/dev/null 2>&1; then
+		print_status "OK" "Git is available"
+	else
+		print_status "FAILED" "Git is not available"
+		exit 1
+	fi
+}
+
 stage1_checks() {
 	clear
 	greeting_banner
@@ -157,19 +167,21 @@ stage1_checks() {
 
 	check_root
 	check_internet
+	check_git
 
-	echo "" && read -p "$(echo -e "${DIM}Press Enter to continue...${RESET}")"
+	echo ""
+	read -p "$(echo -e "${DIM}Press Enter to continue...${RESET}")"
 }
 
 # ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓         ┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳╸┏━┓
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┏━┛   ╺━╸   ┣━┛┣┳┛┃ ┃┃┃┃┣━┛ ┃ ┗━┓
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━╸         ╹  ╹┗╸┗━┛╹ ╹╹   ╹ ┗━┛
-# FIXIT
-# Design inconsistency, lack of prompt
+# Prompt user to select a host configuration
 prompt_host() {
 	local hosts_dir="${SCRIPT_DIR}/hosts"
 	local hosts=()
 
+	# Find all valid host configurations
 	for dir in "$hosts_dir"/*; do
 		if [[ -d "$dir" ]] && [[ -f "$dir/disko.nix" ]] && [[ -f "$dir/configuration.nix" ]]; then
 			hosts+=("$(basename "$dir")")
@@ -196,19 +208,18 @@ prompt_host() {
 			fi
 			;;
 		esac
-
 		print_status "FAILED" "Invalid choice"
 	done
 	echo ""
 }
 
-# TODO
-# prompt_disk() and modifications to run_disko()
+# Prompt user to select target disk
 prompt_disk() {
 	local disks=()
 
 	print_status "PROMPT" "Choose a disk"
 
+	# Get list of available disks (excluding loop devices)
 	while IFS= read -r line; do
 		disks+=("$line")
 	done < <(lsblk -ndo NAME,SIZE,MODEL | grep -v 'loop')
@@ -218,7 +229,7 @@ prompt_disk() {
 	done
 
 	while true; do
-		prompt_input "Choice: " choice
+		prompt_input "" choice
 		case "$choice" in
 		[0-9]*)
 			if ((choice >= 1 && choice <= ${#disks[@]})); then
@@ -227,24 +238,22 @@ prompt_disk() {
 			fi
 			;;
 		esac
-
 		print_status "FAILED" "Invalid choice"
 	done
 	echo ""
 }
 
-# FIXIT
-# Design inconsistency, fields are not bold
+# Prompt user to set passwords for root and user accounts
 prompt_password() {
 	local user_type="$1"
 	local color="$2"
 	local pass_var="$3"
 
-	print_status "PROMPT" "Set password for ${user_type}"
+	print_status "PROMPT" "Set password for ${color}${user_type}${RESET}"
 	while true; do
-		read -s -p "$(echo -e "${DIM}>${RESET} ${color}${user_type^}${RESET} password: ")" pass
+		read -s -p "$(echo -e "${DIM}>${RESET} ")" pass
 		echo ""
-		read -s -p "$(echo -e "${DIM}>${RESET} Confirm ${color}${user_type}${RESET} password: ")" pass_confirm
+		read -s -p "$(echo -e "${DIM}>${RESET} ${BOLD}Confirm:${RESET} ")" pass_confirm
 		echo ""
 
 		if [[ "$pass" == "$pass_confirm" ]]; then
@@ -275,37 +284,33 @@ stage2_prompts() {
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━┛         ┗━╸┗━┛╹ ╹╹  ╹╹┗╸╹ ╹╹ ╹ ╹ ╹┗━┛╹ ╹
 confirm_host() {
 	print_status "PROMPT" "Confirm host configuration"
-	echo -e "Selected host: ${CLR2}${HOSTNAME}${RESET}"
-
+	echo -e "${DIM}·${RESET} Selected host: ${CLR2}${HOSTNAME}${RESET}"
 	prompt_confirm "Correct?" || exit 0
 	echo ""
 }
 
-confirm_disko() {
-	print_status "PROMPT" "Review disko configuration"
-	echo -e "Disko config: ${CLR1}hosts/${HOSTNAME}/disko.nix${RESET}"
-	echo -e "Verify the disk configuration before proceeding"
+confirm_disk() {
+	print_status "PROMPT" "Confirm disk selection"
+	echo -e "${DIM}·${RESET} Selected disk: ${CLR1}${DISK}${RESET}"
+	print_status "WARNING" "Chosen disk will be formatted according to disko.nix"
+	print_status "WARNING" "All data on the chosen disk will be destroyed"
+	prompt_confirm "Correct disk?" || exit 0
+	echo ""
+}
 
+confirm_disko() {
+	print_status "PROMPT" "Verify disko configuration"
+	echo -e "${DIM}·${RESET} Disko config location: ${CLR2}hosts/${HOSTNAME}/disko.nix${RESET}"
 	prompt_confirm "Have you checked disko.nix?" || exit 1
 	echo ""
 }
 
-confirm_disks() {
-	print_status "INFO" "Current disk state:"
-	lsblk -o NAME,SIZE,TYPE,MODEL
-	print_status "WARNING" "All data on the target disk will be destroyed!"
-
-	prompt_confirm "Correct disk target?" || exit 0
-	echo ""
-}
-
 confirm_final() {
-	print_status "PROMPT" "Final confirmation"
-	echo -e "Ready to install:"
-	echo -e "${DIM}-${RESET} Host: ${CLR2}${HOSTNAME}${RESET}"
-	echo -e "${DIM}-${RESET} Config: ${CLR1}hosts/${HOSTNAME}/${RESET}"
-	print_status "WARNING" "The target disk will be completely erased!"
-
+	print_status "PROMPT" "Ready to install"
+	echo -e "${DIM}·${RESET} Host: ${CLR2}${HOSTNAME}${RESET}"
+	echo -e "${DIM}·${RESET} Disk: ${CLR1}${DISK}${RESET}"
+	echo -e "${DIM}·${RESET} Config: ${CLR2}hosts/${HOSTNAME}/${RESET}"
+	print_status "WARNING" "This is your last chance to verify everything and/or abort"
 	prompt_confirm "Proceed?" || exit 0
 	echo ""
 }
@@ -317,8 +322,8 @@ stage3_confirmation() {
 	echo ""
 
 	confirm_host
+	confirm_disk
 	confirm_disko
-	confirm_disks
 	confirm_final
 }
 
@@ -326,44 +331,37 @@ stage3_confirmation() {
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┗━┫   ╺━╸   ┃┃┗┫┗━┓ ┃ ┣━┫┃  ┃  ┣━┫ ┃ ┃┃ ┃┃┗┫
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸     ╹         ╹╹ ╹┗━┛ ╹ ╹ ╹┗━╸┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹
 run_disko() {
-	# nix --experimental-features "nix-command flakes" \
-	# 	run github:nix-community/disko/latest -- \
-	# 	--mode destroy,format,mount \
-	# 	--yes-wipe-all-disks \
-	# 	--arg device '"'${DISK}'"' \
-	# 	${SCRIPT_DIR}/hosts/${HOSTNAME}/disko.nix
-	echo "*run_disko*"
+	nix --experimental-features "nix-command flakes" \
+		run github:nix-community/disko/latest -- \
+		--mode destroy,format,mount \
+		--yes-wipe-all-disks \
+		--arg device '"'${DISK}'"' \
+		${SCRIPT_DIR}/hosts/${HOSTNAME}/disko.nix
 }
 
 regen_hwconfig() {
-	# nixos-generate-config --show-hardware-config --root /mnt |
-	# 	tee ${SCRIPT_DIR}/hosts/${HOSTNAME}/hardware-configuration.nix >/dev/null
-	echo "*regen_hwconfig*"
+	nixos-generate-config --show-hardware-config --root /mnt |
+		tee ${SCRIPT_DIR}/hosts/${HOSTNAME}/hardware-configuration.nix >/dev/null
 }
 
 install() {
-	# nixos-install \
-	# 	--no-root-password \
-	# 	--flake ${SCRIPT_DIR}#${HOSTNAME}
-	echo "*install*"
+	nixos-install \
+		--no-root-password \
+		--flake ${SCRIPT_DIR}#${HOSTNAME}
 }
 
 set_passwords() {
-	# local username=$(get_username)
-
-	# nixos-enter --root /mnt -c "chpasswd" <<<"root:${ROOT_PASS}"
-	# nixos-enter --root /mnt -c "chpasswd" <<<"${username}:${USER_PASS}"
-	echo "*set_passwords*"
+	local username=$(get_username)
+	nixos-enter --root /mnt -c "chpasswd" <<<"root:${ROOT_PASS}"
+	nixos-enter --root /mnt -c "chpasswd" <<<"${username}:${USER_PASS}"
 }
 
 move_config() {
-	# local username=$(get_username)
-	# local target_dir="/mnt/home/${username}/nixorcism"
-
-	# mkdir -p "$target_dir"
-	# cp -rT "${SCRIPT_DIR}" "$target_dir"
-	# nixos-enter --root /mnt -c "chown -R ${username}:users /home/${username}/nixorcism"
-	echo "*move_config*"
+	local username=$(get_username)
+	local target_dir="/mnt/home/${username}/nixorcism"
+	mkdir -p "$target_dir"
+	cp -rT "${SCRIPT_DIR}" "$target_dir"
+	nixos-enter --root /mnt -c "chown -R ${username}:users /home/${username}/nixorcism"
 }
 
 stage4_installation() {
@@ -392,7 +390,7 @@ stage4_installation() {
 	move_config
 	echo ""
 
-	finish_banner
+	completion_banner
 }
 
 # ┏┳┓┏━┓╻┏┓╻
