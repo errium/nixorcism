@@ -41,7 +41,7 @@
       };
   in {
     nixosConfigurations = {
-      # dudos-machine = mkSystem "dudos-machine";
+      dudos-machine = mkSystem "dudos-machine";
       virtual-nix = mkSystem "virtual-nix";
     };
   };

@@ -29,9 +29,7 @@
       figlet
       gdu
       kew
-      ninvaders
-      nsnake
-      pipes
+      terminal-toys
       toilet
       tree
       tty-clock

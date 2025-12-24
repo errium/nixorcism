@@ -10,6 +10,11 @@
       dates = "daily";
       options = "--delete-older-than 2d";
     };
+
+    optimise = {
+      automatic = true;
+      dates = "daily";
+    };
   };
 
   documentation.nixos.enable = false;

@@ -4,10 +4,9 @@
     ../../modules
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "virtual-nix";
   system.stateVersion = "25.11";
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixorcism = {
     stylix.enable = true;
