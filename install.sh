@@ -74,7 +74,7 @@ prompt_confirm() {
 	local prompt="$1"
 	local color="${2:-$DIM}"
 	while true; do
-		read -p "$(echo -e "${color}>${RESET} ${BOLD}${prompt}${RESET} ${DIM}[y/n]${RESET}: ")" response
+		read -rp "$(echo -e "${color}>${RESET} ${BOLD}${prompt}${RESET} ${DIM}[y/n]${RESET}: ")" response
 		case "$response" in
 		y) return 0 ;;
 		n) return 1 ;;
@@ -170,7 +170,7 @@ stage1_checks() {
 	check_git
 
 	echo ""
-	read -p "$(echo -e "${DIM}Press Enter to continue...${RESET}")"
+	read -rp "$(echo -e "${DIM}Press Enter to continue...${RESET}")"
 }
 
 # ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓         ┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳╸┏━┓
@@ -251,9 +251,9 @@ prompt_password() {
 
 	print_status "PROMPT" "Set password for ${color}${user_type}${RESET}"
 	while true; do
-		read -s -p "$(echo -e "${DIM}>${RESET} ")" pass
+		read -rsp "$(echo -e "${DIM}>${RESET} ")" pass
 		echo ""
-		read -s -p "$(echo -e "${DIM}>${RESET} ${BOLD}Confirm:${RESET} ")" pass_confirm
+		read -rsp "$(echo -e "${DIM}>${RESET} ${BOLD}Confirm:${RESET} ")" pass_confirm
 		echo ""
 
 		if [[ "$pass" == "$pass_confirm" ]]; then
@@ -276,7 +276,7 @@ stage2_prompts() {
 	prompt_password "root" "$CLR1" "ROOT_PASS"
 	prompt_password "user" "$CLR2" "USER_PASS"
 
-	read -p "$(echo -e "${DIM}Press Enter to continue...${RESET}")"
+	read -rp "$(echo -e "${DIM}Press Enter to continue...${RESET}")"
 }
 
 # ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓         ┏━╸┏━┓┏┓╻┏━╸╻┏━┓┏┳┓┏━┓╺┳╸╻┏━┓┏┓╻
@@ -335,19 +335,19 @@ run_disko() {
 		run github:nix-community/disko/latest -- \
 		--mode destroy,format,mount \
 		--yes-wipe-all-disks \
-		--arg device '"'${DISK}'"' \
-		${SCRIPT_DIR}/hosts/${HOSTNAME}/disko.nix
+		--arg device '"'"${DISK}"'"' \
+		"${SCRIPT_DIR}"/hosts/"${HOSTNAME}"/disko.nix
 }
 
 regen_hwconfig() {
 	nixos-generate-config --show-hardware-config --root /mnt |
-		tee ${SCRIPT_DIR}/hosts/${HOSTNAME}/hardware-configuration.nix >/dev/null
+		tee "${SCRIPT_DIR}"/hosts/"${HOSTNAME}"/hardware-configuration.nix >/dev/null
 }
 
 install() {
 	nixos-install \
 		--no-root-password \
-		--flake ${SCRIPT_DIR}#${HOSTNAME}
+		--flake "${SCRIPT_DIR}"#"${HOSTNAME}"
 }
 
 set_passwords() {
