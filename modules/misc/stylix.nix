@@ -17,7 +17,7 @@
       stylixColors = import ./stylixColors.nix;
     in {
       enable = true;
-      autoEnable = config.nixorcism.stylix.enable;
+      autoEnable = config.nixorcism.misc.stylix.enable;
 
       polarity = "dark";
       base16Scheme = stylixColors.vague;
