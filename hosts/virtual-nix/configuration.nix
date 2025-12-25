@@ -55,8 +55,4 @@
     fish.enable = true;
     zsh.enable = true;
   };
-
-  #=======================
-
-  boot.loader.grub.useOSProber = false;
 }

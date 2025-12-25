@@ -9,7 +9,6 @@
         enable = true;
         device = "nodev";
         efiSupport = true;
-        useOSProber = lib.mkDefault true;
         fontSize = 28;
       };
 
