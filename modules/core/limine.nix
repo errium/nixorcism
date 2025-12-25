@@ -9,6 +9,10 @@
         enable = true;
         efiSupport = true;
         maxGenerations = 50;
+
+        style = {
+          wallpapers = [];
+        };
       };
 
       efi = {
