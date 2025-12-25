@@ -2,10 +2,9 @@
   imports = [
     ./core
     ./desktop
+    ./misc
     ./packages
     ./services
     ./shell
-    ./home.nix
-    ./stylix.nix
   ];
 }
