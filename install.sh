@@ -284,14 +284,14 @@ stage2_prompts() {
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━┛         ┗━╸┗━┛╹ ╹╹  ╹╹┗╸╹ ╹╹ ╹ ╹ ╹┗━┛╹ ╹
 confirm_host() {
 	print_status "PROMPT" "Confirm host configuration"
-	echo -e "${DIM}·${RESET} Selected host: ${CLR2}${HOSTNAME}${RESET}"
+	echo -e "${DIM}│${RESET} Selected host: ${CLR2}${HOSTNAME}${RESET}"
 	prompt_confirm "Correct?" || exit 0
 	echo ""
 }
 
 confirm_disk() {
 	print_status "PROMPT" "Confirm disk selection"
-	echo -e "${DIM}·${RESET} Selected disk: ${CLR1}${DISK}${RESET}"
+	echo -e "${DIM}│${RESET} Selected disk: ${CLR1}${DISK}${RESET}"
 	print_status "WARNING" "Chosen disk will be formatted according to disko.nix"
 	print_status "WARNING" "All data on the chosen disk will be destroyed"
 	prompt_confirm "Correct disk?" || exit 0
@@ -300,16 +300,16 @@ confirm_disk() {
 
 confirm_disko() {
 	print_status "PROMPT" "Verify disko configuration"
-	echo -e "${DIM}·${RESET} Disko config location: ${CLR2}hosts/${HOSTNAME}/disko.nix${RESET}"
+	echo -e "${DIM}│${RESET} Disko config location: ${CLR2}hosts/${HOSTNAME}/disko.nix${RESET}"
 	prompt_confirm "Have you checked disko.nix?" || exit 1
 	echo ""
 }
 
 confirm_final() {
 	print_status "PROMPT" "Ready to install"
-	echo -e "${DIM}·${RESET} Host: ${CLR2}${HOSTNAME}${RESET}"
-	echo -e "${DIM}·${RESET} Disk: ${CLR1}${DISK}${RESET}"
-	echo -e "${DIM}·${RESET} Config: ${CLR2}hosts/${HOSTNAME}/${RESET}"
+	echo -e "${DIM}│${RESET} Host: ${CLR2}${HOSTNAME}${RESET}"
+	echo -e "${DIM}│${RESET} Disk: ${CLR1}${DISK}${RESET}"
+	echo -e "${DIM}│${RESET} Config: ${CLR2}hosts/${HOSTNAME}/${RESET}"
 	print_status "WARNING" "This is your last chance to verify everything and/or abort"
 	prompt_confirm "Proceed?" || exit 0
 	echo ""
