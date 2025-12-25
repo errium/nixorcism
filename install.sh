@@ -34,7 +34,7 @@ print_status() {
 	case "$status" in
 	"OK")
 		color="$CLR2B"
-		icon="✓"
+		icon="*"
 		;;
 	"WARNING")
 		color="$BOLD_YELLOW"
@@ -65,7 +65,7 @@ prompt_input() {
 	local prompt="$1"
 	local var_name="$2"
 	local color="${3:-$DIM}"
-	echo -ne "${color}»${RESET} ${BOLD}${prompt}${RESET}"
+	echo -ne "${color}>${RESET} ${BOLD}${prompt}${RESET}"
 	read -r "$var_name"
 }
 
@@ -74,7 +74,7 @@ prompt_confirm() {
 	local prompt="$1"
 	local color="${2:-$DIM}"
 	while true; do
-		read -rp "$(echo -e "${color}»${RESET} ${BOLD}${prompt}${RESET} ${DIM}[y/n]${RESET}: ")" response
+		read -rp "$(echo -e "${color}>${RESET} ${BOLD}${prompt}${RESET} ${DIM}[y/n]${RESET}: ")" response
 		case "$response" in
 		y) return 0 ;;
 		n) return 1 ;;
@@ -251,9 +251,9 @@ prompt_password() {
 
 	print_status "PROMPT" "Set password for ${color}${user_type}${RESET}"
 	while true; do
-		read -rsp "$(echo -e "${DIM}»${RESET} ")" pass
+		read -rsp "$(echo -e "${DIM}>${RESET} ")" pass
 		echo ""
-		read -rsp "$(echo -e "${DIM}»${RESET} ${BOLD}Confirm:${RESET} ")" pass_confirm
+		read -rsp "$(echo -e "${DIM}>${RESET} ${BOLD}Confirm:${RESET} ")" pass_confirm
 		echo ""
 
 		if [[ "$pass" == "$pass_confirm" ]]; then
