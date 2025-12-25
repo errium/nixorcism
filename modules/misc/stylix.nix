@@ -8,7 +8,7 @@
     inputs.stylix.nixosModules.stylix
   ];
 
-  options.nixorcism = {
+  options.nixorcism.misc = {
     stylix.enable = lib.mkEnableOption "Enable stylix";
   };
 

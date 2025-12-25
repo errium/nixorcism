@@ -8,7 +8,7 @@
   networking.hostName = "virtual-nix";
   system.stateVersion = "25.11";
 
-  nixorcism = {
+  nixorcism.misc = {
     stylix.enable = true;
   };
 
