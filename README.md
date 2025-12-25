@@ -4,6 +4,9 @@
 
 <img alt="A screenshot of my desktop should've been here" src="assets/almost-a-rice.png" width="900px">
 
+![nixpkgs badge](https://img.shields.io/badge/nixpkgs-unstable-cyan?style=for-the-badge&labelColor=black)
+![home-manager badge](https://img.shields.io/badge/home--manager-master-greenyellow?style=for-the-badge&labelColor=black)
+
 _My personal NixOS configuration._
 
 </div>
@@ -15,6 +18,7 @@ It was, is, and always will be **WIP**. I tinker with my configs, explore the Ni
 ## 💡 What are the goals?
 
 - **Multi-host support** - Single config for multiple machines
+- **Unattended installation** - Run the install script on any NixOS iso and wait for a few minutes
 - **Easy experimentation** - Swap desktops, bootloaders, and tools effortlessly
 - **Clear architecture** - Self-contained, readable module organization
 - **Handy tools** - A bit of CLI awesomeness
