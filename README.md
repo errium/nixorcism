@@ -18,7 +18,7 @@ It was, is, and always will be **WIP**. I tinker with my configs, explore the Ni
 ## 💡 What are the goals?
 
 - **Multi-host support** - Single config for multiple machines
-- **Unattended installation** - Run the install script on any NixOS iso and wait for a few minutes
+- **Unattended installation** - Run the install script inside NixOS .iso and wait for a few minutes
 - **Easy experimentation** - Swap desktops, bootloaders, and tools effortlessly
 - **Clear architecture** - Self-contained, readable module organization
 - **Handy tools** - A bit of CLI awesomeness
