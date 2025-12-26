@@ -37,10 +37,9 @@
       };
     };
 
-    hm.stylix = {
-      targets = {
-        opencode.enable = false;
-      };
+    hm.stylix.targets = {
+      librewolf.profileNames = ["default"];
+      opencode.enable = false;
     };
   };
 }

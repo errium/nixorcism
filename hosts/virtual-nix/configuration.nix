@@ -39,6 +39,7 @@
 
     gui = {
       alacritty.enable = true;
+      librewolf.enable = true;
       pkgArray.enable = true;
     };
   };
