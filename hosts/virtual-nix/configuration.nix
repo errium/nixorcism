@@ -25,7 +25,6 @@
 
   nixorcism.packages = {
     cli = {
-      btop.enable = true;
       fastfetch.enable = true;
       fzf.enable = true;
       git.enable = true;
@@ -40,7 +39,6 @@
     gui = {
       alacritty.enable = true;
       librewolf.enable = true;
-      pkgArray.enable = true;
     };
   };
 
@@ -52,8 +50,6 @@
     userShell = "fish";
     userPrompt = "starship";
     aliases.enable = true;
-    bash.enable = true;
     fish.enable = true;
-    zsh.enable = true;
   };
 }
