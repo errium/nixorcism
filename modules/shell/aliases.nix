@@ -1,13 +1,23 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{lib, ...}: let
+  confDir = "~/nixorcism";
+  commonAliases = {
+    la = "eza -a";
+    ll = "eza -lh";
+    lla = "eza -lah";
+    ff = "fastfetch";
+
+    gen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
+    ngc = "sudo nix-collect-garbage -d";
+    nrs = "sudo nixos-rebuild switch --flake ${confDir}";
+    upd = "nix flake update --flake ${confDir}";
+    upg = "sudo nixos-rebuild switch --upgrade --flake ${confDir}";
+  };
+in {
   options.nixorcism.shell = {
-    aliases.enable = lib.mkEnableOption "Enables global shell aliases";
+    aliases = lib.mkOption {type = lib.types.attrs;};
   };
 
-  config = lib.mkIf config.nixorcism.shell.aliases.enable {
+  config = {
     environment.shellAliases = {
       la = "ls -a";
       ll = "ls -lh";
@@ -17,19 +27,7 @@
       "...." = "cd ../../..";
     };
 
-    hm.home.shellAliases = let
-      confDir = "~/nixorcism";
-    in {
-      la = "eza -a";
-      ll = "eza -lh";
-      lla = "eza -lah";
-      ff = "fastfetch";
-
-      nrs = "sudo nixos-rebuild switch --flake ${confDir}";
-      gen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
-      ngc = "sudo nix-collect-garbage -d";
-      upd = "nix flake update --flake ${confDir}";
-      upg = "sudo nixos-rebuild switch --upgrade --flake ${confDir}";
-    };
+    nixorcism.shell.aliases = commonAliases;
+    hm.home.shellAliases = commonAliases;
   };
 }

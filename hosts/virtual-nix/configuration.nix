@@ -49,7 +49,6 @@
   nixorcism.shell = {
     userShell = "fish";
     userPrompt = "starship";
-    aliases.enable = true;
     fish.enable = true;
   };
 }
