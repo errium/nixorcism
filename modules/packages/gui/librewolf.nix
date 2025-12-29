@@ -11,6 +11,7 @@
   config = lib.mkIf config.nixorcism.packages.gui.librewolf.enable {
     hm.programs.librewolf = {
       enable = true;
+      languagePacks = ["ru" "en-US"];
 
       profiles.default = {
         isDefault = true;
