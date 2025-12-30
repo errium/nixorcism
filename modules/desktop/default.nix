@@ -1,8 +1,10 @@
 {
   imports = [
-    ./ly.nix
+    ./desktop-environments
+    ./desktop-shells
+    ./display-managers
+    ./window-managers
     ./sound.nix
-    ./xfce.nix
     ./xkb.nix
   ];
 }

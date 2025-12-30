@@ -17,9 +17,9 @@
   };
 
   nixorcism.desktop = {
-    ly.enable = true;
+    display-managers.ly.enable = true;
     sound.enable = true;
-    xfce.enable = true;
+    desktop-environments.xfce.enable = true;
     xkb.enable = true;
   };
 

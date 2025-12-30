@@ -3,11 +3,11 @@
   lib,
   ...
 }: {
-  options.nixorcism.desktop = {
+  options.nixorcism.desktop.display-managers = {
     ly.enable = lib.mkEnableOption "Enables ly";
   };
 
-  config = lib.mkIf config.nixorcism.desktop.ly.enable {
+  config = lib.mkIf config.nixorcism.desktop.display-managers.ly.enable {
     services.displayManager.ly = {
       enable = true;
 
