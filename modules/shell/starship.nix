@@ -12,7 +12,7 @@
 
       settings = {
         character = {
-          success_symbol = "[❯ :](bold white)";
+          success_symbol = "[❯ :](bold green)";
           error_symbol = "[✖ :](bold red)";
         };
 

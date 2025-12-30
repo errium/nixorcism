@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  config,
+  lib,
+  ...
+}: let
   confDir = "~/nixorcism";
   commonAliases = {
     la = "eza -a";
@@ -13,9 +17,7 @@
     upg = "sudo nixos-rebuild switch --upgrade --flake ${confDir}";
   };
 in {
-  options.nixorcism.shell = {
-    aliases = lib.mkOption {type = lib.types.attrs;};
-  };
+  options.nixorcism.shell.aliases = lib.mkOption {type = lib.types.attrs;};
 
   config = {
     environment.shellAliases = {
@@ -28,6 +30,6 @@ in {
     };
 
     nixorcism.shell.aliases = commonAliases;
-    hm.home.shellAliases = commonAliases;
+    hm.home.shellAliases = config.nixorcism.shell.aliases;
   };
 }
