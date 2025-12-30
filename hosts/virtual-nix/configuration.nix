@@ -18,6 +18,7 @@
 
   nixorcism.desktop = {
     display-managers.ly.enable = true;
+    window-managers.mangowc.enable = true;
     sound.enable = true;
     desktop-environments.xfce.enable = true;
     xkb.enable = true;
