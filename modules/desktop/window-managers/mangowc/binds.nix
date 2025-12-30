@@ -1,102 +1,95 @@
 ''
-  # Key Bindings
-  # key name refer to `xev` or `wev` command output,
-  # mod keys name: super,ctrl,alt,shift,none
+  # Essentials
+  bind=SUPER+SHIFT,c,reload_config
+  bind=SUPER+SHIFT,m,quit
+  bind=SUPER,e,spawn,nemo
+  bind=SUPER,n,switch_layout
+  bind=SUPER,q,killclient,
+  bind=SUPER,space,spawn,rofi -show drun
+  bind=SUPER,t,spawn,alacritty
 
-  # reload config
-  bind=SUPER,r,reload_config
+  # Navigation
+  bind=SUPER,Left,focusdir,left
+  bind=SUPER,Down,focusdir,down
+  bind=SUPER,Up,focusdir,up
+  bind=SUPER,Right,focusdir,right
 
-  # menu and terminal
-  bind=Alt,space,spawn,rofi -show drun
-  bind=Alt,Return,spawn,foot
-
-  # exit
-  bind=SUPER,m,quit
-  bind=ALT,q,killclient,
-
-  # switch window focus
-  bind=SUPER,Tab,focusstack,next
-  bind=ALT,Left,focusdir,left
-  bind=ALT,Right,focusdir,right
-  bind=ALT,Up,focusdir,up
-  bind=ALT,Down,focusdir,down
-
-  # swap window
-  bind=SUPER+SHIFT,Up,exchange_client,up
-  bind=SUPER+SHIFT,Down,exchange_client,down
+  # Move window
   bind=SUPER+SHIFT,Left,exchange_client,left
+  bind=SUPER+SHIFT,Down,exchange_client,down
+  bind=SUPER+SHIFT,Up,exchange_client,up
   bind=SUPER+SHIFT,Right,exchange_client,right
 
-  # switch window status
-  bind=SUPER,g,toggleglobal,
+  # Resize window
+  bind=SUPER+CTRL,Left,resizewin,-50,+0
+  bind=SUPER+CTRL,Down,resizewin,+0,+50
+  bind=SUPER+CTRL,Up,resizewin,+0,-50
+  bind=SUPER+CTRL,Right,resizewin,+50,+0
+
+  # Switch window status
   bind=ALT,Tab,toggleoverview,
-  bind=ALT,backslash,togglefloating,
-  bind=ALT,a,togglemaximizescreen,
-  bind=ALT,f,togglefullscreen,
-  bind=ALT+SHIFT,f,togglefakefullscreen,
-  bind=SUPER,i,minimized,
-  bind=SUPER,o,toggleoverlay,
-  bind=SUPER+SHIFT,I,restore_minimized
-  bind=ALT,z,toggle_scratchpad
+  bind=SUPER+SHIFT,f,togglefullscreen,
+  bind=SUPER,f,togglemaximizescreen,
+  bind=SUPER,g,toggleglobal,
+  bind=SUPER,s,toggle_scratchpad
+  bind=SUPER,v,togglefloating,
 
-  # scroller layout
-  bind=ALT,e,set_proportion,1.0
-  bind=ALT,x,switch_proportion_preset,
+  # Scrolling layout
+  bind=SUPER,c,centerwin,
+  bind=SUPER,r,switch_proportion_preset,
 
-  # switch layout
-  bind=SUPER,n,switch_layout
+  # Tag navigation
+  bind=SUPER,1,view,1,0
+  bind=SUPER,2,view,2,0
+  bind=SUPER,3,view,3,0
+  bind=SUPER,4,view,4,0
+  bind=SUPER,5,view,5,0
+  bind=SUPER,6,view,6,0
+  bind=SUPER,7,view,7,0
+  bind=SUPER,8,view,8,0
+  bind=SUPER,9,view,9,0
 
-  # tag switch
-  bind=SUPER,Left,viewtoleft,0
-  bind=CTRL,Left,viewtoleft_have_client,0
-  bind=SUPER,Right,viewtoright,0
-  bind=CTRL,Right,viewtoright_have_client,0
-  bind=CTRL+SUPER,Left,tagtoleft,0
-  bind=CTRL+SUPER,Right,tagtoright,0
+  # Move window to tag
+  bind=SUPER+SHIFT,1,tag,1,0
+  bind=SUPER+SHIFT,2,tag,2,0
+  bind=SUPER+SHIFT,3,tag,3,0
+  bind=SUPER+SHIFT,4,tag,4,0
+  bind=SUPER+SHIFT,5,tag,5,0
+  bind=SUPER+SHIFT,6,tag,6,0
+  bind=SUPER+SHIFT,7,tag,7,0
+  bind=SUPER+SHIFT,8,tag,8,0
+  bind=SUPER+SHIFT,9,tag,9,0
 
-  bind=Ctrl,1,view,1,0
-  bind=Ctrl,2,view,2,0
-  bind=Ctrl,3,view,3,0
-  bind=Ctrl,4,view,4,0
-  bind=Ctrl,5,view,5,0
-  bind=Ctrl,6,view,6,0
-  bind=Ctrl,7,view,7,0
-  bind=Ctrl,8,view,8,0
-  bind=Ctrl,9,view,9,0
+  # Monitor navigation
+  bind=ALT,Left,focusmon,left
+  bind=ALT,Right,focusmon,right
 
-  # tag: move client to the tag and focus it
-  # tagsilent: move client to the tag and not focus it
-  # bind=Alt,1,tagsilent,1
-  bind=Alt,1,tag,1,0
-  bind=Alt,2,tag,2,0
-  bind=Alt,3,tag,3,0
-  bind=Alt,4,tag,4,0
-  bind=Alt,5,tag,5,0
-  bind=Alt,6,tag,6,0
-  bind=Alt,7,tag,7,0
-  bind=Alt,8,tag,8,0
-  bind=Alt,9,tag,9,0
+  # Move window to monitor
+  bind=ALT+SHIFT,Left,tagmon,left
+  bind=ALT+SHIFT,Right,tagmon,right
 
-  # monitor switch
-  bind=alt+shift,Left,focusmon,left
-  bind=alt+shift,Right,focusmon,right
-  bind=SUPER+Alt,Left,tagmon,left
-  bind=SUPER+Alt,Right,tagmon,right
+  # System
+  bind=NONE,XF86AudioPlay,spawn_shell,playerctl play-pause
+  bind=NONE,XF86AudioNext,spawn_shell,playerctl next
+  bind=NONE,XF86AudioPrev,spawn_shell,playerctl previous
+  bind=NONE,XF86AudioRaiseVolume,spawn_shell,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+  bind=NONE,XF86AudioLowerVolume,spawn_shell,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+  bind=NONE,XF86AudioMute,spawn_shell,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+  bind=NONE,XF86AudioMicMute,spawn_shell,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+  bind=NONE,XF86MonBrightnessUp,spawn_shell,brightnessctl set +5%
+  bind=NONE,XF86MonBrightnessDown,spawn_shell,brightnessctl set 5%-
 
-  # gaps
-  bind=ALT+SHIFT,X,incgaps,1
-  bind=ALT+SHIFT,Z,incgaps,-1
-  bind=ALT+SHIFT,R,togglegaps
+  # Trackpad
+  gesturebind=NONE,Left,3,focusdir,left
+  gesturebind=NONE,Right,3,focusdir,right
+  gesturebind=NONE,Up,4,toggleoverview
 
-  # movewin
-  bind=CTRL+SHIFT,Up,movewin,+0,-50
-  bind=CTRL+SHIFT,Down,movewin,+0,+50
-  bind=CTRL+SHIFT,Left,movewin,-50,+0
-  bind=CTRL+SHIFT,Right,movewin,+50,+0
-
-  # resizewin
-  bind=CTRL+ALT,Up,resizewin,+0,-50
-  bind=CTRL+ALT,Down,resizewin,+0,+50
-  bind=CTRL+ALT,Left,resizewin,-50,+0
-  bind=CTRL+ALT,Right,resizewin,+50,+0
+  # Mouse
+  axisbind=SUPER,UP,viewtoleft_have_client
+  axisbind=SUPER,DOWN,viewtoright_have_client
+  mousebind=NONE,btn_left,toggleoverview,1
+  mousebind=NONE,btn_middle,togglemaximizescreen,0
+  mousebind=NONE,btn_right,killclient,0
+  mousebind=SUPER,btn_left,moveresize,curmove
+  mousebind=SUPER,btn_right,moveresize,curresize
 ''
