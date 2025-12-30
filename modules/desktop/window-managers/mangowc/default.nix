@@ -14,5 +14,8 @@
 
   config = lib.mkIf config.nixorcism.desktop.window-managers.mangowc.enable {
     programs.mango.enable = true;
+
+    hm.home.file.".config/mango/config.conf".source =
+      config.lib.file.mkOutOfStoreSymlink /home/errium/nixorcism/modules/desktop/window-managers/mangowc/config.conf;
   };
 }
