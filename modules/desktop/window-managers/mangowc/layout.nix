@@ -22,7 +22,7 @@
   # Overview
   hotarea_size=10
   enable_hotarea=0
-  ov_tab_mode=1
+  ov_tab_mode=0
   overviewgappi=8
   overviewgappo=16
 
