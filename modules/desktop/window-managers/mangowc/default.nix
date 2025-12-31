@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  pkgs,
   ...
 }: {
   imports = [inputs.mango.nixosModules.mango];
@@ -22,8 +23,19 @@
     in {
       imports = [inputs.mango.hmModules.mango];
 
+      home.packages = with pkgs; [
+        cliphist
+        wl-clip-persist
+        wl-clipboard
+      ];
+
       wayland.windowManager.mango = {
         enable = true;
+        autostart_sh = ''
+          dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
+          wl-clip-persist --clipboard regular --reconnect-tries 0 &
+          wl-paste --type text --watch cliphist store &
+        '';
         settings =
           ''''
           + appearance
@@ -31,7 +43,6 @@
           + input-devices
           + layout
           + misc;
-        # autostart_sh = {};
       };
     };
   };

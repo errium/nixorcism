@@ -10,6 +10,8 @@
     lla = "eza -lah";
     ff = "fastfetch";
 
+    conf = "cd ${confDir}";
+
     gen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
     ngc = "sudo nix-collect-garbage -d";
     nrs = "sudo nixos-rebuild switch --flake ${confDir}";
