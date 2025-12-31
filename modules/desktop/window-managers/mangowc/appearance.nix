@@ -1,5 +1,5 @@
 ''
-  # Window effect
+  # Blur
   blur=0
   blur_layer=0
   blur_optimized=1
@@ -10,6 +10,7 @@
   blur_params_contrast = 0.9
   blur_params_saturation = 1.2
 
+  # Shadows
   shadows = 0
   layer_shadows = 0
   shadow_only_floating = 1
@@ -19,13 +20,13 @@
   shadows_position_y = 0
   shadowscolor= 0x000000ff
 
-  border_radius=6
+  # Borders & opacity
+  border_radius=4
   no_radius_when_single=0
   focused_opacity=1.0
   unfocused_opacity=1.0
 
-  # Animation Configuration(support type:zoom,slide)
-  # tag_animation_direction: 0-horizontal,1-vertical
+  # Animations
   animations=1
   layer_animations=1
   animation_type_open=slide
@@ -50,14 +51,14 @@
   animation_curve_opafadeout=0.5,0.5,0.5,0.5
   animation_curve_opafadein=0.46,1.0,0.29,1
 
-  # Appearance
-  gappih=5
-  gappiv=5
-  gappoh=10
-  gappov=10
+  # Gaps & colors
+  gappih=10
+  gappiv=10
+  gappoh=12
+  gappov=12
   scratchpad_width_ratio=0.8
   scratchpad_height_ratio=0.9
-  borderpx=4
+  borderpx=3
   rootcolor=0x201b14ff
   bordercolor=0x444444ff
   focuscolor=0xc9b890ff
