@@ -1,28 +1,33 @@
 ''
-  # Scroller Layout Setting
+  # Scroller
   scroller_structs=20
-  scroller_default_proportion=0.8
+  scroller_default_proportion=0.50
   scroller_focus_center=0
   scroller_prefer_center=0
   edge_scroller_pointer_focus=1
   scroller_default_proportion_single=1.0
-  scroller_proportion_preset=0.5,0.8,1.0
+  # scroller_proportion_preset=0.25,0.50,0.75,1.0
+  scroller_proportion_preset=0.33333,0.50,0.66667,1.0
 
-  # Master-Stack Layout Setting
-  new_is_master=1
+  # Master-Stack (tile & center_tile)
+  new_is_master=0
   default_mfact=0.55
   default_nmaster=1
   smartgaps=0
 
-  # Overview Setting
-  hotarea_size=10
-  enable_hotarea=1
-  ov_tab_mode=0
-  overviewgappi=5
-  overviewgappo=30
+  # Master-Stach (center_tile)
+  center_master_overspread=0
+  center_when_single_stack=1
 
-  # layout support:
-  # tile,scroller,grid,deck,monocle,center_tile,vertical_tile,vertical_scroller
+  # Overview
+  hotarea_size=10
+  enable_hotarea=0
+  ov_tab_mode=1
+  overviewgappi=8
+  overviewgappo=16
+
+  # Default layouts
+  # Supported: tile, scroller, grid, deck, monocle, center_tile, vertical_tile, vertical_scroller
   tagrule=id:1,layout_name:tile
   tagrule=id:2,layout_name:tile
   tagrule=id:3,layout_name:tile
