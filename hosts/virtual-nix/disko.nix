@@ -2,8 +2,8 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/vda";
         type = "disk";
+        # device = "/dev/vda";
         content = {
           type = "gpt";
           partitions = {

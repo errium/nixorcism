@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules
+    ./host-specific
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
