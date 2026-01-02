@@ -3,7 +3,6 @@
     disk = {
       main = {
         type = "disk";
-        # device = "/dev/disk/by-diskseq/1";
         content = {
           type = "gpt";
           partitions = {
@@ -23,12 +22,20 @@
               size = "100%";
               content = {
                 type = "btrfs";
-                extraArgs = ["-f"];
-                mountpoint = "/partition-root";
+                extraArgs = ["-f" "-L" "nixos"];
                 subvolumes = {
-                  "/".mountpoint = "/";
-                  "/home".mountpoint = "/home";
-                  "/nix".mountpoint = "/nix";
+                  "/root" = {
+                    mountpoint = "/";
+                    mountOptions = ["compress=zstd"];
+                  };
+                  "/home" = {
+                    mountpoint = "/home";
+                    mountOptions = ["compress=zstd"];
+                  };
+                  "/nix" = {
+                    mountpoint = "/nix";
+                    mountOptions = ["compress=zstd" "noatime"];
+                  };
                 };
               };
             };
