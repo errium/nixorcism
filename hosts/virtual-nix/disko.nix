@@ -8,7 +8,7 @@
         partitions = {
           ESP = {
             type = "EF00";
-            size = "500M";
+            size = "256M";
             priority = 1;
             content = {
               type = "filesystem";
@@ -24,13 +24,6 @@
               type = "filesystem";
               format = "ext4";
               mountpoint = "/";
-            };
-          };
-
-          swap = {
-            size = "5G";
-            content = {
-              type = "swap";
             };
           };
         };
