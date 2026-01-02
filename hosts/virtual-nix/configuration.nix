@@ -44,7 +44,7 @@
   };
 
   nixorcism.services = {
-    ssh.enable = true;
+    openssh.enable = true;
   };
 
   nixorcism.shell = {

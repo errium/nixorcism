@@ -20,7 +20,7 @@
     hm.home.packages = with pkgs; [
       bitwarden-desktop
       file-roller
-      nemo
+      nautilus
       protonvpn-gui
       telegram-desktop
     ];

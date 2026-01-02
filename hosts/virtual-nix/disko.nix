@@ -1,38 +1,36 @@
-{
+{device, ...}: {
   disko.devices = {
-    disk = {
-      main = {
-        type = "disk";
-        device = "/dev/vda";
-        content = {
-          type = "gpt";
-          partitions = {
-            ESP = {
-              type = "EF00";
-              size = "500M";
-              priority = 1;
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-                mountOptions = ["umask=0077"];
-              };
+    disk.main = {
+      inherit device;
+      type = "disk";
+      content = {
+        type = "gpt";
+        partitions = {
+          ESP = {
+            type = "EF00";
+            size = "500M";
+            priority = 1;
+            content = {
+              type = "filesystem";
+              format = "vfat";
+              mountpoint = "/boot";
+              mountOptions = ["umask=0077"];
             };
+          };
 
-            root = {
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
-              };
+          root = {
+            size = "100%";
+            content = {
+              type = "filesystem";
+              format = "ext4";
+              mountpoint = "/";
             };
+          };
 
-            swap = {
-              size = "5G";
-              content = {
-                type = "swap";
-              };
+          swap = {
+            size = "5G";
+            content = {
+              type = "swap";
             };
           };
         };

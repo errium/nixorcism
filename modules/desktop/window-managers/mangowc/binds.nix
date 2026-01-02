@@ -2,7 +2,7 @@
   # Essentials
   bind=SUPER+SHIFT,c,reload_config
   bind=SUPER+SHIFT,m,quit
-  bind=SUPER,e,spawn,nemo
+  bind=SUPER,e,spawn,nautilus
   bind=SUPER,n,switch_layout
   bind=SUPER,q,killclient,
   bind=SUPER,space,spawn,rofi -show drun

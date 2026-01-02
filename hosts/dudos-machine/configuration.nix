@@ -10,6 +10,59 @@
   system.stateVersion = "25.11";
 
   nixorcism = {
-    core.bootloader = "limine";
+    core = {
+      bootloader = "limine";
+    };
+
+    desktop = {
+      display-managers.ly.enable = true;
+      window-managers.mangowc.enable = true;
+      sound.enable = true;
+      xkb.enable = true;
+    };
+
+    misc = {
+      kvm.enable = true;
+      stylix.enable = true;
+    };
+
+    packages = {
+      cli = {
+        pkgArray.enable = true;
+        btop.enable = true;
+        cava.enable = true;
+        fastfetch.enable = true;
+        fzf.enable = true;
+        git.enable = true;
+        helix.enable = true;
+        nh.enable = true;
+        nix-search-tv.enable = true;
+        opencode.enable = true;
+        zoxide.enable = true;
+      };
+      gaming = {
+        pkgArray.enable = true;
+        steam.enable = true;
+      };
+      gui = {
+        pkgArray.enable = true;
+        alacritty.enable = true;
+        foot.enable = true;
+        librewolf.enable = true;
+        spicetify.enable = true;
+        vesktop.enable = true;
+      };
+    };
+
+    services = {
+      openssh.enable = true;
+    };
+
+    shell = {
+      userShell = "fish";
+      userPrompt = "starship";
+      bash.enable = true;
+      fish.enable = true;
+    };
   };
 }
