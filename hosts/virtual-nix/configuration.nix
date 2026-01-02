@@ -17,7 +17,7 @@
   };
 
   nixorcism.desktop = {
-    display-managers.ly.enable = true;
+    display-manager = "sddm";
     window-managers.mangowc.enable = true;
     sound.enable = true;
     desktop-environments.xfce.enable = true;
