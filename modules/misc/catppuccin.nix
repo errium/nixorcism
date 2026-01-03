@@ -18,11 +18,6 @@ in {
       enable = true;
       accent = accent;
       flavor = flavor;
-      cursors = {
-        enable = true;
-        accent = "dark";
-        flavor = flavor;
-      };
     };
 
     hm = {
@@ -31,6 +26,12 @@ in {
         enable = true;
         accent = accent;
         flavor = flavor;
+
+        cursors = {
+          enable = true;
+          accent = "dark";
+          flavor = flavor;
+        };
       };
     };
   };

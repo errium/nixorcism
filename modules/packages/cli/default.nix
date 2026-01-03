@@ -12,6 +12,7 @@
     ./git.nix
     ./helix.nix
     ./nh.nix
+    ./nix-index.nix
     ./nix-search-tv.nix
     ./opencode.nix
     ./zoxide.nix
@@ -28,7 +29,6 @@
       eza
       figlet
       gdu
-      kew
       terminal-toys
       toilet
       tree
