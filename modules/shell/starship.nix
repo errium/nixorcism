@@ -11,10 +11,14 @@
       enableZshIntegration = config.nixorcism.shell.zsh.enable;
 
       settings = {
+        add_newline = true;
+
         character = {
-          success_symbol = "[❯ :](bold green)";
-          error_symbol = "[✖ :](bold red)";
+          success_symbol = ''[[└](dimmed) ❯](bold green)'';
+          error_symbol = ''[[└](dimmed) ✖](bold red)'';
         };
+
+        continuation_prompt = "[❯](dimmed)";
 
         # Nerd Font Symbols preset
         aws.symbol = " ";
