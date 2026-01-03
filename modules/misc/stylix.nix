@@ -39,6 +39,7 @@
 
     hm.stylix.targets = {
       librewolf.profileNames = ["default"];
+      noctalia-shell.enable = false;
       opencode.enable = false;
     };
   };
