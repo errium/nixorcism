@@ -5,7 +5,7 @@
   bind=SUPER,e,spawn,nautilus
   bind=SUPER,n,switch_layout
   bind=SUPER,q,killclient,
-  bind=SUPER,space,spawn,rofi -show drun
+  bind=SUPER,space,spawn_shell,noctalia-shell ipc call launcher toggle
   bind=SUPER,t,spawn,foot
 
   # Navigation

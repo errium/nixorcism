@@ -1,6 +1,6 @@
 ''
   # Blur
-  blur=0
+  blur=1
   blur_layer=0
   blur_optimized=1
   blur_params_num_passes = 2
@@ -61,7 +61,7 @@
   borderpx=3
   rootcolor=0x201b14ff
   bordercolor=0x444444ff
-  focuscolor=0xc9b890ff
+  focuscolor=0xb4befeff
   maximizescreencolor=0x89aa61ff
   urgentcolor=0xad401fff
   scratchpadcolor=0x516c93ff
