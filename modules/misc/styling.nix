@@ -18,19 +18,19 @@
         name = "Bibata-Modern-Ice";
       };
 
-      gtk = {
-        enable = true;
-        theme.package = pkgs.adw-gtk3;
-        theme.name = "adw-gtk3-dark";
-        iconTheme.package = pkgs.gruvbox-plus-icons;
-        iconTheme.name = "Gruvbox-Plus-Dark";
-      };
+      # gtk = {
+      #   enable = true;
+      #   theme.package = pkgs.adw-gtk3;
+      #   theme.name = "adw-gtk3-dark";
+      #   iconTheme.package = pkgs.gruvbox-plus-icons;
+      #   iconTheme.name = "Gruvbox-Plus-Dark";
+      # };
 
-      qt = {
-        enable = true;
-        platformTheme.name = "gtk";
-        style.name = "adwaita-dark";
-      };
+      # qt = {
+      #   enable = true;
+      #   platformTheme.name = "gtk";
+      #   style.name = "adwaita-dark";
+      # };
     };
   };
 }
