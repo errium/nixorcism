@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  username,
+  ...
+}: {
   options.nixorcism.misc.kvm = {
     enable = lib.mkEnableOption "Enable KVM virtualization support";
   };
@@ -17,8 +23,8 @@
       };
     };
 
-    users.groups.libvirtd.members = [config.nixorcism.core.user.name];
-    users.groups.kvm.members = [config.nixorcism.core.user.name];
+    users.groups.libvirtd.members = [username];
+    users.groups.kvm.members = [username];
 
     programs.virt-manager.enable = true;
   };
