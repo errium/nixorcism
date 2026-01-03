@@ -5,7 +5,7 @@
   ...
 }: let
   accent = "teal";
-  flavor = "frappe";
+  flavor = "mocha";
 in {
   imports = [inputs.catppuccin.nixosModules.catppuccin];
 
