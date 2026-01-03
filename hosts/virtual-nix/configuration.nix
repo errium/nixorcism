@@ -21,7 +21,7 @@
     };
 
     misc = {
-      stylix.enable = true;
+      catppuccin.enable = true;
     };
 
     packages = {
