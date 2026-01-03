@@ -68,6 +68,26 @@
         "type": "github"
       }
     },
+    "catppuccin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1765990358,
+        "narHash": "sha256-l8x0gU8mnYaGMl+gWrsSHKBJlZWD8KXJfHTkRlFiPI0=",
+        "owner": "catppuccin",
+        "repo": "nix",
+        "rev": "de1b60ca45a578f59f7d84c8d338b346017b2161",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nix",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "nixpkgs": [
@@ -261,11 +281,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1767436134,
-        "narHash": "sha256-xEco6fjyP5EOhVebp1hsTKODjfGcxhBtgLrw9tyynpI=",
+        "lastModified": 1767451886,
+        "narHash": "sha256-4nui7RC9qaRsASmNxbNA7w16BYCQhHoUTiV+9lsCWwk=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "92ff36e1064a62c6cc50f34ca7f4b0f468f1dc36",
+        "rev": "dd4ebda55d83e7cf7989d7344d59d7d9bc0b22cb",
         "type": "github"
       },
       "original": {
@@ -301,6 +321,7 @@
     },
     "root": {
       "inputs": {
+        "catppuccin": "catppuccin",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "mango": "mango",

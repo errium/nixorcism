@@ -23,8 +23,8 @@
     };
 
     misc = {
+      catppuccin.enable = true;
       kvm.enable = true;
-      stylix.enable = true;
     };
 
     packages = {

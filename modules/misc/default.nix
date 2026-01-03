@@ -1,7 +1,8 @@
 {
   imports = [
+    ./catppuccin.nix
     ./home.nix
-    ./stylix.nix
     ./kvm.nix
+    ./stylix.nix
   ];
 }
