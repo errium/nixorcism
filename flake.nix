@@ -34,18 +34,19 @@
     home-manager,
     ...
   } @ inputs: let
+    confDir = "/home/${username}/nixorcism";
     username = "errium";
 
     mkSystem = hostname:
       nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs username;};
+        specialArgs = {inherit inputs confDir username;};
         modules = [
           home-manager.nixosModules.home-manager
           {
             home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = {inherit inputs username;};
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {inherit inputs confDir username;};
           }
           ./hosts/${hostname}/configuration.nix
         ];

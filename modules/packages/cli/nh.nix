@@ -1,4 +1,5 @@
 {
+  confDir,
   config,
   lib,
   ...
@@ -10,7 +11,7 @@
   config = lib.mkIf config.nixorcism.packages.cli.nh.enable {
     hm.programs.nh = {
       enable = true;
-      flake = /home/errium/nixorcism;
+      flake = confDir;
 
       clean = {
         enable = true;
