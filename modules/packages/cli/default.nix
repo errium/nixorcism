@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./bat.nix
     ./btop.nix
     ./cava.nix
     ./fastfetch.nix
@@ -24,7 +25,6 @@
 
   config = lib.mkIf config.nixorcism.packages.cli.pkgArray.enable {
     hm.home.packages = with pkgs; [
-      bat
       dysk
       eza
       figlet

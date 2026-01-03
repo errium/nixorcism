@@ -29,6 +29,7 @@
 
     packages = {
       cli = {
+        bat.enable = true;
         btop.enable = true;
         cava.enable = true;
         fastfetch.enable = true;
