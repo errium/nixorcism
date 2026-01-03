@@ -15,6 +15,7 @@
       settings = {
         main.font = config.nixorcism.font.mono + ":size=14";
         cursor.style = "beam";
+        colors.alpha = 0.85;
       };
     };
   };
