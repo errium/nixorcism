@@ -8,6 +8,7 @@
     ./bat.nix
     ./btop.nix
     ./cava.nix
+    ./eza.nix
     ./fastfetch.nix
     ./fzf.nix
     ./git.nix
@@ -26,7 +27,6 @@
   config = lib.mkIf config.nixorcism.packages.cli.pkgArray.enable {
     hm.home.packages = with pkgs; [
       dysk
-      eza
       figlet
       gdu
       terminal-toys
