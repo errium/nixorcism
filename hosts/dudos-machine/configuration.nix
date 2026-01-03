@@ -16,6 +16,7 @@
 
     desktop = {
       display-manager = "sddm";
+      desktop-shells.noctalia.enable = true;
       window-managers.mangowc.enable = true;
       sound.enable = true;
       xkb.enable = true;
@@ -46,7 +47,6 @@
       };
       gui = {
         pkgArray.enable = true;
-        alacritty.enable = true;
         foot.enable = true;
         librewolf.enable = true;
         spicetify.enable = true;

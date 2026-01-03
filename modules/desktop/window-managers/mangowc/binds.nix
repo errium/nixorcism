@@ -6,7 +6,7 @@
   bind=SUPER,n,switch_layout
   bind=SUPER,q,killclient,
   bind=SUPER,space,spawn,rofi -show drun
-  bind=SUPER,t,spawn,alacritty
+  bind=SUPER,t,spawn,foot
 
   # Navigation
   bind=SUPER,Left,focusdir,left
