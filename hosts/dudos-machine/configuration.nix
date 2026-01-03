@@ -24,7 +24,8 @@
 
     misc = {
       catppuccin.enable = true;
-      styling.enable = true;
+      # styling.enable = true;
+      fontconfig.enable = true;
       kvm.enable = true;
     };
 

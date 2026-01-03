@@ -2,42 +2,26 @@
   lib,
   pkgs,
   ...
-}: let
-  serif = {
-    name = "Noto Serif";
-    package = pkgs.noto-fonts;
-  };
-  sansSerif = {
-    name = "Noto Sans";
-    package = pkgs.noto-fonts;
-  };
-  monospace = {
-    name = "IosevkaTerm Nerd Font";
-    package = pkgs.nerd-fonts.iosevka-term;
-  };
-  emoji = {
-    name = "Noto Color Emoji";
-    package = pkgs.noto-fonts-color-emoji;
-  };
-in {
-  options.nixorcism.myFonts = {
-    serif = lib.mkOption {type = lib.types.attrs;};
-    sansSerif = lib.mkOption {type = lib.types.attrs;};
-    monospace = lib.mkOption {type = lib.types.attrs;};
-    emoji = lib.mkOption {type = lib.types.attrs;};
+}: {
+  options.nixorcism.font = {
+    serif = lib.mkOption {type = lib.types.str;};
+    sans = lib.mkOption {type = lib.types.str;};
+    mono = lib.mkOption {type = lib.types.str;};
+    emoji = lib.mkOption {type = lib.types.str;};
   };
 
   config = {
-    nixorcism.myFonts = {
-      serif = serif;
-      sansSerif = sansSerif;
-      monospace = monospace;
-      emoji = emoji;
+    nixorcism.font = {
+      serif = "Noto Serif";
+      sans = "Noto Sans";
+      mono = "IosevkaTerm Nerd Font";
+      emoji = "Noto Color Emoji";
     };
 
     fonts.packages = with pkgs; [
       dejavu_fonts
       liberation_ttf
+      nerd-fonts.iosevka-term
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
