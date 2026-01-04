@@ -31,8 +31,12 @@
   bind=SUPER+SHIFT,f,togglefullscreen,
   bind=SUPER,f,togglemaximizescreen,
   bind=SUPER,g,toggleglobal,
-  bind=SUPER,s,toggle_scratchpad
   bind=SUPER,v,togglefloating,
+
+  # Scratchpad
+  bind=SUPER,s,toggle_scratchpad
+  bind=SUPER+SHIFT,s,minimized
+  bind=SUPER+SHIFT,i,restore_minimized
 
   # Scrolling layout
   bind=SUPER,c,centerwin,
