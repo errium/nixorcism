@@ -23,10 +23,10 @@
     };
 
     misc = {
-      catppuccin.enable = true;
-      # styling.enable = true;
-      fontconfig.enable = true;
       kvm.enable = true;
+      # NOTE
+      # In the works, broken option
+      # stylix.enable = true;
     };
 
     packages = {

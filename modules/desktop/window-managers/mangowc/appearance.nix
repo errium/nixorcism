@@ -1,6 +1,6 @@
 ''
   # Blur
-  blur=1
+  blur=0
   blur_layer=0
   blur_optimized=1
   blur_params_num_passes = 2

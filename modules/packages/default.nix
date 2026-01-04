@@ -3,6 +3,5 @@
     ./cli
     ./gaming
     ./gui
-    ./fonts.nix
   ];
 }
