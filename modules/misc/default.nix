@@ -1,7 +1,7 @@
 {
   imports = [
+    ./styling
     ./home.nix
     ./kvm.nix
-    ./stylix.nix
   ];
 }
