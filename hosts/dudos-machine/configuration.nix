@@ -24,7 +24,7 @@
 
     misc = {
       kvm.enable = true;
-      styling.enable = false;
+      styling.enable = true;
     };
 
     packages = {
