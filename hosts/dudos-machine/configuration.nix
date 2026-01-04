@@ -24,9 +24,7 @@
 
     misc = {
       kvm.enable = true;
-      # NOTE
-      # In the works, broken option
-      # stylix.enable = true;
+      styling.enable = false;
     };
 
     packages = {

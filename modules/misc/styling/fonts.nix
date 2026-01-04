@@ -1,46 +1,46 @@
 {
+  config,
   lib,
   pkgs,
   ...
 }: let
-  serif = {
-    name = "Noto Serif";
-    package = pkgs.noto-fonts;
-  };
-  sansSerif = {
-    name = "Noto Sans";
-    package = pkgs.noto-fonts;
-  };
-  monospace = {
-    name = "IosevkaTerm Nerd Font";
-    package = pkgs.nerd-fonts.iosevka-term;
-  };
-  emoji = {
-    name = "Noto Color Emoji";
-    package = pkgs.noto-fonts-color-emoji;
-  };
+  regular = with pkgs; [
+    dejavu_fonts
+    liberation_ttf
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+  ];
+  nerd-fonts = with pkgs.nerd-fonts; [
+    iosevka
+    iosevka-term
+  ];
 in {
-  options.nixorcism.myFonts = {
-    serif = lib.mkOption {type = lib.types.attrs;};
-    sansSerif = lib.mkOption {type = lib.types.attrs;};
-    monospace = lib.mkOption {type = lib.types.attrs;};
-    emoji = lib.mkOption {type = lib.types.attrs;};
-  };
+  fonts.packages = regular ++ nerd-fonts;
 
-  config = {
-    nixorcism.myFonts = {
-      serif = serif;
-      sansSerif = sansSerif;
-      monospace = monospace;
-      emoji = emoji;
+  stylix.fonts = lib.mkIf config.nixorcism.misc.styling.enable {
+    serif = {
+      name = "Noto Serif";
+      package = pkgs.noto-fonts;
+    };
+    sansSerif = {
+      name = "Noto Sans";
+      package = pkgs.noto-fonts;
+    };
+    monospace = {
+      name = "IosevkaTerm Nerd Font";
+      package = pkgs.nerd-fonts.iosevka-term;
+    };
+    emoji = {
+      name = "Noto Color Emoji";
+      package = pkgs.noto-fonts-color-emoji;
     };
 
-    fonts.packages = with pkgs; [
-      dejavu_fonts
-      liberation_ttf
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-color-emoji
-    ];
+    sizes = {
+      applications = 10;
+      desktop = 10;
+      popups = 10;
+      terminal = 12;
+    };
   };
 }
