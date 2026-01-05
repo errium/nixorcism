@@ -10,7 +10,10 @@
   config = lib.mkIf config.nixorcism.packages.gui.foot.enable {
     hm.programs.foot = {
       enable = true;
-      server.enable = true;
+
+      # NOTE
+      # Seems to be broken, 05-01-26
+      # server.enable = true;
 
       settings = {
         cursor = {
