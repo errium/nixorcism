@@ -10,7 +10,11 @@
 
     hm.stylix.targets = {
       fontconfig.enable = false;
-      librewolf.profileNames = ["default"];
+      librewolf = {
+        colorTheme.enable = true;
+        fonts.enable = false;
+        profileNames = ["default"];
+      };
       noctalia-shell.enable = false;
     };
   };
