@@ -9,6 +9,7 @@
     };
 
     hm.stylix.targets = {
+      cava.rainbow.enable = true;
       fontconfig.enable = false;
       librewolf = {
         colorTheme.enable = true;

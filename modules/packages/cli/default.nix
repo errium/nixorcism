@@ -8,6 +8,7 @@
     ./bat.nix
     ./btop.nix
     ./cava.nix
+    ./comma.nix
     ./eza.nix
     ./fastfetch.nix
     ./fzf.nix

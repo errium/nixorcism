@@ -61,12 +61,20 @@
   borderpx=3
 
   # Colors (Vague palette)
-  rootcolor=0x141415ff           # base00
-  bordercolor=0x60607900         # base03, fully transparent
-  focuscolor=0xaeaed1ff          # base04
-  maximizescreencolor=0x7fa563ff # base0B
-  urgentcolor=0xd8647eff         # base08
-  scratchpadcolor=0x6e94b2ff     # base0D
-  globalcolor=0xbb9dbdff         # base0E
-  overlaycolor=0xf5cb96ff        # base0A
+  # base00
+  rootcolor=0x141415ff
+  # base03, fully transparent
+  bordercolor=0x60607900
+  # base04
+  focuscolor=0xaeaed1ff
+  # base0B
+  maximizescreencolor=0x7fa563ff
+  # base08
+  urgentcolor=0xd8647eff
+  # base0D
+  scratchpadcolor=0x6e94b2ff
+  # base0E
+  globalcolor=0xbb9dbdff
+  # base0A
+  overlaycolor=0xf5cb96ff
 ''
