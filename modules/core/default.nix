@@ -5,6 +5,7 @@
     ./locale-time.nix
     ./networking.nix
     ./nix.nix
+    ./sudo.nix
     ./user.nix
     ./zram.nix
   ];
