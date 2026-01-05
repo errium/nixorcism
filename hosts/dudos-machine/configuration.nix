@@ -32,6 +32,7 @@
         bat.enable = true;
         btop.enable = true;
         cava.enable = true;
+        comma.enable = true;
         eza.enable = true;
         fastfetch.enable = true;
         fzf.enable = true;
