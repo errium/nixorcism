@@ -19,6 +19,7 @@
   config = lib.mkIf config.nixorcism.packages.gui.pkgArray.enable {
     hm.home.packages = with pkgs; [
       bitwarden-desktop
+      feishin
       file-roller
       nautilus
       protonvpn-gui
