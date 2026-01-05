@@ -4,10 +4,14 @@
   ...
 }: {
   config = lib.mkIf config.nixorcism.misc.styling.enable {
-    stylix.targets = {};
+    stylix.targets = {
+      fontconfig.enable = false;
+    };
 
     hm.stylix.targets = {
+      fontconfig.enable = false;
       librewolf.profileNames = ["default"];
+      noctalia-shell.enable = false;
     };
   };
 }

@@ -1,4 +1,6 @@
-{
+rec {
+  colors = vague;
+
   vague = {
     base00 = "#141415";
     base01 = "#252530";

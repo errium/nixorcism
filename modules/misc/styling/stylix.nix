@@ -12,7 +12,7 @@
     in {
       enable = true;
       polarity = "dark";
-      base16Scheme = colors.vague;
+      base16Scheme = colors.colors;
     };
   };
 }
