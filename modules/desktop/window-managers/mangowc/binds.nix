@@ -6,7 +6,7 @@
   bind=SUPER,n,switch_layout
   bind=SUPER,q,killclient,
   bind=SUPER,space,spawn_shell,noctalia-shell ipc call launcher toggle
-  bind=SUPER,t,spawn,foot
+  bind=SUPER,t,spawn,footclient
 
   # Navigation
   bind=SUPER,Left,focusdir,left

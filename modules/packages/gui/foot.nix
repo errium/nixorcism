@@ -13,8 +13,12 @@
       server.enable = true;
 
       settings = {
-        cursor.style = "beam";
-        # colors.alpha = 0.85;
+        cursor = {
+          blink = "yes";
+          blink-rate = 1000;
+          style = "beam";
+        };
+        mouse.hide-when-typing = "yes";
       };
     };
   };
