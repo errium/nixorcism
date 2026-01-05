@@ -51,7 +51,7 @@
   animation_curve_opafadeout=0.5,0.5,0.5,0.5
   animation_curve_opafadein=0.46,1.0,0.29,1
 
-  # Gaps & colors
+  # Gaps
   gappih=10
   gappiv=10
   gappoh=12
@@ -59,12 +59,14 @@
   scratchpad_width_ratio=0.8
   scratchpad_height_ratio=0.9
   borderpx=3
-  rootcolor=0x201b14ff
-  bordercolor=0x444444ff
-  focuscolor=0xb4befeff
-  maximizescreencolor=0x89aa61ff
-  urgentcolor=0xad401fff
-  scratchpadcolor=0x516c93ff
-  globalcolor=0xb153a7ff
-  overlaycolor=0x14a57cff
+
+  # Colors (Vague palette)
+  rootcolor=0x141415ff           # base00
+  bordercolor=0x60607900         # base03, fully transparent
+  focuscolor=0xaeaed1ff          # base04
+  maximizescreencolor=0x7fa563ff # base0B
+  urgentcolor=0xd8647eff         # base08
+  scratchpadcolor=0x6e94b2ff     # base0D
+  globalcolor=0xbb9dbdff         # base0E
+  overlaycolor=0xf5cb96ff        # base0A
 ''
