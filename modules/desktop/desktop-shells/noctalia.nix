@@ -13,7 +13,8 @@
       imports = [inputs.noctalia.homeModules.default];
       programs.noctalia-shell = {
         enable = true;
-        colors = with config.lib.stylix.colors.withHashtag; {
+
+        colors = lib.mkIf config.stylix.enable (with config.lib.stylix.colors.withHashtag; {
           mPrimary = base05;
           mOnPrimary = base00;
           mSecondary = base05;
@@ -30,7 +31,7 @@
           mOnSurfaceVariant = base04;
           mOutline = base02;
           mShadow = base00;
-        };
+        });
       };
     };
   };

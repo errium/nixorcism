@@ -1,5 +1,5 @@
 rec {
-  colors = vague;
+  palette = vague;
 
   vague = {
     base00 = "#141415";

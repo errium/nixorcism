@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  config = lib.mkIf config.nixorcism.misc.styling.enable {
+  config = lib.mkIf config.stylix.enable {
     stylix.targets = {
       fontconfig.enable = false;
     };

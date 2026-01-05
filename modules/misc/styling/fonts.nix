@@ -18,7 +18,7 @@
 in {
   fonts.packages = regular ++ nerd-fonts;
 
-  stylix.fonts = lib.mkIf config.nixorcism.misc.styling.enable {
+  stylix.fonts = lib.mkIf config.stylix.enable {
     serif = {
       name = "Noto Serif";
       package = pkgs.noto-fonts;
