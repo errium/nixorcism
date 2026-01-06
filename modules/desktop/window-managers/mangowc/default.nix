@@ -7,8 +7,8 @@
 }: {
   imports = [inputs.mango.nixosModules.mango];
 
-  options.nixorcism.desktop.window-managers = {
-    mangowc.enable = lib.mkEnableOption "Enables mangowc";
+  options.nixorcism.desktop.window-managers.mangowc = {
+    enable = lib.mkEnableOption "MangoWC";
   };
 
   config = lib.mkIf config.nixorcism.desktop.window-managers.mangowc.enable {

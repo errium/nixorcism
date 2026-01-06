@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.desktop = {
-    sound.enable = lib.mkEnableOption "Enables sound";
+  options.nixorcism.desktop.sound = {
+    enable = lib.mkEnableOption "sound configuration";
   };
 
   config = lib.mkIf config.nixorcism.desktop.sound.enable {

@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.desktop = {
-    xkb.enable = lib.mkEnableOption "Enables xkb";
+  options.nixorcism.desktop.xkb = {
+    enable = lib.mkEnableOption "xkb configuration";
   };
 
   config = lib.mkIf config.nixorcism.desktop.xkb.enable {
