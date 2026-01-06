@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options.nixorcism.desktop.window-managers.niri = {
@@ -8,10 +9,37 @@
   };
 
   config = lib.mkIf config.nixorcism.desktop.window-managers.niri.enable {
-    # TODO
-    # All this
-    # Yeah, I need niri
-    # MangoWC is nice, but I'm used to niri
-    # I miss it :/
+    programs.niri = {
+      enable = true;
+      useNautilus = true;
+    };
+
+    xdg.portal = {
+      enable = true;
+      # xdgOpenUsePortal = true;
+      config = {
+        common = {
+          default = "gtk gnome";
+          "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
+          "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+          "org.freedesktop.impl.portal.Screenshot" = "gnome";
+        };
+        niri.default = [
+          "gnome"
+          "gtk"
+          "wlr"
+        ];
+      };
+
+      extraPortals = with pkgs; [
+        xdg-desktop-portal
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-wlr
+      ];
+    };
+
+    systemd.user.services.xdg-desktop-portal.after = ["niri.service"];
+    systemd.user.services.xdg-desktop-portal-gnome.after = ["niri.service"];
   };
 }
