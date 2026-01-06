@@ -1,5 +1,6 @@
 {
   imports = [
     ./mangowc
+    ./niri
   ];
 }
