@@ -4,8 +4,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.desktop.desktop-shells = {
-    noctalia.enable = lib.mkEnableOption "Whether to enable noctalia shell";
+  options.nixorcism.desktop.desktop-shells.noctalia = {
+    enable = lib.mkEnableOption "noctalia-shell";
   };
 
   config = lib.mkIf config.nixorcism.desktop.desktop-shells.noctalia.enable {

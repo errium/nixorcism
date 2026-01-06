@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: {
-  options.nixorcism.desktop.desktop-environments = {
-    cosmic.enable = lib.mkEnableOption "Enables cosmic";
+  options.nixorcism.desktop.desktop-environments.cosmic = {
+    enable = lib.mkEnableOption "COSMIC";
   };
 
   config = lib.mkIf config.nixorcism.desktop.desktop-environments.cosmic.enable {
