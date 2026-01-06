@@ -6,7 +6,7 @@
   ...
 }: {
   options.nixorcism.misc.kvm = {
-    enable = lib.mkEnableOption "Enable KVM virtualization support";
+    enable = lib.mkEnableOption "KVM";
   };
 
   config = lib.mkIf config.nixorcism.misc.kvm.enable {
