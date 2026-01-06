@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: {
-  options.nixorcism.packages.cli = {
-    helix.enable = lib.mkEnableOption "Enables helix";
+  options.nixorcism.packages.cli.helix = {
+    enable = lib.mkEnableOption "Helix";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.helix.enable {

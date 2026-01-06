@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.cli = {
-    opencode.enable = lib.mkEnableOption "Enables opencode";
+  options.nixorcism.packages.cli.opencode = {
+    enable = lib.mkEnableOption "opencode";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.opencode.enable {

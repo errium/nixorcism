@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: {
-  options.nixorcism.shell = {
-    fish.enable = lib.mkEnableOption "Enables fish";
+  options.nixorcism.shell.fish = {
+    enable = lib.mkEnableOption "fish";
   };
 
   config = lib.mkIf config.nixorcism.shell.fish.enable {

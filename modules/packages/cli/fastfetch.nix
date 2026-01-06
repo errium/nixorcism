@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.cli = {
-    fastfetch.enable = lib.mkEnableOption "Enables fastfetch";
+  options.nixorcism.packages.cli.fastfetch = {
+    enable = lib.mkEnableOption "fastfetch";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.fastfetch.enable {

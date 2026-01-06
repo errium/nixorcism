@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.cli = {
-    zoxide.enable = lib.mkEnableOption "Enables zoxide";
+  options.nixorcism.packages.cli.zoxide = {
+    enable = lib.mkEnableOption "zoxide";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.zoxide.enable {

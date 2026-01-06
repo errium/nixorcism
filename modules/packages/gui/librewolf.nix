@@ -4,8 +4,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.gui = {
-    librewolf.enable = lib.mkEnableOption "Enables librewolf";
+  options.nixorcism.packages.gui.librewolf = {
+    enable = lib.mkEnableOption "LibreWolf";
   };
 
   config = lib.mkIf config.nixorcism.packages.gui.librewolf.enable {

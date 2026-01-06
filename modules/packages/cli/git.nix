@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.cli = {
-    git.enable = lib.mkEnableOption "Enables git";
+  options.nixorcism.packages.cli.git = {
+    enable = lib.mkEnableOption "git";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.git.enable {

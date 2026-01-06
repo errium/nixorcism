@@ -5,8 +5,8 @@
   pkgs,
   ...
 }: {
-  options.nixorcism.packages.gui = {
-    spicetify.enable = lib.mkEnableOption "Enables spicetify";
+  options.nixorcism.packages.gui.spicetify = {
+    enable = lib.mkEnableOption "Spicetify";
   };
 
   config = lib.mkIf config.nixorcism.packages.gui.spicetify.enable {

@@ -4,7 +4,7 @@
   ...
 }: {
   options.nixorcism.packages.cli.eza = {
-    enable = lib.mkEnableOption "Whether to enable eza";
+    enable = lib.mkEnableOption "eza";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.eza.enable {

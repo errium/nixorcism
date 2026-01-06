@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: {
-  options.nixorcism.shell = {
-    zsh.enable = lib.mkEnableOption "Enables zsh";
+  options.nixorcism.shell.zsh = {
+    enable = lib.mkEnableOption "zsh";
   };
 
   config = lib.mkIf config.nixorcism.shell.zsh.enable {

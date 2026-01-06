@@ -4,8 +4,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.cli = {
-    nix-search-tv.enable = lib.mkEnableOption "Enables nix-search-tv";
+  options.nixorcism.packages.cli.nix-search-tv = {
+    enable = lib.mkEnableOption "nix-search-tv";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.nix-search-tv.enable {

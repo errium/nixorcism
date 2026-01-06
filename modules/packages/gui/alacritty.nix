@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: {
-  options.nixorcism.packages.gui = {
-    alacritty.enable = lib.mkEnableOption "Enables alacritty";
+  options.nixorcism.packages.gui.alacritty = {
+    enable = lib.mkEnableOption "Alacritty";
   };
 
   config = lib.mkIf config.nixorcism.packages.gui.alacritty.enable {

@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.shell = {
-    bash.enable = lib.mkEnableOption "Enables bash";
+  options.nixorcism.shell.bash = {
+    enable = lib.mkEnableOption "bash";
   };
 
   config = lib.mkIf config.nixorcism.shell.bash.enable {

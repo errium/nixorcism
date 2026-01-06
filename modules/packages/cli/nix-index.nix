@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.cli = {
-    nix-index.enable = lib.mkEnableOption "Whether to enable nix-index";
+  options.nixorcism.packages.cli.nix-index = {
+    enable = lib.mkEnableOption "nix-index";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.nix-index.enable {

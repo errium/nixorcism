@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.cli = {
-    fzf.enable = lib.mkEnableOption "Enables fzf";
+  options.nixorcism.packages.cli.fzf = {
+    enable = lib.mkEnableOption "fzf";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.fzf.enable {

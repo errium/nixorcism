@@ -4,8 +4,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.cli = {
-    nh.enable = lib.mkEnableOption "Enables nh";
+  options.nixorcism.packages.cli.nh = {
+    enable = lib.mkEnableOption "Nix Helper (nh)";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.nh.enable {

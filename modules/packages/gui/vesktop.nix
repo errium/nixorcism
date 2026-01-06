@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.gui = {
-    vesktop.enable = lib.mkEnableOption "Enables vesktop";
+  options.nixorcism.packages.gui.vesktop = {
+    enable = lib.mkEnableOption "Vesktop";
   };
 
   config = lib.mkIf config.nixorcism.packages.gui.vesktop.enable {

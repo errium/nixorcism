@@ -4,8 +4,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.cli = {
-    btop.enable = lib.mkEnableOption "Enables btop";
+  options.nixorcism.packages.cli.btop = {
+    enable = lib.mkEnableOption "btop";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.btop.enable {

@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  options.nixorcism.packages.cli = {
-    cava.enable = lib.mkEnableOption "Enables cava";
+  options.nixorcism.packages.cli.cava = {
+    enable = lib.mkEnableOption "cava";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.cava.enable {
