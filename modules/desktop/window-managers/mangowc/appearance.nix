@@ -21,6 +21,7 @@
   shadowscolor= 0x000000ff
 
   # Borders & opacity
+  borderpx=3
   border_radius=4
   no_radius_when_single=0
   focused_opacity=1.0
@@ -58,7 +59,6 @@
   gappov=12
   scratchpad_width_ratio=0.8
   scratchpad_height_ratio=0.9
-  borderpx=3
 
   # Colors (Vague palette)
   # base00

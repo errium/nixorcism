@@ -24,7 +24,7 @@
           "org.freedesktop.impl.portal.ScreenCast" = "gnome";
           "org.freedesktop.impl.portal.Screenshot" = "gnome";
         };
-        niri.default = [
+        niri.default = lib.mkForce [
           "gnome"
           "gtk"
           "wlr"
@@ -43,6 +43,7 @@
     systemd.user.services.xdg-desktop-portal-gnome.after = ["niri.service"];
 
     hm = {
+      home.file.".config/niri/config.kdl".source = ./config.kdl;
       home.packages = with pkgs; [
         brightnessctl
         playerctl

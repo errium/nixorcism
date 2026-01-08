@@ -18,6 +18,7 @@
       display-manager = "sddm";
       desktop-shells.noctalia.enable = true;
       window-managers.mangowc.enable = true;
+      window-managers.niri.enable = true;
       sound.enable = true;
       xkb.enable = true;
     };
