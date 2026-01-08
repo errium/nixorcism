@@ -3,7 +3,17 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  hostname = config.networking.hostName;
+  hostConfigPath = ../../../../hosts/${hostname}/host-specific + "/niri-specifics.kdl";
+  hostConfig =
+    if builtins.pathExists hostConfigPath
+    then builtins.readFile hostConfigPath
+    else "";
+
+  baseConfig = builtins.readFile ./base.kdl;
+  finalConfig = baseConfig + "\n" + hostConfig;
+in {
   options.nixorcism.desktop.window-managers.niri = {
     enable = lib.mkEnableOption "niri";
   };
@@ -16,7 +26,6 @@
 
     xdg.portal = {
       enable = true;
-      # xdgOpenUsePortal = true;
       config = {
         common = {
           default = "gtk gnome";
@@ -43,7 +52,7 @@
     systemd.user.services.xdg-desktop-portal-gnome.after = ["niri.service"];
 
     hm = {
-      home.file.".config/niri/config.kdl".source = ./config.kdl;
+      home.file.".config/niri/config.kdl".text = finalConfig;
       home.packages = with pkgs; [
         brightnessctl
         playerctl
