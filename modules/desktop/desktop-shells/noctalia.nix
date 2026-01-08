@@ -9,6 +9,7 @@
   };
 
   config = lib.mkIf config.nixorcism.desktop.desktop-shells.noctalia.enable {
+    services.upower.enable = true;
     hm = {
       imports = [inputs.noctalia.homeModules.default];
       programs.noctalia-shell = {
