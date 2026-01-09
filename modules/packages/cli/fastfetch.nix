@@ -8,18 +8,18 @@
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.fastfetch.enable {
-    hm.programs.fastfetch = let
-      colors = {
-        logo1 = "blue";
-        logo2 = "green";
-        keys1 = "cyan";
-        keys2 = "blue";
-        title = "green";
-      };
-    in {
+    hm.programs.fastfetch = {
       enable = true;
 
-      settings = {
+      settings = let
+        color = {
+          accent1 = "blue"; # Main part of the logo
+          accent2 = "cyan"; # 2nd part of the logo
+          accent3 = "cyan"; # Even head keys, title
+          accent4 = "blue"; # Odd head keys
+          accent5 = "white"; # Sub-keys
+        };
+      in {
         logo = {
           type = "data";
           source = ''
@@ -46,21 +46,21 @@
           '';
           position = "left";
           color = {
-            "1" = colors.logo1;
-            "2" = colors.logo2;
+            "1" = color.accent1;
+            "2" = color.accent2;
           };
         };
 
         display = {
-          separator = "  ";
+          separator = " · ";
           color = {
-            "title" = colors.title;
-            "keys" = colors.keys2;
+            "title" = color.accent3;
+            "keys" = color.accent5;
           };
           bar = {
             width = 10;
             char.elapsed = "■";
-            char.total = "-";
+            char.total = "─";
           };
           percent = {
             type = ["num" "bar"];
@@ -68,109 +68,106 @@
         };
 
         modules = [
+          # Title
           {
             type = "title";
-            title = colors.keys1;
             format = "{user-name-colored}@{host-name-colored}";
           }
+
+          # Separator
+          "custom"
+
+          # System Info
           {
-            type = "separator";
-          }
-          {
-            key = "OS  ";
-            keyColor = colors.keys2;
+            key = "OS/";
+            keyColor = color.accent4;
             type = "os";
             format = "{pretty-name}";
           }
           {
-            key = "KRNL";
-            keyColor = colors.keys2;
+            key = "├ Kernel";
             type = "kernel";
           }
           {
-            key = "HOST";
-            keyColor = colors.keys2;
+            key = "├ Age";
+            type = "disk";
+            format = "{days} days old";
+          }
+          {
+            key = "└ Uptime";
+            type = "uptime";
+          }
+
+          # Separator
+          "custom"
+
+          # Hardware Info
+          {
+            key = "PC/";
+            keyColor = color.accent3;
+            type = "title";
+            format = "{host-name}";
+          }
+          {
+            key = "├ Host";
             type = "host";
             format = "{family}";
           }
           {
-            key = "PKGS";
-            keyColor = colors.keys2;
-            type = "packages";
-          }
-
-          "custom"
-
-          {
-            key = "DE  ";
-            keyColor = colors.keys1;
-            type = "de";
-            format = "{pretty-name}";
-          }
-          {
-            type = "wm";
-            key = "WM  ";
-            keyColor = colors.keys1;
-            format = "{pretty-name}";
-          }
-          {
-            key = "TERM";
-            keyColor = colors.keys1;
-            type = "terminal";
-            format = "{pretty-name}";
-          }
-          {
-            key = "SH  ";
-            keyColor = colors.keys1;
-            type = "shell";
-          }
-
-          "custom"
-
-          {
-            key = "CPU ";
-            keyColor = colors.keys2;
+            key = "├ CPU";
             type = "cpu";
             format = "{name} @ {freq-max} - {temperature}";
             temp = true;
           }
           {
-            key = "GPU ";
-            keyColor = colors.keys2;
+            key = "├ GPU";
             type = "gpu";
             format = "{name} @ {frequency} - {core-usage-num}";
             driverSpecific = true;
           }
           {
-            key = "RAM ";
-            keyColor = colors.keys2;
+            key = "├ Memory";
             type = "memory";
             format = "{percentage-bar} {used} / {total} ({percentage})";
           }
           {
-            key = "SWAP";
-            keyColor = colors.keys2;
+            key = "└ Swap";
             type = "swap";
             format = "{percentage-bar} {used} / {total} ({percentage})";
           }
 
+          # Separator
           "custom"
 
+          # Software Info
           {
-            key = "AGE ";
-            keyColor = colors.keys1;
-            type = "disk";
-            format = "{days} days old";
+            key = "PKGS/";
+            keyColor = color.accent4;
+            type = "packages";
           }
           {
-            key = "UP  ";
-            keyColor = colors.keys1;
-            type = "uptime";
+            key = "├ DE";
+            type = "de";
+            format = "{pretty-name}";
           }
-
-          "custom"
-
-          "colors"
+          {
+            type = "wm";
+            key = "├ WM";
+            format = "{pretty-name}";
+          }
+          {
+            key = "├ Terminal";
+            type = "terminal";
+            format = "{pretty-name}";
+          }
+          {
+            key = "├ Shell";
+            type = "shell";
+          }
+          {
+            key = "└ Editor";
+            type = "editor";
+          }
         ];
       };
     };
