@@ -11,20 +11,16 @@
     hm.programs.vesktop = {
       enable = true;
       settings = {
-        discordBranch = "stable";
-        tray = true;
-        minimizeToTray = false;
-        arRPC = true;
-        hardwareAcceleration = true;
-        enableSplashScreen = true;
-        splashTheming = true;
         appBadge = true;
-        checkUpdates = false;
-        spellCheckLanguages = [
-          "en"
-          "en-US"
-          "ru"
-        ];
+        arRPC = true;
+        checkUpdates = true;
+        discordBranch = "stable";
+        enableSplashScreen = true;
+        hardwareAcceleration = true;
+        minimizeToTray = false;
+        spellCheckLanguages = ["en" "en-US" "ru"];
+        splashTheming = true;
+        tray = true;
       };
     };
 
@@ -40,12 +36,13 @@
             enabled = true;
             format = "stopwatch";
           };
-          ClearURLs.enabled = true;
+
           CustomIdle = {
             enabled = true;
             idleTimeout = 0;
             remainInIdle = false;
           };
+
           FakeNitro = {
             enabled = true;
             enableStickerBypass = true;
@@ -55,25 +52,24 @@
             transformStickers = true;
             transformCompoundSentence = false;
           };
+
           FavoriteGifSearch = {
             enabled = true;
             searchOption = "hostandpath";
           };
-          FixSpotifyEmbeds.enabled = true;
-          FixYoutubeEmbeds.enabled = true;
-          ForceOwnerCrown.enabled = true;
+
           GameActivityToggle = {
             enabled = true;
             oldIcon = false;
           };
-          KeepCurrentChannel.enabled = true;
+
           MemberCount = {
             enabled = true;
             memberList = true;
             toolTip = true;
             voiceActivity = true;
           };
-          MessageClickActions.enabled = true;
+
           MessageLogger = {
             enabled = true;
             collapseDeleted = true;
@@ -87,12 +83,12 @@
             logDeletes = true;
             inlineEdits = true;
           };
-          NoF1.enabled = true;
+
           OpenInApp = {
             enabled = true;
             spotify = true;
           };
-          petpet.enabled = true;
+
           PlatformIndicators = {
             enabled = true;
             colorMobileIndicator = true;
@@ -100,11 +96,12 @@
             badges = true;
             messages = true;
           };
+
           QuickReply = {
             enabled = true;
             shouldMention = 2;
           };
-          ReadAllNotificationsButton.enabled = true;
+
           RelationshipNotifier = {
             enabled = true;
             offlineRemovals = true;
@@ -113,6 +110,7 @@
             friends = true;
             friendsRequestCancels = true;
           };
+
           RoleColorEverywhere = {
             enabled = true;
             chatMentions = true;
@@ -122,37 +120,52 @@
             pollResults = true;
             colorChatMessages = false;
           };
-          SecretRingToneEnabler.enabled = true;
+
           ShowHiddenChannels = {
             enabled = true;
             showMode = 0;
             hideUnreads = true;
             defaultAllowedUsersAndRolesDropdownState = true;
           };
+
           ShowHiddenThings = {
             enabled = true;
             showTimeouts = true;
             showInvitesPaused = true;
             showModView = true;
           };
+
           ShowTimeoutDuration = {
             enabled = true;
             displayStyle = "tooltip";
           };
+
           SilentTyping = {
             enabled = true;
             isEnabled = true;
             showIcon = false;
             contextMenu = true;
           };
+
           SpotifyCrack = {
             enabled = true;
             noSpotifyAutoPause = true;
             keepSpotifyActivityOnIdle = false;
           };
+
+          ClearURLs.enabled = true;
+          FixSpotifyEmbeds.enabled = true;
+          FixYoutubeEmbeds.enabled = true;
+          ForceOwnerCrown.enabled = true;
+          KeepCurrentChannel.enabled = true;
+          MessageClickActions.enabled = true;
+          NoF1.enabled = true;
+          ReadAllNotificationsButton.enabled = true;
+          SecretRingToneEnabler.enabled = true;
           VoiceChatDoubleClick.enabled = true;
           VolumeBooster.enabled = true;
           YoutubeAdblock.enabled = true;
+          petpet.enabled = true;
         };
       };
     };
