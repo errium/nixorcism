@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./additions
     ./fonts.nix
     ./stylix.nix
     ./targets.nix
