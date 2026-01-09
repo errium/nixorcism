@@ -4,7 +4,15 @@
   pkgs,
   username,
   ...
-}: {
+}: let
+  cfg = config.nixorcism.shell;
+
+  shellPackages = {
+    bash = pkgs.bash;
+    fish = pkgs.fish;
+    zsh = pkgs.zsh;
+  };
+in {
   imports = [
     ./aliases.nix
     ./bash.nix
@@ -28,14 +36,14 @@
     };
   };
 
-  config = lib.mkIf (config.nixorcism.shell.userShell != null) {
-    users.users.${username}.shell =
-      {
-        bash = pkgs.bash;
-        fish = pkgs.fish;
-        zsh = pkgs.zsh;
-      }.${
-        config.nixorcism.shell.userShell
-      };
+  config = lib.mkIf (cfg.userShell != null) {
+    users.users.${username}.shell = shellPackages.${cfg.userShell};
+
+    # TODO
+    # I probably should troubleshoot this, as it doesn't seem to work
+    # ...But I probably wont do that any time soon :clown_face:
+    # hm.home.sessionVariables = {
+    #   NIX_BUILD_SHELL = "${shellPackages.${cfg.userShell}}/bin/${cfg.userShell}";
+    # };
   };
 }
