@@ -65,6 +65,7 @@
     services = {
       auto-cpufreq.enable = true;
       openssh.enable = true;
+      udiskie.enable = true;
     };
 
     shell = {
