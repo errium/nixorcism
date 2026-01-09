@@ -87,9 +87,9 @@
       languages = {
         language = [
           {
-            name = "nix";
+            name = "go";
             auto-format = true;
-            formatter.command = "${pkgs.alejandra}/bin/alejandra";
+            formatter.command = "${pkgs.go}/bin/gofmt";
           }
           {
             name = "markdown";
@@ -110,20 +110,14 @@
             };
           }
           {
-            name = "javascript";
+            name = "nix";
             auto-format = true;
-            formatter = {
-              command = "${pkgs.prettier}/bin/prettier";
-              args = [
-                "--parser"
-                "typescript"
-              ];
-            };
+            formatter.command = "${pkgs.alejandra}/bin/alejandra";
           }
         ];
 
         language-server = {
-          nixd.command = "${pkgs.nixd}/bin/nixd";
+          gopls.command = "${pkgs.gopls}/bin/gopls";
           marksman.command = "${pkgs.marksman}/bin/marksman";
           mpls = {
             command = "${pkgs.mpls}/bin/mpls";
@@ -133,7 +127,7 @@
               "--dark-mode"
             ];
           };
-          typescript-language-server.command = "${pkgs.typescript-language-server}/bin/typescript-language-server";
+          nixd.command = "${pkgs.nixd}/bin/nixd";
         };
       };
     };
