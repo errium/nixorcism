@@ -5,7 +5,7 @@
     ../../modules
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   networking.hostName = "dudos-machine";
   system.stateVersion = "25.11";
 
