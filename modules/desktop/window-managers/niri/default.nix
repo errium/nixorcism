@@ -55,7 +55,10 @@ in {
       home.file.".config/niri/config.kdl".text = finalConfig;
       home.packages = with pkgs; [
         brightnessctl
+        cliphist
         playerctl
+        wl-clip-persist
+        wl-clipboard
       ];
     };
   };
