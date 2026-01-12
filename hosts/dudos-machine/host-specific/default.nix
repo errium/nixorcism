@@ -9,5 +9,6 @@
 
   hm.home.packages = with pkgs; [
     go
+    jetbrains.goland
   ];
 }
