@@ -15,9 +15,9 @@
         color = {
           accent1 = "blue"; # Main part of the logo
           accent2 = "cyan"; # 2nd part of the logo
-          accent3 = "cyan"; # Even head keys, title
-          accent4 = "blue"; # Odd head keys
-          accent5 = "white"; # Sub-keys
+          accent3 = "cyan"; # Even head keys, title (user)
+          accent4 = "blue"; # Odd head keys, title (host)
+          accent5 = "white"; # Sub-keys, title (at)
         };
       in {
         logo = {
@@ -72,6 +72,11 @@
           {
             type = "title";
             format = "{user-name-colored}@{host-name-colored}";
+            color = {
+              user = color.accent3;
+              at = color.accent5;
+              host = color.accent4;
+            };
           }
 
           # Separator
@@ -79,22 +84,22 @@
 
           # System Info
           {
-            key = "OS/";
+            key = "OS";
             keyColor = color.accent4;
             type = "os";
             format = "{pretty-name}";
           }
           {
-            key = "├ Kernel";
+            key = "├ krnl";
             type = "kernel";
           }
           {
-            key = "├ Age";
+            key = "├ age ";
             type = "disk";
             format = "{days} days old";
           }
           {
-            key = "└ Uptime";
+            key = "└ up  ";
             type = "uptime";
           }
 
@@ -103,37 +108,37 @@
 
           # Hardware Info
           {
-            key = "PC/";
+            key = "PC";
             keyColor = color.accent3;
             type = "title";
             format = "{host-name}";
           }
           {
-            key = "├ Host";
+            key = "├ host";
             type = "host";
             format = "{family}";
           }
           {
-            key = "├ CPU";
+            key = "├ cpu ";
             type = "cpu";
             format = "{name} @ {freq-max} - {temperature}";
             temp = true;
           }
           {
-            key = "├ GPU";
+            key = "├ gpu ";
             type = "gpu";
-            format = "{name} @ {frequency} - {core-usage-num}";
+            format = "{name} @ {frequency} - {#32}{core-usage-num}";
             driverSpecific = true;
           }
           {
-            key = "├ Memory";
+            key = "├ ram ";
             type = "memory";
-            format = "{percentage-bar} {used} / {total} ({percentage})";
+            format = "{percentage-bar} {used} / {total} - {#32}{percentage}";
           }
           {
-            key = "└ Swap";
+            key = "└ swap";
             type = "swap";
-            format = "{percentage-bar} {used} / {total} ({percentage})";
+            format = "{percentage-bar} {used} / {total} - {#32}{percentage}";
           }
 
           # Separator
@@ -141,31 +146,31 @@
 
           # Software Info
           {
-            key = "PKGS/";
+            key = "PKGS";
             keyColor = color.accent4;
             type = "packages";
           }
           {
-            key = "├ DE";
+            key = "├ de  ";
             type = "de";
             format = "{pretty-name}";
           }
           {
+            key = "├ wm  ";
             type = "wm";
-            key = "├ WM";
             format = "{pretty-name}";
           }
           {
-            key = "├ Terminal";
+            key = "├ term";
             type = "terminal";
-            format = "{pretty-name}";
+            format = "{pretty-name} {version} {#37}#{#36}#{#35}#{#34}#{#33}#{#32}#{#31}#";
           }
           {
-            key = "├ Shell";
+            key = "├ sh  ";
             type = "shell";
           }
           {
-            key = "└ Editor";
+            key = "└ edit";
             type = "editor";
           }
         ];
