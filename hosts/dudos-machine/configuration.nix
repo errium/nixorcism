@@ -21,7 +21,7 @@
       window-managers = {
         niri.enable = true;
       };
-      display-manager = "sddm";
+      display-manager = "gdm";
       sound.enable = true;
       xkb.enable = true;
     };
