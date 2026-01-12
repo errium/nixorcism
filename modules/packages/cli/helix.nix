@@ -18,11 +18,13 @@
           bufferline = "always";
           line-number = "relative";
           rulers = [80];
+
           cursor-shape = {
             normal = "block";
             insert = "bar";
             select = "underline";
           };
+
           gutters = {
             line-numbers.min-width = 2;
             layout = [
@@ -33,19 +35,23 @@
               "diff"
             ];
           };
+
           indent-guides = {
             render = true;
             character = "·";
             skip-levels = 1;
           };
+
           lsp = {
             display-messages = true;
             display-inlay-hints = true;
           };
+
           soft-wrap = {
             enable = true;
             wrap-indicator = "↩ ";
           };
+
           statusline = {
             left = [
               "mode"
