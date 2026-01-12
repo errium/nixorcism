@@ -6,19 +6,21 @@
 }: let
   commonAliases = {
     ff = "fastfetch";
+    lT = "eza -lhT";
+    laT = "eza -lahT";
   };
 in {
   options.nixorcism.shell.aliases = lib.mkOption {type = lib.types.attrs;};
 
   config = {
     environment.shellAliases = {
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
       cf = "cd ${confDir}";
       la = "ls -a";
       ll = "ls -lh";
       lla = "ls -lah";
-      ".." = "cd ..";
-      "..." = "cd ../..";
-      "...." = "cd ../../..";
     };
 
     nixorcism.shell.aliases = commonAliases;
