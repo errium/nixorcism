@@ -22,6 +22,7 @@
       feishin
       file-roller
       nautilus
+      obs-studio
       protonvpn-gui
       telegram-desktop
     ];
