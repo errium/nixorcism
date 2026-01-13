@@ -59,7 +59,7 @@ in {
         playerctl
         wl-clip-persist
         wl-clipboard
-        xwayland
+        xwayland-satellite
       ];
     };
   };

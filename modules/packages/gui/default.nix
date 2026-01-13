@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./affinity.nix
     ./alacritty.nix
     ./foot.nix
     ./librewolf.nix

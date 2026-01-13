@@ -55,6 +55,7 @@
       };
       gui = {
         pkgArray.enable = true;
+        affinity.enable = true;
         foot.enable = true;
         librewolf.enable = true;
         spicetify.enable = true;
