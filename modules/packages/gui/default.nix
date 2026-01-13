@@ -22,6 +22,7 @@
       bitwarden-desktop
       feishin
       file-roller
+      gajim
       nautilus
       obs-studio
       protonvpn-gui
