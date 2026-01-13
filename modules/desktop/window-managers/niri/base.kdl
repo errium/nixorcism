@@ -304,11 +304,6 @@ prefer-no-csd
 hotkey-overlay { skip-at-startup; }
 screenshot-path "~/Pictures/Screenshots/%H:%M %d-%m.png"
 
-layer-rule {
-    match namespace="^noctalia-overview*"
-    place-within-backdrop true
-}
-
 environment {
     NIXOS_OZONE_WL "1"
     QT_QPA_PLATFORM "wayland"
@@ -318,4 +313,9 @@ gestures {
     hot-corners {
         off
     }
+}
+
+layer-rule {
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
 }
