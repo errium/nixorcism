@@ -40,7 +40,7 @@ in {
       applications = 10;
       desktop = 10;
       popups = 10;
-      terminal = 14;
+      terminal = 13;
     };
   };
 }
