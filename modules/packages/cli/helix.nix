@@ -95,7 +95,7 @@
           {
             name = "go";
             auto-format = true;
-            formatter.command = "${pkgs.go}/bin/gofmt";
+            formatter.command = "${pkgs.gofumpt}/bin/gofumpt";
           }
           {
             name = "markdown";
