@@ -107,6 +107,7 @@ binds {
     Mod+E                { spawn "nautilus"; }
     Mod+Q                { close-window; }
     Mod+Space            { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+Shift+C          { spawn-sh "pkill .quickshell-wra && noctalia-shell & disown"; }
     Mod+Shift+L          { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
     Mod+Shift+M          { quit; }
     Alt+Tab repeat=false { toggle-overview; }
