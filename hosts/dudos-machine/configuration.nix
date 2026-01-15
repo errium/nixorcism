@@ -49,6 +49,7 @@
         zoxide.enable = true;
       };
       editors = {
+        emacs.enable = true;
         helix.enable = true;
       };
       gaming = {

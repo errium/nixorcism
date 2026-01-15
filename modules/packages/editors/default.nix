@@ -1,5 +1,6 @@
 {
   imports = [
+    ./emacs
     ./helix.nix
   ];
 }
