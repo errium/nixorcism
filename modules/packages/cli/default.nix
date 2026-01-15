@@ -13,7 +13,6 @@
     ./fastfetch.nix
     ./fzf.nix
     ./git.nix
-    ./helix.nix
     ./nh.nix
     ./nix-index.nix
     ./nix-search-tv.nix

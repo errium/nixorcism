@@ -18,6 +18,7 @@
           bufferline = "always";
           line-number = "relative";
           rulers = [80];
+          scrolloff = 15;
 
           cursor-shape = {
             normal = "block";
@@ -93,6 +94,11 @@
       languages = {
         language = [
           {
+            name = "bash";
+            auto-format = true;
+            formatter.command = "${pkgs.shfmt}/bin/shfmt";
+          }
+          {
             name = "go";
             auto-format = true;
             formatter.command = "${pkgs.gofumpt}/bin/gofumpt";
@@ -100,6 +106,10 @@
           {
             name = "markdown";
             auto-format = true;
+            formatter = {
+              command = "${pkgs.prettier}/bin/prettier";
+              args = ["--parser" "markdown"];
+            };
             language-servers = [
               "marksman"
               {
@@ -107,13 +117,6 @@
                 only-features = ["workspace-command"];
               }
             ];
-            formatter = {
-              command = "${pkgs.prettier}/bin/prettier";
-              args = [
-                "--parser"
-                "markdown"
-              ];
-            };
           }
           {
             name = "nix";
@@ -123,15 +126,12 @@
         ];
 
         language-server = {
+          bash-language-server.command = "${pkgs.bash-language-server}/bin/bash-language-server";
           gopls.command = "${pkgs.gopls}/bin/gopls";
           marksman.command = "${pkgs.marksman}/bin/marksman";
           mpls = {
             command = "${pkgs.mpls}/bin/mpls";
-            args = [
-              "--no-auto"
-              "--enable-emoji"
-              "--dark-mode"
-            ];
+            args = ["--no-auto" "--enable-emoji" "--dark-mode"];
           };
           nixd.command = "${pkgs.nixd}/bin/nixd";
         };
