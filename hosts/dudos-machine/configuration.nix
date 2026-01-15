@@ -42,12 +42,14 @@
         fastfetch.enable = true;
         fzf.enable = true;
         git.enable = true;
-        helix.enable = true;
         nh.enable = true;
         nix-index.enable = true;
         nix-search-tv.enable = true;
         opencode.enable = true;
         zoxide.enable = true;
+      };
+      editors = {
+        helix.enable = true;
       };
       gaming = {
         pkgArray.enable = true;

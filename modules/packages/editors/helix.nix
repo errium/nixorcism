@@ -4,11 +4,11 @@
   pkgs,
   ...
 }: {
-  options.nixorcism.packages.cli.helix = {
+  options.nixorcism.packages.editors.helix = {
     enable = lib.mkEnableOption "Helix";
   };
 
-  config = lib.mkIf config.nixorcism.packages.cli.helix.enable {
+  config = lib.mkIf config.nixorcism.packages.editors.helix.enable {
     hm.programs.helix = {
       enable = true;
 
