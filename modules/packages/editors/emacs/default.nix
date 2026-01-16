@@ -17,6 +17,7 @@
         enable = true;
         doomDir = ./doom;
         emacs = pkgs.emacs-pgtk;
+        tangleArgs = "--all config.org";
       };
     };
   };
