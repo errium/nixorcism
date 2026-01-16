@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -9,13 +10,14 @@
   };
 
   config = lib.mkIf config.nixorcism.packages.editors.emacs.enable {
-    hm.programs.emacs = {
-      enable = true;
-      package = pkgs.emacs-pgtk;
-    };
+    hm = {
+      imports = [inputs.nix-doom-emacs-unstraightened.homeModule];
 
-    fonts.packages = with pkgs; [
-      nerd-fonts.symbols-only
-    ];
+      programs.doom-emacs = {
+        enable = true;
+        doomDir = ./doom;
+        emacs = pkgs.emacs-pgtk;
+      };
+    };
   };
 }
