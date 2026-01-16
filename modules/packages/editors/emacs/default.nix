@@ -13,5 +13,9 @@
       enable = true;
       package = pkgs.emacs-pgtk;
     };
+
+    fonts.packages = with pkgs; [
+      nerd-fonts.symbols-only
+    ];
   };
 }
