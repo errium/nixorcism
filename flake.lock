@@ -162,11 +162,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1768500104,
-        "narHash": "sha256-Xa8XJaydHKAhDCLyjdKcDKjFrGgdahNcVo1boGUdZKY=",
+        "lastModified": 1768536226,
+        "narHash": "sha256-d1VSTNa7ajTxT39QBp3gKSbgmgn7yx8RxTZuvZwNX9Y=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "7e517454cd248c76046c3157b56662d223de29b1",
+        "rev": "b092ea4a7d083e09e0aa2de909c1b35b9efb3ee0",
         "type": "gitlab"
       },
       "original": {
@@ -362,11 +362,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768434960,
-        "narHash": "sha256-cJbFn17oyg6qAraLr+NVeNJrXsrzJdrudkzI4H2iTcg=",
+        "lastModified": 1768530555,
+        "narHash": "sha256-EBXKDho4t1YSgodAL6C8M3UTm8MGMZNQ9rQnceR5+6c=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b4d88c9ac42ae1a745283f6547701da43b6e9f9b",
+        "rev": "d21bee5abf9fb4a42b2fa7728bf671f8bb246ba6",
         "type": "github"
       },
       "original": {
@@ -402,7 +402,9 @@
       "inputs": {
         "doomemacs": "doomemacs",
         "emacs-overlay": "emacs-overlay",
-        "nixpkgs": [],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "systems": "systems"
       },
       "locked": {
@@ -540,11 +542,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768498792,
-        "narHash": "sha256-4R0i6xSekbR9vsxMmCqs4OJOQ8ihVqyWV3EgxUk//Ec=",
+        "lastModified": 1768557860,
+        "narHash": "sha256-BJCEFG5LJVHoP5vA/oZSJsoj0Pslwr36IlLzhQF777o=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "be534d9ee6dafed4e41982e6fe1b7dc4ca703986",
+        "rev": "5a039a5488113cd5397618b07728c645651b4512",
         "type": "github"
       },
       "original": {
