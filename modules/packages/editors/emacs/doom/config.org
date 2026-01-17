@@ -1,12 +1,17 @@
-;; Basics
-(setq confirm-kill-emacs nil)
-(setq display-line-numbers-type relative)
+#+title: Config
 
+* Basics
+#+begin_src emacs-lisp
+(setq doom-theme 'doom-one)
 (setq doom-font (font-spec :size 16))
 (setq doom-modeline-height 40)
-(setq doom-theme 'doom-one)
 
-;; Org
+(setq confirm-kill-emacs nil)
+(setq display-line-numbers-type relative)
+#+end_src
+
+* Org
+#+begin_src emacs-lisp
 (custom-theme-set-faces!
 'doom-one
 '(org-level-8 :inherit outline-3 :height 1.0)
@@ -20,3 +25,4 @@
 '(org-document-title :height 1.8 :bold t :underline nil))
 
 (setq org-directory "~/Documents/Notes/")
+#+end_src
