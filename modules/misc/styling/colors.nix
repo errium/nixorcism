@@ -1,24 +1,5 @@
 rec {
-  palette = vague;
-
-  dracula = {
-    base00 = "#282936";
-    base01 = "#3a3c4e";
-    base02 = "#4d4f68";
-    base03 = "#626483";
-    base04 = "#62d6e8";
-    base05 = "#e9e9f4";
-    base06 = "#f1f2f8";
-    base07 = "#f7f7fb";
-    base08 = "#ea51b2";
-    base09 = "#b45bcf";
-    base0A = "#00f769";
-    base0B = "#ebff87";
-    base0C = "#a1efe4";
-    base0D = "#62d6e8";
-    base0E = "#b45bcf";
-    base0F = "#00f769";
-  };
+  palette = everforest;
 
   vague = {
     base00 = "#141415";
@@ -37,6 +18,25 @@ rec {
     base0D = "#6e94b2";
     base0E = "#bb9dbd";
     base0F = "#e08398";
+  };
+
+  everforest = {
+    base00 = "#272e33";
+    base01 = "#2e383c";
+    base02 = "#414b50";
+    base03 = "#859289";
+    base04 = "#9da9a0";
+    base05 = "#d3c6aa";
+    base06 = "#edeada";
+    base07 = "#fffbef";
+    base08 = "#e67e80";
+    base09 = "#e69875";
+    base0A = "#dbbc7f";
+    base0B = "#a7c080";
+    base0C = "#83c092";
+    base0D = "#7fbbb3";
+    base0E = "#d699b6";
+    base0F = "#9da9a0";
   };
 
   oxocarbon = {
