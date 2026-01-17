@@ -49,7 +49,6 @@
         zoxide.enable = true;
       };
       editors = {
-        emacs.enable = true;
         helix.enable = true;
       };
       gaming = {
@@ -58,7 +57,6 @@
       };
       gui = {
         pkgArray.enable = true;
-        affinity.enable = true;
         foot.enable = true;
         librewolf.enable = true;
         spicetify.enable = true;
