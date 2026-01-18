@@ -8,9 +8,9 @@
 
        :completion
        company             ; the ultimate code completion backend
-       (corfu +orderless)  ; complete with cap(f), cape and a flying feather!
+       ;;(corfu +orderless); complete with cap(f), cape and a flying feather!
        ;;helm              ; the *other* search engine for love and life
-       ;;ido               ; the other *other* search engine...
+       ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
        vertico             ; the search engine of the future
 
@@ -71,8 +71,8 @@
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       ;;(spell +flyspell)   ; tasing you for misspelling mispelling
-       ;;grammar            ; tasing grammar mistake every you make
+       ;;(spell +flyspell) ; tasing you for misspelling mispelling
+       ;;grammar           ; tasing grammar mistake every you make
 
        :tools
        ;;ansible
