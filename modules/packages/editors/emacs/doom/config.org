@@ -2,15 +2,15 @@
 
 * Basics
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-nord)
-(setq doom-font (font-spec :size 16))
+(setq doom-theme 'doom-tokyo-night)
+(setq doom-font (font-spec :size 17))
 (setq doom-modeline-height 40)
 #+end_src
 
 * Org
 #+begin_src emacs-lisp
 (custom-theme-set-faces!
-'doom-nord
+'doom-tokyo-night
 '(org-level-8 :inherit outline-3 :height 1.0)
 '(org-level-7 :inherit outline-3 :height 1.0)
 '(org-level-6 :inherit outline-3 :height 1.1)
@@ -26,7 +26,8 @@
 
 * Stuff
 #+begin_src emacs-lisp
-(global-tab-line-mode 1)
+;; (global-tab-line-mode 1)
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (setq confirm-kill-emacs nil)
 (setq display-line-numbers-type 'relative)
 #+end_src
