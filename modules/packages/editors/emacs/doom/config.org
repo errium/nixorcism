@@ -1,16 +1,33 @@
 #+title: Config
+* Table of Contents :toc:
+- [[#doom][Doom]]
+- [[#markdown][Markdown]]
+- [[#org][Org]]
+- [[#stuff][Stuff]]
 
-* Basics
+* Doom
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-tokyo-night)
+(setq doom-theme 'doom-one)
 (setq doom-font (font-spec :size 17))
 (setq doom-modeline-height 40)
+#+end_src
+
+* Markdown
+#+begin_src emacs-lisp
+(custom-set-faces
+ '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "variable-pitch"))))
+ '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.6))))
+ '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.5))))
+ '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.4))))
+ '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.3))))
+ '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.2))))
+ '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.1)))))
 #+end_src
 
 * Org
 #+begin_src emacs-lisp
 (custom-theme-set-faces!
-'doom-tokyo-night
+'doom-one
 '(org-level-8 :inherit outline-3 :height 1.0)
 '(org-level-7 :inherit outline-3 :height 1.0)
 '(org-level-6 :inherit outline-3 :height 1.1)
