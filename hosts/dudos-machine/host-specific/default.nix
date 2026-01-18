@@ -8,6 +8,8 @@
   ];
 
   hm.home.packages = with pkgs; [
+    gcc
     go
+    inkscape
   ];
 }
