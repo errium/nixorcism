@@ -36,6 +36,7 @@
           - Handle merge conflicts if they arise during push.
           - Handle minor remote issues if they arise during push.
           - Ensure the branch is up to date before pushing.
+          - Provide me with formatted details.
         '';
       };
     };
