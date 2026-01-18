@@ -57,9 +57,9 @@ layout {
 
     focus-ring {
         width 3
-        // Vague palette
-        active-color "#aeaed1"    // base0C
-        inactive-color "#606079"  // base03
+        // Tokyo Night palette
+        active-color "#7dcfff"    // base0C
+        inactive-color "#414868"  // base02
     }
 
     border {

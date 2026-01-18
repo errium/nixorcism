@@ -1,5 +1,5 @@
 rec {
-  palette = vague;
+  palette = tokyo-night;
 
   everforest = {
     base00 = "#272e33";
@@ -18,25 +18,6 @@ rec {
     base0D = "#7fbbb3";
     base0E = "#d699b6";
     base0F = "#9da9a0";
-  };
-
-  gruvbox = {
-    base00 = "#1d2021";
-    base01 = "#3c3836";
-    base02 = "#504945";
-    base03 = "#665c54";
-    base04 = "#bdae93";
-    base05 = "#d5c4a1";
-    base06 = "#ebdbb2";
-    base07 = "#fbf1c7";
-    base08 = "#fb4934";
-    base09 = "#fe8019";
-    base0A = "#fabd2f";
-    base0B = "#b8bb26";
-    base0C = "#8ec07c";
-    base0D = "#83a598";
-    base0E = "#d3869b";
-    base0F = "#d65d0e";
   };
 
   nord = {
@@ -79,21 +60,21 @@ rec {
 
   tokyo-night = {
     base00 = "#1a1b26";
-    base01 = "#16161e";
-    base02 = "#2f3549";
-    base03 = "#444b6a";
-    base04 = "#787c99";
+    base01 = "#24283b";
+    base02 = "#414868";
+    base03 = "#565f89";
+    base04 = "#9aa5ce";
     base05 = "#a9b1d6";
-    base06 = "#cbccd1";
-    base07 = "#d5d6db";
-    base08 = "#c0caf5";
-    base09 = "#a9b1d6";
-    base0A = "#0db9d7";
+    base06 = "#c0caf5";
+    base07 = "#c0caf5";
+    base08 = "#f7768e";
+    base09 = "#ff9e64";
+    base0A = "#e0af68";
     base0B = "#9ece6a";
-    base0C = "#b4f9f8";
-    base0D = "#2ac3de";
+    base0C = "#7dcfff";
+    base0D = "#7aa2f7";
     base0E = "#bb9af7";
-    base0F = "#f7768e";
+    base0F = "#2ac3de";
   };
 
   vague = {
