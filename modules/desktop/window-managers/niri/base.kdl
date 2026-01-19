@@ -58,8 +58,8 @@ layout {
     focus-ring {
         width 3
         // Tokyo Night palette
-        active-color "#7dcfff"    // base0C
-        inactive-color "#414868"  // base02
+        active-color "#565f89"    // base03
+        inactive-color "#24283b"  // base01
     }
 
     border {
