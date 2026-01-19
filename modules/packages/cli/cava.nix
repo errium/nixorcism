@@ -8,16 +8,14 @@
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.cava.enable {
-    hm = {
-      programs.cava = {
-        enable = true;
+    hm.programs.cava = {
+      enable = true;
 
-        settings = {
-          general.framerate = 60;
-          general.bar_width = 1;
-          general.center_align = true;
-          output.method = "noncurses";
-          output.orientation = "horizontal";
+      settings = {
+        general.bar_width = 1;
+        output = {
+          channels = "mono";
+          # xaxis = "frequency";
         };
       };
     };
