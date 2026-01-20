@@ -3,9 +3,7 @@
   lib,
   ...
 }: {
-  imports = [
-    (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
-  ];
+  imports = [(lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])];
 
   hm = {
     home.username = "${username}";
