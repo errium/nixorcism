@@ -6,6 +6,7 @@
     ./networking.nix
     ./nix.nix
     ./sudo.nix
+    ./user-dirs.nix
     ./user.nix
     ./zram.nix
   ];
