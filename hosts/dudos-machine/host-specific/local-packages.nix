@@ -11,7 +11,6 @@
     feishin
     gajim
     inkscape
-    jetbrains.rust-rover
     obs-studio
     protonvpn-gui
     telegram-desktop
@@ -19,8 +18,5 @@
     # Go
     gcc
     go
-
-    # Rust
-    rustup
   ];
 }
