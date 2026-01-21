@@ -6,8 +6,9 @@
 }: let
   commonAliases = {
     ff = "fastfetch";
-    lT = "eza -lhT";
-    laT = "eza -lahT";
+    lat = "eza -lahT";
+    lt = "eza -lhT";
+    rmf = "rm -rf";
   };
 in {
   options.nixorcism.shell.aliases = lib.mkOption {type = lib.types.attrs;};
