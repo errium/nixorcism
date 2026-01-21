@@ -278,6 +278,12 @@ workspace "9"
 // ┃╻┃┃┃┗┫ ┃┃┃ ┃┃╻┃   ┣┳┛┃ ┃┃  ┣╸ ┗━┓
 // ┗┻┛╹╹ ╹╺┻┛┗━┛┗┻┛   ╹┗╸┗━┛┗━╸┗━╸┗━┛
 window-rule {
+    match app-id="Bitwarden"
+    match app-id=r#"org.telegram.desktop"#
+    block-out-from "screen-capture"
+}
+
+window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
@@ -288,9 +294,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id="Bitwarden"
-    match app-id=r#"org.telegram.desktop"#
-    block-out-from "screen-capture"
+    match app-id="org.inkscape.Inkscape"
+    open-maximized true
 }
 
 window-rule {
