@@ -27,12 +27,8 @@
   config = lib.mkIf config.nixorcism.packages.cli.pkgArray.enable {
     hm.home.packages = with pkgs; [
       dysk
-      figlet
       gdu
-      terminal-toys
-      toilet
       tree
-      tty-clock
       yazi
     ];
   };
