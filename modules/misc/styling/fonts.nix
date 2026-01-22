@@ -6,10 +6,12 @@
 }: let
   regular = with pkgs; [
     dejavu_fonts
+    inter
     liberation_ttf
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
+    rubik
   ];
   nerd-fonts = with pkgs.nerd-fonts; [
     iosevka
