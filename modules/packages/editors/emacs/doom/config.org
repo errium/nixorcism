@@ -2,8 +2,10 @@
 * Table of Contents :toc:
 - [[#dashboard][Dashboard]]
 - [[#doom][Doom]]
-- [[#markdown][Markdown]]
-- [[#org][Org]]
+- [[#languages][Languages]]
+  - [[#markdown][Markdown]]
+  - [[#org][Org]]
+  - [[#go][Go]]
 - [[#stuff][Stuff]]
 
 * Dashboard
@@ -37,7 +39,8 @@
 (setq doom-modeline-height 40)
 #+end_src
 
-* Markdown
+* Languages
+** Markdown
 #+begin_src emacs-lisp
 (custom-set-faces
  '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "variable-pitch"))))
@@ -49,7 +52,7 @@
  '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.1)))))
 #+end_src
 
-* Org
+** Org
 #+begin_src emacs-lisp
 (custom-theme-set-faces!
 'doom-tokyo-night
@@ -64,6 +67,20 @@
 '(org-document-title :height 1.8 :bold t :underline nil))
 
 (setq org-directory "~/Documents/Notes/")
+#+end_src
+
+** Go
+#+begin_src emacs-lisp
+(after! lsp-mode
+  (setq lsp-go-use-gofumpt t)  ; Использовать gofumpt (более строгий gofmt)
+  (setq lsp-go-analyses '((fieldalignment . t)
+                          (nilness . t)
+                          (unusedwrite . t)
+                          (unusedparams . t)))
+  (setq lsp-go-codelenses '((generate . t)
+                           (test . t)
+                           (tidy . t)
+                           (upgrade_dependency . t))))
 #+end_src
 
 * Stuff

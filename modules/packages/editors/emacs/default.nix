@@ -18,6 +18,16 @@
         doomDir = ./doom;
         emacs = pkgs.emacs-pgtk;
         tangleArgs = "--all config.org";
+
+        extraBinPackages = with pkgs; [
+          fd
+          gomodifytags
+          gopls
+          gore
+          gotests
+          nixfmt
+          shellcheck
+        ];
       };
     };
   };
