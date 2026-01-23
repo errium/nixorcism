@@ -16,6 +16,7 @@
   nerd-fonts = with pkgs.nerd-fonts; [
     iosevka
     iosevka-term
+    symbols-only
   ];
 in {
   fonts.packages = regular ++ nerd-fonts;
