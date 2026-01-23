@@ -17,7 +17,7 @@
           auto-save = true;
           bufferline = "always";
           line-number = "relative";
-          rulers = [80];
+          rulers = [120];
           scrolloff = 15;
 
           cursor-shape = {
