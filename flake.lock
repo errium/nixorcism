@@ -141,11 +141,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769157110,
-        "narHash": "sha256-WZz272nBQjVNxLWCnIhqJL1m+U4+aFT2f6gsNsyUfEo=",
+        "lastModified": 1769222258,
+        "narHash": "sha256-N/JT6qyw5HrYgDGKg/kCKI4z2TN4cb+RGpDBOHrWBQU=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "70294b987bad2eb5b9fc3916ee3139f429e3ff8f",
+        "rev": "545948d21101e7162c1ed03451444585970964c3",
         "type": "github"
       },
       "original": {
@@ -162,11 +162,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1769141021,
-        "narHash": "sha256-HHAeQ1YMo0/gM38gBXulMk7xSPrsiw/7e6UpcmcxcfM=",
+        "lastModified": 1769270698,
+        "narHash": "sha256-hS2AmHOlPT/J2BEWpxeTFf0TG1C1K7OHqgoOcG8Ug1I=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "91b470d0ce83a8d84dc46e0bcbeb2a7836c06cd6",
+        "rev": "e2f88a4703a62986d4f2f4024a499c788dc984ed",
         "type": "gitlab"
       },
       "original": {
@@ -385,11 +385,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1768974895,
-        "narHash": "sha256-f0rp6+NPF+OlEYE2MQPFYgmPndJstKnJZSoZQLUMTWk=",
+        "lastModified": 1769267113,
+        "narHash": "sha256-7xHLhGmy2LwkwtgXNwCdxp2Bn1T8UFr5Ey1GWiQJ4Ao=",
         "owner": "DreamMaoMao",
         "repo": "mango",
-        "rev": "49921eadfa251641379c2f2cd824034eb7075e2f",
+        "rev": "00de5230393d75d22416c0fbe9c93a6ec5434dea",
         "type": "github"
       },
       "original": {
@@ -408,11 +408,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1769158158,
-        "narHash": "sha256-8aJTIBqVbFIIM77ZtCCtSRtfmwFuijUhV/keweyYDYs=",
+        "lastModified": 1769244263,
+        "narHash": "sha256-kn4ylXn5G+/AutGVtDczPGjwKmsXQs+BqZB0IeyyeXw=",
         "owner": "marienz",
         "repo": "nix-doom-emacs-unstraightened",
-        "rev": "63422a000ca41bb3238950094240efedaf7cbda5",
+        "rev": "11401bae5bf33c20d1be6cb8c5fe90641f253f24",
         "type": "github"
       },
       "original": {
@@ -542,11 +542,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769202540,
-        "narHash": "sha256-zpwvPuczDeSXnhW++281hTWPxKpbXOUERb2qeBbPe7c=",
+        "lastModified": 1769271866,
+        "narHash": "sha256-AHZrkb0Z/0C8TAwjrVP01KJIpGQ/cnaJFuRz0ofnv98=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "3314e01fc6e4cbbf074dac2723e4dc90b5eec1a7",
+        "rev": "21774a5bba039f1d1e6e68d2eda8d283ad75ebac",
         "type": "github"
       },
       "original": {
@@ -651,11 +651,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1768656845,
-        "narHash": "sha256-xNlXMyn7yc3Z/NOsz4NchO7gWFwsoCvtJ26pys4s2/M=",
+        "lastModified": 1769272603,
+        "narHash": "sha256-4GPBYEycM3f0DlCWehekAWaW8gLe9KpVI3BMJ8/xoTU=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "8bd7e49d5ac62756bee6e4b02221fb96bfc3c99a",
+        "rev": "58706a685864a03e5ade6b436b1b3310b44f1a22",
         "type": "github"
       },
       "original": {
