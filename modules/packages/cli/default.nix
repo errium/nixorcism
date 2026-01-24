@@ -17,6 +17,7 @@
     ./nix-index.nix
     ./nix-search-tv.nix
     ./opencode.nix
+    ./zellij.nix
     ./zoxide.nix
   ];
 
