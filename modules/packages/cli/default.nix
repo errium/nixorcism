@@ -28,7 +28,9 @@
   config = lib.mkIf config.nixorcism.packages.cli.pkgArray.enable {
     hm.home.packages = with pkgs; [
       dysk
+      fd
       gdu
+      ripgrep
       tree
       yazi
     ];
