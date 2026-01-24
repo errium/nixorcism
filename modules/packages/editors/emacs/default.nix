@@ -25,7 +25,6 @@
           gopls
           gore
           gotests
-          nixfmt
           shellcheck
         ];
       };

@@ -6,6 +6,7 @@
   - [[#markdown][Markdown]]
   - [[#org][Org]]
   - [[#go][Go]]
+  - [[#nix][Nix]]
 - [[#stuff][Stuff]]
 
 * Dashboard
@@ -72,7 +73,7 @@
 ** Go
 #+begin_src emacs-lisp
 (after! lsp-mode
-  (setq lsp-go-use-gofumpt t)  ; Использовать gofumpt (более строгий gofmt)
+  (setq lsp-go-use-gofumpt t)
   (setq lsp-go-analyses '((fieldalignment . t)
                           (nilness . t)
                           (unusedwrite . t)
@@ -83,9 +84,14 @@
                            (upgrade_dependency . t))))
 #+end_src
 
+** Nix
+#+begin_src emacs-lisp
+(setq nix-nixfmt-bin "alejandra"))
+#+end_src
+
 * Stuff
 #+begin_src emacs-lisp
-;; (global-tab-line-mode 1)
+(global-tab-line-mode 1)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (setq confirm-kill-emacs nil)
 (setq display-line-numbers-type 'relative)
