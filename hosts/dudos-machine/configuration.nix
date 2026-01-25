@@ -49,9 +49,8 @@
         zoxide.enable = true;
       };
       editors = {
-        emacs.enable = true;
         helix.enable = true;
-        vscodium.enable = true;
+        zed.enable = true;
       };
       gaming = {
         pkgArray.enable = true;

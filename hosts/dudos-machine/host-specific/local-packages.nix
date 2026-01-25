@@ -8,6 +8,7 @@
 
     # GUI
     bitwarden-desktop
+    discord
     feishin
     gajim
     inkscape
