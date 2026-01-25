@@ -26,16 +26,16 @@
       userSettings = {
         autosave = "on_focus_change";
         base_keymap = "VSCode";
+        format_on_save = "on";
         helix_mode = true;
         relative_line_numbers = "enabled";
         theme = lib.mkIf config.stylix.enable "Base16 untitled";
-        format_on_save = "on";
         ui_font_size = lib.mkForce 16;
         wrap_guides = [120];
 
         telemetry = {
-          metrics = false;
           diagnostics = false;
+          metrics = false;
         };
 
         languages = {
