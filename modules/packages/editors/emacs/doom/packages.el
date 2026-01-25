@@ -1,4 +1,5 @@
 ;;; -*- no-byte-compile: t; -*-
 
-(package! rainbow-mode)
 (package! dashboard)
+(package! elisp-autofmt)
+(package! rainbow-mode)
