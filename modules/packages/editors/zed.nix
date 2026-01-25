@@ -29,6 +29,7 @@
         helix_mode = true;
         relative_line_numbers = "enabled";
         theme = lib.mkIf config.stylix.enable "Base16 untitled";
+        format_on_save = "on";
         ui_font_size = lib.mkForce 16;
         wrap_guides = [120];
 
@@ -38,10 +39,8 @@
         };
 
         languages = {
-          Nix = {
-            format_on_save = "on";
-            formatter."external".command = "${pkgs.alejandra}/bin/alejandra";
-          };
+          Go.formatter."external".command = "${pkgs.gofumpt}/bin/gofumpt";
+          Nix.formatter."external".command = "${pkgs.alejandra}/bin/alejandra";
         };
       };
     };
