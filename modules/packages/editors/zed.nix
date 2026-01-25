@@ -12,18 +12,24 @@
     hm.programs.zed-editor = {
       enable = true;
 
+      mutableUserDebug = false;
       mutableUserKeymaps = false;
       mutableUserSettings = false;
+      mutableUserTasks = false;
 
       extensions = ["nix"];
-      extraPackages = with pkgs; [nixd];
+      extraPackages = with pkgs; [
+        nil
+        nixd
+      ];
 
       userSettings = {
         base_keymap = "VSCode";
-        buffer_font_size = lib.mkForce 17;
         features.copilot = false;
         helix_mode = true;
-        theme = "Base16 untitled";
+        theme = lib.mkIf config.stylix.enable "Base16 untitled";
+        ui_font_size = lib.mkForce 16;
+        wrap_guides = [120];
 
         telemetry = {
           metrics = false;
