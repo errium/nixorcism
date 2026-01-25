@@ -14,8 +14,8 @@
       settings = let
         color = {
           accent1 = "blue"; # Main part of the logo
-          accent2 = "green"; # 2nd part of the logo
-          accent3 = "green"; # Even head keys, title (user)
+          accent2 = "cyan"; # 2nd part of the logo
+          accent3 = "cyan"; # Even head keys, title (user)
           accent4 = "blue"; # Odd head keys, title (host)
           accent5 = "white"; # Sub-keys, title (at)
         };
