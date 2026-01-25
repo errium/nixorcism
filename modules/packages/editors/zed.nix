@@ -29,6 +29,8 @@
         collaboration_panel.button = false;
         disable_ai = true;
         helix_mode = true;
+        inlay_hints.enabled = true;
+        inlay_hints.show_background = true;
         project_panel.dock = "right";
         relative_line_numbers = "enabled";
         scrollbar.show = "never";
@@ -36,11 +38,6 @@
         theme = lib.mkIf config.stylix.enable "Base16 untitled";
         ui_font_size = lib.mkForce 16;
         wrap_guides = [120];
-
-        inlay_hints = {
-          enabled = true;
-          show_background = true;
-        };
 
         toolbar = {
           breadcrumbs = false;
