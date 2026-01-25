@@ -24,8 +24,10 @@
       ];
 
       userSettings = {
+        autosave = "on_focus_change";
         base_keymap = "VSCode";
         helix_mode = true;
+        relative_line_numbers = "enabled";
         theme = lib.mkIf config.stylix.enable "Base16 untitled";
         ui_font_size = lib.mkForce 16;
         wrap_guides = [120];
@@ -33,6 +35,13 @@
         telemetry = {
           metrics = false;
           diagnostics = false;
+        };
+
+        languages = {
+          Nix = {
+            format_on_save = "on";
+            formatter."external".command = "${pkgs.alejandra}/bin/alejandra";
+          };
         };
       };
     };
