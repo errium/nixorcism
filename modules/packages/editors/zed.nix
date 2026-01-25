@@ -25,7 +25,6 @@
 
       userSettings = {
         base_keymap = "VSCode";
-        features.copilot = false;
         helix_mode = true;
         theme = lib.mkIf config.stylix.enable "Base16 untitled";
         ui_font_size = lib.mkForce 16;
