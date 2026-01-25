@@ -5,7 +5,7 @@
   ...
 }: {
   options.nixorcism.packages.cli.bat = {
-    enable = lib.mkEnableOption "Whether to enable bat";
+    enable = lib.mkEnableOption "bat";
   };
 
   config = lib.mkIf config.nixorcism.packages.cli.bat.enable {
