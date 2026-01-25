@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options.nixorcism.packages.editors.zed = {
@@ -15,6 +16,7 @@
       mutableUserSettings = false;
 
       extensions = ["nix"];
+      extraPackages = with pkgs; [nixd];
 
       userSettings = {
         base_keymap = "VSCode";
