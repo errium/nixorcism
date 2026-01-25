@@ -21,7 +21,7 @@
       window-managers = {
         niri.enable = true;
       };
-      display-manager = "gdm";
+      display-manager = "ly";
       sound.enable = true;
       xkb.enable = true;
     };
@@ -49,6 +49,7 @@
         zoxide.enable = true;
       };
       editors = {
+        emacs.enable = true;
         helix.enable = true;
         zed.enable = true;
       };
