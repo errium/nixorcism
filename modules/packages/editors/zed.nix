@@ -76,6 +76,17 @@
           Nix.formatter."external".command = "${pkgs.alejandra}/bin/alejandra";
         };
       };
+
+      userKeymaps = [
+        {
+          bindings = {
+            "space w" = "workspace::Save";
+            "space space" = "editor::Format";
+            "space q" = "workspace::CloseWindow";
+            "space i" = "editor::ToggleInlayHints";
+          };
+        }
+      ];
     };
   };
 }

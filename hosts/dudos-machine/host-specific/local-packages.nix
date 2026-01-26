@@ -1,7 +1,8 @@
 {pkgs, ...}: {
   hm.home.packages = with pkgs; [
-    # CLI
+    # CLI & TUI
     figlet
+    kew
     terminal-toys
     toilet
     tty-clock
