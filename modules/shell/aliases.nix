@@ -6,6 +6,7 @@
 }: let
   commonAliases = {
     ff = "fastfetch";
+    grm = "go run main.go";
     lat = "eza -lahT";
     lt = "eza -lhT";
     rmf = "rm -rf";
