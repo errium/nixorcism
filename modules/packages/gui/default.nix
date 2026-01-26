@@ -19,6 +19,7 @@
 
   config = lib.mkIf config.nixorcism.packages.gui.pkgArray.enable {
     hm.home.packages = with pkgs; [
+      celluloid
       file-roller
       nautilus
     ];
