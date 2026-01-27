@@ -27,6 +27,7 @@
     };
 
     misc = {
+      flatpak.enable = true;
       kvm.enable = true;
       styling.enable = true;
     };
