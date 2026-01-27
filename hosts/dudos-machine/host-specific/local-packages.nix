@@ -13,6 +13,7 @@
     feishin
     gajim
     inkscape
+    monero-gui
     obs-studio
     protonvpn-gui
     telegram-desktop
