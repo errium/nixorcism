@@ -19,6 +19,7 @@
           line-number = "relative";
           rulers = [120];
           scrolloff = 15;
+          end-of-line-diagnostics = "hint";
 
           cursor-shape = {
             normal = "block";
@@ -41,6 +42,10 @@
             render = true;
             character = "·";
             skip-levels = 1;
+          };
+
+          inline-diagnostics = {
+            cursor-line = "warning";
           };
 
           lsp = {
