@@ -11,6 +11,7 @@
       colors = import ./colors.nix;
     in {
       enable = true;
+
       polarity = "dark";
       base16Scheme = colors.palette;
     };
