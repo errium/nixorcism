@@ -285,6 +285,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="org.gnome.NautilusPreviewer"
     open-floating true
 }
 
