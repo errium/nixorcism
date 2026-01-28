@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,16 +50,21 @@
     confDir = "/home/${username}/nixorcism";
     username = "errium";
 
+    args = {
+      inherit inputs confDir username;
+      pkgs-stable = inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
+    };
+
     mkSystem = hostname:
       nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs confDir username;};
+        specialArgs = args;
         modules = [
           home-manager.nixosModules.home-manager
           {
             home-manager.backupFileExtension = "backup";
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs confDir username;};
+            home-manager.extraSpecialArgs = args;
           }
           ./hosts/${hostname}/configuration.nix
         ];

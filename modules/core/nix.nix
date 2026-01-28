@@ -18,11 +18,6 @@
     };
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "librewolf-bin-146.0.1-1"
-    "librewolf-bin-unwrapped-146.0.1-1"
-  ];
-
   documentation.nixos.enable = false;
   nixpkgs.config.allowUnfree = true;
 }

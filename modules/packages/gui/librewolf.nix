@@ -2,7 +2,6 @@
   config,
   inputs,
   lib,
-  pkgs,
   ...
 }: {
   options.nixorcism.packages.gui.librewolf = {
@@ -12,7 +11,6 @@
   config = lib.mkIf config.nixorcism.packages.gui.librewolf.enable {
     hm.programs.librewolf = {
       enable = true;
-      package = pkgs.librewolf-bin;
 
       languagePacks = ["ru" "en-US"];
 
