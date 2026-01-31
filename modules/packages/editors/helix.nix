@@ -16,10 +16,14 @@
         editor = {
           auto-save = true;
           bufferline = "always";
+          cursorline = true;
+          end-of-line-diagnostics = "hint";
           line-number = "relative";
           rulers = [120];
           scrolloff = 15;
-          end-of-line-diagnostics = "hint";
+
+          gutters.line-numbers.min-width = 2;
+          inline-diagnostics.cursor-line = "warning";
 
           cursor-shape = {
             normal = "block";
@@ -27,25 +31,10 @@
             select = "underline";
           };
 
-          gutters = {
-            line-numbers.min-width = 2;
-            layout = [
-              "diagnostics"
-              "spacer"
-              "line-numbers"
-              "spacer"
-              "diff"
-            ];
-          };
-
           indent-guides = {
             render = true;
             character = "·";
             skip-levels = 1;
-          };
-
-          inline-diagnostics = {
-            cursor-line = "warning";
           };
 
           lsp = {

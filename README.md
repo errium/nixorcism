@@ -31,6 +31,7 @@ nixorcism
 ├── flake.lock
 ├── install.sh
 ├── README.md
+├── assets/
 │
 ├── hosts/
 │   ├── dudos-machine/
@@ -39,7 +40,6 @@ nixorcism
 │   │   └── hardware-configuration.nix
 │   └── virtual-nix/
 │
-├── assets/
 └── modules/
     ├── core/
     ├── default.nix
