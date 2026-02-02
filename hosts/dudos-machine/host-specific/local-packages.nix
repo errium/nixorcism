@@ -23,7 +23,6 @@
 
     # Go
     gcc
-    go
     gotests
   ];
 }

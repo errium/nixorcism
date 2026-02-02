@@ -27,6 +27,7 @@
     };
 
     misc = {
+      go.enable = true;
       kvm.enable = true;
       styling.enable = true;
     };
