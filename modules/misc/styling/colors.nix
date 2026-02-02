@@ -1,44 +1,6 @@
 rec {
   palette = chalk;
 
-  black-metal = {
-    base00 = "#000000";
-    base01 = "#121212";
-    base02 = "#222222";
-    base03 = "#333333";
-    base04 = "#999999";
-    base05 = "#c1c1c1";
-    base06 = "#999999";
-    base07 = "#c1c1c1";
-    base08 = "#5f8787";
-    base09 = "#aaaaaa";
-    base0A = "#a06666";
-    base0B = "#dd9999";
-    base0C = "#aaaaaa";
-    base0D = "#888888";
-    base0E = "#999999";
-    base0F = "#444444";
-  };
-
-  black-metal-burzum = {
-    base00 = "#000000";
-    base01 = "#121212";
-    base02 = "#222222";
-    base03 = "#333333";
-    base04 = "#999999";
-    base05 = "#c1c1c1";
-    base06 = "#999999";
-    base07 = "#c1c1c1";
-    base08 = "#5f8787";
-    base09 = "#aaaaaa";
-    base0A = "#99bbaa";
-    base0B = "#ddeecc";
-    base0C = "#aaaaaa";
-    base0D = "#888888";
-    base0E = "#999999";
-    base0F = "#444444";
-  };
-
   chalk = {
     base00 = "#151515";
     base01 = "#202020";
@@ -66,34 +28,15 @@ rec {
     base04 = "#dde1e6";
     base05 = "#f2f4f8";
     base06 = "#ffffff";
-    base07 = "#82cfff";
+    base07 = "#ffffff";
     base08 = "#ee5396";
-    base09 = "#78a9ff";
-    base0A = "#ff7eb6";
+    base09 = "#ff7eb6";
+    base0A = "#78a9ff";
     base0B = "#42be65";
-    base0C = "#08bdba";
+    base0C = "#3ddbd9";
     base0D = "#33b1ff";
     base0E = "#be95ff";
-    base0F = "#3ddbd9";
-  };
-
-  sonokai-atlantis = {
-    base00 = "#2a2f38";
-    base01 = "#333846";
-    base02 = "#3d4455";
-    base03 = "#5a6477";
-    base04 = "#828a9a";
-    base05 = "#e1e3e4";
-    base06 = "#e1e3e4";
-    base07 = "#e1e3e4";
-    base08 = "#ff6578";
-    base09 = "#f69c5e";
-    base0A = "#eacb64";
-    base0B = "#9dd274";
-    base0C = "#7ad5f1";
-    base0D = "#72cce8";
-    base0E = "#ba9cf3";
-    base0F = "#ff6d7e";
+    base0F = "#82cfff";
   };
 
   tokyo-night = {
