@@ -52,7 +52,7 @@
       editors = {
         emacs.enable = true;
         helix.enable = true;
-        zed.enable = true;
+        vscodium.enable = true;
       };
       gaming = {
         pkgArray.enable = true;

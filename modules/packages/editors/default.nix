@@ -1,7 +1,7 @@
 {
   imports = [
     ./emacs
-    ./helix.nix
+    ./helix
     ./vscodium.nix
     ./zed.nix
   ];
