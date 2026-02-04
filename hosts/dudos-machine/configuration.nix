@@ -20,6 +20,7 @@
       };
       window-managers = {
         niri.enable = true;
+        sway.enable = true;
       };
       display-manager = "gdm";
       sound.enable = true;

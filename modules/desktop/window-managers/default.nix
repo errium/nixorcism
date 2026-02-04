@@ -2,5 +2,6 @@
   imports = [
     ./mangowc
     ./niri
+    ./sway
   ];
 }

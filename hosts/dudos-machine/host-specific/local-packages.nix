@@ -12,6 +12,7 @@
     discord
     eog
     feishin
+    fractal
     gajim
     inkscape
     monero-gui
@@ -23,6 +24,7 @@
 
     # Go
     gcc
+    golangci-lint
     gotests
   ];
 }
