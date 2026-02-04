@@ -10,9 +10,9 @@
     # GUI
     bitwarden-desktop
     discord
+    element-desktop
     eog
     feishin
-    fractal
     gajim
     inkscape
     monero-gui

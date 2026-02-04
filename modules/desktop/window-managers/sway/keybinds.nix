@@ -72,6 +72,17 @@
         "${modifier}+Shift+minus" = "move scratchpad";
         "${modifier}+minus" = "scratchpad show";
       };
+
+      modes = {
+        resize = {
+          "${left}" = "resize shrink width 10px";
+          "${down}" = "resize grow height 10px";
+          "${up}" = "resize shrink height 10px";
+          "${right}" = "resize grow width 10px";
+          "Escape" = "mode default";
+          "Return" = "mode default";
+        };
+      };
     };
   };
 }
