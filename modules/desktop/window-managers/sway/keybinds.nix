@@ -6,10 +6,10 @@
   config = lib.mkIf config.nixorcism.desktop.window-managers.sway.enable {
     hm.wayland.windowManager.sway.config = rec {
       modifier = "Mod4";
-      left = "h";
-      down = "j";
-      up = "k";
-      right = "l";
+      left = "Left";
+      down = "Down";
+      up = "Up";
+      right = "Right";
       terminal = "foot";
       menu = "wmenu";
 
@@ -32,6 +32,9 @@
         "${modifier}+Shift+${down}" = "move down";
         "${modifier}+Shift+${up}" = "move up";
         "${modifier}+Shift+${right}" = "move right";
+
+        # Resize containers
+        "${modifier}+r" = ''mode "resize"'';
 
         # Workspace navigation
         "${modifier}+1" = "workspace number 1";
@@ -57,7 +60,7 @@
         "${modifier}+Shift+9" = "move container to workspace number 9";
         "${modifier}+Shift+0" = "move container to workspace number 10";
 
-        # Layout
+        # Layouts
         "${modifier}+b" = "splith";
         "${modifier}+v" = "splitv";
         "${modifier}+s" = "layout stacking";
@@ -71,6 +74,7 @@
         # Scratchpad
         "${modifier}+Shift+minus" = "move scratchpad";
         "${modifier}+minus" = "scratchpad show";
+
       };
 
       modes = {

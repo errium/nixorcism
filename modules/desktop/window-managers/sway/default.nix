@@ -6,7 +6,7 @@
   imports = [
     ./keybinds.nix
   ];
-    
+
   options.nixorcism.desktop.window-managers.sway = {
     enable = lib.mkEnableOption "Sway";
   };
