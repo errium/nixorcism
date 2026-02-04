@@ -4,7 +4,10 @@
   ...
 }: {
   imports = [
+    ./appearance.nix
+    ./inputs.nix
     ./keybinds.nix
+    ./misc.nix
   ];
 
   options.nixorcism.desktop.window-managers.sway = {
@@ -19,6 +22,10 @@
 
     hm.wayland.windowManager.sway = {
       enable = true;
+
+      config.startup = [
+        {command = "foot --server &";}
+      ];
     };
   };
 }

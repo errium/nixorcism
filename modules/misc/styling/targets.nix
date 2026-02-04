@@ -17,6 +17,7 @@
         profileNames = ["default"];
       };
       noctalia-shell.enable = false;
+      sway.enable = false;
       vesktop.enable = false;
     };
   };

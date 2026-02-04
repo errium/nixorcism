@@ -62,10 +62,12 @@
         modules = [
           home-manager.nixosModules.home-manager
           {
-            home-manager.backupFileExtension = "backup";
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = args;
+            home-manager = {
+              backupFileExtension = "backup";
+              extraSpecialArgs = args;
+              useGlobalPkgs = true;
+              useUserPackages = true;
+            };
           }
           ./hosts/${hostname}/configuration.nix
         ];

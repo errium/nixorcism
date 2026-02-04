@@ -6,5 +6,6 @@
     ./grub.nix
     ./local-packages.nix
     ./nvidia.nix
+    ./sway.nix
   ];
 }

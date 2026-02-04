@@ -14,10 +14,6 @@
 
       base16Scheme = colors.palette;
       polarity = "dark";
-
-      opacity = {
-        terminal = 0.95;
-      };
     };
   };
 }

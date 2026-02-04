@@ -55,6 +55,7 @@ layout {
     }
 
     focus-ring {
+        off
         width 3
         // Chalk palette
         active-color "#b0b0b0"    // base04
@@ -62,12 +63,12 @@ layout {
     }
 
     border {
-        off
+        // off
         width 3
-        // Vague palette
-        active-color "#aeaed1"    // base0C
-        inactive-color "#606079"  // base03
-        urgent-color "#d8647e"    // base08
+        // Jellybeans palette
+        active-color "#e8e8d3"    // base05
+        inactive-color "#404040"  // base02
+        urgent-color "#cf6a4c"    // base08
     }
 
     shadow {
@@ -81,10 +82,9 @@ layout {
 
     tab-indicator {
 		width 6
-		gap 6
-        gaps-between-tabs 3
-        corner-radius 12
-		length total-proportion=0.50
+		gap 8
+        corner-radius 0
+		length total-proportion=0.40
 		position "left"
 		place-within-column
 	}
@@ -221,6 +221,8 @@ binds {
 // ┣━┫┃┗┫┃┃┃┃┣━┫ ┃ ┃┃ ┃┃┗┫┗━┓
 // ╹ ╹╹ ╹╹╹ ╹╹ ╹ ╹ ╹┗━┛╹ ╹┗━┛
 animations {
+    off
+    
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
@@ -263,10 +265,10 @@ animations {
 // ╻ ╻┏━┓┏━┓╻┏ ┏━┓┏━┓┏━┓┏━╸┏━╸┏━┓
 // ┃╻┃┃ ┃┣┳┛┣┻┓┗━┓┣━┛┣━┫┃  ┣╸ ┗━┓
 // ┗┻┛┗━┛╹┗╸╹ ╹┗━┛╹  ╹ ╹┗━╸┗━╸┗━┛
-workspace "1"
-workspace "2"
-workspace "3"
-workspace "4"
+workspace "WWW"
+workspace "MUSC"
+workspace "CHAT"
+workspace "TERM"
 workspace "5"
 workspace "6"
 workspace "7"
@@ -298,10 +300,10 @@ window-rule {
     open-maximized true
 }
 
-window-rule {
-    geometry-corner-radius 4
-    clip-to-geometry true
-}
+// window-rule {
+//     geometry-corner-radius 4
+//     clip-to-geometry true
+// }
 
 // ┏┳┓╻┏━┓┏━╸
 // ┃┃┃┃┗━┓┃  

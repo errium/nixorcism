@@ -31,8 +31,8 @@ in {
       package = pkgs.noto-fonts;
     };
     monospace = {
-      name = "IosevkaTerm Nerd Font";
-      package = pkgs.nerd-fonts.iosevka-term;
+      name = "Terminess Nerd Font";
+      package = pkgs.nerd-fonts.terminess-ttf;
     };
     emoji = {
       name = "Noto Color Emoji";

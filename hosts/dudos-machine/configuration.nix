@@ -20,9 +20,8 @@
       };
       window-managers = {
         niri.enable = true;
-        sway.enable = true;
       };
-      display-manager = "gdm";
+      display-manager = "ly";
       sound.enable = true;
       xkb.enable = true;
     };

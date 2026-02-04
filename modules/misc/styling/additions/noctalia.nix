@@ -9,7 +9,7 @@
       mOnPrimary = base00;
       mSecondary = base06;
       mOnSecondary = base00;
-      mTertiary = base04;
+      mTertiary = base05;
       mOnTertiary = base00;
       mError = base08;
       mOnError = base00;
