@@ -16,11 +16,9 @@
 
     desktop = {
       desktop-shells = {
-        dms.enable = true;
-        # noctalia.enable = true;
+        noctalia.enable = true;
       };
       window-managers = {
-        niri.enable = true;
         sway.enable = true;
       };
       display-manager = "ly";

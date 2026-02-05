@@ -9,6 +9,8 @@
   };
 
   config = lib.mkIf config.nixorcism.desktop.desktop-shells.dms.enable {
+    services.upower.enable = true;
+
     hm = {
       imports = [inputs.dms.homeModules.dank-material-shell];
 
