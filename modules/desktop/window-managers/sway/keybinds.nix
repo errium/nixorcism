@@ -11,14 +11,16 @@
       up = "Up";
       right = "Right";
       terminal = "footclient";
-      menu = ''"noctalia-shell ipc call launcher toggle"'';
+      menu = "noctalia-shell ipc call launcher toggle";
 
       keybindings = {
         # Essentials
-        "${modifier}+t" = "exec ${terminal}";
         "${modifier}+q" = "kill";
-        "${modifier}+space" = "exec ${menu}";
         "${modifier}+e" = "exec nautilus";
+        "${modifier}+t" = "exec ${terminal}";
+        "${modifier}+space" = "exec ${menu}";
+        "${modifier}+Shift+c" = ''exec sh -c "swaymsg reload && pkill .quickshell-wra && noctalia-shell"'';
+        "${modifier}+Shift+l" = "exec noctalia-shell ipc call lockScreen lock";
         "${modifier}+Shift+m" = "exec swaynag -t warning -m 'Exit sway?' -B 'Yes' 'swaymsg exit'";
 
         # Navigation
@@ -34,7 +36,7 @@
         "${modifier}+Shift+${right}" = "move right";
 
         # Resize containers
-        "${modifier}+r" = ''mode "resize"'';
+        "${modifier}+Shift+r" = ''mode "resize"'';
 
         # Workspace navigation
         "${modifier}+1" = "workspace number 1";
@@ -61,20 +63,31 @@
         "${modifier}+Shift+0" = "move container to workspace number 10; workspace 10";
 
         # Layouts
-        "${modifier}+Control+${right}" = "splith";
-        "${modifier}+Control+${down}" = "splitv";
-        "${modifier}+Shift+Tab" = "layout stacking";
-        "${modifier}+Tab" = "layout tabbed";
-        "${modifier}+Shift+e" = "layout toggle split";
-        "${modifier}+f" = "fullscreen";
-        "${modifier}+Shift+space" = "floating toggle";
-        "${modifier}+Control+space" = "focus mode_toggle";
         "${modifier}+a" = "focus parent";
+        "${modifier}+f" = "fullscreen";
+        "${modifier}+z" = "layout toggle split";
+        "${modifier}+v" = "floating toggle";
+        "${modifier}+Shift+v" = "focus mode_toggle";
+        "${modifier}+Tab" = "layout tabbed";
+        "${modifier}+Shift+Tab" = "layout stacking";
+        "${modifier}+Page_Down" = "splitv";
+        "${modifier}+Page_Up" = "splith";
 
         # Scratchpad
-        "${modifier}+Shift+minus" = "move scratchpad";
-        "${modifier}+minus" = "scratchpad show";
+        "${modifier}+Shift+s" = "move scratchpad";
+        "${modifier}+s" = "scratchpad show";
 
+        # System
+        "XF86AudioRaiseVolume" = ''exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'';
+        "XF86AudioLowerVolume" = ''exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'';
+        "XF86AudioMute" = ''exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'';
+        "XF86AudioMicMute" = ''exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'';
+        "XF86AudioPlay" = ''exec playerctl play-pause'';
+        "XF86AudioStop" = ''exec playerctl stop'';
+        "XF86AudioPrev" = ''exec playerctl previous'';
+        "XF86AudioNext" = ''exec playerctl next'';
+        "XF86MonBrightnessUp" = ''exec brightnessctl set +5%'';
+        "XF86MonBrightnessDown" = ''exec brightnessctl set 5%-'';
       };
 
       modes = {
