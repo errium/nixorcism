@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   ...
 }: {
@@ -8,12 +9,16 @@
   };
 
   config = lib.mkIf config.nixorcism.desktop.desktop-shells.dms.enable {
-    programs.dms-shell = {
-      enable = true;
+    hm = {
+      imports = [inputs.dms.homeModules.dank-material-shell];
 
-      systemd = {
+      programs.dank-material-shell = {
         enable = true;
-        restartIfChanged = true;
+
+        systemd = {
+          enable = true; 
+          restartIfChanged = true; 
+        };
       };
     };
   };
