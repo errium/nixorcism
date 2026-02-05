@@ -2,25 +2,31 @@
   config,
   lib,
   ...
-}: {
+}: let
+  stx = config.lib.stylix.colors.withHashtag;
+
+  primary = stx.base05;
+  secondary = stx.base04;
+  tertiary = stx.base05;
+in {
   config = lib.mkIf (config.nixorcism.desktop.desktop-shells.noctalia.enable && config.stylix.enable) {
-    hm.programs.noctalia-shell.colors = with config.lib.stylix.colors.withHashtag; {
-      mPrimary = base06;
-      mOnPrimary = base00;
-      mSecondary = base06;
-      mOnSecondary = base00;
-      mTertiary = base05;
-      mOnTertiary = base00;
-      mError = base08;
-      mOnError = base00;
-      mSurface = base00;
-      mOnSurface = base06;
-      mHover = base04;
-      mOnHover = base00;
-      mSurfaceVariant = base01;
-      mOnSurfaceVariant = base04;
-      mOutline = base02;
-      mShadow = base00;
+    hm.programs.noctalia-shell.colors = {
+      mPrimary = primary;
+      mOnPrimary = stx.base00;
+      mSecondary = secondary;
+      mOnSecondary = stx.base00;
+      mTertiary = tertiary;
+      mOnTertiary = stx.base00;
+      mError = stx.base08;
+      mOnError = stx.base00;
+      mSurface = stx.base00;
+      mOnSurface = stx.base05;
+      mHover = stx.base06;
+      mOnHover = stx.base00;
+      mSurfaceVariant = stx.base01;
+      mOnSurfaceVariant = stx.base04;
+      mOutline = stx.base02;
+      mShadow = stx.base00;
     };
   };
 }

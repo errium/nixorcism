@@ -5,12 +5,12 @@
 }: let
   stx = config.lib.stylix.colors.withHashtag;
 
-  background = stx.base00;
-  indicator = stx.base0E;
+  background = stx.base01;
+  indicator = stx.base03;
   text = stx.base05;
   urgent = stx.base08;
-  focused = stx.base05;
-  unfocused = stx.base02;
+  focused = stx.base02;
+  unfocused = stx.base01;
 in {
   config = lib.mkIf (config.nixorcism.desktop.window-managers.sway.enable && config.stylix.enable) {
     hm.wayland.windowManager.sway.config.colors = {
@@ -35,7 +35,8 @@ in {
       };
 
       unfocused = {
-        inherit background indicator text;
+        inherit background indicator;
+        text = stx.base03; 
         border = unfocused;
         childBorder = unfocused;
       };

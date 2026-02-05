@@ -16,7 +16,7 @@ in {
       primaryText = stx.base00;
       primaryContainer = stx.base0C;
 
-      surface = stx.base02;
+      surface = stx.base00;
       surfaceTint = primary;
       surfaceText = stx.base05;
       surfaceVariant = stx.base01;

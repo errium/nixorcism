@@ -1,24 +1,5 @@
 rec {
-  palette = jellybeans;
-
-  base16-default = {
-    base00 = "#181818";
-    base01 = "#282828";
-    base02 = "#383838";
-    base03 = "#585858";
-    base04 = "#b8b8b8";
-    base05 = "#d8d8d8";
-    base06 = "#e8e8e8";
-    base07 = "#f8f8f8";
-    base08 = "#ab4642";
-    base09 = "#dc9656";
-    base0A = "#f7ca88";
-    base0B = "#a1b56c";
-    base0C = "#86c1b9";
-    base0D = "#7cafc2";
-    base0E = "#ba8baf";
-    base0F = "#a16946";
-  };
+  palette = chalk;
 
   chalk = {
     base00 = "#151515";
@@ -37,25 +18,6 @@ rec {
     base0D = "#6fc2ef";
     base0E = "#e1a3ee";
     base0F = "#deaf8f";
-  };
-
-  gruber-darker = {
-    base00 = "#181818";
-    base01 = "#282828";
-    base02 = "#453d41";
-    base03 = "#52494e";
-    base04 = "#95a99f";
-    base05 = "#e4e4ef";
-    base06 = "#f4f4ff";
-    base07 = "#ffffff";
-    base08 = "#f43841";
-    base09 = "#cc8c3c";
-    base0A = "#ffdd33";
-    base0B = "#73c936";
-    base0C = "#95a99f";
-    base0D = "#96a6c8";
-    base0E = "#9e95c7";
-    base0F = "#c73c3f";
   };
 
   jellybeans = {

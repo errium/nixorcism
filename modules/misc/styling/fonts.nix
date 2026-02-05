@@ -31,8 +31,8 @@ in {
       package = pkgs.noto-fonts;
     };
     monospace = {
-      name = "Terminess Nerd Font";
-      package = pkgs.nerd-fonts.terminess-ttf;
+      name = "IosevkaTerm Nerd Font";
+      package = pkgs.nerd-fonts.iosevka-term;
     };
     emoji = {
       name = "Noto Color Emoji";
@@ -43,7 +43,7 @@ in {
       applications = 10;
       desktop = 10;
       popups = 10;
-      terminal = 14;
+      terminal = 13;
     };
   };
 }
