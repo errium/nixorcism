@@ -16,6 +16,7 @@
 
     desktop = {
       desktop-shells = {
+        dms.enable = true;
         noctalia.enable = true;
       };
       window-managers = {
