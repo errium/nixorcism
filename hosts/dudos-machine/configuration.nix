@@ -21,6 +21,7 @@
       };
       window-managers = {
         niri.enable = true;
+        sway.enable = true;
       };
       display-manager = "ly";
       sound.enable = true;
