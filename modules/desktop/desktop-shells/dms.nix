@@ -19,6 +19,10 @@
           enable = true; 
           restartIfChanged = true; 
         };
+
+        enableCalendarEvents = false;
+        enableDynamicTheming = false;
+        enableVPN = false;
       };
     };
   };
