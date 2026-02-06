@@ -6,10 +6,10 @@
   stx = config.lib.stylix.colors.withHashtag;
 
   background = stx.base01;
-  indicator = stx.base03;
+  indicator = stx.base0C;
   text = stx.base05;
   urgent = stx.base08;
-  focused = stx.base02;
+  focused = stx.base03;
   unfocused = stx.base01;
 in {
   config = lib.mkIf (config.nixorcism.desktop.window-managers.sway.enable && config.stylix.enable) {
