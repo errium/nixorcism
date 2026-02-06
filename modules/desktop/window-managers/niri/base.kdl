@@ -300,10 +300,10 @@ window-rule {
     open-maximized true
 }
 
-// window-rule {
-//     geometry-corner-radius 4
-//     clip-to-geometry true
-// }
+window-rule {
+    geometry-corner-radius 4
+    clip-to-geometry true
+}
 
 // ┏┳┓╻┏━┓┏━╸
 // ┃┃┃┃┗━┓┃  
