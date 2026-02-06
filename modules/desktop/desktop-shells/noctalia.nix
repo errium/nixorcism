@@ -15,10 +15,7 @@
       imports = [inputs.noctalia.homeModules.default];
       programs.noctalia-shell = {
         enable = true;
-        systemd = {
-          enable = true;
-          target = "sway-session.target";
-        };
+        systemd.enable = true;
       };
     };
   };
