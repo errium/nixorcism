@@ -19,9 +19,10 @@
         noctalia.enable = true;
       };
       window-managers = {
+        niri.enable = true;
         sway.enable = true;
       };
-      display-manager = "ly";
+      display-manager = "gdm";
       sound.enable = true;
       xkb.enable = true;
     };
