@@ -26,7 +26,7 @@
         scrolloff = 15;
 
         gutters.line-numbers.min-width = 2;
-        inline-diagnostics.cursor-line = "warning";
+        # inline-diagnostics.cursor-line = "warning";
 
         cursor-shape = {
           normal = "block";

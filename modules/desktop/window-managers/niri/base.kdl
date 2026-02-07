@@ -63,12 +63,11 @@ layout {
     }
 
     border {
-        // off
         width 3
-        // Jellybeans palette
-        active-color "#e8e8d3"    // base05
-        inactive-color "#404040"  // base02
-        urgent-color "#cf6a4c"    // base08
+        // Paradise palette
+        active-color "#424242"    // base03
+        inactive-color "#1f1f1f"  // base01
+        urgent-color "#b66467"    // base08
     }
 
     shadow {
@@ -83,7 +82,7 @@ layout {
     tab-indicator {
 		width 6
 		gap 8
-        corner-radius 0
+        corner-radius 12
 		length total-proportion=0.40
 		position "left"
 		place-within-column
@@ -221,47 +220,50 @@ binds {
 // ┣━┫┃┗┫┃┃┃┃┣━┫ ┃ ┃┃ ┃┃┗┫┗━┓
 // ╹ ╹╹ ╹╹╹ ╹╹ ╹ ╹ ╹┗━┛╹ ╹┗━┛
 animations {
-    off
-    
     workspace-switch {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1200 epsilon=0.0001
     }
+    
     window-open {
-        duration-ms 120
-        curve "ease-out-quad"
+        duration-ms 100
+        curve "ease-out-cubic"
     }
     window-close {
-        duration-ms 120
-        curve "ease-out-quad"
+        duration-ms 100
+        curve "ease-out-cubic"
     }
+    
     horizontal-view-movement {
-        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1200 epsilon=0.0001
     }
     window-movement {
-        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1200 epsilon=0.0001
     }
     window-resize {
-        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1200 epsilon=0.0001
     }
+    
     config-notification-open-close {
-        spring damping-ratio=0.6 stiffness=900 epsilon=0.001
+        duration-ms 100
+        curve "ease-out-cubic"
     }
     exit-confirmation-open-close {
-        duration-ms 120
-        curve "ease-out-quad"
+        duration-ms 100
+        curve "ease-out-cubic"
     }
     screenshot-ui-open {
-        duration-ms 120
-        curve "ease-out-quad"
+        duration-ms 100
+        curve "ease-out-cubic"
     }
     overview-open-close {
-        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+        duration-ms 100
+        curve "ease-out-cubic"
     }
     recent-windows-close {
-        spring damping-ratio=1.0 stiffness=900 epsilon=0.001
+        duration-ms 100
+        curve "ease-out-cubic"
     }
 }
-
 // ╻ ╻┏━┓┏━┓╻┏ ┏━┓┏━┓┏━┓┏━╸┏━╸┏━┓
 // ┃╻┃┃ ┃┣┳┛┣┻┓┗━┓┣━┛┣━┫┃  ┣╸ ┗━┓
 // ┗┻┛┗━┛╹┗╸╹ ╹┗━┛╹  ╹ ╹┗━╸┗━╸┗━┛
@@ -301,7 +303,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 4
+    geometry-corner-radius 2
     clip-to-geometry true
 }
 
