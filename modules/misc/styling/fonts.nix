@@ -22,16 +22,16 @@ in {
 
   stylix.fonts = lib.mkIf config.stylix.enable {
     sansSerif = {
-      name = "Iosevka Medium Extended";
-      package = pkgs.iosevka;
+      name = "Inter";
+      package = pkgs.inter;
     };
     serif = {
-      name = "Iosevka Medium Extended";
-      package = pkgs.iosevka;
+      name = "Inter";
+      package = pkgs.inter;
     };
     monospace = {
-      name = "IosevkaTerm Nerd Font";
-      package = pkgs.nerd-fonts.iosevka-term;
+      name = "JetbrainsMono Nerd Font"; 
+      package = pkgs.nerd-fonts.jetbrains-mono; 
     };
     emoji = {
       name = "Noto Color Emoji";
