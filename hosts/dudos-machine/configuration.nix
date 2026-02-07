@@ -69,6 +69,7 @@
 
     services = {
       auto-cpufreq.enable = true;
+      openrgb.enable = true;
       openssh.enable = true;
       udiskie.enable = true;
     };
