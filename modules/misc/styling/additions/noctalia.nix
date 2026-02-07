@@ -21,7 +21,7 @@ in {
       mOnError = stx.base00;
       mSurface = stx.base00;
       mOnSurface = stx.base05;
-      mHover = stx.base06;
+      mHover = primary;
       mOnHover = stx.base00;
       mSurfaceVariant = stx.base01;
       mOnSurfaceVariant = stx.base04;

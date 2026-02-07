@@ -1,5 +1,5 @@
 rec {
-  palette = chalk;
+  palette = paradise;
 
   chalk = {
     base00 = "#151515";
@@ -56,6 +56,25 @@ rec {
     base0D = "#33b1ff";
     base0E = "#be95ff";
     base0F = "#82cfff";
+  };
+
+  paradise = {
+    base00 = "#151515";
+    base01 = "#1f1f1f";
+    base02 = "#2b2b2b";
+    base03 = "#424242";
+    base04 = "#b0abab";
+    base05 = "#e8e3e3";
+    base06 = "#e8e3e3";
+    base07 = "#f0f0f0";
+    base08 = "#b66467";
+    base09 = "#d9bc8c";
+    base0A = "#d9bc8c";
+    base0B = "#8c977d";
+    base0C = "#8aa6a2";
+    base0D = "#8da3b9";
+    base0E = "#a988b0";
+    base0F = "#b66467";
   };
 
   tokyo-night = {

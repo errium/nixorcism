@@ -14,7 +14,6 @@
     rubik
   ];
   nerd-fonts = with pkgs.nerd-fonts; [
-    iosevka
     iosevka-term
     symbols-only
   ];
@@ -22,17 +21,17 @@ in {
   fonts.packages = regular ++ nerd-fonts;
 
   stylix.fonts = lib.mkIf config.stylix.enable {
-    serif = {
-      name = "Noto Serif";
-      package = pkgs.noto-fonts;
-    };
     sansSerif = {
-      name = "Noto Sans";
-      package = pkgs.noto-fonts;
+      name = "Iosevka Medium Extended";
+      package = pkgs.iosevka;
+    };
+    serif = {
+      name = "Iosevka Medium Extended";
+      package = pkgs.iosevka;
     };
     monospace = {
       name = "IosevkaTerm Nerd Font";
-      package = pkgs.nerd-fonts.iosevka-term;
+      package = pkgs.nerd-fonts.lilex;
     };
     emoji = {
       name = "Noto Color Emoji";
