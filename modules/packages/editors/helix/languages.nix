@@ -52,6 +52,7 @@
             command = "${pkgs.mpls}/bin/mpls";
             args = ["--no-auto" "--enable-emoji" "--dark-mode"];
           };
+          nil.command = "${pkgs.nil}/bin/nil";
           nixd.command = "${pkgs.nixd}/bin/nixd";
         };
       };
