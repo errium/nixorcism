@@ -32,6 +32,7 @@ input {
      }
 
     focus-follows-mouse max-scroll-amount="30%"
+    workspace-auto-back-and-forth
 }
 
 // ╻  ┏━┓╻ ╻┏━┓╻ ╻╺┳╸

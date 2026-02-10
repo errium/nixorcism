@@ -71,6 +71,7 @@
       auto-cpufreq.enable = true;
       openrgb.enable = true;
       openssh.enable = true;
+      resolved.enable = true;
       udiskie.enable = true;
     };
 
