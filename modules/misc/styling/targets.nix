@@ -11,6 +11,7 @@
     hm.stylix.targets = {
       cava.rainbow.enable = true;
       fontconfig.enable = false;
+      kitty.enable = false; # TEST
       librewolf = {
         colorTheme.enable = true;
         fonts.enable = false;
