@@ -1,5 +1,5 @@
 rec {
-  palette = paradise;
+  palette = chalk;
 
   chalk = {
     base00 = "#151515";

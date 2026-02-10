@@ -64,10 +64,10 @@ layout {
 
     border {
         width 3
-        // Paradise palette
-        active-color "#424242"    // base03
-        inactive-color "#1f1f1f"  // base01
-        urgent-color "#b66467"    // base08
+        // Chalk palette
+        active-color "#505050"    // base03
+        inactive-color "#202020"  // base01
+        urgent-color "#fb9fb1"    // base08
     }
 
     shadow {
