@@ -35,6 +35,10 @@
             formatter.command = "${pkgs.alejandra}/bin/alejandra";
           }
           {
+            name = "rust";
+            formatter.command = "${pkgs.rustfmt}/bin/rustfmt";
+          }
+          {
             name = "yaml";
             formatter = {
               command = "${pkgs.prettier}/bin/prettier";
@@ -54,12 +58,14 @@
           };
           nil.command = "${pkgs.nil}/bin/nil";
           nixd.command = "${pkgs.nixd}/bin/nixd";
+          rust-analyzer.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         };
       };
 
       extraPackages = with pkgs; [
         delve
         golangci-lint
+        lldb
       ];
     };
   };

@@ -26,5 +26,9 @@
     gcc
     golangci-lint
     gotests
+
+    # Rust
+    rustlings
+    rustup
   ];
 }
