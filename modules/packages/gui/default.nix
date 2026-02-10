@@ -11,6 +11,7 @@
     ./librewolf.nix
     ./spicetify.nix
     ./vesktop.nix
+    ./zathura.nix
   ];
 
   options.nixorcism.packages.gui = {
