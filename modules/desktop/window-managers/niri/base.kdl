@@ -65,10 +65,10 @@ layout {
 
     border {
         width 3
-        // Chalk palette
-        active-color "#505050"    // base03
-        inactive-color "#202020"  // base01
-        urgent-color "#fb9fb1"    // base08
+        // Tokyo Night palette
+        active-color "#565f89"    // base03
+        inactive-color "#24283b"  // base01
+        urgent-color "#f7768e"    // base08
     }
 
     shadow {
