@@ -6,12 +6,14 @@
 }: let
   commonAliases = {
     ff = "fastfetch";
-    glf = "golangci-lint fmt";
-    glr = "golangci-lint run";
-    grm = "go run main.go";
     lat = "eza -lahT";
     lt = "eza -lhT";
     rmf = "rm -rf";
+
+    cgr = "cargo run";
+    glf = "golangci-lint fmt";
+    glr = "golangci-lint run";
+    grm = "go run main.go";
   };
 in {
   options.nixorcism.shell.aliases = lib.mkOption {type = lib.types.attrs;};
