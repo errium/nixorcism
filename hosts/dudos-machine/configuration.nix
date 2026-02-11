@@ -34,6 +34,7 @@
 
     packages = {
       cli = {
+        pkgArray.enable = true;
         bat.enable = true;
         btop.enable = true;
         cava.enable = true;
@@ -46,13 +47,11 @@
         nix-index.enable = true;
         nix-search-tv.enable = true;
         opencode.enable = true;
-        pkgArray.enable = true;
         zoxide.enable = true;
       };
       editors = {
         emacs.enable = true;
         helix.enable = true;
-        vscodium.enable = true;
       };
       gaming = {
         pkgArray.enable = true;
