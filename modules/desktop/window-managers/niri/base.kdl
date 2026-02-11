@@ -65,10 +65,10 @@ layout {
 
     border {
         width 3
-        // Tokyo Night palette
-        active-color "#565f89"    // base03
-        inactive-color "#24283b"  // base01
-        urgent-color "#f7768e"    // base08
+        // Tomorrow Night palette
+        active-color "#969896"    // base03
+        inactive-color "#282a2e"  // base01
+        urgent-color "#cc6666"    // base08
     }
 
     shadow {
