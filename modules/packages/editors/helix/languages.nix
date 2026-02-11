@@ -52,13 +52,14 @@
           golangci-lint-lsp.command = "${pkgs.golangci-lint-langserver}/bin/golangci-lint-langserver";
           gopls.command = "${pkgs.gopls}/bin/gopls";
           marksman.command = "${pkgs.marksman}/bin/marksman";
+          nil.command = "${pkgs.nil}/bin/nil";
+          nixd.command = "${pkgs.nixd}/bin/nixd";
+          rust-analyzer.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+          
           mpls = {
             command = "${pkgs.mpls}/bin/mpls";
             args = ["--no-auto" "--enable-emoji" "--dark-mode"];
           };
-          nil.command = "${pkgs.nil}/bin/nil";
-          nixd.command = "${pkgs.nixd}/bin/nixd";
-          rust-analyzer.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         };
       };
 
