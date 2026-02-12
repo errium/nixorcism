@@ -65,10 +65,10 @@ layout {
 
     border {
         width 3
-        // Tomorrow Night palette
-        active-color "#969896"    // base03
-        inactive-color "#282a2e"  // base01
-        urgent-color "#cc6666"    // base08
+        // Fleet palette
+        active-color "#af9cff"    // base0E
+        inactive-color "#1f1f1f"  // base01
+        urgent-color "#cc7c8a"    // base08
     }
 
     shadow {
