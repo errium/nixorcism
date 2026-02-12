@@ -16,7 +16,7 @@
       polarity = "dark";
 
       opacity = {
-        terminal = 0.95;
+        terminal = 0.97;
       };
     };
   };
