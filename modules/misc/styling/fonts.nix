@@ -34,31 +34,31 @@ in {
     #   package = pkgs.nerd-fonts.iosevka-term;
     # };
 
-    sansSerif = {
-      name = "Fira Sans";
-      package = pkgs.fira;
-    };
-    serif = {
-      name = "Fira Sans";
-      package = pkgs.fira;
-    };
-    monospace = {
-      name = "FiraCode Nerd Font";
-      package = pkgs.nerd-fonts.fira-code;
-    };
-
     # sansSerif = {
-    #   name = "Inter";
-    #   package = pkgs.inter;
+    #   name = "Fira Sans";
+    #   package = pkgs.fira;
     # };
     # serif = {
-    #   name = "Inter";
-    #   package = pkgs.inter;
+    #   name = "Fira Sans";
+    #   package = pkgs.fira;
     # };
     # monospace = {
-    #   name = "JetbrainsMono Nerd Font";
-    #   package = pkgs.nerd-fonts.jetbrains-mono;
+    #   name = "FiraCode Nerd Font";
+    #   package = pkgs.nerd-fonts.fira-code;
     # };
+
+    sansSerif = {
+      name = "Inter";
+      package = pkgs.inter;
+    };
+    serif = {
+      name = "Inter";
+      package = pkgs.inter;
+    };
+    monospace = {
+      name = "JetbrainsMono Nerd Font";
+      package = pkgs.nerd-fonts.jetbrains-mono;
+    };
 
     emoji = {
       name = "Noto Color Emoji";
