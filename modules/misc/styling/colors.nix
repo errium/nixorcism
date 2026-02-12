@@ -1,5 +1,5 @@
 rec {
-  palette = tomorrow-night;
+  palette = fleet;
 
   chalk = {
     base00 = "#151515";
@@ -18,6 +18,25 @@ rec {
     base0D = "#6fc2ef";
     base0E = "#e1a3ee";
     base0F = "#deaf8f";
+  };
+
+  fleet = {
+    base00 = "#181818";
+    base01 = "#1f1f1f";
+    base02 = "#292929";
+    base03 = "#898989";
+    base04 = "#c2c2c2";
+    base05 = "#d1d1d1";
+    base06 = "#efefef";
+    base07 = "#ffffff";
+    base08 = "#cc7c8a";
+    base09 = "#e09b70";
+    base0A = "#ebc88d";
+    base0B = "#a8cc7c";
+    base0C = "#82d2ce";
+    base0D = "#87c3ff";
+    base0E = "#af9cff";
+    base0F = "#e394dc";
   };
 
   jellybeans = {
