@@ -65,10 +65,10 @@ layout {
 
     border {
         width 3
-        // Fleet palette
-        active-color "#af9cff"    // base0E
-        inactive-color "#1f1f1f"  // base01
-        urgent-color "#cc7c8a"    // base08
+        // Tokyo Night palette
+        active-color "#565f89"    // base03
+        inactive-color "#24283b"  // base01
+        urgent-color "#f7768e"    // base08
     }
 
     shadow {
