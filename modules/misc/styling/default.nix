@@ -18,7 +18,7 @@
   config = lib.mkIf config.nixorcism.misc.styling.enable {
     hm = {
       home.pointerCursor = {
-        name = "Bibata-Modern-Classic";
+        name = "Bibata-Modern-Ice";
         package = pkgs.bibata-cursors;
         size = 24;
         gtk.enable = true;
