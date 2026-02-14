@@ -1,15 +1,12 @@
 {pkgs, ...}: {
   hm.home.packages = with pkgs; [
     # CLI & TUI
-    figlet
     kew
     terminal-toys
-    toilet
-    tty-clock
 
     # GUI
     bitwarden-desktop
-    discord
+    # cinny-desktop
     element-desktop
     eog
     feishin
