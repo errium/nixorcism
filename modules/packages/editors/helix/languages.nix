@@ -17,11 +17,17 @@
             formatter.command = "${pkgs.gofumpt}/bin/gofumpt";
           }
           {
+            name = "nix";
+            formatter.command = "${pkgs.alejandra}/bin/alejandra";
+          }
+          {
+            name = "rust";
+            formatter.command = "${pkgs.rustfmt}/bin/rustfmt";
+          }
+          {
             name = "markdown";
-            formatter = {
-              command = "${pkgs.prettier}/bin/prettier";
-              args = ["--parser" "markdown"];
-            };
+            formatter.command = "${pkgs.prettier}/bin/prettier";
+            formatter.args = ["--parser" "markdown"];
             language-servers = [
               "marksman"
               {
@@ -31,19 +37,10 @@
             ];
           }
           {
-            name = "nix";
-            formatter.command = "${pkgs.alejandra}/bin/alejandra";
-          }
-          {
-            name = "rust";
-            formatter.command = "${pkgs.rustfmt}/bin/rustfmt";
-          }
-          {
             name = "yaml";
-            formatter = {
-              command = "${pkgs.prettier}/bin/prettier";
-              args = ["--parser" "yaml"];
-            };
+            file-types = ["yaml" {glob = "templates/*.yaml";}];
+            formatter.command = "${pkgs.prettier}/bin/prettier";
+            formatter.args = ["--parser" "yaml"];
           }
         ];
 
@@ -55,7 +52,7 @@
           nil.command = "${pkgs.nil}/bin/nil";
           nixd.command = "${pkgs.nixd}/bin/nixd";
           rust-analyzer.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-          
+
           mpls = {
             command = "${pkgs.mpls}/bin/mpls";
             args = ["--no-auto" "--enable-emoji" "--dark-mode"];
@@ -64,9 +61,7 @@
       };
 
       extraPackages = with pkgs; [
-        delve
         golangci-lint
-        lldb
       ];
     };
   };
