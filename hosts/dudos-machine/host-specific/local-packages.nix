@@ -6,12 +6,12 @@
 
     # GUI
     bitwarden-desktop
-    # cinny-desktop
     element-desktop
     eog
     feishin
     gajim
     inkscape
+    jetbrains.rider
     monero-gui
     obs-studio
     onlyoffice-desktopeditors
