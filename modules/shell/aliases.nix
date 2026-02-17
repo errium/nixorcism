@@ -14,6 +14,7 @@
     glf = "golangci-lint fmt";
     glr = "golangci-lint run";
     gr = "go run";
+    grm = "go run main.go";
   };
 in {
   options.nixorcism.shell.aliases = lib.mkOption {type = lib.types.attrs;};
