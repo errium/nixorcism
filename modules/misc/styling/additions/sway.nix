@@ -4,7 +4,6 @@
   ...
 }: let
   stx = config.lib.stylix.colors.withHashtag;
-
   background = stx.base01;
   indicator = stx.base0C;
   text = stx.base05;

@@ -4,7 +4,6 @@
   ...
 }: let
   stx = config.lib.stylix.colors.withHashtag;
-
   primary = stx.base05;
   secondary = stx.base04;
   tertiary = stx.base05;
