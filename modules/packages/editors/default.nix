@@ -2,7 +2,7 @@
   imports = [
     ./emacs
     ./helix
-    ./vscodium.nix
+    ./vscodium
     ./zed.nix
   ];
 }

@@ -38,7 +38,7 @@
           }
           {
             name = "yaml";
-            file-types = ["yaml" {glob = "templates/*.yaml";}];
+            file-types = ["yaml" "yml" {glob = "templates/*.yaml";}];
             formatter.command = "${pkgs.prettier}/bin/prettier";
             formatter.args = ["--parser" "yaml"];
           }
@@ -52,7 +52,6 @@
           nil.command = "${pkgs.nil}/bin/nil";
           nixd.command = "${pkgs.nixd}/bin/nixd";
           rust-analyzer.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-
           mpls = {
             command = "${pkgs.mpls}/bin/mpls";
             args = ["--no-auto" "--enable-emoji" "--dark-mode"];

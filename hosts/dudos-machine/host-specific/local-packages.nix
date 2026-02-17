@@ -11,7 +11,6 @@
     feishin
     gajim
     inkscape
-    jetbrains.rider
     monero-gui
     obs-studio
     onlyoffice-desktopeditors
