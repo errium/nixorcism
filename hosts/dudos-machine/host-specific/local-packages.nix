@@ -6,6 +6,7 @@
 
     # GUI
     bitwarden-desktop
+    discord
     element-desktop
     eog
     feishin
@@ -19,11 +20,12 @@
     telegram-desktop
 
     # Go
-    gcc
-    golangci-lint
-    gotests
+    # gcc
+    # golangci-lint
+    # gotests
 
     # Rust
+    jetbrains.rust-rover
     rustlings
     rustup
   ];
