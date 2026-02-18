@@ -22,8 +22,7 @@
       "editor.inlayHints.fontSize" = 11;
       # Rendering
       "editor.bracketPairColorization.enabled" = true;
-      # "editor.guides.bracketPairs" = "active";
-      # "editor.renderWhitespace" = "boundary";
+      "editor.renderWhitespace" = "boundary";
       # Scrollbar
       "editor.scrollbar.horizontal" = "hidden";
       "editor.scrollbar.horizontalScrollbarSize" = 0;

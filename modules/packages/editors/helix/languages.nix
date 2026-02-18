@@ -12,10 +12,10 @@
             name = "bash";
             formatter.command = "${pkgs.shfmt}/bin/shfmt";
           }
-          {
-            name = "go";
-            formatter.command = "${pkgs.gofumpt}/bin/gofumpt";
-          }
+          # {
+          #   name = "go";
+          #   formatter.command = "${pkgs.gofumpt}/bin/gofumpt";
+          # }
           {
             name = "nix";
             formatter.command = "${pkgs.alejandra}/bin/alejandra";
@@ -46,8 +46,8 @@
 
         language-server = {
           bash-language-server.command = "${pkgs.bash-language-server}/bin/bash-language-server";
-          golangci-lint-lsp.command = "${pkgs.golangci-lint-langserver}/bin/golangci-lint-langserver";
-          gopls.command = "${pkgs.gopls}/bin/gopls";
+          # golangci-lint-lsp.command = "${pkgs.golangci-lint-langserver}/bin/golangci-lint-langserver";
+          # gopls.command = "${pkgs.gopls}/bin/gopls";
           marksman.command = "${pkgs.marksman}/bin/marksman";
           nil.command = "${pkgs.nil}/bin/nil";
           nixd.command = "${pkgs.nixd}/bin/nixd";
@@ -60,7 +60,7 @@
       };
 
       extraPackages = with pkgs; [
-        golangci-lint
+        # golangci-lint
       ];
     };
   };
