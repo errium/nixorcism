@@ -27,7 +27,6 @@
     };
 
     misc = {
-      go.enable = true;
       kvm.enable = true;
       styling.enable = true;
     };
@@ -52,7 +51,6 @@
       editors = {
         emacs.enable = true;
         helix.enable = true;
-        vscodium.enable = true;
       };
       gaming = {
         pkgArray.enable = true;
