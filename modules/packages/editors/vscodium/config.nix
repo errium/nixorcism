@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   config = lib.mkIf config.nixorcism.packages.editors.vscodium.enable {
@@ -22,7 +23,6 @@
       "editor.inlayHints.fontSize" = 11;
       # Rendering
       "editor.bracketPairColorization.enabled" = true;
-      "editor.renderWhitespace" = "boundary";
       # Scrollbar
       "editor.scrollbar.horizontal" = "hidden";
       "editor.scrollbar.horizontalScrollbarSize" = 0;
@@ -65,6 +65,16 @@
         "editor.defaultFormatter" = "golang.go";
         "editor.formatOnSave" = true;
         "editor.insertSpaces" = false;
+      };
+      # Nix
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "${pkgs.nixd}/bin/nixd";
+      "nix.serverSettings" = {
+        "nixd" = {
+          "formatting" = {
+            "command" = ["${pkgs.alejandra}/bin/alejandra"];
+          };
+        };
       };
 
       # MISC

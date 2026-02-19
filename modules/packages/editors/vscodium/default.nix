@@ -24,6 +24,9 @@
 
           # Go
           golang.go
+
+          # Nix
+          jnoortheen.nix-ide
         ];
       };
     };

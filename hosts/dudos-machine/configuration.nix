@@ -51,6 +51,7 @@
       editors = {
         emacs.enable = true;
         helix.enable = true;
+        vscodium.enable = true;
       };
       gaming = {
         pkgArray.enable = true;
