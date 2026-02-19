@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   hm.home.packages = with pkgs; [
     # CLI & TUI
+    gcc
     kew
     terminal-toys
 
@@ -20,7 +21,6 @@
     telegram-desktop
 
     # Go
-    # gcc
     # golangci-lint
     # gotests
 
