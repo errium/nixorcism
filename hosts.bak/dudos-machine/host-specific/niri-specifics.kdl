@@ -1,0 +1,22 @@
+// ┏┓╻╻┏━┓╻   ┏━┓┏━┓┏━╸┏━╸╻┏━╸╻┏━╸┏━┓
+// ┃┗┫┃┣┳┛┃   ┗━┓┣━┛┣╸ ┃  ┃┣╸ ┃┃  ┗━┓
+// ╹ ╹╹╹┗╸╹   ┗━┛╹  ┗━╸┗━╸╹╹  ╹┗━╸┗━┛
+// ┏┳┓┏━┓┏┓╻╻╺┳╸┏━┓┏━┓┏━┓
+// ┃┃┃┃ ┃┃┗┫┃ ┃ ┃ ┃┣┳┛┗━┓
+// ╹ ╹┗━┛╹ ╹╹ ╹ ┗━┛╹┗╸┗━┛
+output "BOE 0x0B38 0x00000003" {
+    scale 1
+    mode "2560x1600@165.002"
+    position x=1280 y=0
+    transform "normal"
+    variable-refresh-rate 
+}
+
+// ┏┳┓╻┏━┓┏━╸
+// ┃┃┃┃┗━┓┃  
+// ╹ ╹╹┗━┛┗━╸
+debug {
+    honor-xdg-activation-with-invalid-serial
+    ignore-drm-device "/dev/dri/by-path/pci-0000:01:00.0-render"
+    render-drm-device "/dev/dri/by-path/pci-0000:06:00.0-render"
+}
