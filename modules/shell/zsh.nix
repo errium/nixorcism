@@ -1,14 +1,9 @@
 {
-  config,
   lib,
   pkgs,
   ...
 }: {
-  options.nixorcism.shell.zsh = {
-    enable = lib.mkEnableOption "zsh";
-  };
-
-  config = lib.mkIf config.nixorcism.shell.zsh.enable {
+  flake.modules.nixos.bash = {
     programs.zsh = {
       enable = true;
 

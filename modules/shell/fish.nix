@@ -1,14 +1,9 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
-  options.nixorcism.shell.fish = {
-    enable = lib.mkEnableOption "fish";
-  };
-
-  config = lib.mkIf config.nixorcism.shell.fish.enable {
+  flake.modules.nixos.bash = {
     programs.fish = {
       enable = true;
       shellInit = ''

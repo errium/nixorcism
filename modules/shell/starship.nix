@@ -1,9 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  config = lib.mkIf (config.nixorcism.shell.userPrompt == "starship") {
+{config, ...}: {
+  flake.modules.nixos.starship = {
     hm.programs.starship = {
       enable = true;
       enableTransience = true;
