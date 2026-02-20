@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./mangowc
-    ./niri
-    ./sway
-  ];
-}
