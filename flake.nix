@@ -5,8 +5,7 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
       imports = [
-        # TODO: Hosts
-        # (inputs.import-tree ./hosts)
+        (inputs.import-tree ./hosts)
         (inputs.import-tree ./modules)
         inputs.flake-parts.flakeModules.modules
       ];

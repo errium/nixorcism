@@ -8,8 +8,7 @@
       inputs.nixpkgs.lib.nixosSystem {
         specialArgs = args;
         modules = [
-          # NOTE: Potential problem with this path
-          ./hosts/${hostname}/configuration.nix
+          ./${hostname}/configuration.nix
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {

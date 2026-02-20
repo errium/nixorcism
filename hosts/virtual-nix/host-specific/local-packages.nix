@@ -1,10 +1,8 @@
 {pkgs, ...}: {
-  hm.home.packages = with pkgs; [
-    # GUI
-    bitwarden-desktop
-
-    # Go
-    gcc
-    go
-  ];
+  flake.modules.nixos.host-specific = {
+    hm.home.packages = with pkgs; [
+      # GUI
+      bitwarden-desktop
+    ];
+  };
 }
