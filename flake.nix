@@ -3,18 +3,20 @@
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [inputs.import-tree ./modules];
       systems = ["x86_64-linux"];
+      imports = [
+        # TODO: Hosts
+        # (inputs.import-tree ./hosts)
+        (inputs.import-tree ./modules)
+        inputs.flake-parts.flakeModules.modules
+      ];
     };
 
   inputs = {
     # Core
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";

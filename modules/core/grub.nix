@@ -1,0 +1,17 @@
+{
+  # TODO: Need a picker for bootloaders
+  flake.modules.nixos.grub = {
+    boot.loader = {
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+      };
+
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+    };
+  };
+}
