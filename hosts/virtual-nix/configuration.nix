@@ -11,7 +11,7 @@
     imports =
       (with config.flake.modules.nixos; [
         sway
-      ])
-      + [./_hardware-configuration.nix];
+      ]);
+      # + [./_hardware-configuration.nix];
   };
 }
