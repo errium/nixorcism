@@ -183,7 +183,10 @@ prompt_host() {
 
 	# Find all valid host configurations
 	for dir in "$hosts_dir"/*; do
-		if [[ -d "$dir" ]] && [[ -f "$dir/disko.nix" ]] && [[ -f "$dir/configuration.nix" ]]; then
+		if [[ -d "$dir" ]] &&
+			[[ -f "$dir/_disko.nix" ]] &&
+			[[ -f "$dir/configuration.nix" ]] &&
+			[[ -f "$dir/_hardware-configuration.nix" ]]; then
 			hosts+=("$(basename "$dir")")
 		fi
 	done
