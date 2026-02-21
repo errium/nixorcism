@@ -10,10 +10,10 @@ readonly BOLD_YELLOW="\033[1;33m"
 readonly DIM="\033[2m"
 readonly RESET="\033[0m"
 
-readonly CLR1="\033[0;32m"  # GREEN
-readonly CLR1B="\033[1;32m" # BOLD_GREEN
-readonly CLR2="\033[0;35m"  # MAGENTA
-readonly CLR2B="\033[1;35m" # BOLD_MAGENTA
+readonly CLR1="\033[0;34m"  # BLUE
+readonly CLR1B="\033[1;34m" # BOLD_BLUE
+readonly CLR2="\033[0;36m"  # CYAN
+readonly CLR2B="\033[1;36m" # BOLD_CYAN
 
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -91,7 +91,7 @@ greeting_banner() {
 		" ▄     ${CLR2B}▀▀        "
 		" ████▄▀██▀██ ██▀ "
 		" ██ ██ ██  ███   "
-		"▄██ ▀█▄██▄██ ██▄▄"
+		"${CLR1}▄██ ▀█▄██▄██ ██▄▄"
 	)
 	local accent2=(
 		"                 ${CLR1B}▀▀${CLR2B}       ▄"
