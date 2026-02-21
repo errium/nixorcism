@@ -9,7 +9,7 @@
       wallpaper = ../../../assets/wallpaper.jpg;
 
       jsonFormat = "hex";
-      # type = "scheme-tonal-spot";
+      type = "scheme-tonal-spot";
       variant = "dark";
     };
   };
