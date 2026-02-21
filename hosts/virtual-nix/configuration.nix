@@ -16,6 +16,9 @@
         desktop-environment_xfce
         display-manager_ly
 
+        # features/*
+        feature_styling
+
         # programs/cli/*
         cli_packages
         cli_bat

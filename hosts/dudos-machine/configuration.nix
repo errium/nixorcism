@@ -19,6 +19,7 @@
 
         # features/*
         feature_kvm
+        # feature_styling
 
         # programs/cli/*
         cli_packages
