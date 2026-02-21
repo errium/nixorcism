@@ -5,7 +5,7 @@
   username,
   ...
 }: {
-  flake.modules.nixos.shell = let
+  flake.modules.nixos.shell_shell = let
     cfg = config.nixorcism.shell;
 
     shellPackages = {

@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  flake.modules.nixos.bash = {
+  flake.modules.nixos.shell_bash = {
     programs.zsh = {
       enable = true;
 

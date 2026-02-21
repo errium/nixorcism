@@ -1,5 +1,6 @@
-{confDir, ...}: {
-  flake.modules.nixos.aliases = {
+{
+  flake.modules.nixos.shell_aliases = {
+    confDir,
     config,
     lib,
     ...

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.bash = {
+  flake.modules.nixos.shell_bash = {
     programs.bash = {
       enable = true;
       completion.enable = true;

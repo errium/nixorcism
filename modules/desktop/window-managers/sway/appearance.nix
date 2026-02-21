@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.sway = {
+  flake.modules.nixos.window-manager_sway = {
     hm.wayland.windowManager.sway.config = {
       gaps = {
         inner = 8;

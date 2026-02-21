@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.udiskie = {
+  flake.modules.nixos.service_udiskie = {
     services.udisks2 = {
       enable = true;
     };

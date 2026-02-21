@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.auto-cpufreq = {
+  flake.modules.nixos.service_auto-cpufreq = {
     services.auto-cpufreq.enable = true;
     services.auto-cpufreq.settings = {
       battery = {

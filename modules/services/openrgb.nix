@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  flake.modules.nixos.openrgb = {
+  flake.modules.nixos.service_openrgb = {
     services.hardware.openrgb = {
       enable = true;
       package = pkgs.openrgb;
