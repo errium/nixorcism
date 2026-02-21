@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.base = {
-    efi = {
+    boot.loader.efi = {
       efiSysMountPoint = "/boot";
       canTouchEfiVariables = true;
     };

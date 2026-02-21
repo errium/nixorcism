@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  flake.modules.nixos.host-specific = {
+{
+  flake.modules.nixos.virtual-nix = {pkgs, ...}: {
     hm.home.packages = with pkgs; [
       # GUI
       bitwarden-desktop

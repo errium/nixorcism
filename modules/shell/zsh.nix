@@ -1,9 +1,9 @@
 {
-  lib,
-  pkgs,
-  ...
-}: {
-  flake.modules.nixos.shell_bash = {
+  flake.modules.nixos.shell_zsh = {
+    lib,
+    pkgs,
+    ...
+  }: {
     programs.zsh = {
       enable = true;
 
@@ -66,14 +66,10 @@
       '';
     };
 
-    hm.programs = {
-      fzf = {
-        enable = true;
-        enableZshIntegration = true;
-      };
-      command-not-found = {
-        enable = true;
-      };
+    # For fzf-tab
+    hm.programs.fzf = {
+      enable = true;
+      enableZshIntegration = true;
     };
   };
 }

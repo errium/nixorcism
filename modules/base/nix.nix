@@ -8,8 +8,7 @@
       };
 
       gc = {
-        # TODO: Fix dis
-        automatic = !config.nixorcism.packages.cli.nh.enable;
+        automatic = !config.hm.programs.nh.clean.enable;
         dates = "daily";
         options = "--delete-older-than 2d";
       };

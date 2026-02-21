@@ -1,11 +1,6 @@
 {
-  flake.modules.nixos.shell_aliases = {
-    confDir,
-    config,
-    lib,
-    ...
-  }: let
-    commonAliases = {
+  flake.modules.nixos.shell_common = {confDir, ...}: let
+    aliases = {
       ff = "fastfetch";
       lat = "eza -lahT";
       lt = "eza -lhT";
@@ -18,21 +13,17 @@
       grm = "go run main.go";
     };
   in {
-    options.nixorcism.shell.aliases = lib.mkOption {type = lib.types.attrs;};
-
-    config = {
-      environment.shellAliases = {
-        ".." = "cd ..";
-        "..." = "cd ../..";
-        "...." = "cd ../../..";
-        cf = "cd ${confDir}";
-        la = "ls -a";
-        ll = "ls -lh";
-        lla = "ls -lah";
-      };
-
-      nixorcism.shell.aliases = commonAliases;
-      hm.home.shellAliases = config.nixorcism.shell.aliases;
+    environment.shellAliases = {
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+      cf = "cd ${confDir}";
+      la = "ls -a";
+      ll = "ls -lh";
+      lla = "ls -lah";
     };
+
+    hm.programs.fish.shellAbbrs = aliases;
+    hm.programs.zsh.shellAliases = aliases;
   };
 }

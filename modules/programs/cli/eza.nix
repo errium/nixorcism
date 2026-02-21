@@ -1,9 +1,7 @@
 {
-  flake.modules.nixos.cli_eza = {config, ...}: {
+  flake.modules.nixos.cli_eza = {
     hm.programs.eza = {
       enable = true;
-      enableZshIntegration = config.nixorcism.shell.zsh.enable;
-      enableFishIntegration = config.nixorcism.shell.fish.enable;
 
       colors = "auto";
       icons = "auto";

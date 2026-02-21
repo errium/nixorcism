@@ -35,7 +35,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Desktop shells
+    # WM Utils
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -13,19 +13,12 @@
       modules = [
         config.flake.modules.nixos.${hostname}
         inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            backupFileExtension = "backup";
-            extraSpecialArgs = args;
-            useGlobalPkgs = true;
-            useUserPackages = true;
-          };
-        }
+        {home-manager = {extraSpecialArgs = args;};}
       ];
     };
 in {
   flake.nixosConfigurations = {
-    dudos-machine = mkSystem "dudos-machine";
+    # dudos-machine = mkSystem "dudos-machine";
     virtual-nix = mkSystem "virtual-nix";
   };
 }

@@ -1,10 +1,7 @@
 {
-  flake.modules.nixos.cli_zoxide = {config, ...}: {
+  flake.modules.nixos.cli_zoxide = {
     hm.programs.zoxide = {
       enable = true;
-      enableZshIntegration = config.nixorcism.shell.zsh.enable;
-      enableFishIntegration = config.nixorcism.shell.fish.enable;
-
       options = ["--cmd cd"];
     };
   };

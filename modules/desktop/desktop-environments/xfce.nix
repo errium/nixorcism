@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop_environment-xfce = {
+  flake.modules.nixos.desktop-environment_xfce = {
     services.xserver = {
       enable = true;
       desktopManager.xfce.enable = true;
