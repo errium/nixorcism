@@ -339,12 +339,12 @@ run_disko() {
 		--mode destroy,format,mount \
 		--yes-wipe-all-disks \
 		--arg device '"'"${DISK}"'"' \
-		"${SCRIPT_DIR}"/hosts/"${HOSTNAME}"/disko.nix
+		"${SCRIPT_DIR}"/hosts/"${HOSTNAME}"/_disko.nix
 }
 
 regen_hwconfig() {
 	nixos-generate-config --show-hardware-config --root /mnt |
-		tee "${SCRIPT_DIR}"/hosts/"${HOSTNAME}"/hardware-configuration.nix >/dev/null
+		tee "${SCRIPT_DIR}"/hosts/"${HOSTNAME}"/_hardware-configuration.nix >/dev/null
 }
 
 install() {
