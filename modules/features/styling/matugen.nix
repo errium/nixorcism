@@ -1,14 +1,31 @@
 {
-  flake.modules.nixos.feature_styling = {inputs, ...}: {
-    imports = [inputs.matugen.nixosModules.default];
+  flake.modules.nixos.feature_styling = {
+    lib,
+    pkgs,
+    ...
+  }: let
+    templates = [
+      {
+        name = "helix";
+        input = ./templates/helix.toml;
+        output = "~/.config/helix/themes/matugen.toml";
+      }
+    ];
+  in {
+    hm = {
+      home.packages = with pkgs; [matugen];
 
-    programs.matugen = {
-      enable = true;
+      xdg.configFile."matugen/config.toml".text = ''
+        [config]
+        fallback_color = "#ffbf9b"
 
-      source_color = "#ff1243";
-
-      # TODO: Add a script for switching
-      # wallpaper = ./../../../assets/wallpaper.jpg;
+        ${lib.concatStringsSep "\n" (map (t: ''
+          [templates.${t.name}]
+          input_path = '${t.input}'
+          output_path = '${t.output}'
+          ${lib.optionalString (t ? postHook) "post_hook = '${t.postHook}'"} '')
+        templates)}
+      '';
     };
   };
 }

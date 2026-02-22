@@ -27,12 +27,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Features
-    matugen = {
-      url = "github:/InioX/Matugen";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Programs
     nix-doom-emacs-unstraightened = {
       url = "github:marienz/nix-doom-emacs-unstraightened";
