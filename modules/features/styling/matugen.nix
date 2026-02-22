@@ -5,12 +5,10 @@
     programs.matugen = {
       enable = true;
 
-      # TODO: Add a script for switching
-      wallpaper = ../../../assets/wallpaper.jpg;
+      source_color = "#ff1243";
 
-      jsonFormat = "hex";
-      type = "scheme-tonal-spot";
-      variant = "dark";
+      # TODO: Add a script for switching
+      # wallpaper = ./../../../assets/wallpaper.jpg;
     };
   };
 }

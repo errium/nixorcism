@@ -4,10 +4,7 @@
   in {
     programs.matugen.templates = {
       helix = {
-        input_path = builtins.path {
-          path = ./templates/helix.toml;
-          name = "helix-matugen-template";
-        };
+        input_path = ./templates/helix.toml;
         output_path = "$HOME/.config/helix/themes/matugen.toml";
       };
     };
