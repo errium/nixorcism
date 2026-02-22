@@ -13,6 +13,7 @@
       enable = true;
 
       base16Scheme = colors.palette;
+      # image = ../../../assets/wallpaper.jpg;
       polarity = "dark";
 
       opacity = {
