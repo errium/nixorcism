@@ -17,7 +17,9 @@
         display-manager_ly
 
         # features/*
-        # feature_styling
+        theming_stylix
+        theming_wallust
+        theming_dynamic
 
         # programs/cli/*
         cli_packages
