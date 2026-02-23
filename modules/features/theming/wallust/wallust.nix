@@ -1,21 +1,7 @@
 {
-  flake.modules.nixos.theming_wallust = {
-    confDir,
-    # pkgs,
-    ...
-  }: let
-    templatePath = "${confDir}/modules/features/styling/wallust/template.yaml";
-    palettePath = "${confDir}/modules/features/styling/wallust/palette.yaml";
-    # setwp = pkgs.writeShellScriptBin "setwp" ''
-    #   WALLPAPER="$1"
-    #   if [ -z "$WALLPAPER" ]; then
-    #     echo "Usage: setwp <path-to-wallpaper>"
-    #     exit 1
-    #   fi
-    #   cp "$WALLPAPER" ${confDir}/assets/wallpaper.jpg
-    #   wallust run "$WALLPAPER"
-    #   nh os switch
-    # '';
+  flake.modules.nixos.theming_wallust = {confDir, ...}: let
+    templatePath = ./template.yaml;
+    resultPath = "${confDir}/modules/features/theming/wallust/palette.yaml";
   in {
     hm.programs.wallust = {
       enable = true;
@@ -28,7 +14,7 @@
 
         templates.palette = {
           template = "${templatePath}";
-          target = "${palettePath}";
+          target = "${resultPath}";
         };
       };
     };

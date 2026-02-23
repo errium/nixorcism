@@ -1,17 +1,17 @@
 palette:
-  base00: "{{background}}" # background
-  base01: "{{color0}}" # darker bg
-  base02: "{{color8}}" # selection bg
-  base03: "{{color8}}" # comments
-  base04: "{{color7}}" # dark fg
-  base05: "{{foreground}}" # default fg
-  base06: "{{color15}}" # light fg
-  base07: "{{color15}}" # light bg
-  base08: "{{color1}}" # red / errors
-  base09: "{{color9}}" # orange
-  base0A: "{{color3}}" # yellow / warnings
-  base0B: "{{color2}}" # green / success
-  base0C: "{{color6}}" # cyan
-  base0D: "{{color4}}" # blue / functions
-  base0E: "{{color5}}" # magenta / keywords
-  base0F: "{{color13}}" # brown / deprecated
+  base00: "{{background}}"
+  base01: "{{color0}}"
+  base02: "{{color8}}"
+  base03: "{{color8}}"
+  base04: "{{color7}}"
+  base05: "{{color15}}"
+  base06: "{{foreground}}"
+  base07: "{{foreground}}"
+  base08: "{{color1}}"
+  base09: "{{color9}}"
+  base0A: "{{color3}}"
+  base0B: "{{color2}}"
+  base0C: "{{color6}}"
+  base0D: "{{color4}}"
+  base0E: "{{color5}}"
+  base0F: "{{color13}}"
