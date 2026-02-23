@@ -1,6 +1,3 @@
-system: "base16"
-name: "wallust"
-author: "generated"
 palette:
   base00: "{{background}}" # background
   base01: "{{color0}}" # darker bg
