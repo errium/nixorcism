@@ -25,7 +25,7 @@
       	REBUILD=true
       fi
 
-      ${pkgs.imagemagick}/bin/convert "$WALLPAPER" "$DEST"
+      ${pkgs.imagemagick}/bin/magick "$WALLPAPER" "$DEST"
       echo -e "${green}*${reset} ${bold}Wallpaper converted and saved${reset}"
 
       ${pkgs.wallust}/bin/wallust run "$DEST"
