@@ -7,14 +7,8 @@
       };
 
       window = {
-        border = 3;
+        border = 2;
         titlebar = true;
-      };
-
-      fonts = {
-        names = ["IosevkaTerm Nerd Font"];
-        style = "Bold Semi-Condensed";
-        size = 11.0;
       };
     };
   };
