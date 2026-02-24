@@ -1,20 +1,35 @@
-#+title: ~/nixorcism
-
 #+html: <div align="center">
 #+html: <img src=".images/screenshot.png" width="900px">
-#+html: <br><br>
-#+html: <i>Errium's incredible NixOS config.</i>
 #+html: </div>
 
-* State
-It was, is, and always will be *WIP*. I tinker, explore the Nix ecosystem, and stay open-minded to all kinds of software. I'll modify this config as frequently as I want - like, I could literally drop home-manager tomorrow.
+#+title: ~/nixorcism
+/Errium's incredible NixOS config./
 
-* Tools
-Too many to list and I keep switching, so I won't bother.
+* 🔧 What's the state?
+It was, is, and always will be *WIP*.
+I tinker with my configs, explore the Nix ecosystem, and stay open-minded to all kinds of software. Because of that, this config will change as often as I feel like it.
+Like, I could literally drop home-manager tomorrow.
 
-I write this config (& everything else) in *helix* with *nixd* as LSP and *alejandra* as formatter. My primary shell is *fish*, with *bash* as fallback. For QoL I have: *zoxide*, *nh*, *nix-search-tv*, and *opencode* for occasional vibecoding 😼
+* 📠 What tools do I use?
+There are waaay too many things I use, and I keep switching, so I won't bother listing *everything*.
 
-If you really want to know what I use — check ~modules/~ and ~hosts/dudos-machine/~.
+I write this config /(& pretty much everything else)/ in *helix* with *nixd* as LSP and *alejandra* as formatter.
+My primary shell is *fish*, with *bash* hanging around as a fallback /(just in case)/.
+For shell QoL I have:
+- *zoxide* - to jump around directories
+- *nh* - for a slightly better Nix experience
+- *nix-search-tv* - to find more bloatware to install
+- *opencode* - for occasional vibecoding 😼 /(jk)/
 
-* "Should I run this on my hardware?"
-*Lmao, nah.* This is for reference only and was never intended for public usage. After all, this repo isn't named "Omarchy: The Sequel." 🤷
+I use a lot more tools, but I’m not listing them here - chances are I’ll swap something out tomorrow and forget to update this README.
+If you *really* want to know what I use, poke around in ~modules/~ and ~hosts/dudos-machine/configuration.nix~ /(my main machine)/.
+
+* 💬 "Man, I really like your config. Should I run it on my hardware?"
+*Lmao, nah.*
+This repo is for *reference only* and was never intended for public consumption.
+After all, it’s not called *"Omarchy: The Sequel."* 🤷
+-----
+#+begin_quote
+I made this README because other cool people do. It won't have much useful info and probably will never be updated.
+Please don't actually use this — it's probably ass. If you find a bug or anti-pattern, feel free to laugh and cyberbully me for it.
+#+end_quote
