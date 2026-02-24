@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.window-manager_sway = {pkgs, ...}: {
+  flake.modules.nixos.wm_sway = {pkgs, ...}: {
     programs.sway = {
       enable = true;
       extraOptions = ["--unsupported-gpu"];

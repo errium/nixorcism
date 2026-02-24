@@ -3,6 +3,7 @@
     boot.kernelPackages = pkgs.linuxPackages_zen;
     networking.hostName = "dudos-machine";
     system.stateVersion = "25.11";
+    users.defaultUserShell = pkgs.fish;
 
     imports =
       (with config.flake.modules.nixos; [
@@ -13,13 +14,13 @@
         # desktop/*
         desktop_sound
         desktop_xkb
-        display-manager_ly
-        window-manager_niri
+        dm_ly
+        wm_niri
         wm-utils_noctalia
 
         # features/*
         feature_kvm
-        # feature_styling
+        theming_dynamic
 
         # programs/cli/*
         cli_packages

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.display-manager_ly = {
+  flake.modules.nixos.dm_ly = {
     services.displayManager.ly = {
       enable = true;
 

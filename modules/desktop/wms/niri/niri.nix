@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.window-manager_niri = {
+  flake.modules.nixos.wm_niri = {
     config,
     lib,
     pkgs,

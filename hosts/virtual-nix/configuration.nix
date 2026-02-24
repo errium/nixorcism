@@ -3,6 +3,7 @@
     boot.kernelPackages = pkgs.linuxPackages_latest;
     networking.hostName = "virtual-nix";
     system.stateVersion = "25.11";
+    users.defaultUserShell = pkgs.fish;
 
     imports =
       (with config.flake.modules.nixos; [
@@ -13,8 +14,8 @@
         # desktop/*
         desktop_sound
         desktop_xkb
-        desktop-environment_xfce
-        display-manager_ly
+        de_xfce
+        dm_ly
 
         # features/*
         theming_dynamic

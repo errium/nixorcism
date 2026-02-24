@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.window-manager_sway = {
+  flake.modules.nixos.wm_sway = {
     hm.wayland.windowManager.sway.config = rec {
       modifier = "Mod4";
       left = "Left";

@@ -6,7 +6,6 @@
   }: {
     imports = [(lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])];
 
-    # NOTE: Potential error source. Needs further observation
     home-manager = {
       backupFileExtension = "backup";
       useGlobalPkgs = true;
