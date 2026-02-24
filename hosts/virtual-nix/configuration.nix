@@ -12,10 +12,12 @@
         bootloader_limine
 
         # desktop/*
+        de_xfce
         desktop_sound
         desktop_xkb
-        de_xfce
         dm_ly
+        wm_sway
+        wm-utils_noctalia
 
         # features/*
         theming_dynamic

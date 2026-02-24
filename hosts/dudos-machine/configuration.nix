@@ -19,6 +19,7 @@
         wm-utils_noctalia
 
         # features/*
+        feature_fonts
         feature_kvm
         theming_dynamic
 
@@ -41,7 +42,6 @@
         # programs/editors/*
         editor_doom-emacs
         editor_helix
-        editor_vscode
 
         # programs/games
         games_packages
