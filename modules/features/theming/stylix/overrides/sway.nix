@@ -1,10 +1,10 @@
 {
-  flake.modules.nixos.theming_stylix = {
+  flake.modules.nixos.wm_sway = {
     config,
     lib,
     ...
   }: let
-    cfg = config.programs.sway.enable;
+    cfg = config.stylix.enable;
     stx = config.lib.stylix.colors.withHashtag;
 
     background = stx.base01;

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.editor_vscodium = {pkgs, ...}: {
+  flake.modules.nixos.editor_vscode = {pkgs, ...}: {
     hm.programs.vscode.profiles.default.userSettings = {
       # EDITOR
       "editor.formatOnSave" = true;

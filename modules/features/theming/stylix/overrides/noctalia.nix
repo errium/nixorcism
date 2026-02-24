@@ -1,10 +1,10 @@
 {
-  flake.modules.nixos.theming_stylix = {
+  flake.modules.nixos.wm-utils_noctalia = {
     config,
     lib,
     ...
   }: let
-    cfg = config.hm.programs.noctalia-shell.enable;
+    cfg = config.stylix.enable;
     stx = config.lib.stylix.colors.withHashtag;
 
     primary = stx.base05;

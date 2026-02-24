@@ -1,10 +1,10 @@
 {
-  flake.modules.nixos.theming_stylix = {
+  flake.modules.nixos.editor_vscode = {
     config,
     lib,
     ...
   }: let
-    cfg = config.hm.programs.vscode.enable;
+    cfg = config.stylix.enable;
     stx = config.lib.stylix.colors.withHashtag;
 
     accent = stx.base0D;
