@@ -7,7 +7,7 @@
       # server.enable = true;
 
       settings = {
-        main.pad = "20x20 center-when-maximized-and-fullscreen";
+        main.pad = "30x30 center-when-maximized-and-fullscreen";
         mouse.hide-when-typing = "yes";
 
         cursor = {
