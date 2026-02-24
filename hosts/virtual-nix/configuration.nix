@@ -17,8 +17,6 @@
         display-manager_ly
 
         # features/*
-        theming_stylix
-        theming_wallust
         theming_dynamic
 
         # programs/cli/*
