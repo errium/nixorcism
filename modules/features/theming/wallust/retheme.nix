@@ -17,14 +17,14 @@
       then "nh os switch"
       else "nixos-rebuld switch --flake ${confDir}";
 
-    setwp = pkgs.writeShellScriptBin "setwp" ''
+    retheme = pkgs.writeShellScriptBin "retheme" ''
       set -e
 
       # Helper functions
       info() { echo -e "${magenta}ℹ${reset} ${bold}$*${reset}"; }
       success() { echo -e "${green}*${reset} ${bold}$*${reset}"; }
       usage() {
-      	info "Usage: setwp <path-to-wallpaper> [--rebuild|-r]"
+      	info "Usage: retheme <path-to-wallpaper> [--rebuild|-r]"
       	exit 1
       }
 
@@ -53,5 +53,5 @@
       	info "Rebuild to apply"
       fi
     '';
-  in {hm.home.packages = [setwp];};
+  in {hm.home.packages = [retheme];};
 }
