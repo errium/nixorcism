@@ -1,0 +1,20 @@
+#+title: ~/nixorcism
+
+#+html: <div align="center">
+#+html: <img src=".images/screenshot.png" width="900px">
+#+html: <br><br>
+#+html: <i>Errium's incredible NixOS config.</i>
+#+html: </div>
+
+* State
+It was, is, and always will be *WIP*. I tinker, explore the Nix ecosystem, and stay open-minded to all kinds of software. I'll modify this config as frequently as I want - like, I could literally drop home-manager tomorrow.
+
+* Tools
+Too many to list and I keep switching, so I won't bother.
+
+I write this config (& everything else) in *helix* with *nixd* as LSP and *alejandra* as formatter. My primary shell is *fish*, with *bash* as fallback. For QoL I have: *zoxide*, *nh*, *nix-search-tv*, and *opencode* for occasional vibecoding 😼
+
+If you really want to know what I use — check ~modules/~ and ~hosts/dudos-machine/~.
+
+* "Should I run this on my hardware?"
+*Lmao, nah.* This is for reference only and was never intended for public usage. After all, this repo isn't named "Omarchy: The Sequel." 🤷
