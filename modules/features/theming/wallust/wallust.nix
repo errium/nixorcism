@@ -1,5 +1,6 @@
 {
-  flake.modules.nixos.theming_dynamic = {confDir, ...}: let
+  # NOTE: `theming_wallust` is NOT meant to be imported manually
+  flake.modules.nixos.theming_wallust = {confDir, ...}: let
     templatePath = ./template.yaml;
     resultPath = "${confDir}/modules/features/theming/wallust/palette.yaml";
   in {

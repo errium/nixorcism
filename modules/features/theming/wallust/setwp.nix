@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.theming_dynamic = {
+  flake.modules.nixos.theming_wallust = {
     confDir,
     pkgs,
     ...
