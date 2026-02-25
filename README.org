@@ -1,10 +1,10 @@
-#+html: <div align="center">
-#+html: <img src=".images/screenshot.png" width="900px">
-#+html: </div>
-
 #+title: ~/nixorcism
 /Errium's incredible NixOS config./
 
+#+html: <div align="center">
+#+html: <img src=".images/screenshot.png" width="900px">
+#+html: </div>
+-----
 * 🔧 What's the state?
 It was, is, and always will be *WIP*.
 I tinker with my configs, explore the Nix ecosystem, and stay open-minded to all kinds of software. Because of that, this config will change as often as I feel like it.
