@@ -57,6 +57,7 @@
 
         # services/*
         service_auto-cpufreq
+        service_gvfs
         service_openrgb
         service_openssh
         service_udiskie
