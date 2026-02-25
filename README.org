@@ -24,12 +24,23 @@ For shell QoL I have:
 I use a lot more tools, but I’m not listing them here - chances are I’ll swap something out tomorrow and forget to update this README.
 If you *really* want to know what I use, poke around in ~modules/~ and ~hosts/dudos-machine/configuration.nix~ /(my main machine)/.
 
+* ✨ "What cool things do you have in here?"
+Glad you asked /(ik you didn't, but whatever)/.
+Few things I'm particularly proud of:
+
+🎨 *Theming* is done via [[https://github.com/nix-community/stylix][stylix]] with dynamic palette generation from wallpapers using [[https://codeberg.org/explosion-mental/wallust][wallust]]. Swap a wallpaper with my ~retheme~ script >> rebuild >> entire system recolors. Two modes: ~theming_static~ for fixed palettes, ~theming_dynamic~ for wallust-generated ones.
+
+💽 *Installation* is handled by ~install.sh~, a cool unattended installer I made - boot a NixOS ISO, clone the repo, run the script, pick a host. Disko handles partitioning declaratively, no manual fdisk gymnastics.
+
+🧬 *Architecture* follows the [[https://github.com/mightyiam/dendritic][dendritic pattern]] - every file is a [[https://flake.parts][flake-parts]] module. No ~default.nix~ import chains. System, home-manager, and flake config all live in the same file when they belong together.
+
 * 💬 "Man, I really like your config. Should I run it on my hardware?"
 *Lmao, nah.*
 This repo is for *reference only* and was never intended for public consumption.
-After all, it’s not called *"Omarchy: The Sequel."* 🤷
+After all, it’s not called "Omarchy: The Sequel." 🤷
 -----
 #+begin_quote
+P.S.
 I made this README because other cool people do. It won't have much useful info and probably will never be updated.
 Please don't actually use this — it's probably ass. If you find a bug or anti-pattern, feel free to laugh and cyberbully me for it.
 #+end_quote
