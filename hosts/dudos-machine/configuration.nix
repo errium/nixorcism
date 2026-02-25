@@ -15,7 +15,7 @@
         desktop_sound
         desktop_xkb
         dm_ly
-        wm_niri
+        wm_sway
         wm-utils_noctalia
 
         # features/*
@@ -48,10 +48,10 @@
         games_steam
   
         # programs/gui/*
-        gui_spicetify
         gui_foot
         gui_librewolf
         gui_packages
+        gui_spicetify
         gui_vesktop
         gui_zathura
 
