@@ -1,13 +1,5 @@
 {
-  config,
-  lib,
-  ...
-}: {
-  options.nixorcism.shell.bash = {
-    enable = lib.mkEnableOption "bash";
-  };
-
-  config = lib.mkIf config.nixorcism.shell.bash.enable {
+  flake.modules.nixos.shell_bash = {
     programs.bash = {
       enable = true;
       completion.enable = true;

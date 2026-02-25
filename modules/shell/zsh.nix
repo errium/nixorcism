@@ -1,14 +1,9 @@
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  options.nixorcism.shell.zsh = {
-    enable = lib.mkEnableOption "zsh";
-  };
-
-  config = lib.mkIf config.nixorcism.shell.zsh.enable {
+  flake.modules.nixos.shell_zsh = {
+    lib,
+    pkgs,
+    ...
+  }: {
     programs.zsh = {
       enable = true;
 
@@ -71,14 +66,10 @@
       '';
     };
 
-    hm.programs = {
-      fzf = {
-        enable = true;
-        enableZshIntegration = true;
-      };
-      command-not-found = {
-        enable = true;
-      };
+    # For fzf-tab
+    hm.programs.fzf = {
+      enable = true;
+      enableZshIntegration = true;
     };
   };
 }

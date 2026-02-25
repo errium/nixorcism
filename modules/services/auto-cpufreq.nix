@@ -1,13 +1,5 @@
 {
-  config,
-  lib,
-  ...
-}: {
-  options.nixorcism.services.auto-cpufreq = {
-    enable = lib.mkEnableOption "auto-cpufreq";
-  };
-
-  config = lib.mkIf config.nixorcism.services.auto-cpufreq.enable {
+  flake.modules.nixos.service_auto-cpufreq = {
     services.auto-cpufreq.enable = true;
     services.auto-cpufreq.settings = {
       battery = {

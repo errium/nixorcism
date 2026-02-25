@@ -1,59 +1,53 @@
-{pkgs, ...}: {
-  imports = [
-    ./hardware-configuration.nix
-    ./host-specific
-    ../../modules
-  ];
+{config, ...}: {
+  flake.modules.nixos.virtual-nix = {pkgs, ...}: {
+    boot.kernelPackages = pkgs.linuxPackages_latest;
+    networking.hostName = "virtual-nix";
+    system.stateVersion = "25.11";
+    users.defaultUserShell = pkgs.fish;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  networking.hostName = "virtual-nix";
-  system.stateVersion = "25.11";
+    imports =
+      (with config.flake.modules.nixos; [
+        # base/*
+        base
+        bootloader_limine
 
-  nixorcism = {
-    core = {
-      bootloader = "limine";
-    };
+        # desktop/*
+        de_xfce
+        desktop_sound
+        desktop_xkb
+        dm_ly
+        wm_sway
+        wm-utils_noctalia
 
-    desktop = {
-      desktop-environments.xfce.enable = true;
-      display-manager = "ly";
-      sound.enable = true;
-      xkb.enable = true;
-    };
+        # features/*
+        theming_dynamic
 
-    misc = {
-      styling.enable = true;
-    };
+        # programs/cli/*
+        cli_packages
+        cli_bat
+        cli_comma
+        cli_eza
+        cli_fzf
+        cli_git
+        cli_nh
+        cli_nix-index
+        cli_zoxide
 
-    packages = {
-      cli = {
-        bat.enable = true;
-        comma.enable = true;
-        eza.enable = true;
-        fzf.enable = true;
-        git.enable = true;
-        nh.enable = true;
-        nix-index.enable = true;
-        pkgArray.enable = true;
-        zoxide.enable = true;
-      };
-      editors = {
-        helix.enable = true;
-      };
-      gui = {
-        foot.enable = true;
-      };
-    };
+        # programs/editors/*
+        editor_helix
 
-    services = {
-      openssh.enable = true;
-    };
+        # programs/gui/*
+        gui_foot
 
-    shell = {
-      userShell = "fish";
-      userPrompt = "starship";
-      bash.enable = true;
-      fish.enable = true;
-    };
+        # services/*
+        service_openssh
+
+        # shell/*
+        shell_common
+        shell_bash
+        shell_fish
+        shell_starship
+      ])
+      ++ [./_hardware-configuration.nix];
   };
 }

@@ -1,14 +1,8 @@
 {
-  config,
-  lib,
-  ...
-}: {
-  config = lib.mkIf (config.nixorcism.shell.userPrompt == "starship") {
+  flake.modules.nixos.shell_starship = {
     hm.programs.starship = {
       enable = true;
       enableTransience = true;
-      enableFishIntegration = config.nixorcism.shell.fish.enable;
-      enableZshIntegration = config.nixorcism.shell.zsh.enable;
 
       settings = {
         add_newline = true;

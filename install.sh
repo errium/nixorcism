@@ -10,10 +10,10 @@ readonly BOLD_YELLOW="\033[1;33m"
 readonly DIM="\033[2m"
 readonly RESET="\033[0m"
 
-readonly CLR1="\033[0;35m"  # MAGENTA
-readonly CLR1B="\033[1;35m" # BOLD_MAGENTA
-readonly CLR2="\033[0;36m"  # CYAN
-readonly CLR2B="\033[1;36m" # BOLD_CYAN
+readonly CLR1="\033[0;32m"  # GREEN
+readonly CLR1B="\033[1;32m" # BOLD_GREEN
+readonly CLR2="\033[0;35m"  # MAGENTA
+readonly CLR2B="\033[1;35m" # BOLD_MAGENTA
 
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -91,7 +91,7 @@ greeting_banner() {
 		" ▄     ${CLR2B}▀▀        "
 		" ████▄▀██▀██ ██▀ "
 		" ██ ██ ██  ███   "
-		"▄██ ▀█▄██▄██ ██▄▄"
+		"${CLR1}▄██ ▀█▄██▄██ ██▄▄"
 	)
 	local accent2=(
 		"                 ${CLR1B}▀▀${CLR2B}       ▄"
@@ -183,7 +183,10 @@ prompt_host() {
 
 	# Find all valid host configurations
 	for dir in "$hosts_dir"/*; do
-		if [[ -d "$dir" ]] && [[ -f "$dir/disko.nix" ]] && [[ -f "$dir/configuration.nix" ]]; then
+		if [[ -d "$dir" ]] &&
+			[[ -f "$dir/_disko.nix" ]] &&
+			[[ -f "$dir/configuration.nix" ]] &&
+			[[ -f "$dir/_hardware-configuration.nix" ]]; then
 			hosts+=("$(basename "$dir")")
 		fi
 	done
@@ -292,7 +295,7 @@ confirm_host() {
 confirm_disk() {
 	print_status "PROMPT" "Confirm disk selection"
 	echo -e "${DIM}│${RESET} Selected disk: ${CLR1}${DISK}${RESET}"
-	print_status "WARNING" "Chosen disk will be formatted according to disko.nix"
+	print_status "WARNING" "Chosen disk will be formatted according to _disko.nix file"
 	print_status "WARNING" "All data on the chosen disk will be destroyed"
 	prompt_confirm "Correct disk?" || exit 0
 	echo ""
@@ -300,7 +303,7 @@ confirm_disk() {
 
 confirm_disko() {
 	print_status "PROMPT" "Verify disko configuration"
-	echo -e "${DIM}│${RESET} Disko config location: ${CLR2}hosts/${HOSTNAME}/disko.nix${RESET}"
+	echo -e "${DIM}│${RESET} Disko config location: ${CLR2}hosts/${HOSTNAME}/_disko.nix${RESET}"
 	prompt_confirm "Have you checked disko.nix?" || exit 1
 	echo ""
 }
@@ -336,12 +339,12 @@ run_disko() {
 		--mode destroy,format,mount \
 		--yes-wipe-all-disks \
 		--arg device '"'"${DISK}"'"' \
-		"${SCRIPT_DIR}"/hosts/"${HOSTNAME}"/disko.nix
+		"${SCRIPT_DIR}"/hosts/"${HOSTNAME}"/_disko.nix
 }
 
 regen_hwconfig() {
 	nixos-generate-config --show-hardware-config --root /mnt |
-		tee "${SCRIPT_DIR}"/hosts/"${HOSTNAME}"/hardware-configuration.nix >/dev/null
+		tee "${SCRIPT_DIR}"/hosts/"${HOSTNAME}"/_hardware-configuration.nix >/dev/null
 }
 
 install() {

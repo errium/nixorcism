@@ -1,84 +1,73 @@
-{pkgs, ...}: {
-  imports = [
-    ./hardware-configuration.nix
-    ./host-specific
-    ../../modules
-  ];
+{config, ...}: {
+  flake.modules.nixos.dudos-machine = {pkgs, ...}: {
+    boot.kernelPackages = pkgs.linuxPackages_zen;
+    networking.hostName = "dudos-machine";
+    system.stateVersion = "25.11";
+    users.defaultUserShell = pkgs.fish;
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  networking.hostName = "dudos-machine";
-  system.stateVersion = "25.11";
+    imports =
+      (with config.flake.modules.nixos; [
+        # base/*
+        base
+        bootloader_grub
 
-  nixorcism = {
-    core = {
-      bootloader = "grub";
-    };
+        # desktop/*
+        desktop_sound
+        desktop_xkb
+        dm_ly
+        wm_sway
+        wm-utils_noctalia
 
-    desktop = {
-      desktop-shells = {
-        noctalia.enable = true;
-      };
-      window-managers = {
-        niri.enable = true;
-      };
-      display-manager = "ly";
-      sound.enable = true;
-      xkb.enable = true;
-    };
+        # features/*
+        feature_fonts
+        feature_kvm
+        theming_dynamic
 
-    misc = {
-      kvm.enable = true;
-      styling.enable = true;
-    };
+        # programs/cli/*
+        cli_packages
+        cli_bat
+        cli_btop
+        cli_cava
+        cli_comma
+        cli_eza
+        cli_fastfetch
+        cli_fzf
+        cli_git
+        cli_nh
+        cli_nix-index
+        cli_nix-search-tv
+        cli_opencode
+        cli_zoxide
 
-    packages = {
-      cli = {
-        pkgArray.enable = true;
-        bat.enable = true;
-        btop.enable = true;
-        cava.enable = true;
-        comma.enable = true;
-        eza.enable = true;
-        fastfetch.enable = true;
-        fzf.enable = true;
-        git.enable = true;
-        nh.enable = true;
-        nix-index.enable = true;
-        nix-search-tv.enable = true;
-        opencode.enable = true;
-        zoxide.enable = true;
-      };
-      editors = {
-        emacs.enable = true;
-        helix.enable = true;
-        vscodium.enable = true;
-      };
-      gaming = {
-        pkgArray.enable = true;
-        steam.enable = true;
-      };
-      gui = {
-        pkgArray.enable = true;
-        foot.enable = true;
-        librewolf.enable = true;
-        spicetify.enable = true;
-        vesktop.enable = true;
-        zathura.enable = true;
-      };
-    };
+        # programs/editors/*
+        editor_doom-emacs
+        editor_helix
 
-    services = {
-      auto-cpufreq.enable = true;
-      openrgb.enable = true;
-      openssh.enable = true;
-      udiskie.enable = true;
-    };
+        # programs/games
+        games_packages
+        games_steam
+  
+        # programs/gui/*
+        gui_foot
+        gui_librewolf
+        gui_packages
+        gui_spicetify
+        gui_vesktop
+        gui_zathura
 
-    shell = {
-      userShell = "fish";
-      userPrompt = "starship";
-      bash.enable = true;
-      fish.enable = true;
-    };
+        # services/*
+        service_auto-cpufreq
+        service_gvfs
+        service_openrgb
+        service_openssh
+        service_udiskie
+
+        # shell/*
+        shell_common
+        shell_bash
+        shell_fish
+        shell_starship
+      ])
+      ++ [./_hardware-configuration.nix];
   };
 }

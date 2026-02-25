@@ -1,19 +1,8 @@
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  options.nixorcism.shell.fish = {
-    enable = lib.mkEnableOption "fish";
-  };
-
-  config = lib.mkIf config.nixorcism.shell.fish.enable {
+  flake.modules.nixos.shell_fish = {pkgs, ...}: {
     programs.fish = {
       enable = true;
-      shellInit = ''
-        set -U fish_greeting ""
-      '';
+      shellInit = ''set -U fish_greeting ""'';
     };
 
     environment.systemPackages = with pkgs.fishPlugins; [
@@ -24,13 +13,6 @@
     hm.programs.fish = {
       enable = true;
       preferAbbrs = true;
-      shellAbbrs = config.nixorcism.shell.aliases;
-    };
-
-    hm.programs = {
-      command-not-found = {
-        enable = true;
-      };
     };
   };
 }

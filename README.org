@@ -1,0 +1,46 @@
+#+title: ~/nixorcism
+/Errium's incredible NixOS config./
+
+#+html: <div align="center">
+#+html: <img src=".images/screenshot.png" width="900px">
+#+html: </div>
+-----
+* 🔧 What's the state?
+It was, is, and always will be *WIP*.
+I tinker with my configs, explore the Nix ecosystem, and stay open-minded to all kinds of software. Because of that, this config will change as often as I feel like it.
+Like, I could literally drop home-manager tomorrow.
+
+* 📠 What tools do I use?
+There are waaay too many things I use, and I keep switching, so I won't bother listing *everything*.
+
+I write this config /(& pretty much everything else)/ in *helix* with *nixd* as LSP and *alejandra* as formatter.
+My primary shell is *fish*, with *bash* hanging around as a fallback /(just in case)/.
+For shell QoL I have:
+- *zoxide* - to jump around directories
+- *nh* - for a slightly better Nix experience
+- *nix-search-tv* - to find more bloatware to install
+- *opencode* - for occasional vibecoding 😼 /(jk)/
+
+I use a lot more tools, but I’m not listing them here - chances are I’ll swap something out tomorrow and forget to update this README.
+If you *really* want to know what I use, poke around in ~modules/~ and ~hosts/dudos-machine/configuration.nix~ /(my main machine)/.
+
+* ✨ What cool things do I have?
+Few things I'm particularly proud of:
+
++ *Theming* is done via [[https://github.com/nix-community/stylix][stylix]] with dynamic palette generation from wallpapers using [[https://codeberg.org/explosion-mental/wallust][wallust]]. Swap a wallpaper with my ~retheme~ script >> rebuild >> entire system recolors. Two modes: ~theming_static~ for fixed palettes, ~theming_dynamic~ for wallust-generated ones.
+
++ *Installation* is handled by ~install.sh~, unattended installation script I made - boot a NixOS ISO, clone the repo, run the script, pick a host. Disko handles partitioning declaratively.
+
++ *Architecture* follows the [[https://github.com/mightyiam/dendritic][dendritic pattern]] - every file is a [[https://flake.parts][flake-parts]] module. No ~default.nix~ import chains. System, home-manager, and flake config all live in the same file when they belong together.
+
+* 💬 "Man, I really like your config. Should I run it on my hardware?"
+*Lmao, nah.*
+
+This repo is for *reference only* and was never intended for public consumption.
+After all, it’s not called *"Omarchy: The Sequel."* 🤷
+-----
+#+begin_quote
+P.S.
+I made this README because other cool people do. It won't have much useful info and probably will never be updated.
+Please don't actually use this — it's probably ass. If you find a bug or anti-pattern, feel free to laugh and cyberbully me for it.
+#+end_quote
