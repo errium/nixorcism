@@ -13,7 +13,7 @@
       eog
       feishin
       gajim
-      inkscape
+      # inkscape
       monero-gui
       obs-studio
       onlyoffice-desktopeditors

@@ -10,6 +10,7 @@
       extraOptions = ["--unsupported-gpu"];
 
       config.startup = [
+        # {command = "noctalia-shell -d";}
         {command = "foot --server &";}
         {command = "wl-paste --watch cliphist store";}
       ];

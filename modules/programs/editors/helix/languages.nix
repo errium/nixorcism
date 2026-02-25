@@ -5,22 +5,27 @@
         language = [
           {
             name = "bash";
+            auto-format = true;
             formatter.command = "${pkgs.shfmt}/bin/shfmt";
           }
           # {
           #   name = "go";
+          #   auto-format = true;
           #   formatter.command = "${pkgs.gofumpt}/bin/gofumpt";
           # }
           {
             name = "nix";
+            auto-format = true;
             formatter.command = "${pkgs.alejandra}/bin/alejandra";
           }
           {
             name = "rust";
+            auto-format = true;
             formatter.command = "${pkgs.rustfmt}/bin/rustfmt";
           }
           {
             name = "markdown";
+            auto-format = true;
             formatter.command = "${pkgs.prettier}/bin/prettier";
             formatter.args = ["--parser" "markdown"];
             language-servers = [
@@ -33,9 +38,10 @@
           }
           {
             name = "yaml";
-            file-types = ["yaml" "yml" {glob = "templates/*.yaml";}];
+            auto-format = true;
             formatter.command = "${pkgs.prettier}/bin/prettier";
             formatter.args = ["--parser" "yaml"];
+            file-types = ["yaml" "yml" {glob = "templates/*.yaml";}];
           }
         ];
 
