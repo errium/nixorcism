@@ -4,23 +4,25 @@
     lib,
     ...
   }: let
-    cfg = (config.stylix.enable or false);
+    cfg = config.stylix.enable or false;
     stx = config.lib.stylix.colors.withHashtag;
 
     background = stx.base01;
-    indicator = stx.base0C;
-    text = stx.base05;
+    focused = background;
+    indicator = stx.base0B;
+    text = stx.base02;
+    unfocused = stx.base00;
     urgent = stx.base08;
-    focused = stx.base03;
-    unfocused = stx.base01;
   in {
     hm.wayland.windowManager.sway.config = lib.mkIf cfg {
       colors = {
         inherit background;
         urgent = {
-          inherit background indicator text;
+          inherit indicator;
+          background = urgent;
           border = urgent;
           childBorder = urgent;
+          text = stx.base00;
         };
         focused = {
           inherit background indicator text;
@@ -28,26 +30,30 @@
           childBorder = focused;
         };
         focusedInactive = {
-          inherit background indicator text;
+          inherit indicator text;
+          background = unfocused;
           border = unfocused;
           childBorder = unfocused;
         };
         unfocused = {
-          inherit background indicator;
-          text = stx.base03;
+          inherit indicator;
+          background = unfocused;
           border = unfocused;
           childBorder = unfocused;
+          text = stx.base01;
         };
         placeholder = {
-          inherit background indicator text;
+          inherit indicator;
+          background = unfocused;
           border = unfocused;
           childBorder = unfocused;
+          text = stx.base01;
         };
       };
 
       fonts = {
         names = [config.stylix.fonts.monospace.name];
-        style = "SemiBold";
+        style = "Bold";
         size = 11.0;
       };
     };

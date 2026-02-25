@@ -3,12 +3,12 @@
     hm.wayland.windowManager.sway.config = {
       gaps = {
         inner = 8;
-        outer = 4;
+        outer = 6;
       };
 
       window = {
-        border = 2;
-        titlebar = true;
+        border = 3;
+        titlebar = false;
       };
     };
   };
