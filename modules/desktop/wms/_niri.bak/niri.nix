@@ -1,26 +1,24 @@
-{inputs, ...}: {
+{
   flake.modules.nixos.wm_niri = {
+    config,
     lib,
     pkgs,
     ...
-  }: {
-    imports = [inputs.niri.nixosModules.niri];
-    nixpkgs.overlays = [inputs.niri.overlays.niri];
+  }: let
+    hostname = config.networking.hostName;
+    hostConfigPath = ../../../../hosts/${hostname}/host-specific + "/niri-specifics.kdl";
+    hostConfig =
+      if builtins.pathExists hostConfigPath
+      then builtins.readFile hostConfigPath
+      else "";
 
+    baseConfig = builtins.readFile ./base.kdl;
+    finalConfig = baseConfig + "\n" + hostConfig;
+  in {
     programs.niri = {
       enable = true;
-      package = pkgs.niri-unstable;
       useNautilus = true;
     };
-
-    hm.home.packages = with pkgs; [
-      brightnessctl
-      cliphist
-      playerctl
-      wl-clip-persist
-      wl-clipboard
-      xwayland-satellite
-    ];
 
     xdg.portal = {
       enable = true;
@@ -48,5 +46,17 @@
 
     systemd.user.services.xdg-desktop-portal.after = ["niri.service"];
     systemd.user.services.xdg-desktop-portal-gnome.after = ["niri.service"];
+
+    hm = {
+      home.file.".config/niri/config.kdl".text = finalConfig;
+      home.packages = with pkgs; [
+        brightnessctl
+        cliphist
+        playerctl
+        wl-clip-persist
+        wl-clipboard
+        xwayland-satellite
+      ];
+    };
   };
 }
