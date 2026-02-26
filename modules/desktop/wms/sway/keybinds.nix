@@ -18,6 +18,9 @@
         "${modifier}+Shift+c" = ''exec sh -c "swaymsg reload && dms kill && dms run"'';
         "${modifier}+Shift+l" = "exec dms ipc lock lock";
         "${modifier}+Shift+m" = "exec swaynag -t warning -m 'Exit sway?' -B 'Yes' 'swaymsg exit'";
+        "Print" = "exec dms screenshot -q 100 -d ~/Pictures/Screenshots";
+        "Mod1+Print" = "exec dms screenshot window -q 100 -d ~/Pictures/Screenshots";
+        "Ctrl+Print" = "exec dms screenshot full -q 100 -d ~/Pictures/Screenshots";
 
         # Navigation
         "${modifier}+${left}" = "focus left";
