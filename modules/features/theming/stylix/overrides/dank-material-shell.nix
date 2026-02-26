@@ -1,12 +1,10 @@
 {
-  # NOTE: This file is currently disabled.
-  # Keeping it around in case I need Dank Material Shell in the future
   flake.modules.nixos.wm-utils_dank-material-shell = {
     config,
     lib,
     ...
   }: let
-    cfg = (config.stylix.enable or false);
+    cfg = config.stylix.enable or false;
     stx = config.lib.stylix.colors.withHashtag;
 
     primary = stx.base05;

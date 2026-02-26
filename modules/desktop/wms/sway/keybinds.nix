@@ -7,7 +7,7 @@
       up = "Up";
       right = "Right";
       terminal = "footclient";
-      menu = "noctalia-shell ipc call launcher toggle";
+      menu = "dms ipc launcher open";
 
       keybindings = {
         # Essentials
@@ -15,8 +15,8 @@
         "${modifier}+e" = "exec nautilus";
         "${modifier}+t" = "exec ${terminal}";
         "${modifier}+space" = "exec ${menu}";
-        "${modifier}+Shift+c" = ''exec sh -c "swaymsg reload && pkill .quickshell-wra && noctalia-shell"'';
-        "${modifier}+Shift+l" = "exec noctalia-shell ipc call lockScreen lock";
+        "${modifier}+Shift+c" = ''exec sh -c "swaymsg reload && dms kill && dms run"'';
+        "${modifier}+Shift+l" = "exec dms ipc lock lock";
         "${modifier}+Shift+m" = "exec swaynag -t warning -m 'Exit sway?' -B 'Yes' 'swaymsg exit'";
 
         # Navigation

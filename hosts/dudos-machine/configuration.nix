@@ -16,7 +16,7 @@
         desktop_xkb
         dm_ly
         wm_sway
-        wm-utils_noctalia
+        wm-utils_dank-material-shell
 
         # features/*
         feature_fonts
@@ -46,7 +46,7 @@
         # programs/games
         games_packages
         games_steam
-  
+
         # programs/gui/*
         gui_foot
         gui_librewolf

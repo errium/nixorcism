@@ -27,7 +27,7 @@ If you *really* want to know what I use, poke around in ~modules/~ and ~hosts/du
 * ✨ What cool things do I have?
 Few things I'm particularly proud of:
 
-+ *Theming* is done via [[https://github.com/nix-community/stylix][stylix]] with dynamic palette generation from wallpapers using [[https://codeberg.org/explosion-mental/wallust][wallust]]. Swap a wallpaper with my ~retheme~ script >> rebuild >> entire system recolors. Two modes: ~theming_static~ for fixed palettes, ~theming_dynamic~ for wallust-generated ones.
++ *Theming* is done via [[https://github.com/nix-community/stylix][stylix]] with dynamic palette generation from wallpapers using [[https://codeberg.org/explosion-mental/wallust][wallust]]. Swap a wallpaper with my ~setwp~ script >> rebuild >> entire system recolors. Two modes: ~theming_static~ for fixed palettes, ~theming_dynamic~ for wallust-generated ones.
 
 + *Installation* is handled by ~install.sh~, unattended installation script I made - boot a NixOS ISO, clone the repo, run the script, pick a host. Disko handles partitioning declaratively.
 
