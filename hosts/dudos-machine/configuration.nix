@@ -15,6 +15,7 @@
         desktop_sound
         desktop_xkb
         dm_ly
+        wm_niri
         wm_sway
         wm-utils_dank-material-shell
 

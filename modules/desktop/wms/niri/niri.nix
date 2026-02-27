@@ -4,13 +4,15 @@
     pkgs,
     ...
   }: {
-    imports = [inputs.niri.nixosModules.niri];
-    nixpkgs.overlays = [inputs.niri.overlays.niri];
+    imports = [inputs.niri-flake.nixosModules.niri];
+    nixpkgs.overlays = [inputs.niri-flake.overlays.niri];
 
     programs.niri = {
       enable = true;
       package = pkgs.niri-unstable;
-      useNautilus = true;
+      # NOTE: This option doesn't work.
+      # Probably because of niri-flake
+      # useNautilus = true;
     };
 
     hm.home.packages = with pkgs; [
