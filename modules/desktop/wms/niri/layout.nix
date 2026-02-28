@@ -18,7 +18,7 @@
       ];
 
       focus-ring = {
-        enable = true;
+        enable = false;
         width = 3;
       };
 
@@ -40,10 +40,10 @@
       };
 
       tab-indicator = {
-        width = 6;
+        width = 12;
         gap = 8;
-        corner-radius = 12;
-        length.total-proportion = 0.40;
+        corner-radius = 4;
+        length.total-proportion = 1.0;
         place-within-column = true;
         position = "left";
       };

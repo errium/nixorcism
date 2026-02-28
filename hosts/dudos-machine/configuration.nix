@@ -14,10 +14,9 @@
         # desktop/*
         desktop_sound
         desktop_xkb
-        dm_ly
+        dm_gdm
         wm_niri
-        wm_sway
-        wm-utils_dank-material-shell
+        wm-utils_noctalia
 
         # features/*
         feature_fonts

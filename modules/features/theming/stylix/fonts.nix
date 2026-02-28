@@ -2,16 +2,16 @@
   flake.modules.nixos.theming_stylix = {pkgs, ...}: {
     stylix.fonts = {
       sansSerif = {
-        name = "PT Sans";
-        package = pkgs.paratype-pt-sans;
+        name = "IBM Plex Sans";
+        package = pkgs.ibm-plex;
       };
       serif = {
-        name = "PT Serif";
-        package = pkgs.paratype-pt-serif;
+        name = "IBM Plex Serif";
+        package = pkgs.ibm-plex;
       };
       monospace = {
-        name = "IosevkaTerm Nerd Font";
-        package = pkgs.nerd-fonts.iosevka-term;
+        name = "Lilex Nerd Font";
+        package = pkgs.nerd-fonts.lilex;
       };
       emoji = {
         name = "Noto Color Emoji";
@@ -22,7 +22,7 @@
         applications = 10;
         desktop = 10;
         popups = 10;
-        terminal = 13;
+        terminal = 12;
       };
     };
   };

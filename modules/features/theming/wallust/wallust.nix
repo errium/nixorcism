@@ -9,7 +9,7 @@
       enable = true;
 
       settings = {
-        backend = "wal";
+        backend = "fastresize";
         check_contrast = true;
         fallback_generator = "complementary";
         palette = "dark";
