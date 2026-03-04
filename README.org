@@ -42,5 +42,4 @@ After all, it’s not called *"Omarchy: The Sequel."* 🤷
 #+begin_quote
 P.S.
 I made this README because other cool people do. It won't have much useful info and probably will never be updated.
-Please don't actually use this — it's probably ass. If you find a bug or anti-pattern, feel free to laugh and cyberbully me for it.
 #+end_quote
