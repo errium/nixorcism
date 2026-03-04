@@ -37,7 +37,6 @@
         {
           name = "python";
           auto-format = true;
-          formatter.command = "${pkgs.ruff}/bin/ruff";
         }
 
         {
