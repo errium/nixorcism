@@ -11,12 +11,13 @@
         initialHashedPassword = "$y$j9T$Hao7G9TGibBoEN6X1d2sW0$kemp6XaOm1RYTRWC4M0qvqJzTuwy2eO.wYpg3wQeQi5";
 
         extraGroups = [
-          "networkmanager"
-          "wheel"
           "audio"
+          "dialout"
+          "networkmanager"
+          "render"
           "sound"
           "video"
-          "render"
+          "wheel"
         ];
       };
     };

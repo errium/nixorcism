@@ -11,7 +11,9 @@
         done
       ])
       ++ (with pkgs; [
-        jq # Needed for done plugin
+        # Needed for done plugin
+        jq
+        libnotify
       ]);
 
     hm.programs.fish = {
