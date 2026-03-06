@@ -19,7 +19,6 @@
         wm-utils_noctalia
 
         # features/*
-        feature_distrobox
         feature_fonts
         feature_kvm
         theming_dynamic

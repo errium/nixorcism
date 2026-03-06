@@ -1,6 +1,8 @@
 {
   flake.modules.nixos.shell_common = {confDir, ...}: let
     aliases = {
+      dsr = "distrobox assemble create --file ~/.config/distrobox/containers.ini";
+      dsx = "distrobox";
       ff = "fastfetch";
       lat = "eza -lahT";
       lt = "eza -lhT";
