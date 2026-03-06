@@ -21,7 +21,6 @@
         # features/*
         feature_fonts
         feature_kvm
-        feature_podman
         theming_dynamic
 
         # programs/cli/*

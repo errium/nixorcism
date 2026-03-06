@@ -5,10 +5,14 @@
       shellInit = ''set -U fish_greeting ""'';
     };
 
-    environment.systemPackages = with pkgs.fishPlugins; [
-      bang-bang
-      done
-    ];
+    environment.systemPackages =
+      (with pkgs.fishPlugins; [
+        bang-bang
+        done
+      ])
+      ++ (with pkgs; [
+        jq # Needed for done plugin
+      ]);
 
     hm.programs.fish = {
       enable = true;
