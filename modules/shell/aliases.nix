@@ -1,8 +1,6 @@
 {
   flake.modules.nixos.shell_common = {confDir, ...}: let
     aliases = {
-      dsr = "distrobox assemble create --file ~/.config/distrobox/containers.ini";
-      dsx = "distrobox";
       ff = "fastfetch";
       lat = "eza -lahT";
       lt = "eza -lhT";
@@ -13,6 +11,9 @@
       glr = "golangci-lint run";
       gr = "go run";
       grm = "go run main.go";
+
+      dsr = "distrobox assemble create --file ~/.config/distrobox/containers.ini";
+      dsx = "distrobox";
     };
   in {
     environment.shellAliases = {

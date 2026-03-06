@@ -5,7 +5,7 @@
         enableShellIntegration = true;
         enableBashIntegration = false;
       };
-      
+
       programs = {
         command-not-found.enable = true;
       };
