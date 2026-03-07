@@ -21,6 +21,7 @@
         # features/*
         feature_fonts
         feature_kvm
+        feature_nix-ld
         theming_dynamic
 
         # programs/cli/*
