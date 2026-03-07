@@ -6,10 +6,12 @@
       "editor.rulers" = [120];
       "editor.stickyScroll.enabled" = true;
       "editor.stickyScroll.maxLineCount" = 5;
-      # Autocompletion
+      # Completion
       "editor.acceptSuggestionOnEnter" = "smart";
+      "editor.inlineSuggest.enabled" = true;
       "editor.suggest.insertMode" = "replace";
       "editor.suggest.preview" = true;
+      "editor.tabCompletion" = "on";
       # Cursor
       "editor.cursorStyle" = "line";
       "editor.cursorBlinking" = "smooth";
@@ -71,6 +73,18 @@
           };
         };
       };
+      # Rust
+      "rust-analyzer.cargo.allFeatures" = true;
+      "rust-analyzer.cargo.buildScripts.enable" = true;
+      "rust-analyzer.check.command" = "clippy";
+      "rust-analyzer.completion.addCallArgumentSnippets" = true;
+      "rust-analyzer.completion.addCallParenthesis" = true;
+      "rust-analyzer.completion.autoimport.enable" = true;
+      "rust-analyzer.inlayHints.parameterHints.enable" = true;
+      "rust-analyzer.inlayHints.typeHints.enable" = true;
+      "rust-analyzer.inlayHints.renderColons" = true;
+      "rust-analyzer.inlayHints.bindingModeHints.enable" = true;
+      "rust-analyzer.procMacro.enable" = true;
 
       # MISC
       "editor.semanticHighlighting.enabled" = true;

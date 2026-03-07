@@ -12,7 +12,7 @@
       element-desktop
       eog
       feishin
-      gajim
+      # gajim
       inkscape
       monero-gui
       obs-studio
@@ -26,7 +26,7 @@
       # gotests
 
       # Rust
-      jetbrains.rust-rover
+      # jetbrains.rust-rover
       rustlings
       rustup
     ];

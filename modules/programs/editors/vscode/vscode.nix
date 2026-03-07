@@ -6,16 +6,20 @@
 
       profiles.default = {
         extensions = with pkgs.vscode-extensions; [
-          continue.continue
           gruntfuggly.todo-tree
           leonardssh.vscord
           usernamehw.errorlens
 
           # Go
-          golang.go
+          # golang.go
 
           # Nix
           jnoortheen.nix-ide
+
+          # Rust
+          rust-lang.rust-analyzer
+          tamasfe.even-better-toml
+          vadimcn.vscode-lldb
         ];
       };
     };
