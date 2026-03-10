@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.dudos-machine = {
+  flake.modules.nixos.feature_bluetooth = {lib, ...}: {
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = false;
@@ -10,5 +10,7 @@
         };
       };
     };
+
+    systemd.services.bluetooth.wantedBy = lib.mkForce [];
   };
 }

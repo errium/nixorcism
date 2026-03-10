@@ -1,11 +1,12 @@
-{
+{config, ...}: {
   flake.modules.nixos.bootloader_grub = {
-    boot.loader = {
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-      };
+    imports = with config.flake.modules.nixos; [bootloader_common];
+
+    boot.loader.grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      fontSize = 20; # TEST
     };
   };
 }

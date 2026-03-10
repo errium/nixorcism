@@ -4,7 +4,7 @@
     lib,
     ...
   }: let
-    cfg = (config.stylix.enable or false);
+    cfg = config.stylix.enable or false;
     stx = config.lib.stylix.colors.withHashtag;
 
     primary = stx.base05;

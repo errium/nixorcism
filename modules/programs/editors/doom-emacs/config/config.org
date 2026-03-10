@@ -18,7 +18,7 @@
 (setq dashboard-set-file-icons t)
 (setq dashboard-set-heading-icons t)
 
-(setq dashboard-startup-banner "~/nixorcism/modules/packages/editors/emacs/doom/banner.txt")
+(setq dashboard-startup-banner "~/.config/.emacs-dashboard-banner.txt")
 (setq dashboard-banner-logo-title "Emacs Sucks!")
 
 (setq dashboard-startupify-list
@@ -34,7 +34,7 @@
 * Doom
 #+begin_src emacs-lisp
 (setq doom-theme 'doom-tokyo-night)
-(setq doom-font (font-spec :size 15))
+(setq doom-font (font-spec :size 17))
 (setq doom-modeline-height 40)
 #+end_src
 

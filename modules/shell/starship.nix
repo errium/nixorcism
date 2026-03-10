@@ -11,7 +11,6 @@
           success_symbol = ''[[└](dimmed) ❯](bold green)'';
           error_symbol = ''[[└](dimmed) ✖](bold red)'';
         };
-
         continuation_prompt = "[❯](dimmed)";
 
         # Nerd Font Symbols preset

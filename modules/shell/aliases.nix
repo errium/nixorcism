@@ -1,11 +1,14 @@
 {
   flake.modules.nixos.shell_common = {confDir, ...}: let
-    aliases = {
+    homeAliases = {
+      # General
+      cfd = "cd ${confDir} && $EDITOR .";
       ff = "fastfetch";
       lat = "eza -lahT";
       lt = "eza -lhT";
       rmf = "rm -rf";
 
+      # Language specific
       cgr = "cargo run";
       glf = "golangci-lint fmt";
       glr = "golangci-lint run";
@@ -23,7 +26,7 @@
       lla = "ls -lah";
     };
 
-    hm.programs.fish.shellAbbrs = aliases;
-    hm.programs.zsh.shellAliases = aliases;
+    hm.programs.fish.shellAbbrs = homeAliases;
+    hm.programs.zsh.shellAliases = homeAliases;
   };
 }

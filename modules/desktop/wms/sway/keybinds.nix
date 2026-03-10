@@ -77,16 +77,16 @@
         "${modifier}+s" = "scratchpad show";
 
         # System
-        "XF86AudioRaiseVolume" = ''exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'';
-        "XF86AudioLowerVolume" = ''exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'';
-        "XF86AudioMute" = ''exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'';
-        "XF86AudioMicMute" = ''exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'';
-        "XF86AudioPlay" = ''exec playerctl play-pause'';
-        "XF86AudioStop" = ''exec playerctl stop'';
-        "XF86AudioPrev" = ''exec playerctl previous'';
-        "XF86AudioNext" = ''exec playerctl next'';
-        "XF86MonBrightnessUp" = ''exec brightnessctl set +5%'';
-        "XF86MonBrightnessDown" = ''exec brightnessctl set 5%-'';
+        "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+        "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86AudioMicMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+        "XF86AudioPlay" = "exec playerctl play-pause";
+        "XF86AudioStop" = "exec playerctl stop";
+        "XF86AudioPrev" = "exec playerctl previous";
+        "XF86AudioNext" = "exec playerctl next";
+        "XF86MonBrightnessUp" = "exec brightnessctl set +5%";
+        "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
       };
 
       modes = {

@@ -19,6 +19,7 @@
         wm-utils_noctalia
 
         # features/*
+        feature_bluetooth
         feature_fonts
         feature_kvm
         feature_nix-ld
@@ -59,6 +60,7 @@
 
         # services/*
         service_auto-cpufreq
+        service_glance
         service_gvfs
         service_openrgb
         service_openssh

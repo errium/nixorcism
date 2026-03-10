@@ -1,14 +1,14 @@
-{
+{config, ...}: {
   flake.modules.nixos.bootloader_limine = {
-    boot.loader = {
-      limine = {
-        enable = true;
-        efiSupport = true;
-        maxGenerations = 50;
+    imports = with config.flake.modules.nixos; [bootloader_common];
 
-        style = {
-          wallpapers = [];
-        };
+    boot.loader.limine = {
+      enable = true;
+      efiSupport = true;
+      maxGenerations = 50;
+
+      style = {
+        wallpapers = [];
       };
     };
   };
