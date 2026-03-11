@@ -13,13 +13,13 @@
 
       programs.niri.settings.layout = lib.mkIf cfg {
         focus-ring = {
-          active = {color = stx.base0A;};
+          active = {color = stx.base0C;};
           inactive = {color = stx.base01;};
           urgent = {color = stx.base08;};
         };
 
         border = {
-          active = {color = stx.base0A;};
+          active = {color = stx.base0C;};
           inactive = {color = stx.base01;};
           urgent = {color = stx.base08;};
         };

@@ -6,7 +6,6 @@
       enable = true;
       device = "nodev";
       efiSupport = true;
-      fontSize = 20; # TEST
     };
   };
 }
