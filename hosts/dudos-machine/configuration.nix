@@ -44,7 +44,7 @@
         # programs/editors/*
         editor_doom-emacs
         editor_helix
-        editor_vscode
+        editor_zed
 
         # programs/games
         games_packages
