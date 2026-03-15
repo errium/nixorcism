@@ -16,8 +16,12 @@
         "border.variant" = stx.base00;
         "editor.wrap_guide" = stx.base02;
         "hint" = stx.base03;
-        "hint.background" = "${stx.base01}4D";
+        "hint.background" = "${stx.base01}66";
         "panel.focused_border" = stx.base03;
+
+        "error.background" = "${stx.base08}66";
+        "info.background" = "${stx.base0D}66";
+        "warning.background" = "${stx.base0A}66";
       };
     };
   };
