@@ -7,6 +7,13 @@
       mutableUserKeymaps = false;
       mutableUserSettings = false;
       mutableUserTasks = false;
+
+      extensions = [
+        "charmed-icons"
+        "color-highlight"
+        "discord-presence"
+        "toml"
+      ];
     };
   };
 }

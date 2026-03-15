@@ -6,6 +6,7 @@
   }: let
     cfg = config.stylix.enable or false;
     stx = config.lib.stylix.colors.withHashtag;
+    stxFont = config.stylix.fonts.monospace.name;
 
     background = stx.base01;
     focused = background;
@@ -52,7 +53,7 @@
       };
 
       fonts = {
-        names = [config.stylix.fonts.monospace.name];
+        names = [stxFont];
         style = "Bold";
         size = 11.0;
       };
