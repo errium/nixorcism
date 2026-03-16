@@ -2,16 +2,16 @@
   flake.modules.nixos.theming_stylix = {pkgs, ...}: {
     stylix.fonts = {
       sansSerif = {
-        name = "IBM Plex Sans";
-        package = pkgs.ibm-plex;
+        name = "Adwaita Sans";
+        package = pkgs.adwaita-fonts;
       };
       serif = {
-        name = "IBM Plex Serif";
-        package = pkgs.ibm-plex;
+        name = "Adwaita Sans";
+        package = pkgs.adwaita-fonts;
       };
       monospace = {
-        name = "Lilex Nerd Font";
-        package = pkgs.nerd-fonts.lilex;
+        name = "AdwaitaMono Nerd Font";
+        package = pkgs.nerd-fonts.adwaita-mono;
       };
       emoji = {
         name = "Noto Color Emoji";
