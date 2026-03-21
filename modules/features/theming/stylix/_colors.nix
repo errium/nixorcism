@@ -1,5 +1,5 @@
 rec {
-  palette = chalk;
+  palette = cosec-twilight;
 
   chalk = {
     base00 = "#151515";
@@ -20,6 +20,25 @@ rec {
     base0F = "#deaf8f";
   };
 
+  cosec-twilight = {
+    base00 = "#121212";
+    base01 = "#212121";
+    base02 = "#262626";
+    base03 = "#333638";
+    base04 = "#474a4d";
+    base05 = "#918988";
+    base06 = "#bfbbba";
+    base07 = "#fffedb";
+    base08 = "#be7b6a";
+    base09 = "#d08458";
+    base0A = "#e3d896";
+    base0B = "#a2a970";
+    base0C = "#c1c88d";
+    base0D = "#8b9698";
+    base0E = "#aa9aac";
+    base0F = "#ceb67e";
+  };
+
   tokyo-night = {
     base00 = "#1a1b26";
     base01 = "#24283b";
@@ -37,24 +56,5 @@ rec {
     base0D = "#7aa2f7";
     base0E = "#bb9af7";
     base0F = "#2ac3de";
-  };
-
-  tomorrow-night = {
-    base00 = "#1d1f21";
-    base01 = "#282a2e";
-    base02 = "#373b41";
-    base03 = "#969896";
-    base04 = "#b4b7b4";
-    base05 = "#c5c8c6";
-    base06 = "#e0e0e0";
-    base07 = "#ffffff";
-    base08 = "#cc6666";
-    base09 = "#de935f";
-    base0A = "#f0c674";
-    base0B = "#b5bd68";
-    base0C = "#8abeb7";
-    base0D = "#81a2be";
-    base0E = "#b294bb";
-    base0F = "#a3685a";
   };
 }
