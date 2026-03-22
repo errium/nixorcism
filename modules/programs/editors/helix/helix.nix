@@ -7,6 +7,7 @@
         auto-format = true;
         auto-save = true;
         bufferline = "always";
+        color-modes = true;
         cursorline = true;
         end-of-line-diagnostics = "hint";
         gutters.line-numbers.min-width = 2;

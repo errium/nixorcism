@@ -78,37 +78,45 @@
         # ┃ ┃┗━┓┣╸ ┣┳┛   ┃┃┗┫ ┃ ┣╸ ┣┳┛┣╸ ┣━┫┃  ┣╸
         # ┗━┛┗━┛┗━╸╹┗╸   ╹╹ ╹ ╹ ┗━╸╹┗╸╹  ╹ ╹┗━╸┗━╸
         "ui.background"           = { bg = "base00" }
-        "ui.bufferline.active"    = { fg = "base00", bg = "base03", modifiers = ["bold"] }
-        "ui.bufferline"           = { fg = "base04", bg = "base00" }
-        "ui.cursor"               = { fg = "base06", modifiers = ["reversed"] }
-        "ui.cursor.primary"       = { fg = "base05", modifiers = ["reversed"] }
         "ui.cursorline.primary"   = { fg = "base05", bg = "base01" }
-        "ui.cursor.match"         = { fg = "base05", bg = "base02", modifiers = ["bold"] }
-        "ui.cursor.select"        = { fg = "base05", modifiers = ["reversed"] }
+        "ui.popup"                = { bg = "base01" }
         "ui.gutter"               = { bg = "base00" }
         "ui.help"                 = { fg = "base06", bg = "base01" }
+        "ui.window"               = { bg = "base01" }
+
+        "ui.bufferline.active"    = { fg = "base00", bg = "base03", modifiers = ["bold"] }
+        "ui.bufferline"           = { fg = "base04", bg = "base00" }
+
+        "ui.cursor"               = { fg = "base06", modifiers = ["reversed"] }
+        "ui.cursor.primary"       = { fg = "base05", modifiers = ["reversed"] }
+        "ui.cursor.match"         = { fg = "base05", bg = "base02", modifiers = ["bold"] }
+        "ui.cursor.select"        = { fg = "base05", modifiers = ["reversed"] }
+
         "ui.linenr"               = { fg = "base03", bg = "base00" }
         "ui.linenr.selected"      = { fg = "base04", bg = "base01", modifiers = ["bold"] }
+
         "ui.menu"                 = { fg = "base05", bg = "base01" }
         "ui.menu.scroll"          = { fg = "base03", bg = "base01" }
         "ui.menu.selected"        = { fg = "base01", bg = "base04" }
-        "ui.popup"                = { bg = "base01" }
+
         "ui.selection"            = { bg = "base02" }
         "ui.selection.primary"    = { bg = "base02" }
+
         "ui.statusline"           = { fg = "base04", bg = "base01" }
         "ui.statusline.inactive"  = { bg = "base01", fg = "base03" }
         "ui.statusline.insert"    = { fg = "base00", bg = "base0B" }
         "ui.statusline.normal"    = { fg = "base00", bg = "base03" }
         "ui.statusline.select"    = { fg = "base00", bg = "base0F" }
+
         "ui.text"                 = "base05"
         "ui.text.directory"       = "base0D"
         "ui.text.focus"           = "base05"
+
         "ui.virtual.indent-guide" = { fg = "base03" }
         "ui.virtual.inlay-hint"   = { fg = "base03" }
         "ui.virtual.ruler"        = { bg = "base01" }
         "ui.virtual.jump-label"   = { fg = "base0A", modifiers = ["bold"] }
         "ui.virtual.whitespace"   = { fg = "base03" }
-        "ui.window"               = { bg = "base01" }
 
         # ┏━┓┏━┓╻  ┏━╸╺┳╸╺┳╸┏━╸
         # ┣━┛┣━┫┃  ┣╸  ┃  ┃ ┣╸
