@@ -12,6 +12,7 @@
         "charmed-icons"
         "color-highlight"
         "discord-presence"
+        "nix"
         "toml"
       ];
     };

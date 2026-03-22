@@ -2,7 +2,6 @@
   flake.modules.nixos.shell_common = {confDir, ...}: let
     homeAliases = {
       # General
-      cfd = "cd ${confDir} && $EDITOR .";
       ff = "fastfetch";
       lat = "eza -lahT";
       lt = "eza -lhT";

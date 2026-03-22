@@ -57,7 +57,7 @@
           mode = {
             normal = "NORMAL";
             insert = "INSERT";
-            select = "VISUAL";
+            select = "SELECT";
           };
         };
       };
