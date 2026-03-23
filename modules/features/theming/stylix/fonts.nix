@@ -108,7 +108,7 @@
     };
   in {
     stylix.fonts =
-      fontSets.roboto
+      fontSets.source
       // {
         emoji = {
           name = "Noto Color Emoji";

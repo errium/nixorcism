@@ -39,6 +39,25 @@ rec {
     base0F = "#ceb67e";
   };
 
+  mellow = {
+    base00 = "#161617";
+    base01 = "#1b1b1d";
+    base02 = "#2a2a2d";
+    base03 = "#57575f";
+    base04 = "#757581";
+    base05 = "#c9c7cd";
+    base06 = "#cac9dd";
+    base07 = "#c1c0d4";
+    base08 = "#f5a191";
+    base09 = "#e6b99d";
+    base0A = "#f0c5a9";
+    base0B = "#90b99f";
+    base0C = "#ea83a5";
+    base0D = "#aca1cf";
+    base0E = "#e29eca";
+    base0F = "#b9aeda";
+  };
+
   tokyo-night = {
     base00 = "#1a1b26";
     base01 = "#24283b";
@@ -56,5 +75,24 @@ rec {
     base0D = "#7aa2f7";
     base0E = "#bb9af7";
     base0F = "#2ac3de";
+  };
+
+  tomorrow-night = {
+    base00 = "#1d1f21";
+    base01 = "#282a2e";
+    base02 = "#373b41";
+    base03 = "#969896";
+    base04 = "#b4b7b4";
+    base05 = "#c5c8c6";
+    base06 = "#e0e0e0";
+    base07 = "#ffffff";
+    base08 = "#cc6666";
+    base09 = "#de935f";
+    base0A = "#f0c674";
+    base0B = "#b5bd68";
+    base0C = "#8abeb7";
+    base0D = "#81a2be";
+    base0E = "#b294bb";
+    base0F = "#a3685a";
   };
 }
