@@ -6,7 +6,7 @@
 
     hm.stylix.targets = {
       fontconfig.enable = false;
-      # helix.enable = false;
+      helix.enable = false;
       noctalia-shell.enable = false;
       sway.enable = false;
       vesktop.enable = false;

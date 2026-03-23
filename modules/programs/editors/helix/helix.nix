@@ -41,24 +41,26 @@
         statusline = {
           left = [
             "mode"
+            "spacer"
             "spinner"
-            "diagnostics"
           ];
           center = [
-            "file-name"
             "read-only-indicator"
+            "file-name"
             "file-modification-indicator"
           ];
           right = [
+            "diagnostics"
+            "file-encoding"
             "position"
             "separator"
             "total-line-numbers"
           ];
           separator = "|";
           mode = {
-            normal = "NORMAL";
-            insert = "INSERT";
-            select = "SELECT";
+            normal = "normal";
+            insert = "insert";
+            select = "select";
           };
         };
       };
