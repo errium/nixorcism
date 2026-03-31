@@ -16,7 +16,10 @@
         desktop_xkb
         dm_gdm
         wm_niri
+        wm_sway
+        wm-utils_common
         wm-utils_noctalia
+        wm-utils_waybar
 
         # features/*
         feature_bluetooth

@@ -10,19 +10,7 @@
     programs.niri = {
       enable = true;
       package = pkgs.niri-unstable;
-      # NOTE: This option doesn't work.
-      # Probably because of niri-flake
-      # useNautilus = true;
     };
-
-    hm.home.packages = with pkgs; [
-      brightnessctl
-      cliphist
-      playerctl
-      wl-clip-persist
-      wl-clipboard
-      xwayland-satellite
-    ];
 
     xdg.portal = {
       enable = true;
@@ -50,5 +38,7 @@
 
     systemd.user.services.xdg-desktop-portal.after = ["niri.service"];
     systemd.user.services.xdg-desktop-portal-gnome.after = ["niri.service"];
+
+    hm.home.packages = with pkgs; [xwayland-satellite];
   };
 }

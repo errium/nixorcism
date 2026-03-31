@@ -1,5 +1,24 @@
 rec {
-  palette = cosec-twilight;
+  palette = chalk;
+
+  booshnickle-dark = {
+    base00 = "#191914";
+    base01 = "#3a3a2e";
+    base02 = "#5b5b49";
+    base03 = "#7c7c63";
+    base04 = "#9c9c7d";
+    base05 = "#bdbd97";
+    base06 = "#dedeb2";
+    base07 = "#ffffcc";
+    base08 = "#ffbfa5";
+    base09 = "#ffdc99";
+    base0A = "#fff299";
+    base0B = "#e7ff99";
+    base0C = "#bfffc5";
+    base0D = "#ccbfd9";
+    base0E = "#f2bfd9";
+    base0F = "#e5d6a6";
+  };
 
   chalk = {
     base00 = "#151515";
@@ -18,6 +37,25 @@ rec {
     base0D = "#6fc2ef";
     base0E = "#e1a3ee";
     base0F = "#deaf8f";
+  };
+
+  charcoal-dark = {
+    base00 = "#0f0b05";
+    base01 = "#231b0e";
+    base02 = "#2a2012";
+    base03 = "#57462c";
+    base04 = "#a88c62";
+    base05 = "#c3a983";
+    base06 = "#dec8a7";
+    base07 = "#231b0e";
+    base08 = "#a88c62";
+    base09 = "#dec8a7";
+    base0A = "#dec8a7";
+    base0B = "#dec8a7";
+    base0C = "#dec8a7";
+    base0D = "#c3a983";
+    base0E = "#a88c62";
+    base0F = "#876e48";
   };
 
   cosec-twilight = {
@@ -39,23 +77,23 @@ rec {
     base0F = "#ceb67e";
   };
 
-  mellow = {
-    base00 = "#161617";
-    base01 = "#1b1b1d";
-    base02 = "#2a2a2d";
-    base03 = "#57575f";
-    base04 = "#757581";
-    base05 = "#c9c7cd";
-    base06 = "#cac9dd";
-    base07 = "#c1c0d4";
-    base08 = "#f5a191";
-    base09 = "#e6b99d";
-    base0A = "#f0c5a9";
-    base0B = "#90b99f";
-    base0C = "#ea83a5";
-    base0D = "#aca1cf";
-    base0E = "#e29eca";
-    base0F = "#b9aeda";
+  mountain = {
+    base00 = "#0f0f0f";
+    base01 = "#191919";
+    base02 = "#262626";
+    base03 = "#393939";
+    base04 = "#4c4c4c";
+    base05 = "#cacaca";
+    base06 = "#e7e7e7";
+    base07 = "#f0f0f0";
+    base08 = "#ac8a8c";
+    base09 = "#ceb188";
+    base0A = "#aca98a";
+    base0B = "#8aac8b";
+    base0C = "#8aabac";
+    base0D = "#8f8aac";
+    base0E = "#ac8aac";
+    base0F = "#ac8a8c";
   };
 
   tokyo-night = {
@@ -75,24 +113,5 @@ rec {
     base0D = "#7aa2f7";
     base0E = "#bb9af7";
     base0F = "#2ac3de";
-  };
-
-  tomorrow-night = {
-    base00 = "#1d1f21";
-    base01 = "#282a2e";
-    base02 = "#373b41";
-    base03 = "#969896";
-    base04 = "#b4b7b4";
-    base05 = "#c5c8c6";
-    base06 = "#e0e0e0";
-    base07 = "#ffffff";
-    base08 = "#cc6666";
-    base09 = "#de935f";
-    base0A = "#f0c674";
-    base0B = "#b5bd68";
-    base0C = "#8abeb7";
-    base0D = "#81a2be";
-    base0E = "#b294bb";
-    base0F = "#a3685a";
   };
 }

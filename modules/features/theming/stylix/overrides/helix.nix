@@ -19,18 +19,15 @@
         "comment"     = { fg = "base03", modifiers = ["italic"] }
         "constructor" = "base0B"
         "debug"       = "base03"
+        "function"    = { fg = "base0D", modifiers = ["italic"] }
+        "keyword"     = { fg = "base0E", modifiers = ["italic"] }
         "label"       = "base05"
         "namespace"   = "base05"
         "operator"    = "base0E"
-        "keyword"     = { fg = "base0E", modifiers = ["bold"] }
         "special"     = "base0D"
         "string"      = "base0B"
         "tag"         = "base0D"
         "type"        = "base0B"
-
-        "function"         = { fg = "base0D" }
-        "function.builtin" = { modifiers = ["bold"] }
-        "function.macro"   = { fg = "base0D", modifiers = ["bold"] }
 
         "constant"                  = "base0E"
         "constant.character.escape" = "base0D"

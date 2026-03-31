@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.wm_sway = {pkgs, ...}: {
+  flake.modules.nixos.wm_sway = {
     programs.sway = {
       enable = true;
       extraOptions = ["--unsupported-gpu"];
@@ -10,18 +10,9 @@
       extraOptions = ["--unsupported-gpu"];
 
       config.startup = [
-        # {command = "noctalia-shell -d";}
         {command = "foot --server &";}
         {command = "wl-paste --watch cliphist store";}
       ];
     };
-
-    hm.home.packages = with pkgs; [
-      brightnessctl
-      cliphist
-      playerctl
-      wl-clip-persist
-      wl-clipboard
-    ];
   };
 }
