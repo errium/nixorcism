@@ -47,7 +47,7 @@ rec {
     base04 = "#a88c62";
     base05 = "#c3a983";
     base06 = "#dec8a7";
-    base07 = "#231b0e";
+    base07 = "#dec8a7";
     base08 = "#a88c62";
     base09 = "#dec8a7";
     base0A = "#dec8a7";
