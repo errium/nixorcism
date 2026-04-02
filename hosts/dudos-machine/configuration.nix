@@ -16,16 +16,13 @@
         desktop_xkb
         dm_gdm
         wm_niri
-        wm_sway
         wm-utils_common
         wm-utils_noctalia
-        wm-utils_waybar
 
         # features/*
         feature_bluetooth
         feature_fonts
         feature_kvm
-        feature_nix-ld
         theming_static
 
         # programs/cli/*
@@ -49,7 +46,7 @@
         editor_helix
         editor_zed
 
-        # programs/games
+        # programs/games/*
         games_packages
         games_steam
 
@@ -65,6 +62,7 @@
         service_auto-cpufreq
         service_glance
         service_gvfs
+        service_kde-connect
         service_openrgb
         service_openssh
         service_udiskie

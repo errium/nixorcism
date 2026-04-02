@@ -1,5 +1,5 @@
 rec {
-  palette = chalk;
+  palette = charcoal-dark;
 
   booshnickle-dark = {
     base00 = "#191914";

@@ -7,7 +7,7 @@
       up = "Up";
       right = "Right";
       terminal = "footclient";
-      menu = "dms ipc launcher open";
+      menu = "rofi -show drun -show-icons";
 
       keybindings = {
         # Essentials

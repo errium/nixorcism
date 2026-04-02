@@ -11,6 +11,7 @@
 
       config.startup = [
         {command = "foot --server &";}
+        {command = "waybar &";}
         {command = "wl-paste --watch cliphist store";}
       ];
     };

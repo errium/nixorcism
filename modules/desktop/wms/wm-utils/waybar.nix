@@ -6,7 +6,7 @@
       settings.swayBar = {
         layer = "top";
         position = "bottom";
-        height = 22;
+        height = 26;
 
         modules-left = ["sway/workspaces" "sway/mode" "sway/window"];
         modules-center = ["custom/left" "clock" "custom/right"];

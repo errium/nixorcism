@@ -7,6 +7,11 @@
         enable = true;
         createDirectories = true;
 
+        # NOTE: 02-04-2026
+        # This is here because of the recent home-manager
+        # behavior changes. Needs testing
+        setSessionVariables = false;
+
         desktop = "${home}/Desktop";
         documents = "${home}/Documents";
         download = "${home}/Downloads";
