@@ -9,7 +9,7 @@
           accent2 = "green"; # 2nd part of the logo
           accent3 = "green"; # Even head keys, title (user)
           accent4 = "blue"; # Odd head keys, title (host)
-          accent5 = "white"; # Sub-keys, title (at)
+          accent5 = "white"; # Sub-keys, title (@)
         };
       in {
         logo = {

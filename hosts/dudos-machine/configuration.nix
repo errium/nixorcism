@@ -23,6 +23,8 @@
         feature_bluetooth
         feature_fonts
         feature_kvm
+        feature_macros
+        feature_nix-ld
         theming_static
 
         # programs/cli/*
