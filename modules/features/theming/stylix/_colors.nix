@@ -1,5 +1,5 @@
 rec {
-  palette = cosec-twilight;
+  palette = chalk;
 
   chalk = {
     base00 = "#151515";
@@ -18,25 +18,6 @@ rec {
     base0D = "#6fc2ef";
     base0E = "#e1a3ee";
     base0F = "#deaf8f";
-  };
-
-  charcoal-dark = {
-    base00 = "#0f0b05";
-    base01 = "#231b0e";
-    base02 = "#2a2012";
-    base03 = "#57462c";
-    base04 = "#a88c62";
-    base05 = "#c3a983";
-    base06 = "#dec8a7";
-    base07 = "#dec8a7";
-    base08 = "#a88c62";
-    base09 = "#dec8a7";
-    base0A = "#dec8a7";
-    base0B = "#dec8a7";
-    base0C = "#dec8a7";
-    base0D = "#c3a983";
-    base0E = "#a88c62";
-    base0F = "#876e48";
   };
 
   cosec-twilight = {
