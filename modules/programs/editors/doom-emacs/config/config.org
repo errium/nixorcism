@@ -33,7 +33,7 @@
 
 * Doom
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-tomorrow-night)
+(setq doom-theme 'base16-chalk)
 (setq doom-font (font-spec :size 17))
 (setq doom-modeline-height 40)
 #+end_src
@@ -54,7 +54,7 @@
 ** Org
 #+begin_src emacs-lisp
 (custom-theme-set-faces!
- 'doom-tomorrow-night
+ 'base16-chalk
  '(org-level-8 :inherit outline-3 :height 1.0)
  '(org-level-7 :inherit outline-3 :height 1.0)
  '(org-level-6 :inherit outline-3 :height 1.1)
