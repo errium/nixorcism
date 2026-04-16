@@ -25,6 +25,7 @@
         feature_kvm
         feature_nix-ld
         theming_static
+        macros_albion
 
         # programs/cli/*
         cli_packages
