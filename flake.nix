@@ -38,10 +38,6 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    xremap-flake = {
-      url = "github:xremap/nix-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # Programs
     nix-doom-emacs-unstraightened = {
