@@ -1,14 +1,30 @@
 {
   # NOTE: `macros_common` is NOT meant to be imported manually
   flake.modules.nixos.macros_common = {username, ...}: {
+    # xremap & related
+    hm = {inputs, ...}: {
+      imports = [inputs.xremap-flake.homeManagerModules.default];
+      services.xremap = {
+        enable = true;
+        withNiri = true;
+        mouse = true;
+      };
+    };
+
+    hardware.uinput.enable = true;
+    users.groups.uinput.members = [username];
+    users.groups.input.members = [username];
+
+    # ydotool & related
     programs.ydotool = {
       enable = true;
       group = "ydotool";
     };
+
     users.groups.ydotool.members = [username];
   };
 
-  # AI slop function
+  # Semi-vibecoded function for making macros
   flake.lib.mkMacro = {
     pkgs,
     lib,

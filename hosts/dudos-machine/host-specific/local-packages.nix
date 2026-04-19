@@ -17,6 +17,7 @@
       obs-studio
       onlyoffice-desktopeditors
       proton-vpn
+      r2modman
       sushi
       telegram-desktop
 

@@ -24,8 +24,8 @@
         feature_fonts
         feature_kvm
         feature_nix-ld
-        theming_static
         macros_albion
+        theming_static
 
         # programs/cli/*
         cli_packages
