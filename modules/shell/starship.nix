@@ -36,12 +36,12 @@
 
         # Git
         git_branch = {
-          format = "[·](dimmed) [$branch(:$remote_branch)]($style)";
+          format = "[·](dimmed) [$branch(:$remote_branch)]($style) ";
           style = "bold purple";
         };
         git_status = {
           deleted = "x";
-          format = " [$all_status$ahead_behind]($style) ";
+          format = "[$all_status$ahead_behind]($style) ";
           style = "bold red";
         };
         git_state = {
