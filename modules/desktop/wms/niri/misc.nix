@@ -12,6 +12,7 @@
       };
 
       spawn-at-startup = [
+        {command = ["noctalia-shell"];}
         {sh = "foot --server &";}
       ];
 
