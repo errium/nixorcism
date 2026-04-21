@@ -108,7 +108,7 @@
     };
   in {
     stylix.fonts =
-      fontSets.source
+      fontSets.adwaita
       // {
         emoji = {
           name = "Noto Color Emoji";

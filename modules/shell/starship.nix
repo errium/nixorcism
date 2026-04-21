@@ -1,119 +1,97 @@
 {
-  flake.modules.nixos.shell_starship = {
+  flake.modules.nixos.shell_starship = {lib, ...}: {
     hm.programs.starship = {
       enable = true;
       enableTransience = true;
 
       settings = {
+        format = lib.concatStrings [
+          # Left
+          ''[\$](bold purple)''
+          "$directory"
+          "$git_branch"
+          "$git_status"
+          "$git_state"
+
+          # Right
+          "$fill"
+          "$nix_shell"
+          "$cmd_duration"
+          "$time"
+
+          # 2nd line
+          "$line_break"
+          "$character"
+        ];
+
         add_newline = true;
 
-        character = {
-          success_symbol = ''[[└](dimmed) ❯](bold green)'';
-          error_symbol = ''[[└](dimmed) ✖](bold red)'';
+        # Directory
+        directory = {
+          format = " [·](dimmed) [$path]($style)[$read_only]($read_only_style) ";
+          style = "bold cyan";
+          truncation_length = 1;
+          truncation_symbol = "…/";
         };
-        continuation_prompt = "[❯](dimmed)";
 
-        # Nerd Font Symbols preset
-        aws.symbol = " ";
-        buf.symbol = " ";
-        bun.symbol = " ";
-        c.symbol = " ";
-        cpp.symbol = " ";
-        cmake.symbol = " ";
-        conda.symbol = " ";
-        crystal.symbol = " ";
-        dart.symbol = " ";
-        deno.symbol = " ";
-        directory.read_only = " 󰌾";
-        docker_context.symbol = " ";
-        elixir.symbol = " ";
-        elm.symbol = " ";
-        fennel.symbol = " ";
-        fortran.symbol = " ";
-        fossil_branch.symbol = " ";
-        gcloud.symbol = " ";
-        git_branch.symbol = " ";
-        git_commit.tag_symbol = "  ";
-        golang.symbol = " ";
-        gradle.symbol = " ";
-        guix_shell.symbol = " ";
-        haskell.symbol = " ";
-        haxe.symbol = " ";
-        hg_branch.symbol = " ";
-        hostname.ssh_symbol = " ";
-        java.symbol = " ";
-        julia.symbol = " ";
-        kotlin.symbol = " ";
-        lua.symbol = " ";
-        memory_usage.symbol = "󰍛 ";
-        meson.symbol = "󰔷 ";
-        nim.symbol = "󰆥 ";
-        nix_shell.symbol = " ";
-        nodejs.symbol = " ";
-        ocaml.symbol = " ";
-        os.symbols = {
-          Alpaquita = " ";
-          Alpine = " ";
-          AlmaLinux = " ";
-          Amazon = " ";
-          Android = " ";
-          AOSC = " ";
-          Arch = " ";
-          Artix = " ";
-          CachyOS = " ";
-          CentOS = " ";
-          Debian = " ";
-          DragonFly = " ";
-          Emscripten = " ";
-          EndeavourOS = " ";
-          Fedora = " ";
-          FreeBSD = " ";
-          Garuda = "󰛓 ";
-          Gentoo = " ";
-          HardenedBSD = "󰞌 ";
-          Illumos = "󰈸 ";
-          Kali = " ";
-          Linux = " ";
-          Mabox = " ";
-          Macos = " ";
-          Manjaro = " ";
-          Mariner = " ";
-          MidnightBSD = " ";
-          Mint = " ";
-          NetBSD = " ";
-          NixOS = " ";
-          Nobara = " ";
-          OpenBSD = "󰈺 ";
-          openSUSE = " ";
-          OracleLinux = "󰌷 ";
-          Pop = " ";
-          Raspbian = " ";
-          Redhat = " ";
-          RedHatEnterprise = " ";
-          RockyLinux = " ";
-          Redox = "󰀘 ";
-          Solus = "󰠳 ";
-          SUSE = " ";
-          Ubuntu = " ";
-          Unknown = " ";
-          Void = " ";
-          Windows = "󰍲 ";
+        # Git
+        git_branch = {
+          format = "[·](dimmed) [$branch(:$remote_branch)]($style)";
+          style = "bold purple";
         };
-        package.symbol = "󰏗 ";
-        perl.symbol = " ";
-        php.symbol = " ";
-        pijul_channel.symbol = " ";
-        pixi.symbol = "󰏗 ";
-        python.symbol = " ";
-        rlang.symbol = "󰟔 ";
-        ruby.symbol = " ";
-        rust.symbol = "󱘗 ";
-        scala.symbol = " ";
-        status.symbol = " ";
-        swift.symbol = " ";
-        xmake.symbol = " ";
-        zig.symbol = " ";
+        git_status = {
+          deleted = "x";
+          format = " [$all_status$ahead_behind]($style) ";
+          style = "bold red";
+        };
+        git_state = {
+          am = "am";
+          am_or_rebase = "am/rebase";
+          bisect = "bisecting";
+          cherry_pick = "cherry-picking";
+          format = "[·](dimmed) [$state( $progress_current/$progress_total)]($style)";
+          merge = "merging";
+          rebase = "rebasing";
+          revert = "reverting";
+          style = "bold yellow";
+        };
+
+        # Fill
+        fill = {
+          style = "bright-black dimmed";
+          symbol = "─";
+        };
+
+        # Nix shell
+        nix_shell = {
+          format = " [$symbol]($style) [·](dimmed)";
+          symbol = "󱄅";
+        };
+
+        # Duration
+        cmd_duration = {
+          format = " [$duration]($style) [·](dimmed)";
+          min_time = 5000;
+          style = "bold white dimmed";
+        };
+
+        # Time
+        time = {
+          disabled = false;
+          format = " [$time]($style)";
+          style = "bold white dimmed";
+          time_format = "%R";
+        };
+
+        # Prompt
+        character = {
+          error_symbol = ''[[└](bright-black dimmed) ✖](bold red)'';
+          success_symbol = ''[[└](bright-black dimmed) ❯](bold green)'';
+        };
+        continuation_prompt = "[·](dimmed)";
       };
+
+      presets = ["nerd-font-symbols"];
     };
   };
 }

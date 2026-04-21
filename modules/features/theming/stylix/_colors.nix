@@ -1,5 +1,5 @@
 rec {
-  palette = chalk;
+  palette = sema;
 
   chalk = {
     base00 = "#151515";
@@ -39,23 +39,23 @@ rec {
     base0F = "#ceb67e";
   };
 
-  olive-crt = {
-    base00 = "#171a15";
-    base01 = "#232720";
-    base02 = "#363c34";
-    base03 = "#99a293";
-    base04 = "#c0c7b7";
-    base05 = "#fbfcf6";
-    base06 = "#edf0e6";
-    base07 = "#fbfcf7";
-    base08 = "#ea938b";
-    base09 = "#f5a764";
-    base0A = "#f7c775";
-    base0B = "#bccd80";
-    base0C = "#a5d6cb";
-    base0D = "#90dde4";
-    base0E = "#dac3ed";
-    base0F = "#fbe09f";
+  sema = {
+    base00 = "#0f0f0f";
+    base01 = "#222222";
+    base02 = "#424242";
+    base03 = "#585858";
+    base04 = "#949494";
+    base05 = "#d6d6d6";
+    base06 = "#ffffff";
+    base07 = "#ffffff";
+    base08 = "#f7a597";
+    base09 = "#f7a597";
+    base0A = "#e1e0c8";
+    base0B = "#cfe8b7";
+    base0C = "#dbdcf3";
+    base0D = "#75caf2";
+    base0E = "#f1d6dd";
+    base0F = "#cce1f1";
   };
 
   tokyo-night = {

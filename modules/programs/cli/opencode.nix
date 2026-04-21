@@ -3,6 +3,11 @@
     hm.programs.opencode = {
       enable = true;
 
+      settings = {
+        autoupdate = false;
+        permission.edit = "ask";
+      };
+
       rules = ''
         ## Core Behavior
         - **ALWAYS ask before taking actions** - no modifications, commits, or pushes without confirmation
