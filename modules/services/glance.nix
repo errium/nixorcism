@@ -68,7 +68,7 @@
                         links = [
                           {
                             title = "Hydra";
-                            url = "https://hydra.nixos.org/";
+                            url = "https://hydra.nixos.org/jobset/nixpkgs/unstable#tabs-jobs";
                             icon = "si:nixos";
                           }
                           {

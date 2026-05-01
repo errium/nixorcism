@@ -5,7 +5,7 @@
       settings = {
         appBadge = true;
         arRPC = true;
-        checkUpdates = true;
+        checkUpdates = false;
         discordBranch = "stable";
         enableSplashScreen = true;
         hardwareAcceleration = true;
