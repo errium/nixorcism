@@ -12,18 +12,17 @@
         bootloader_limine
 
         # desktop/*
-        de_xfce
+        desktop-environment_xfce
+        desktop-tool_noctalia
         desktop_sound
         desktop_xkb
-        dm_ly
-        wm_sway
-        wm-utils_noctalia
+        login-manager_ly
+        window-manager_sway
 
         # features/*
         theming_dynamic
 
         # programs/cli/*
-        cli_packages
         cli_bat
         cli_comma
         cli_eza
@@ -31,6 +30,7 @@
         cli_git
         cli_nh
         cli_nix-index
+        cli_packages
         cli_zoxide
 
         # programs/editors/*
@@ -43,7 +43,7 @@
         service_openssh
 
         # shell/*
-        shell_common
+        shell_aliases
         shell_bash
         shell_fish
         shell_starship

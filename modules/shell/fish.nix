@@ -1,5 +1,7 @@
 {
   flake.modules.nixos.shell_fish = {pkgs, ...}: {
+    imports = [./_common.nix];
+
     programs.fish = {
       enable = true;
       shellInit = ''set -U fish_greeting ""'';

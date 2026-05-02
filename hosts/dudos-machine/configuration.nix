@@ -12,12 +12,12 @@
         bootloader_grub
 
         # desktop/*
+        desktop-tool_common-packages
+        desktop-tool_noctalia
         desktop_sound
         desktop_xkb
-        dm_gdm
-        wm_niri
-        wm-utils_common
-        wm-utils_noctalia
+        login-manager_gdm
+        window-manager_niri
 
         # features/*
         feature_bluetooth
@@ -48,8 +48,8 @@
         editor_zed
 
         # programs/games/*
-        games_packages
-        games_steam
+        gaming_packages
+        gaming_steam
 
         # programs/gui/*
         gui_foot
@@ -69,7 +69,7 @@
         service_udiskie
 
         # shell/*
-        shell_common
+        shell_aliases
         shell_bash
         shell_fish
         shell_starship

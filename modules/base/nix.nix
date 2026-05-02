@@ -3,7 +3,11 @@
     nix = {
       settings = {
         auto-optimise-store = true;
-        experimental-features = ["nix-command" "flakes"];
+        experimental-features = [
+          "flakes"
+          "nix-command"
+          "pipe-operators"
+        ];
         trusted-users = ["root" "@wheel"];
       };
 

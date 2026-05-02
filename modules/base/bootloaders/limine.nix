@@ -1,6 +1,6 @@
-{config, ...}: {
+{
   flake.modules.nixos.bootloader_limine = {
-    imports = with config.flake.modules.nixos; [bootloader_common];
+    imports = [./_shared.nix];
 
     boot.loader.limine = {
       enable = true;

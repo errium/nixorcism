@@ -1,18 +1,18 @@
 {
-  flake.modules.nixos.shell_common = {confDir, ...}: let
-    homeAliases = {
+  flake.modules.nixos.shell_aliases = {confDir, ...}: let
+    userAliases = {
       # General
       ff = "fastfetch";
       lat = "eza -lahT";
       lt = "eza -lhT";
       rmf = "rm -rf";
 
-      # Language specific
-      cgr = "cargo run";
-      glf = "golangci-lint fmt";
-      glr = "golangci-lint run";
-      gr = "go run";
-      grm = "go run main.go";
+      # Rust
+      cb = "cargo build";
+      cbr = "cargo build --release";
+      cc = "cargo check";
+      cr = "cargo run";
+      crr = "cargo run --release";
     };
   in {
     environment.shellAliases = {
@@ -25,7 +25,6 @@
       lla = "ls -lah";
     };
 
-    hm.programs.fish.shellAbbrs = homeAliases;
-    hm.programs.zsh.shellAliases = homeAliases;
+    hm.programs.fish.shellAbbrs = userAliases;
   };
 }
