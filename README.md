@@ -2,9 +2,9 @@
 
 # ~/nixorcism
 
-<img src=".images/screenshot.png" width="900px">
-
 _Errium's incredible NixOS config._
+
+<img src=".images/screenshot.png" width="900px">
 
 </div>
 

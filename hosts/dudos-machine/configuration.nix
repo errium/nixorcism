@@ -1,7 +1,6 @@
 {config, ...}: {
   flake.modules.nixos.dudos-machine = {pkgs, ...}: {
     boot.kernelPackages = pkgs.linuxPackages_zen;
-    networking.hostName = "dudos-machine";
     system.stateVersion = "25.11";
     users.defaultUserShell = pkgs.fish;
 
@@ -24,7 +23,7 @@
         feature_fonts
         feature_kvm
         feature_nix-ld
-        theming_static
+        theming_dynamic
 
         # programs/cli/*
         cli_packages

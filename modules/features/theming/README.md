@@ -5,7 +5,7 @@
 > - `dynamic.nix` - uses a wallust-generated palette from `wallust/palette.yaml`
 
 > [!WARNING]
-> `theming_stylix`, `theming_wallust` and `theming_defaults` are internal - don't activate them manually.
+> `theming_stylix`, `theming_wallust` and `theming_defaults` are internal - I don't activate them manually.
 > Ideally these wouldn't be flake-parts modules at all, making them truly unimportable -
 > but that would require `default.nix` files, which is a tradeoff not worth making.
 

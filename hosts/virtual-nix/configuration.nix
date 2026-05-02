@@ -1,7 +1,6 @@
 {config, ...}: {
   flake.modules.nixos.virtual-nix = {pkgs, ...}: {
     boot.kernelPackages = pkgs.linuxPackages_latest;
-    networking.hostName = "virtual-nix";
     system.stateVersion = "25.11";
     users.defaultUserShell = pkgs.fish;
 

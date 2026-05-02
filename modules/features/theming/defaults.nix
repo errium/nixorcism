@@ -1,5 +1,5 @@
 {
-  # NOTE: `theming_common` is NOT meant to be imported manually
+  # NOTE: `theming_defaults` is NOT meant to be imported manually
   flake.modules.nixos.theming_defaults = {pkgs, ...}: {
     hm = {
       home.pointerCursor = {
