@@ -1,22 +1,21 @@
 {
-  flake.modules.nixos.wm_sway = {
+  flake.modules.nixos.window-manager_sway = {
     config,
     lib,
     ...
   }: let
     cfg = config.stylix.enable or false;
     stx = config.lib.stylix.colors.withHashtag;
-    stxFont = config.stylix.fonts.monospace.name;
-
-    background = stx.base01;
-    focused = background;
-    indicator = stx.base0B;
-    text = stx.base02;
-    unfocused = stx.base00;
-    urgent = stx.base08;
   in {
     hm.wayland.windowManager.sway.config = lib.mkIf cfg {
-      colors = {
+      colors = let
+        background = stx.base01;
+        focused = background;
+        indicator = stx.base0B;
+        text = stx.base02;
+        unfocused = stx.base00;
+        urgent = stx.base08;
+      in {
         inherit background;
         urgent = {
           inherit indicator;
@@ -52,8 +51,10 @@
         };
       };
 
-      fonts = {
-        names = [stxFont];
+      fonts = let
+        font = config.stylix.fonts.monospace.name;
+      in {
+        names = [font];
         style = "Bold";
         size = 11.0;
       };
