@@ -11,8 +11,8 @@
         bootloader_grub
 
         # desktop/*
-        desktop-tool_common-packages
-        desktop-tool_noctalia
+        desktop-extra_common-packages
+        desktop-extra_noctalia
         desktop_sound
         desktop_xkb
         login-manager_gdm
@@ -23,7 +23,7 @@
         feature_fonts
         feature_kvm
         feature_nix-ld
-        theming_static
+        theming_dynamic
 
         # programs/cli/*
         cli_packages

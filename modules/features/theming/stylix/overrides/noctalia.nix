@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop-tool_noctalia = {
+  flake.modules.nixos.desktop-extra_noctalia = {
     config,
     lib,
     ...

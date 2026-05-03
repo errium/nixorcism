@@ -3,7 +3,7 @@
   flake.modules.nixos.theming_defaults = {pkgs, ...}: {
     hm = {
       home.pointerCursor = {
-        name = "phinger-cursors-dark";
+        name = "phinger-cursors-light";
         package = pkgs.phinger-cursors;
         size = 22;
         gtk.enable = true;

@@ -12,14 +12,12 @@
 
         # desktop/*
         desktop-environment_xfce
-        desktop-tool_noctalia
         desktop_sound
         desktop_xkb
         login-manager_ly
-        window-manager_sway
 
         # features/*
-        theming_dynamic
+        theming_static
 
         # programs/cli/*
         cli_bat

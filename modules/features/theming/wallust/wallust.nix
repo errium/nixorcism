@@ -17,7 +17,7 @@
       enable = true;
 
       settings = {
-        backend = "fastresize";
+        backend = "wal";
         check_contrast = true;
         fallback_generator = "complementary";
         palette = polarity;

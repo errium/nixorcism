@@ -12,7 +12,7 @@
       element-desktop
       eog
       feishin
-      inkscape
+      # inkscape
       monero-gui
       obs-studio
       onlyoffice-desktopeditors
