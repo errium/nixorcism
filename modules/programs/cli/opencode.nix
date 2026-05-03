@@ -8,7 +8,7 @@
         permission.edit = "ask";
       };
 
-      rules = ''
+      context = ''
         ## Core Behavior
         - **ALWAYS ask before taking actions** - no modifications, commits, or pushes without confirmation
         - Be direct and concise

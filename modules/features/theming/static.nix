@@ -1,7 +1,7 @@
 {config, ...}: {
   flake.modules.nixos.theming_static = {
     imports = with config.flake.modules.nixos; [
-      theming_common
+      theming_defaults
       theming_stylix
     ];
 

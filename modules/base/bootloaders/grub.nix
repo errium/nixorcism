@@ -1,6 +1,6 @@
-{config, ...}: {
+{
   flake.modules.nixos.bootloader_grub = {
-    imports = with config.flake.modules.nixos; [bootloader_common];
+    imports = [./_shared.nix];
 
     boot.loader.grub = {
       enable = true;

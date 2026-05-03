@@ -5,10 +5,10 @@
     ...
   }: {
     boot.resumeDevice =
-      (lib.findFirst
-        (d: lib.hasPrefix "/dev/disk/by-uuid" d.device)
-        null
-        config.swapDevices).device;
+      config.swapDevices
+      |> lib.filter (d: lib.hasPrefix "/dev/disk/by-uuid" d.device)
+      |> lib.head
+      |> (d: d.device);
 
     services.logind.settings.Login = {
       LidSwitch = "suspend-then-hibernate";

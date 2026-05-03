@@ -12,6 +12,8 @@
       specialArgs = args;
       modules = [
         config.flake.modules.nixos.${hostname}
+        {networking.hostName = hostname;}
+
         inputs.home-manager.nixosModules.home-manager
         {home-manager = {extraSpecialArgs = args;};}
       ];

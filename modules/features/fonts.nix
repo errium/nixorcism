@@ -9,7 +9,7 @@
       noto-fonts-color-emoji
       unifont
 
-      # My things
+      # My stuff
       rubik
     ];
     nerd-fonts = with pkgs.nerd-fonts; [

@@ -1,7 +1,6 @@
 {config, ...}: {
   flake.modules.nixos.dudos-machine = {pkgs, ...}: {
     boot.kernelPackages = pkgs.linuxPackages_zen;
-    networking.hostName = "dudos-machine";
     system.stateVersion = "25.11";
     users.defaultUserShell = pkgs.fish;
 
@@ -12,19 +11,19 @@
         bootloader_grub
 
         # desktop/*
+        desktop-extra_common-packages
+        desktop-extra_noctalia
         desktop_sound
         desktop_xkb
-        dm_gdm
-        wm_niri
-        wm-utils_common
-        wm-utils_noctalia
+        login-manager_gdm
+        window-manager_niri
 
         # features/*
         feature_bluetooth
         feature_fonts
         feature_kvm
         feature_nix-ld
-        theming_static
+        theming_dynamic
 
         # programs/cli/*
         cli_packages
@@ -48,8 +47,8 @@
         editor_zed
 
         # programs/games/*
-        games_packages
-        games_steam
+        gaming_packages
+        gaming_steam
 
         # programs/gui/*
         gui_foot
@@ -69,7 +68,7 @@
         service_udiskie
 
         # shell/*
-        shell_common
+        shell_aliases
         shell_bash
         shell_fish
         shell_starship

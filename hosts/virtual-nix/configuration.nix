@@ -1,7 +1,6 @@
 {config, ...}: {
   flake.modules.nixos.virtual-nix = {pkgs, ...}: {
     boot.kernelPackages = pkgs.linuxPackages_latest;
-    networking.hostName = "virtual-nix";
     system.stateVersion = "25.11";
     users.defaultUserShell = pkgs.fish;
 
@@ -12,18 +11,15 @@
         bootloader_limine
 
         # desktop/*
-        de_xfce
+        desktop-environment_xfce
         desktop_sound
         desktop_xkb
-        dm_ly
-        wm_sway
-        wm-utils_noctalia
+        login-manager_ly
 
         # features/*
-        theming_dynamic
+        theming_static
 
         # programs/cli/*
-        cli_packages
         cli_bat
         cli_comma
         cli_eza
@@ -31,6 +27,7 @@
         cli_git
         cli_nh
         cli_nix-index
+        cli_packages
         cli_zoxide
 
         # programs/editors/*
@@ -43,7 +40,7 @@
         service_openssh
 
         # shell/*
-        shell_common
+        shell_aliases
         shell_bash
         shell_fish
         shell_starship
