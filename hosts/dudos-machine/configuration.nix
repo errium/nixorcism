@@ -23,7 +23,7 @@
         feature_fonts
         feature_kvm
         feature_nix-ld
-        theming_dynamic
+        theming_static
 
         # programs/cli/*
         cli_packages

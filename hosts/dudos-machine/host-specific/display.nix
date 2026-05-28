@@ -28,15 +28,5 @@
         render-drm-device = "/dev/dri/by-path/pci-0000:06:00.0-render";
       };
     };
-
-    # ┏━┓╻ ╻┏━┓╻ ╻
-    # ┗━┓┃╻┃┣━┫┗┳┛
-    # ┗━┛┗┻┛╹ ╹ ╹
-    hm.wayland.windowManager.sway.config = lib.mkIf config.programs.sway.enable {
-      output.${display.name} = {
-        mode = "${toString display.width}x${toString display.height}@${toString display.refresh}Hz";
-        adaptive_sync = "on";
-      };
-    };
   };
 }
