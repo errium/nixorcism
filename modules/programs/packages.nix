@@ -15,7 +15,7 @@
     pkgs,
     ...
   }: let
-    freesm = inputs.freesmlauncher.packages.${pkgs.system}.freesmlauncher;
+    freesm = inputs.freesm.packages.${pkgs.system}.freesmlauncher;
   in {
     hm.home.packages = with pkgs; [
       freesm
