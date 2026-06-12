@@ -7,19 +7,19 @@
       terminal-toys
 
       # GUI
+      ayugram-desktop
       bitwarden-desktop
       discord
       element-desktop
       eog
       feishin
-      # inkscape
+      inkscape
       monero-gui
       obs-studio
       onlyoffice-desktopeditors
       proton-vpn
       r2modman
       sushi
-      telegram-desktop
 
       # Rust
       rustlings

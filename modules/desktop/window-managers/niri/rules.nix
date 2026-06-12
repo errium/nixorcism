@@ -12,7 +12,7 @@
         {
           matches = [
             {app-id = "Bitwarden";}
-            {app-id = "org.telegram.desktop";}
+            {app-id = "com.ayugram.desktop";}
           ];
           block-out-from = "screen-capture";
         }

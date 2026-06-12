@@ -10,8 +10,15 @@
     ];
   };
 
-  flake.modules.nixos.gaming_packages = {pkgs, ...}: {
+  flake.modules.nixos.gaming_packages = {
+    inputs,
+    pkgs,
+    ...
+  }: let
+    freesm = inputs.freesmlauncher.packages.${pkgs.system}.freesmlauncher;
+  in {
     hm.home.packages = with pkgs; [
+      freesm
       heroic
       mindustry
       osu-lazer-bin
