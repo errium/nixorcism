@@ -20,6 +20,7 @@
       "..." = "cd ../..";
       "...." = "cd ../../..";
       cf = "cd ${confDir}";
+      exot = "exit";
       la = "ls -a";
       ll = "ls -lh";
       lla = "ls -lah";
