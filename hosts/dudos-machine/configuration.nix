@@ -11,7 +11,6 @@
         bootloader_grub
 
         # desktop/*
-        desktop-environment_gnome
         desktop-extra_common-packages
         desktop-extra_noctalia
         desktop_sound
