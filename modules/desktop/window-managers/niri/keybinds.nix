@@ -5,9 +5,9 @@
       "Mod+T".action.spawn = "footclient";
       "Mod+E".action.spawn = "nautilus";
       "Mod+Q".action.close-window = {};
-      "Mod+Space".action.spawn-sh = "noctalia-shell ipc call launcher toggle";
-      "Mod+Shift+C".action.spawn-sh = "noctalia-shell kill; sleep 1; noctalia-shell -d";
-      "Mod+Shift+L".action.spawn-sh = "noctalia-shell ipc call sessionMenu toggle";
+      "Mod+Space".action.spawn-sh = "noctalia msg panel-toggle launcher";
+      "Mod+Shift+L".action.spawn-sh = "noctalia msg panel-toggle session";
+      "Mod+Shift+C".action.spawn-sh = "pkill noctalia && noctalia -d";
       "Mod+Shift+M".action.quit = {};
       "Alt+Tab" = {
         action.toggle-overview = {};
