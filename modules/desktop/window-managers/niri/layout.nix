@@ -40,9 +40,9 @@
       };
 
       tab-indicator = {
-        width = 12;
-        gap = 8;
-        corner-radius = 4;
+        width = 14;
+        gap = 0;
+        corner-radius = 0;
         length.total-proportion = 1.0;
         place-within-column = true;
         position = "left";

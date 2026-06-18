@@ -38,15 +38,15 @@
           open-maximized = true;
         }
 
-        {
-          geometry-corner-radius = {
-            top-left = 2.0;
-            top-right = 2.0;
-            bottom-left = 2.0;
-            bottom-right = 2.0;
-          };
-          clip-to-geometry = true;
-        }
+        # {
+        #   geometry-corner-radius = {
+        #     top-left = 2.0;
+        #     top-right = 2.0;
+        #     bottom-left = 2.0;
+        #     bottom-right = 2.0;
+        #   };
+        #   clip-to-geometry = true;
+        # }
       ];
     };
   };
