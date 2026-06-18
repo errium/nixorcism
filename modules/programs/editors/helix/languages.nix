@@ -8,12 +8,6 @@
           formatter.command = "${pkgs.shfmt}/bin/shfmt";
         }
 
-        # {
-        #   name = "go";
-        #   auto-format = true;
-        #   formatter.command = "${pkgs.gofumpt}/bin/gofumpt";
-        # }
-
         {
           name = "markdown";
           auto-format = true;
@@ -52,15 +46,16 @@
           formatter.args = ["--parser" "yaml"];
           file-types = ["yaml" "yml" {glob = "templates/*.yaml";}];
         }
+
+        {
+          name = "toml";
+          auto-format = true;
+        }
       ];
 
       languages.language-server = {
         # Bash
         bash-language-server.command = "${pkgs.bash-language-server}/bin/bash-language-server";
-
-        # Go
-        # golangci-lint-lsp.command = "${pkgs.golangci-lint-langserver}/bin/golangci-lint-langserver";
-        # gopls.command = "${pkgs.gopls}/bin/gopls";
 
         # Markdown
         marksman.command = "${pkgs.marksman}/bin/marksman";
@@ -78,11 +73,10 @@
 
         # Rust
         rust-analyzer.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-      };
 
-      extraPackages = with pkgs; [
-        # golangci-lint
-      ];
+        # Toml
+        taplo.command = "${pkgs.taplo}/bin/taplo";
+      };
     };
   };
 }
