@@ -16,6 +16,21 @@
         };
       };
 
+      dejavu = {
+        sansSerif = {
+          name = "DejaVu Sans";
+          package = pkgs.dejavu_fonts;
+        };
+        serif = {
+          name = "DejaVu Serif";
+          package = pkgs.dejavu_fonts;
+        };
+        monospace = {
+          name = "DejaVuSansM Nerd Font";
+          package = pkgs.nerd-fonts.dejavu-sans-mono;
+        };
+      };
+
       fira = {
         sansSerif = {
           name = "Fira Sans";
@@ -46,18 +61,18 @@
         };
       };
 
-      dejavu = {
+      jetbrains = {
         sansSerif = {
-          name = "DejaVu Sans";
-          package = pkgs.dejavu_fonts;
+          name = "Inter";
+          package = pkgs.inter;
         };
         serif = {
-          name = "DejaVu Serif";
-          package = pkgs.dejavu_fonts;
+          name = "Inter";
+          package = pkgs.inter;
         };
         monospace = {
-          name = "DejaVuSansM Nerd Font";
-          package = pkgs.nerd-fonts.dejavu-sans-mono;
+          name = "JetbrainsMono Nerd Font";
+          package = pkgs.nerd-fonts.jetbrains-mono;
         };
       };
 
@@ -108,7 +123,7 @@
     };
   in {
     stylix.fonts =
-      fontSets.source
+      fontSets.jetbrains
       // {
         emoji = {
           name = "Noto Color Emoji";
