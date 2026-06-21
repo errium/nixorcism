@@ -15,21 +15,22 @@
 
         enabledExtensions = with spicePkgs.extensions; [
           adblockify
-          hidePodcasts
           betterGenres
+          hidePodcasts
           keyboardShortcut
         ];
 
         enabledSnippets = with spicePkgs.snippets; [
-          prettyLyrics
-          removePopular
           amogusDancing
-          queueTopSidePanel
           hideMadeForYou
+          prettyLyrics
+          queueTopSidePanel
+          removePopular
         ];
 
         enabledCustomApps = with spicePkgs.apps; [
           marketplace
+          ncsVisualizer
         ];
       };
     };
