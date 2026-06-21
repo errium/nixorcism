@@ -10,14 +10,15 @@
 
       window-rules = [
         {
+          # Block from screen capture
           matches = [
-            {app-id = "Bitwarden";}
             {app-id = "com.ayugram.desktop";}
+            {app-id = "org.keepassxc.KeePassXC";}
           ];
           block-out-from = "screen-capture";
         }
-
         {
+          # Open floating
           matches = [
             {
               app-id = "firefox$";
@@ -27,18 +28,18 @@
           ];
           open-floating = true;
         }
-
         {
+          # Open fullscreen
           matches = [{app-id = "osu!$";}];
           open-fullscreen = true;
         }
-
         {
+          # Open maximized
           matches = [{app-id = "org.inkscape.Inkscape";}];
           open-maximized = true;
         }
-
         # {
+        #   # Rounded corners
         #   geometry-corner-radius = {
         #     top-left = 2.0;
         #     top-right = 2.0;

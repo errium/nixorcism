@@ -8,12 +8,11 @@
 
       # GUI
       ayugram-desktop
-      bitwarden-desktop
       discord
       element-desktop
       eog
       feishin
-      # inkscape
+      keepassxc
       monero-gui
       obs-studio
       onlyoffice-desktopeditors
@@ -22,8 +21,8 @@
       sushi
 
       # Rust
-      rustlings
       rustup
+      rustlings
     ];
   };
 }

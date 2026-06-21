@@ -1,14 +1,10 @@
 {
   flake.modules.nixos.base = {username, ...}: {
     users.users = {
-      root = {
-        initialHashedPassword = "$y$j9T$7uBk7C2pQGx3Wt0JxNB5W/$FtEF1HGlK.Qozr0E2tiLGu78X4ujtVyjfN8zVeTa0l5";
-      };
-
       ${username} = {
         isNormalUser = true;
-        description = "Errium";
-        initialHashedPassword = "$y$j9T$Hao7G9TGibBoEN6X1d2sW0$kemp6XaOm1RYTRWC4M0qvqJzTuwy2eO.wYpg3wQeQi5";
+        description = "${username}";
+        initialHashedPassword = "$y$j9T$XB4FcgXB0PRd47XKTDwZ01$SvrWcNsrFKbj.b06cma9gkihW0vTyiCZCMgm3hnTi6D";
 
         extraGroups = [
           "audio"
@@ -20,6 +16,8 @@
           "wheel"
         ];
       };
+
+      root.initialHashedPassword = "$y$j9T$abwQzHzNERup45fhMIJ1w0$hAzx7W/VviF6JGeMYl0iyfiBt.Sg/sQRdScehbOweo5";
     };
   };
 }
