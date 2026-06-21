@@ -15,7 +15,7 @@
         desktop-extra_noctalia
         desktop_sound
         desktop_xkb
-        login-manager_gdm
+        display-manager_gdm
         window-manager_niri
 
         # features/*
@@ -23,6 +23,7 @@
         feature_fonts
         feature_kvm
         feature_nix-ld
+        # feature_security
         theming_static
 
         # programs/cli/*

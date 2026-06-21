@@ -14,7 +14,7 @@
         desktop-environment_xfce
         desktop_sound
         desktop_xkb
-        login-manager_ly
+        display-manager_ly
 
         # features/*
         theming_static
