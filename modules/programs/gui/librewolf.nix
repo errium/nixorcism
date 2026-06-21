@@ -19,29 +19,14 @@
         profiles.default = {
           isDefault = true;
           settings = {
-            # Betterfox 146.0 | Fastfox
-            # General
-            "gfx.content.skia-font-cache-size" = 32;
-            # GFX
-            "gfx.webrender.layer-compositor" = true;
-            "gfx.canvas.accelerated.cache-items" = 32768;
-            "gfx.canvas.accelerated.cache-size" = 4096;
-            "webgl.max-size" = 16384;
-            # Disk cache
-            "browser.cache.disk.enable" = false;
-            # Memory cache
+            # Betterfox v150
+            # ┏━╸┏━┓┏━┓╺┳╸┏━╸┏━┓╻ ╻
+            # ┣╸ ┣━┫┗━┓ ┃ ┣╸ ┃ ┃┏╋┛
+            # ╹  ╹ ╹┗━┛ ╹ ╹  ┗━┛╹ ╹
+            # Memory cache (128 MB)
             "browser.cache.memory.capacity" = 131072;
             "browser.cache.memory.max_entry_size" = 20480;
-            "browser.sessionhistory.max_total_viewers" = 4;
-            "browser.sessionstore.max_tabs_undo" = 10;
-            # Media cache
-            "media.memory_cache_max_size" = 262144;
-            "media.memory_caches_combined_limit_kb" = 1048576;
-            "media.cache_readahead_limit" = 600;
-            "media.cache_resume_threshold" = 300;
-            # Image cache
-            "image.cache.size" = 10485760;
-            "image.mem.decode_bytes_at_a_time" = 65536;
+
             # Network
             "network.http.max-connections" = 1800;
             "network.http.max-persistent-connections-per-server" = 10;
@@ -51,6 +36,49 @@
             "network.dnsCacheEntries" = 10000;
             "network.dnsCacheExpiration" = 3600;
             "network.ssl_tokens_cache_capacity" = 10240;
+
+            # Media cache (1 GB)
+            "media.memory_caches_combined_limit_kb" = 1048576;
+            "media.cache_readahead_limit" = 600;
+            "media.cache_resume_threshold" = 300;
+
+            # ┏━┓┏┳┓┏━┓┏━┓╺┳╸╻ ╻┏━╸┏━┓╻ ╻
+            # ┗━┓┃┃┃┃ ┃┃ ┃ ┃ ┣━┫┣╸ ┃ ┃┏╋┛
+            # ┗━┛╹ ╹┗━┛┗━┛ ╹ ╹ ╹╹  ┗━┛╹ ╹
+            "apz.overscroll.enabled" = true;
+            "general.smoothScroll" = true;
+            "general.smoothScroll.msdPhysics.enabled" = true;
+            "mousewheel.default.delta_multiplier_y" = 300;
+
+            # ┏━┓┏━╸┏━╸╻ ╻┏━┓┏━╸┏━╸┏━┓╻ ╻
+            # ┗━┓┣╸ ┃  ┃ ┃┣┳┛┣╸ ┣╸ ┃ ┃┏╋┛
+            # ┗━┛┗━╸┗━╸┗━┛╹┗╸┗━╸╹  ┗━┛╹ ╹
+            # Tracking protection
+            "browser.contentblocking.category" = "strict";
+            "browser.download.start_downloads_in_tmp_dir" = true;
+            "browser.uitour.enabled" = false;
+            "privacy.globalprivacycontrol.enabled" = true;
+
+            # OCSP & Certs
+            "security.OCSP.enabled" = 0;
+            "privacy.antitracking.isolateContentScriptResources" = true;
+            "security.csp.reporting.enabled" = false;
+
+            # SSL / TLS
+            "security.ssl.treat_unsafe_negotiation_as_broken" = true;
+            "browser.xul.error_pages.expert_bad_cert" = true;
+            "security.tls.enable_0rtt_data" = false;
+
+            # Disk avoidance
+            "browser.cache.disk.enable" = false;
+            "browser.privatebrowsing.forceMediaMemoryCache" = true;
+            "media.memory_cache_max_size" = 65536;
+            "browser.sessionstore.interval" = 60000;
+
+            # Shutdown & sanitizing
+            "privacy.history.custom" = true;
+            "browser.privatebrowsing.resetPBM.enabled" = true;
+
             # Speculative loading
             "network.http.speculative-parallel-limit" = 0;
             "network.dns.disablePrefetch" = true;
@@ -59,26 +87,6 @@
             "browser.places.speculativeConnect.enabled" = false;
             "network.prefetch-next" = false;
 
-            # Betterfox 146.0 | Securefox
-            # Tracking protection
-            "browser.contentblocking.category" = "strict";
-            "browser.download.start_downloads_in_tmp_dir" = true;
-            "browser.uitour.enabled" = false;
-            "privacy.globalprivacycontrol.enabled" = true;
-            # OCSP & Certs / HPKP
-            "security.OCSP.enabled" = 0;
-            "privacy.antitracking.isolateContentScriptResources" = true;
-            "security.csp.reporting.enabled" = false;
-            # SSL / TLS
-            "security.ssl.treat_unsafe_negotiation_as_broken" = true;
-            "browser.xul.error_pages.expert_bad_cert" = true;
-            "security.tls.enable_0rtt_data" = false;
-            # Disk avoidance
-            "browser.privatebrowsing.forceMediaMemoryCache" = true;
-            "browser.sessionstore.interval" = 60000;
-            # Shutdown & sanitizing
-            "privacy.history.custom" = true;
-            "browser.privatebrowsing.resetPBM.enabled" = true;
             # Search / URL bar
             "browser.urlbar.trimHttps" = true;
             "browser.urlbar.untrimOnUserInteraction.featureGate" = true;
@@ -88,24 +96,32 @@
             "browser.urlbar.groupLabels.enabled" = false;
             "browser.formfill.enable" = false;
             "network.IDN_show_punycode" = true;
-            # https-only mode
+
+            # HTTPS-Only mode
             "dom.security.https_only_mode" = true;
             "dom.security.https_only_mode_error_page_user_suggestions" = true;
+
             # Passwords
             "signon.formlessCapture.enabled" = false;
             "signon.privateBrowsingCapture.enabled" = false;
             "network.auth.subresource-http-auth-allow" = 1;
             "editor.truncate_user_pastes" = false;
+
             # Extensions
             "extensions.enabledScopes" = 5;
-            # Headers / referers
+
+            # Headers / Referers
             "network.http.referer.XOriginTrimmingPolicy" = 2;
+
             # Containers
             "privacy.userContext.ui.enabled" = true;
+
             # Various
             "pdfjs.enableScripting" = false;
+
             # Safe browsing
             "browser.safebrowsing.downloads.remote.enabled" = false;
+
             # Mozilla
             "permissions.default.desktop-notification" = 2;
             "permissions.default.geo" = 2;
@@ -113,6 +129,7 @@
             "browser.search.update" = false;
             "permissions.manager.defaultsUrl" = "";
             "extensions.getAddons.cache.enabled" = false;
+
             # Telemetry
             "datareporting.policy.dataSubmissionEnabled" = false;
             "datareporting.healthreport.uploadEnabled" = false;
@@ -131,15 +148,19 @@
             "browser.newtabpage.activity-stream.feeds.telemetry" = false;
             "browser.newtabpage.activity-stream.telemetry" = false;
             "datareporting.usage.uploadEnabled" = false;
+
             # Experiments
             "app.shield.optoutstudies.enabled" = false;
             "app.normandy.enabled" = false;
             "app.normandy.api_url" = "";
+
             # Crash reports
             "breakpad.reportURL" = "";
             "browser.tabs.crashReporting.sendReport" = false;
 
-            # Betterfox 146.0 | Peskyfox
+            # ┏━┓┏━╸┏━┓╻┏ ╻ ╻┏━╸┏━┓╻ ╻
+            # ┣━┛┣╸ ┗━┓┣┻┓┗┳┛┣╸ ┃ ┃┏╋┛
+            # ╹  ┗━╸┗━┛╹ ╹ ╹ ╹  ┗━┛╹ ╹
             # Mozilla UI
             "extensions.getAddons.showPane" = false;
             "extensions.htmlaboutaddons.recommendations.enabled" = false;
@@ -152,32 +173,43 @@
             "browser.startup.homepage_override.mstone" = "ignore";
             "browser.aboutwelcome.enabled" = false;
             "browser.profiles.enabled" = true;
-            # Theme adjustments
+
+            # Theme
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             "browser.compactmode.show" = true;
+            "layout.css.prefers-color-scheme.content-override" = 3; # Browser theme
             "browser.privateWindowSeparation.enabled" = false;
+
             # AI
+            "browser.ai.control.default" = "blocked";
             "browser.ml.enable" = false;
             "browser.ml.chat.enabled" = false;
             "browser.ml.chat.menu" = false;
             "browser.tabs.groups.smart.enabled" = false;
             "browser.ml.linkPreview.enabled" = false;
+
             # Fullscreen notice
             "full-screen-api.transition-duration.enter" = "0 0";
             "full-screen-api.transition-duration.leave" = "0 0";
             "full-screen-api.warning.timeout" = 0;
+
             # URL bar
             "browser.urlbar.trending.featureGate" = false;
+            "browser.urlbar.suggest.engines" = false;
+
             # New tab page
             "browser.newtabpage.activity-stream.default.sites" = "";
             "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
             "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
             "browser.newtabpage.activity-stream.showSponsored" = false;
             "browser.newtabpage.activity-stream.showSponsoredCheckboxes" = false;
+
             # Downloads
             "browser.download.manager.addToRecentDocs" = false;
+
             # PDF
             "browser.download.open_pdf_attachments_inline" = true;
+
             # Tab behavior
             "browser.bookmarks.openInTabClosesMenu" = false;
             "browser.menu.showViewImageInfo" = true;
@@ -190,9 +222,6 @@
             packages = with inputs.firefox-addons.packages."x86_64-linux";
               [
                 auto-tab-discard
-                bitwarden
-                darkreader
-                privacy-badger
                 return-youtube-dislikes
                 sponsorblock
                 ublock-origin
