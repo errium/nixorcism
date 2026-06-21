@@ -6,19 +6,11 @@
       gdu
       ripgrep
       tree
-      yazi
     ];
   };
 
-  flake.modules.nixos.gaming_packages = {
-    inputs,
-    pkgs,
-    ...
-  }: let
-    freesm = inputs.freesm.packages.${pkgs.system}.freesmlauncher;
-  in {
+  flake.modules.nixos.gaming_packages = {pkgs, ...}: {
     hm.home.packages = with pkgs; [
-      freesm
       heroic
       mindustry
       osu-lazer-bin

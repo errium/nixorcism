@@ -22,10 +22,6 @@
     };
 
     # WMs
-    mango = {
-      url = "github:mangowm/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     niri-flake = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,10 +56,6 @@
     # Misc
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    freesm = {
-      url = "github:FreesmTeam/FreesmLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
