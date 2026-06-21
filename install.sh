@@ -246,28 +246,6 @@ prompt_disk() {
 	echo ""
 }
 
-# Prompt user to set passwords for root and user accounts
-prompt_password() {
-	local user_type="$1"
-	local color="$2"
-	local pass_var="$3"
-
-	print_status "PROMPT" "Set password for ${color}${user_type}${RESET}"
-	while true; do
-		read -rsp "$(echo -e "${DIM}>${RESET} ")" pass
-		echo ""
-		read -rsp "$(echo -e "${DIM}>${RESET} ${BOLD}Confirm:${RESET} ")" pass_confirm
-		echo ""
-
-		if [[ "$pass" == "$pass_confirm" ]]; then
-			eval "$pass_var='$pass'"
-			break
-		fi
-		print_status "FAILED" "Passwords don't match, try again"
-	done
-	echo ""
-}
-
 stage2_prompts() {
 	clear
 	greeting_banner
@@ -276,8 +254,6 @@ stage2_prompts() {
 
 	prompt_host
 	prompt_disk
-	prompt_password "root" "$CLR1" "ROOT_PASS"
-	prompt_password "user" "$CLR2" "USER_PASS"
 
 	read -rp "$(echo -e "${DIM}Press Enter to continue...${RESET}")"
 }
@@ -353,12 +329,6 @@ install() {
 		--flake "${SCRIPT_DIR}"#"${HOSTNAME}"
 }
 
-set_passwords() {
-	local username=$(get_username)
-	nixos-enter --root /mnt -c "chpasswd" <<<"root:${ROOT_PASS}"
-	nixos-enter --root /mnt -c "chpasswd" <<<"${username}:${USER_PASS}"
-}
-
 move_config() {
 	local username=$(get_username)
 	local target_dir="/mnt/home/${username}/nixorcism"
@@ -383,10 +353,6 @@ stage4_installation() {
 
 	print_status "INFO" "Installing NixOS..."
 	install
-	echo ""
-
-	print_status "INFO" "Setting passwords..."
-	set_passwords
 	echo ""
 
 	print_status "INFO" "Moving config..."
