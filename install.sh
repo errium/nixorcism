@@ -1,12 +1,11 @@
-sudo NIX_CONFIG="extra-experimental-features = pipe-operators" \
-	nix run 'github:nix-community/disko/latest' -- \
-	--mode destroy,format,mount \
-	--flake .#virtual-nix
+# TEST
 
-lsblk -f
+sudo nix --extra-experimental-features "nix-command flakes pipe-operators" \
+	run 'github:nix-community/disko/latest#disko-install' -- \
+	--option extra-experimental-features pipe-operators \
+	--flake .#virtual-nix \
+	--disk main /dev/vda
 
-nixos-generate-config --no-filesystems --root /mnt --show-hardware-config |
-	tee hosts/virtual-nix/_hardware.nix >/dev/null
+sudo mount -o subvol=persistent /dev/vda4 /mnt
 
-sudo NIX_CONFIG="extra-experimental-features = pipe-operators" \
-	nixos-install --flake .#virtual-nix --no-root-passwd
+sudo cp -r ~/nixorcism/* /mnt/etc/nixos
