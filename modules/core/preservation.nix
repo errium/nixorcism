@@ -1,5 +1,9 @@
 {inputs, ...}: {
-  flake.modules.nixos.core = {username, ...}: {
+  flake.modules.nixos.core = {
+    confDir,
+    username,
+    ...
+  }: {
     imports = [inputs.preservation.nixosModules.default];
 
     preservation = {
@@ -7,6 +11,7 @@
 
       preserveAt."/persistent" = {
         directories = [
+          "${confDir}"
           "/etc/NetworkManager/system-connections"
           "/tmp"
           "/var/lib/bluetooth"
