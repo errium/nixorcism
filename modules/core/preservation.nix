@@ -1,5 +1,7 @@
-{
+{inputs, ...}: {
   flake.modules.nixos.core = {username, ...}: {
+    imports = [inputs.preservation.nixosModules.default];
+
     preservation = {
       enable = true;
 
@@ -19,19 +21,19 @@
             inInitrd = true;
           }
         ];
-      };
 
-      users.${username} = {
-        directories = [
-          "Desktop"
-          "Documents"
-          "Downloads"
-          "Music"
-          "Pictures"
-          "Videos"
-        ];
+        users.${username} = {
+          directories = [
+            "Desktop"
+            "Documents"
+            "Downloads"
+            "Music"
+            "Pictures"
+            "Videos"
+          ];
 
-        files = [];
+          files = [];
+        };
       };
     };
   };
