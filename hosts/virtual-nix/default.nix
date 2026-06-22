@@ -1,7 +1,5 @@
 {config, ...}: {
   flake.modules.nixos.virtual-nix = {
-    imports = with config.flake.modules.nixos; [
-      core
-    ];
+    imports = with config.flake.modules.nixos; [];
   };
 }
