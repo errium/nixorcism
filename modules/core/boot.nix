@@ -3,15 +3,19 @@
     config,
     lib,
     ...
-  }: {
+  }: let
+    bootloader = config.nixorcism.bootloader;
+  in {
+    # No default here on purpose.
+    # I couldn't figure out a nice way to make this yell at me when it's not set
+    # correctly, so I just removed the default.
     options.nixorcism.bootloader = lib.mkOption {
       description = "Bootloader to use. Must be set explicitly per host.";
-      type = lib.types.nullOr (lib.types.enum [
+      type = lib.types.enum [
         "grub"
         "limine"
         "systemd-boot"
-      ]);
-      default = null;
+      ];
     };
 
     config = {
@@ -24,21 +28,21 @@
       };
 
       # Loader specific
-      boot.loader.grub = lib.mkIf (config.nixorcism.bootloader == "grub") {
+      boot.loader.grub = lib.mkIf (bootloader == "grub") {
         enable = true;
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
       };
 
-      boot.loader.limine = lib.mkIf (config.nixorcism.bootloader == "limine") {
+      boot.loader.limine = lib.mkIf (bootloader == "limine") {
         enable = true;
         efiSupport = true;
         maxGenerations = 50;
         style.wallpapers = [];
       };
 
-      boot.loader.systemd-boot = lib.mkIf (config.nixorcism.bootloader == "systemd-boot") {
+      boot.loader.systemd-boot = lib.mkIf (bootloader == "systemd-boot") {
         enable = true;
       };
     };
