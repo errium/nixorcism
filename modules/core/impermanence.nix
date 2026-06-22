@@ -49,7 +49,6 @@
         directories = lib.mkMerge [
           [
             "/etc/NetworkManager/system-connections"
-            "/nix"
             "/tmp"
             "/var/lib/bluetooth"
             "/var/lib/nixos"
