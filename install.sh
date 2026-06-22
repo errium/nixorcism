@@ -1,4 +1,9 @@
 # TEST
+nixos-generate-config \
+	--show-hardware-config \
+	--no-filesystems \
+	--root /mnt |
+	tee ~/nixorcism/hosts/virtual-nix/_hardware.nix >/dev/null
 
 sudo nix --extra-experimental-features "nix-command flakes pipe-operators" \
 	run 'github:nix-community/disko/latest#disko-install' -- \
@@ -8,4 +13,5 @@ sudo nix --extra-experimental-features "nix-command flakes pipe-operators" \
 
 sudo mount -o subvol=persistent /dev/vda4 /mnt
 
-sudo cp -r ~/nixorcism/* /mnt/etc/nixos
+mkdir /mnt/home/errium/nixorcism
+sudo cp -r ~/nixorcism/* /mnt/home/errium/nixorcism
