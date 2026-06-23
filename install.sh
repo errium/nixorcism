@@ -1,15 +1,9 @@
-# TEST
+# TEST:
+# Don't look here, this script isn't even a WIP.
+# Its sole purpose is to help me test some stuff by installing the system for me.
+
 nixos-generate-config \
 	--show-hardware-config \
 	--no-filesystems \
 	--root /mnt |
 	tee ~/nixorcism/hosts/virtual-nix/_hardware.nix >/dev/null
-
-sudo nix --extra-experimental-features "nix-command flakes pipe-operators" \
-	run 'github:nix-community/disko/latest#disko-install' -- \
-	--option extra-experimental-features pipe-operators \
-	--flake .#virtual-nix \
-	--disk main /dev/vda
-
-sudo mount -o subvol=persistent /dev/vda2 /mnt
-sudo cp -r ~/nixorcism /mnt/persistent/home/errium

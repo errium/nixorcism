@@ -5,9 +5,6 @@
     system.stateVersion = "25.11";
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
-    nixorcism = {
-      bootloader = "systemd-boot";
-      impermanence.enable = true;
-    };
+    nixorcism.bootloader = "systemd-boot";
   };
 }
