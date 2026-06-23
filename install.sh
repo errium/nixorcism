@@ -10,8 +10,3 @@ sudo nix --extra-experimental-features "nix-command flakes pipe-operators" \
 	--option extra-experimental-features pipe-operators \
 	--flake .#virtual-nix \
 	--disk main /dev/vda
-
-sudo mount -o subvol=persistent /dev/vda4 /mnt
-
-mkdir /mnt/home/errium/nixorcism
-sudo cp -r ~/nixorcism/* /mnt/home/errium/nixorcism
