@@ -49,26 +49,23 @@
       options = {
         ashift = "12";
         autotrim = "on";
-        cachefile = "none";
       };
 
       datasets = {
-        "root" = {
+        root = {
           type = "zfs_fs";
           mountpoint = "/";
+          options.mountpoint = "legacy";
         };
-        "home" = {
+        home = {
           type = "zfs_fs";
           mountpoint = "/home";
+          options.mountpoint = "legacy";
         };
-        "nix" = {
+        nix = {
           type = "zfs_fs";
           mountpoint = "/nix";
-          options.atime = "off";
-        };
-        "var" = {
-          type = "zfs_fs";
-          mountpoint = "/var";
+          options.mountpoint = "legacy";
         };
       };
     };
