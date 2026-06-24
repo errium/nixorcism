@@ -5,6 +5,7 @@
     # ZFS stuff
     networking.hostId = "83154e79";
     boot.supportedFilesystems = ["zfs"];
+    boot.zfs.forceImportRoot = false;
     services.zfs.autoScrub = {
       enable = true;
       interval = "monthly";
