@@ -2,26 +2,23 @@
   flake.modules.nixos.virtual-nix = {
     imports = [inputs.disko.nixosModules.disko];
 
-    # ZFS stuff
-    networking.hostId = "deadc0de"; # TEST
+    networking.hostId = "06c3936a";
     boot.supportedFilesystems = ["zfs"];
-    boot.zfs.forceImportRoot = true; # TEST
+    boot.zfs.forceImportRoot = true;
     services.zfs.autoScrub = {
       enable = true;
       interval = "monthly";
     };
 
-    # Main disk layout
     disko.devices.disk.main = {
       device = "/dev/vda";
       type = "disk";
       content.type = "gpt";
 
-      # EFI partiton
       content.partitions.esp = {
+        priority = 1;
         size = "256M";
         type = "EF00";
-        priority = 1;
         content = {
           type = "filesystem";
           format = "vfat";
@@ -30,7 +27,6 @@
         };
       };
 
-      # ZFS root partition
       content.partitions.root = {
         size = "100%";
         content = {
@@ -40,26 +36,39 @@
       };
     };
 
-    # Main ZFS pool
     disko.devices.zpool.zroot = {
       type = "zpool";
       rootFsOptions = {
+        acltype = "posixacl";
+        atime = "off";
         compression = "zstd";
-        mountpoint = "legacy";
+        dnodesize = "auto";
+        mountpoint = "none";
+        xattr = "sa";
       };
-      mountpoint = "/";
+      options = {
+        ashift = "12";
+        autotrim = "on";
+        cachefile = "none";
+      };
 
       datasets = {
-        home = {
+        "root" = {
+          type = "zfs_fs";
+          mountpoint = "/";
+        };
+        "home" = {
           type = "zfs_fs";
           mountpoint = "/home";
-          options.mountpoint = "legacy";
         };
-        nix = {
+        "nix" = {
           type = "zfs_fs";
           mountpoint = "/nix";
           options.atime = "off";
-          options.mountpoint = "legacy";
+        };
+        "var" = {
+          type = "zfs_fs";
+          mountpoint = "/var";
         };
       };
     };
