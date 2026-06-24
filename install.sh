@@ -7,7 +7,8 @@ set -euo pipefail
 
 # Partition and format
 sudo NIX_CONFIG="extra-experimental-features = pipe-operators" \
-	nix run 'github:nix-community/disko/latest' -- \
+	nix --extra-experimental-features "nix-command flakes pipe-operators" \
+	run 'github:nix-community/disko/latest' -- \
 	--mode destroy,format,mount \
 	--flake .#virtual-nix
 

@@ -3,9 +3,9 @@
     imports = [inputs.disko.nixosModules.disko];
 
     # ZFS stuff
-    networking.hostId = "83154e79";
+    networking.hostId = "deadc0de"; # TEST
     boot.supportedFilesystems = ["zfs"];
-    boot.zfs.forceImportRoot = false;
+    boot.zfs.forceImportRoot = true; # TEST
     services.zfs.autoScrub = {
       enable = true;
       interval = "monthly";
@@ -43,18 +43,23 @@
     # Main ZFS pool
     disko.devices.zpool.zroot = {
       type = "zpool";
-      rootFsOptions.compression = "zstd";
+      rootFsOptions = {
+        compression = "zstd";
+        mountpoint = "legacy";
+      };
       mountpoint = "/";
 
       datasets = {
         home = {
           type = "zfs_fs";
           mountpoint = "/home";
+          options.mountpoint = "legacy";
         };
         nix = {
           type = "zfs_fs";
           mountpoint = "/nix";
           options.atime = "off";
+          options.mountpoint = "legacy";
         };
       };
     };
