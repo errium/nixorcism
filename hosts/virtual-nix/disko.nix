@@ -3,6 +3,7 @@
     imports = [inputs.disko.nixosModules.disko];
 
     # ZFS stuff
+    networking.hostId = "83154e79";
     boot.supportedFilesystems = ["zfs"];
     services.zfs.autoScrub = {
       enable = true;
