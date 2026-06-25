@@ -3,6 +3,7 @@
     imports = [inputs.disko.nixosModules.disko];
 
     fileSystems."/nix".neededForBoot = true;
+    fileSystems."/persistent".neededForBoot = true;
 
     # TODO: move to a separate module.
     # ZFS stuff
