@@ -4,6 +4,7 @@
 
     networking.hostId = "06c3936a";
     boot.supportedFilesystems = ["zfs"];
+    boot.zfs.devNodes = "/dev/disk/by-partlabel";
     boot.zfs.forceImportRoot = true;
     services.zfs.autoScrub = {
       enable = true;
