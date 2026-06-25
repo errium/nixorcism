@@ -49,15 +49,14 @@
     };
 
     config = lib.mkIf config.nixorcism.preservation.enable {
-      preservation = {
-        enable = true;
-        preserveAt.${mount}.commonMountOptions = [
+      preservation.enable = true;
+
+      preservation.preserveAt.${mount} = {
+        commonMountOptions = [
           "x-gdu.hide"
           "x-gvfs-hide"
         ];
-      };
 
-      preservation.preserveAt.${mount} = {
         # System-level preservation + defaults
         directories = lib.mkMerge [
           [
