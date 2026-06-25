@@ -27,6 +27,9 @@
     system.stateVersion = "25.11";
     boot.kernelPackages = latestZfsKernel;
 
-    nixorcism.bootloader = "systemd-boot";
+    nixorcism = {
+      bootloader = "systemd-boot";
+      preservation.enable = true;
+    };
   };
 }

@@ -23,12 +23,9 @@
     # Core
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    preservation.url = "github:nix-community/preservation";
     disko = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    preservation = {
-      url = "github:nix-community/preservation";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
