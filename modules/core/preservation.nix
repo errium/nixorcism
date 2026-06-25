@@ -1,11 +1,12 @@
 {inputs, ...}: {
   flake.modules.nixos.core = {
+    config,
     confDir,
     lib,
     username,
     ...
   }: let
-    config = baseNameOf confDir;
+    conf = baseNameOf confDir;
     mount = config.nixorcism.preservation.mountPoint;
     preserve = config.nixorcism.preserve;
     preserveType = lib.types.listOf (lib.types.either lib.types.str lib.types.attrs);
@@ -79,7 +80,7 @@
         users.${username} = {
           directories = lib.mkMerge [
             [
-              "${config}"
+              "${conf}"
               "Desktop"
               "Documents"
               "Downloads"
