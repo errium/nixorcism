@@ -19,6 +19,9 @@ nixos-generate-config \
 	--root /mnt |
 	tee ~/nixorcism/hosts/virtual-nix/_hardware.nix >/dev/null
 
+# TEST
+sudo systemd-machine-id-setup --root=/mnt
+
 # Install
 sudo NIX_CONFIG="extra-experimental-features = pipe-operators" \
 	nixos-install \
