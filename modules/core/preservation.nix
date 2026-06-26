@@ -47,6 +47,8 @@
     };
 
     config = lib.mkIf config.nixorcism.preservation.enable {
+      systemd.suppressedSystemUnits = ["systemd-machine-id-commit.service"]; # TEST | HACK | WARN
+
       preservation.enable = true;
 
       preservation.preserveAt.${mount} = {
@@ -69,7 +71,12 @@
         ];
 
         files = lib.mkMerge [
-          ["/etc/machine-id"]
+          [
+            {
+              file = "/etc/machine-id";
+              inInitrd = true;
+            }
+          ]
           preserve.files
         ];
 

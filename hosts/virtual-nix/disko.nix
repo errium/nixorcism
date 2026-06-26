@@ -91,6 +91,7 @@
         persistent = {
           type = "zfs_fs";
           mountpoint = "/persistent";
+          postCreateHook = "systemd-machine-id-setup --root=/mnt";
         };
       };
     };
