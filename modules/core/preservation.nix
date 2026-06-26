@@ -5,22 +5,13 @@
     username,
     ...
   }: let
-    mount = config.nixorcism.preservation.mountPoint;
     preserve = config.nixorcism.preserve;
     preserveType = lib.types.listOf (lib.types.either lib.types.str lib.types.attrs);
   in {
     imports = [inputs.preservation.nixosModules.preservation];
 
-    # Options are always declared so that preserve.* is available
-    # regardless of whether preservation is enabled.
     options.nixorcism = {
-      preservation = {
-        enable = lib.mkEnableOption "preservation";
-        mountPoint = lib.mkOption {
-          type = lib.types.str;
-          default = "/persistent";
-        };
-      };
+      preservation = {enable = lib.mkEnableOption "preservation";};
 
       # Traditional preservation syntax works inside of those.
       preserve = {
@@ -47,11 +38,10 @@
     };
 
     config = lib.mkIf config.nixorcism.preservation.enable {
-      systemd.suppressedSystemUnits = ["systemd-machine-id-commit.service"]; # TEST | HACK | WARN
-
       preservation.enable = true;
 
-      preservation.preserveAt.${mount} = {
+      # NOTE: "/persistent" is hardcoded, since that's the only name I use.
+      preservation.preserveAt."/persistent" = {
         commonMountOptions = [
           "x-gdu.hide"
           "x-gvfs-hide"

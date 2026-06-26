@@ -1,40 +1,10 @@
 {inputs, ...}: {
-  flake.modules.nixos.virtual-nix = {pkgs, ...}: {
+  flake.modules.nixos.virtual-nix = {
     imports = [inputs.disko.nixosModules.disko];
 
     fileSystems."/nix".neededForBoot = true;
-    fileSystems."/persistent".neededForBoot = true;
+    boot.zfs.devNodes = "/dev/disk/by-partlabel"; # VM specific
 
-    # TODO: move to a separate module.
-    # ZFS stuff
-    networking.hostId = "00000000";
-    boot.supportedFilesystems = ["zfs"];
-    boot.zfs = {
-      devNodes = "/dev/disk/by-partlabel";
-      forceImportRoot = true;
-    };
-    services.zfs.autoScrub = {
-      enable = true;
-      interval = "monthly";
-    };
-
-    # TODO: move to a separate module.
-    # Rollback service
-    boot.initrd.systemd = {
-      enable = true;
-      services.rollback = {
-        description = "Rollback root dataset";
-        wantedBy = ["initrd.target"];
-        after = ["zfs-import-zroot.service" "zfs-import.service"];
-        before = ["sysroot.mount"];
-        path = [pkgs.zfs];
-        unitConfig.DefaultDependencies = "no";
-        serviceConfig.Type = "oneshot";
-        script = ''zfs rollback -r zroot/root@blank'';
-      };
-    };
-
-    # Disk & partitions
     disko.devices.disk.main = {
       device = "/dev/vda";
       type = "disk";
@@ -61,7 +31,6 @@
       };
     };
 
-    # zroot pool
     disko.devices.zpool.zroot = {
       type = "zpool";
       rootFsOptions = {
@@ -91,7 +60,6 @@
         persistent = {
           type = "zfs_fs";
           mountpoint = "/persistent";
-          postCreateHook = "systemd-machine-id-setup --root=/mnt";
         };
       };
     };
