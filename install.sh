@@ -10,6 +10,7 @@ sudo NIX_CONFIG="extra-experimental-features = nix-command flakes pipe-operators
 	nix --extra-experimental-features "nix-command flakes pipe-operators" \
 	run 'github:nix-community/disko/latest' -- \
 	--mode destroy,format,mount \
+	--yes-wipe-all-disks \
 	--flake .#virtual-nix
 
 # Generate hardware config
