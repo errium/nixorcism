@@ -281,7 +281,7 @@ copy_config() {
 	local username
 	username=$(get_username)
 
-	# /persistent and nixorcism dir name are hardcoded - I'll never use anything else
+	# /persistent and nixorcism dir name are hardcoded - i'll never use anything else
 	local target
 	if mountpoint -q "/mnt/persistent"; then
 		target="/mnt/persistent/home/${username}/nixorcism"
@@ -291,7 +291,9 @@ copy_config() {
 
 	mkdir -p "$target"
 	cp -rT "${SCRIPT_DIR}" "$target"
-	nixos-enter --root /mnt -c "chown -R ${username}:users /home/${username}/nixorcism"
+
+	# chown on the real path, not the bind-mounted one
+	chown -R 1000:100 "$target"
 }
 
 stage4_installation() {
