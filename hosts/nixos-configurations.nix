@@ -4,7 +4,7 @@
   ...
 }: let
   # Some special args
-  confDir = toString ./.;
+  confDir = "/home/${username}/nixorcism";
   username = "errium";
 in {
   flake.nixosConfigurations = let
