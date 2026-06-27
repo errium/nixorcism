@@ -66,11 +66,13 @@ confirm_prompt() {
 # ┣┻┓┣━┫┃┗┫┃┗┫┣╸ ┣┳┛┗━┓
 # ┗━┛╹ ╹╹ ╹╹ ╹┗━╸╹┗╸┗━┛
 greeting_banner() {
-	echo -e "${B} ▄ ${RST}    ${D}▀▀${RST}                         ${B}▀▀${RST}       ${D}▄${RST}"
-	echo -e "${B} ████▄▀██▀██ ██▀ ${RST}${D}▄███▄ ████▄▄███▀ ██ ▄██▀█ ███▄███▄${RST}"
-	echo -e "${B} ██ ██ ██  ███   ${RST}${D}██ ██ ██   ██    ██ ▀███▄ ██ ██ ██${RST}"
-	echo -e "${B}▄██ ▀█▄██▄██ ██▄▄${RST}${D}▀███▀▄█▀   ▀███▄▄███▄▄██▀▄██ ██ ▀█${RST}"
-	echo ""
+	local WBG="\033[47m"
+
+	echo -e "${B} ▄     ${RST}${D}▀▀${RST}${B}    ▄  ${RST}${D}      ▄          ${RST}${B}▀▀${RST}${D}       ▄       ${RST}"
+	echo -e "${B} ████▄▀██▀  ██  ${RST}${D}▄███▄ ████▄▄███▀ ██ ▄██▀█ ███▄███▄${RST}"
+	echo -e "${B} ██ ██ ██▀██████${RST}${D}${WBG}▀${RST}${D}█ ██ ██   ██    ██ ▀███▄ ██ ██ ██${RST}"
+	echo -e "${B}▄██ ▀█▄██▄  ██  ${RST}${D}▀███▀▄█▀   ▀███▄▄███▄▄██▀▄██ ██ ██${RST}"
+	echo -e "${B}            ▀   ${RST}${D}                                 ▀${RST}"
 }
 
 completion_banner() {
@@ -234,7 +236,7 @@ stage3_confirmation() {
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┗━┫   ╺━╸   ┃┃┗┫┗━┓ ┃ ┣━┫┃  ┃  ┣━┫ ┃ ┃┃ ┃┃┗┫
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸     ╹         ╹╹ ╹┗━┛ ╹ ╹ ╹┗━╸┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹
 run_disko() {
-	NIX_CONFIG="extra-experimental-features = nix-command flakes" \
+	NIX_CONFIG="extra-experimental-features = nix-command flakes pipe-operators" \
 		nix run github:nix-community/disko/latest -- \
 		--mode destroy,format,mount \
 		--yes-wipe-all-disks \
@@ -300,19 +302,19 @@ stage4_installation() {
 	echo -e "${D}Stage 4 - Installation${RST}" && echo ""
 
 	print_status "INFO" "Running disko..."
-	run_disko && echo ""
+	run_disko && print_status "OK" "Disko done"
 
 	print_status "INFO" "Regenerating hardware config..."
-	regen_hwconfig && echo ""
+	regen_hwconfig && print_status "OK" "Regeneration done"
 
 	print_status "INFO" "Installing NixOS..."
-	install && echo ""
+	install && print_status "OK" "NixOS installed"
 
 	print_status "INFO" "Writing passwords..."
-	write_passwords && echo ""
+	write_passwords && print_status "OK" "Passwords written"
 
 	print_status "INFO" "Copying config..."
-	copy_config && echo ""
+	copy_config && print_status "OK" "Config copied"
 
 	completion_banner
 }
