@@ -12,5 +12,15 @@
         Defaults timestamp_timeout=15
       '';
     };
+
+    # zram
+    # It's a part of core module because
+    # I want ZRAM on all my machines.
+    zramSwap = {
+      enable = true;
+      algorithm = "lz4";
+      memoryPercent = 50;
+      priority = 100;
+    };
   };
 }
