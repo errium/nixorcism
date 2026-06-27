@@ -66,11 +66,9 @@ confirm_prompt() {
 # ┣┻┓┣━┫┃┗┫┃┗┫┣╸ ┣┳┛┗━┓
 # ┗━┛╹ ╹╹ ╹╹ ╹┗━╸╹┗╸┗━┛
 greeting_banner() {
-	local WBG="\033[47m"
-
 	echo -e "${B} ▄     ${RST}${D}▀▀${RST}${B}    ▄  ${RST}${D}      ▄          ${RST}${B}▀▀${RST}${D}       ▄       ${RST}"
 	echo -e "${B} ████▄▀██▀  ██  ${RST}${D}▄███▄ ████▄▄███▀ ██ ▄██▀█ ███▄███▄${RST}"
-	echo -e "${B} ██ ██ ██▀██████${RST}${D}${WBG}▀${RST}${D}█ ██ ██   ██    ██ ▀███▄ ██ ██ ██${RST}"
+	echo -e "${B} ██ ██ ██▀██████${RST}${D}██ ██ ██   ██    ██ ▀███▄ ██ ██ ██${RST}"
 	echo -e "${B}▄██ ▀█▄██▄  ██  ${RST}${D}▀███▀▄█▀   ▀███▄▄███▄▄██▀▄██ ██ ██${RST}"
 	echo -e "${B}            ▀   ${RST}${D}                                 ▀${RST}"
 }
@@ -251,13 +249,6 @@ regen_hwconfig() {
 		tee "${SCRIPT_DIR}/hosts/${HOSTNAME}/_hardware.nix" >/dev/null
 }
 
-install() {
-	NIX_CONFIG="extra-experimental-features = nix-command flakes pipe-operators" \
-		nixos-install \
-		--no-root-password \
-		--flake "${SCRIPT_DIR}"#"${HOSTNAME}"
-}
-
 write_passwords() {
 	local username
 	username=$(get_username)
@@ -277,6 +268,13 @@ write_passwords() {
 	echo "$ROOT_PASS" | mkpasswd -s >"${pass_dir}/root"
 
 	chmod 600 "${pass_dir}/${username}" "${pass_dir}/root"
+}
+
+install() {
+	NIX_CONFIG="extra-experimental-features = nix-command flakes pipe-operators" \
+		nixos-install \
+		--no-root-password \
+		--flake "${SCRIPT_DIR}"#"${HOSTNAME}"
 }
 
 copy_config() {
@@ -307,11 +305,11 @@ stage4_installation() {
 	print_status "INFO" "Regenerating hardware config..."
 	regen_hwconfig && print_status "OK" "Regeneration done"
 
-	print_status "INFO" "Installing NixOS..."
-	install && print_status "OK" "NixOS installed"
-
 	print_status "INFO" "Writing passwords..."
 	write_passwords && print_status "OK" "Passwords written"
+
+	print_status "INFO" "Installing NixOS..."
+	install && print_status "OK" "NixOS installed"
 
 	print_status "INFO" "Copying config..."
 	copy_config && print_status "OK" "Config copied"
