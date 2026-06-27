@@ -39,6 +39,7 @@
 
     config = lib.mkIf config.nixorcism.preservation.enable {
       preservation.enable = true;
+      systemd.suppressedSystemUnits = ["systemd-machine-id-commit.service"];
 
       # NOTE: "/persistent" is hardcoded, since that's the only name I use.
       preservation.preserveAt."/persistent" = {
@@ -51,7 +52,6 @@
         directories = lib.mkMerge [
           [
             "/etc/NetworkManager/system-connections"
-            "/etc/passwords"
             "/var/lib/bluetooth"
             "/var/lib/nixos"
             "/var/lib/systemd/coredump"

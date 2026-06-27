@@ -256,32 +256,20 @@ install() {
 		--flake "${SCRIPT_DIR}"#"${HOSTNAME}"
 }
 
-write_passwords() {
+set_passwords() {
 	local username
 	username=$(get_username)
 
-	# /persistent is hardcoded - I'll never use anything else
-	local pass_dir
-	if mountpoint -q "/mnt/persistent"; then
-		pass_dir="/mnt/persistent/etc/passwords"
-	else
-		pass_dir="/mnt/etc/passwords"
-	fi
-
-	mkdir -p "$pass_dir"
-	chmod 700 "$pass_dir"
-
-	echo "$USER_PASS" | mkpasswd -s >"${pass_dir}/${username}"
-	echo "$ROOT_PASS" | mkpasswd -s >"${pass_dir}/root"
-
-	chmod 600 "${pass_dir}/${username}" "${pass_dir}/root"
+	# Passwords are set directly in shadow via chpasswd.
+	nixos-enter --root /mnt -c "echo '${username}:${USER_PASS}' | chpasswd"
+	nixos-enter --root /mnt -c "echo 'root:${ROOT_PASS}' | chpasswd"
 }
 
 copy_config() {
 	local username
 	username=$(get_username)
 
-	# /persistent and nixorcism dir name are hardcoded - i'll never use anything else
+	# /persistent and nixorcism dir name are hardcoded - I'll never use anything else.
 	local target
 	if mountpoint -q "/mnt/persistent"; then
 		target="/mnt/persistent/home/${username}/nixorcism"
@@ -292,7 +280,7 @@ copy_config() {
 	mkdir -p "$target"
 	cp -rT "${SCRIPT_DIR}" "$target"
 
-	# chown on the real path, not the bind-mounted one
+	# Chown on the real path, not the bind-mounted one.
 	chown -R 1000:100 "$target"
 }
 
@@ -310,8 +298,8 @@ stage4_installation() {
 	print_status "INFO" "Installing NixOS..."
 	install && print_status "OK" "NixOS installed"
 
-	print_status "INFO" "Writing passwords..."
-	write_passwords && print_status "OK" "Passwords written"
+	print_status "INFO" "Setting passwords..."
+	set_passwords && print_status "OK" "Passwords set"
 
 	print_status "INFO" "Copying config..."
 	copy_config && print_status "OK" "Config copied"
