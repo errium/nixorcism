@@ -170,39 +170,12 @@ prompt_host() {
 	done
 }
 
-prompt_password() {
-	local var_name="$1"
-	local pass confirm
-
-	# No input_prompt here, because I want the passwords to be invisible.
-	while true; do
-		echo -ne "${M}>${RST} ${D}| Enter:${RST} "
-		read -rs pass
-		echo ""
-
-		echo -ne "${M}>${RST} ${D}| Confirm:${RST} "
-		read -rs confirm
-		echo ""
-
-		if [[ "$pass" == "$confirm" ]]; then
-			printf -v "$var_name" '%s' "$pass"
-			break
-		fi
-
-		print_status "FAILED" "Passwords do not match, try again"
-	done
-}
-
 stage2_prompts() {
 	clear
 	greeting_banner
 	echo -e "${D}Stage 2 - Prompts${RST}" && echo ""
 
 	prompt_host && echo ""
-	print_status "PROMPT" "Password for user:"
-	prompt_password USER_PASS && echo ""
-	print_status "PROMPT" "Password for root:"
-	prompt_password ROOT_PASS
 
 	echo "" && read -rp "$(echo -e "${D}Press Enter to continue...${RST}")"
 }
@@ -256,15 +229,6 @@ install() {
 		--flake "${SCRIPT_DIR}"#"${HOSTNAME}"
 }
 
-set_passwords() {
-	local username
-	username=$(get_username)
-
-	# Passwords are set directly in shadow via chpasswd.
-	nixos-enter --root /mnt -c "echo '${username}:${USER_PASS}' | chpasswd"
-	nixos-enter --root /mnt -c "echo 'root:${ROOT_PASS}' | chpasswd"
-}
-
 copy_config() {
 	local username
 	username=$(get_username)
@@ -297,9 +261,6 @@ stage4_installation() {
 
 	print_status "INFO" "Installing NixOS..."
 	install && print_status "OK" "NixOS installed"
-
-	print_status "INFO" "Setting passwords..."
-	set_passwords && print_status "OK" "Passwords set"
 
 	print_status "INFO" "Copying config..."
 	copy_config && print_status "OK" "Config copied"
