@@ -3,6 +3,7 @@
     imports = [inputs.disko.nixosModules.disko];
 
     fileSystems."/nix".neededForBoot = true;
+    fileSystems."/persistent".neededForBoot = true;
     boot.zfs.devNodes = "/dev/disk/by-partlabel"; # VM specific
 
     disko.devices.disk.main = {
