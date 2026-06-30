@@ -1,7 +1,5 @@
 {
   flake.modules.nixos.core = {username, ...}: {
-    users.mutableUsers = false;
-
     users.users = {
       root.initialPassword = "nixos";
 
