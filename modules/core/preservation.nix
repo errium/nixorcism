@@ -52,6 +52,7 @@
         directories = lib.mkMerge [
           [
             "/etc/NetworkManager/system-connections"
+            "/etc/passwords"
             "/var/lib/bluetooth"
             "/var/lib/nixos"
             "/var/lib/systemd/coredump"

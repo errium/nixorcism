@@ -175,7 +175,7 @@ stage2_prompts() {
 	greeting_banner
 	echo -e "${D}Stage 2 - Prompts${RST}" && echo ""
 
-	prompt_host && echo ""
+	prompt_host
 
 	echo "" && read -rp "$(echo -e "${D}Press Enter to continue...${RST}")"
 }
