@@ -67,7 +67,10 @@
               file = "/etc/machine-id";
               inInitrd = true;
             }
-            "/etc/shadow"
+            {
+              file = "/etc/shadow";
+              inInitrd = true;
+            }
           ]
           preserve.files
         ];
