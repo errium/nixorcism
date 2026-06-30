@@ -1,21 +1,29 @@
 {
-  flake.modules.nixos.core = {username, ...}: {
-    users.users = {
-      root.initialPassword = "nixos";
+  flake.modules.nixos.core = {
+    config,
+    username,
+    ...
+  }: let
+    passwordRoot =
+      if config.nixorcism.preservation.enable
+      then "/persistent/etc/passwords"
+      else "/etc/passwords";
+  in {
+    nixorcism.preserve.directories = ["/etc/passwords"];
 
-      ${username} = {
-        isNormalUser = true;
-        description = "${username}";
-        initialPassword = "nixos";
+    users.users.root.hashedPasswordFile = "${passwordRoot}/root";
 
-        extraGroups = [
-          "dialout"
-          "networkmanager"
-          "render"
-          "video"
-          "wheel"
-        ];
-      };
+    users.users.${username} = {
+      isNormalUser = true;
+      description = "${username}";
+      hashedPasswordFile = "${passwordRoot}/user";
+      extraGroups = [
+        "dialout"
+        "networkmanager"
+        "render"
+        "video"
+        "wheel"
+      ];
     };
   };
 }

@@ -170,12 +170,39 @@ prompt_host() {
 	done
 }
 
+prompt_password() {
+	local var_name="$1"
+	local pass confirm
+
+	# No input_prompt here, because I want the passwords to be invisible.
+	while true; do
+		echo -ne "${M}>${RST} ${D}| Enter:${RST} "
+		read -rs pass
+		echo ""
+
+		echo -ne "${M}>${RST} ${D}| Confirm:${RST} "
+		read -rs confirm
+		echo ""
+
+		if [[ "$pass" == "$confirm" ]]; then
+			printf -v "$var_name" '%s' "$pass"
+			break
+		fi
+
+		print_status "FAILED" "Passwords do not match, try again"
+	done
+}
+
 stage2_prompts() {
 	clear
 	greeting_banner
 	echo -e "${D}Stage 2 - Prompts${RST}" && echo ""
 
-	prompt_host
+	prompt_host && echo ""
+	print_status "PROMPT" "Password for user:"
+	prompt_password USER_PASS && echo ""
+	print_status "PROMPT" "Password for root:"
+	prompt_password ROOT_PASS
 
 	echo "" && read -rp "$(echo -e "${D}Press Enter to continue...${RST}")"
 }
@@ -222,6 +249,23 @@ regen_hwconfig() {
 		tee "${SCRIPT_DIR}/hosts/${HOSTNAME}/_hardware.nix" >/dev/null
 }
 
+write_passwords() {
+	local pass_dir
+	if mountpoint -q "/mnt/persistent"; then
+		pass_dir="/mnt/persistent/etc/passwords"
+	else
+		pass_dir="/mnt/etc/passwords"
+	fi
+
+	mkdir -p "$pass_dir"
+	chmod 700 "$pass_dir"
+
+	echo -n "$USER_PASS" | mkpasswd -s | tr -d '\n' >"${pass_dir}/user"
+	echo -n "$ROOT_PASS" | mkpasswd -s | tr -d '\n' >"${pass_dir}/root"
+
+	chmod 600 "${pass_dir}/user" "${pass_dir}/root"
+}
+
 install() {
 	NIX_CONFIG="extra-experimental-features = nix-command flakes pipe-operators" \
 		nixos-install \
@@ -258,6 +302,9 @@ stage4_installation() {
 
 	print_status "INFO" "Regenerating hardware config..."
 	regen_hwconfig && print_status "OK" "Regeneration done"
+
+	print_status "INFO" "Writing passwords..."
+	write_passwords && print_status "OK" "Passwords written"
 
 	print_status "INFO" "Installing NixOS..."
 	install && print_status "OK" "NixOS installed"
