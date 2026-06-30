@@ -49,7 +49,7 @@
         ];
 
         # System-level preservation + defaults
-        directories = lib.mkMerge [
+        directories =
           [
             "/etc/NetworkManager/system-connections"
             "/var/lib/bluetooth"
@@ -58,22 +58,20 @@
             "/var/lib/systemd/timers"
             "/var/log"
           ]
-          preserve.directories
-        ];
+          ++ preserve.directories;
 
-        files = lib.mkMerge [
+        files =
           [
             {
               file = "/etc/machine-id";
               inInitrd = true;
             }
           ]
-          preserve.files
-        ];
+          ++ preserve.files;
 
         # User-level preservation + defaults
         users.${username} = {
-          directories = lib.mkMerge [
+          directories =
             [
               "Desktop"
               "Documents"
@@ -84,13 +82,11 @@
               "Videos"
               "nixorcism"
             ]
-            preserve.user.directories
-          ];
+            ++ preserve.user.directories;
 
-          files = lib.mkMerge [
+          files =
             []
-            preserve.user.files
-          ];
+            ++ preserve.user.files;
         };
       };
     };
