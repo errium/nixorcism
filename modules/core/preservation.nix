@@ -52,7 +52,6 @@
         directories = lib.mkMerge [
           [
             "/etc/NetworkManager/system-connections"
-            "/etc/passwords"
             "/var/lib/bluetooth"
             "/var/lib/nixos"
             "/var/lib/systemd/coredump"
@@ -68,6 +67,7 @@
               file = "/etc/machine-id";
               inInitrd = true;
             }
+            "/etc/shadow"
           ]
           preserve.files
         ];
