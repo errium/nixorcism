@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+export NIX_CONFIG="extra-experimental-features = nix-command flakes pipe-operators"
 
 # ┏━╸╻  ┏━┓┏┓ ┏━┓╻     ╻ ╻┏━┓┏━┓┏━┓
 # ┃╺┓┃  ┃ ┃┣┻┓┣━┫┃     ┃┏┛┣━┫┣┳┛┗━┓
@@ -237,8 +238,7 @@ stage3_confirmation() {
 # ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┗━┫   ╺━╸   ┃┃┗┫┗━┓ ┃ ┣━┫┃  ┃  ┣━┫ ┃ ┃┃ ┃┃┗┫
 # ┗━┛ ╹ ╹ ╹┗━┛┗━╸     ╹         ╹╹ ╹┗━┛ ╹ ╹ ╹┗━╸┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹
 run_disko() {
-	NIX_CONFIG="extra-experimental-features = nix-command flakes pipe-operators" \
-		nix run github:nix-community/disko/latest -- \
+	nix run github:nix-community/disko/latest -- \
 		--mode destroy,format,mount \
 		--yes-wipe-all-disks \
 		--flake "${SCRIPT_DIR}"#"${HOSTNAME}"
@@ -270,8 +270,7 @@ write_passwords() {
 }
 
 install() {
-	NIX_CONFIG="extra-experimental-features = nix-command flakes pipe-operators" \
-		nixos-install \
+	nixos-install \
 		--no-root-password \
 		--flake "${SCRIPT_DIR}"#"${HOSTNAME}"
 }
