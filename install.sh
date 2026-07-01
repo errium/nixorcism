@@ -19,10 +19,6 @@ readonly SCRIPT_DIR
 # ╻ ╻┏━╸╻  ┏━┓┏━╸┏━┓   ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
 # ┣━┫┣╸ ┃  ┣━┛┣╸ ┣┳┛   ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 # ╹ ╹┗━╸┗━╸╹  ┗━╸╹┗╸   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
-get_username() {
-	awk -F: '$3 >= 1000 && $3 < 2000 {print $1; exit}' /mnt/etc/passwd
-}
-
 print_status() {
 	local status="$1"
 	local message="$2"
@@ -66,11 +62,11 @@ confirm_prompt() {
 # ┣┻┓┣━┫┃┗┫┃┗┫┣╸ ┣┳┛┗━┓
 # ┗━┛╹ ╹╹ ╹╹ ╹┗━╸╹┗╸┗━┛
 greeting_banner() {
-	echo -e "${B} ▄     ${RST}${D}▀▀${RST}${B}    ▄  ${RST}${D}      ▄          ${RST}${B}▀▀${RST}${D}       ▄       ${RST}"
-	echo -e "${B} ████▄▀██▀  ██  ${RST}${D}▄███▄ ████▄▄███▀ ██ ▄██▀█ ███▄███▄${RST}"
-	echo -e "${B} ██ ██ ██▀██████${RST}${D}██ ██ ██   ██    ██ ▀███▄ ██ ██ ██${RST}"
-	echo -e "${B}▄██ ▀█▄██▄  ██  ${RST}${D}▀███▀▄█▀   ▀███▄▄███▄▄██▀▄██ ██ ██${RST}"
-	echo -e "${B}            ▀   ${RST}${D}                                 ▀${RST}"
+	echo -e "${B} ▄     ${RST}${D}▀▀${RST}${B}    ▄  ${RST} ${D}      ▄          ${RST}${B}▀▀${RST}${D}       ▄       ${RST}"
+	echo -e "${B} ████▄▀██▀  ██  ${RST} ${D}▄███▄ ████▄▄███▀ ██ ▄██▀█ ███▄███▄${RST}"
+	echo -e "${B} ██ ██ ██▄██████${RST} ${D}██ ██ ██   ██    ██ ▀███▄ ██ ██ ██${RST}"
+	echo -e "${B}▄██ ▀█▄██▄  ██  ${RST} ${D}▀███▀▄█▀   ▀███▄▄███▄▄██▀▄██ ██ ██${RST}"
+	echo -e "${B}            ▀   ${RST} ${D}                                 ▀${RST}"
 }
 
 completion_banner() {
@@ -193,6 +189,11 @@ prompt_password() {
 	done
 }
 
+# This isn't a prompt, but there's no better place for this.
+resolve_host_config() {
+	USERNAME=$(nix eval --raw "${SCRIPT_DIR}#nixosConfigurations.${HOSTNAME}.config.nixorcism.username" 2>/dev/null)
+}
+
 stage2_prompts() {
 	clear
 	greeting_banner
@@ -202,7 +203,9 @@ stage2_prompts() {
 	print_status "PROMPT" "Password for user:"
 	prompt_password USER_PASS && echo ""
 	print_status "PROMPT" "Password for root:"
-	prompt_password ROOT_PASS
+	prompt_password ROOT_PASS && echo ""
+	print_status "INFO" "Resolving host config..."
+	resolve_host_config && print_status "OK" "Config resolved"
 
 	echo "" && read -rp "$(echo -e "${D}Press Enter to continue...${RST}")"
 }
@@ -260,7 +263,7 @@ write_passwords() {
 	mkdir -p "$pass_dir"
 	chmod 700 "$pass_dir"
 
-	echo -n "$USER_PASS" | mkpasswd -s | tr -d '\n' >"${pass_dir}/user"
+	echo -n "$USER_PASS" | mkpasswd -s | tr -d '\n' >"${pass_dir}/${USERNAME}"
 	echo -n "$ROOT_PASS" | mkpasswd -s | tr -d '\n' >"${pass_dir}/root"
 
 	chmod 600 "${pass_dir}/user" "${pass_dir}/root"
@@ -274,15 +277,12 @@ install() {
 }
 
 copy_config() {
-	local username
-	username=$(get_username)
-
 	# /persistent and nixorcism dir name are hardcoded - I'll never use anything else.
 	local target
 	if mountpoint -q "/mnt/persistent"; then
-		target="/mnt/persistent/home/${username}/nixorcism"
+		target="/mnt/persistent/home/${USERNAME}/nixorcism"
 	else
-		target="/mnt/home/${username}/nixorcism"
+		target="/mnt/home/${USERNAME}/nixorcism"
 	fi
 
 	mkdir -p "$target"

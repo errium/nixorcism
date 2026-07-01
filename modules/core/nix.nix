@@ -1,9 +1,11 @@
 {
   flake.modules.nixos.core = {
+    config,
     lib,
-    username,
     ...
-  }: {
+  }: let
+    username = config.nixorcism.username;
+  in {
     nixpkgs.config = {
       allowUnfree = true;
     };
@@ -26,8 +28,20 @@
       persistent = true;
     };
 
-    # build-vm specific
+    # FIXME: build-vm specific
     virtualisation.vmVariant = {
+      users.users.root = {
+        hashedPasswordFile = lib.mkForce null;
+        password = lib.mkForce "nixos";
+      };
+      users.users.${username} = {
+        hashedPasswordFile = lib.mkForce null;
+        password = lib.mkForce "nixos";
+      };
+    };
+
+    # FIXME: build-vm-with-bootloader specific
+    virtualisation.vmVariantWithBootLoader = {
       users.users.root = {
         hashedPasswordFile = lib.mkForce null;
         password = lib.mkForce "nixos";

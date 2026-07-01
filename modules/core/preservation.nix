@@ -2,11 +2,11 @@
   flake.modules.nixos.core = {
     config,
     lib,
-    username,
     ...
   }: let
     preserve = config.nixorcism.preserve;
     preserveType = lib.types.listOf (lib.types.either lib.types.str lib.types.attrs);
+    username = config.nixorcism.username;
   in {
     imports = [inputs.preservation.nixosModules.preservation];
 
