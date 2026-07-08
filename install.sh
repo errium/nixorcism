@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
-export NIX_CONFIG="extra-experimental-features = nix-command flakes pipe-operators"
 
-# ┏━╸╻  ┏━┓┏┓ ┏━┓╻     ╻ ╻┏━┓┏━┓┏━┓
-# ┃╺┓┃  ┃ ┃┣┻┓┣━┫┃     ┃┏┛┣━┫┣┳┛┗━┓
-# ┗━┛┗━╸┗━┛┗━┛╹ ╹┗━╸   ┗┛ ╹ ╹╹┗╸┗━┛
+# ┏━╸╻  ┏━┓┏┓ ┏━┓╻     ╻ ╻┏━┓┏━┓╻┏━┓┏┓ ╻  ┏━╸┏━┓
+# ┃╺┓┃  ┃ ┃┣┻┓┣━┫┃     ┃┏┛┣━┫┣┳┛┃┣━┫┣┻┓┃  ┣╸ ┗━┓
+# ┗━┛┗━╸┗━┛┗━┛╹ ╹┗━╸   ┗┛ ╹ ╹╹┗╸╹╹ ╹┗━┛┗━╸┗━╸┗━┛
+readonly REQUIRED_HOST_FILES=("configuration.nix" "disko.nix" "_hardware.nix")
+SCRIPT_DIR="$(realpath "$(dirname "${BASH_SOURCE[0]}")")" && readonly SCRIPT_DIR
+
 readonly B="\033[1m"    # Bold
 readonly R="\033[1;31m" # Bold red
 readonly Y="\033[1;33m" # Bold yellow
@@ -14,12 +16,28 @@ readonly M="\033[1;35m" # Bold magenta
 readonly D="\033[2m"    # Dim
 readonly RST="\033[0m"  # Reset
 
-SCRIPT_DIR="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
-readonly SCRIPT_DIR
+# ┏┓ ┏━┓┏┓╻┏┓╻┏━╸┏━┓┏━┓
+# ┣┻┓┣━┫┃┗┫┃┗┫┣╸ ┣┳┛┗━┓
+# ┗━┛╹ ╹╹ ╹╹ ╹┗━╸╹┗╸┗━┛
+main_banner() {
+	echo -e "${B} ▄     ${RST}${D}▀▀${RST}${B}    ▄  ${RST} ${D}      ▄          ${RST}${B}▀▀${RST}${D}       ▄       ${RST}"
+	echo -e "${B} ████▄▀██▀  ██  ${RST} ${D}▄███▄ ████▄▄███▀ ██ ▄██▀█ ███▄███▄${RST}"
+	echo -e "${B} ██ ██ ██▄██████${RST} ${D}██ ██ ██   ██    ██ ▀███▄ ██ ██ ██${RST}"
+	echo -e "${B}▄██ ▀█▄██▄  ██  ${RST} ${D}▀███▀▄█▀   ▀███▄▄███▄▄██▀▄██ ██ ██${RST}"
+	echo -e "${B}            ▀   ${RST} ${D}                                 ▀${RST}"
+}
 
-# ╻ ╻┏━╸╻  ┏━┓┏━╸┏━┓   ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
-# ┣━┫┣╸ ┃  ┣━┛┣╸ ┣┳┛   ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
-# ╹ ╹┗━╸┗━╸╹  ┗━╸╹┗╸   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
+done_banner() {
+	echo -e "${B}    █▄                  ${RST} ${D}▄█${RST}"
+	echo -e "${B}    ██       ▄          ${RST} ${D}██${RST}"
+	echo -e "${B} ▄████ ▄███▄ ████▄ ▄█▀█▄${RST} ${D}██${RST}"
+	echo -e "${B} ██ ██ ██ ██ ██ ██ ██▄█▀${RST}"
+	echo -e "${B}▄█▀███▄▀███▀▄██ ▀█▄▀█▄▄▄${RST} ${D}██${RST}"
+}
+
+# ╻ ╻╺┳╸╻╻  ┏━┓
+# ┃ ┃ ┃ ┃┃  ┗━┓
+# ┗━┛ ╹ ╹┗━╸┗━┛
 print_status() {
 	local status="$1"
 	local message="$2"
@@ -59,30 +77,15 @@ confirm_prompt() {
 	done
 }
 
-# ┏┓ ┏━┓┏┓╻┏┓╻┏━╸┏━┓┏━┓
-# ┣┻┓┣━┫┃┗┫┃┗┫┣╸ ┣┳┛┗━┓
-# ┗━┛╹ ╹╹ ╹╹ ╹┗━╸╹┗╸┗━┛
-greeting_banner() {
-	echo -e "${B} ▄     ${RST}${D}▀▀${RST}${B}    ▄  ${RST} ${D}      ▄          ${RST}${B}▀▀${RST}${D}       ▄       ${RST}"
-	echo -e "${B} ████▄▀██▀  ██  ${RST} ${D}▄███▄ ████▄▄███▀ ██ ▄██▀█ ███▄███▄${RST}"
-	echo -e "${B} ██ ██ ██▄██████${RST} ${D}██ ██ ██   ██    ██ ▀███▄ ██ ██ ██${RST}"
-	echo -e "${B}▄██ ▀█▄██▄  ██  ${RST} ${D}▀███▀▄█▀   ▀███▄▄███▄▄██▀▄██ ██ ██${RST}"
-	echo -e "${B}            ▀   ${RST} ${D}                                 ▀${RST}"
+nix_eval() {
+	nix eval \
+		"${SCRIPT_DIR}#nixosConfigurations.${HOSTNAME}.config.$1" \
+		2>/dev/null | tr -d '"'
 }
 
-completion_banner() {
-	echo ""
-	echo -e "${B}    █▄                  ${RST} ${D}▄█${RST}"
-	echo -e "${B}    ██       ▄          ${RST} ${D}██${RST}"
-	echo -e "${B} ▄████ ▄███▄ ████▄ ▄█▀█▄${RST} ${D}██${RST}"
-	echo -e "${B} ██ ██ ██ ██ ██ ██ ██▄█▀${RST}"
-	echo -e "${B}▄█▀███▄▀███▀▄██ ▀█▄▀█▄▄▄${RST} ${D}██${RST}"
-	echo ""
-}
-
-# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ╺┓          ┏━╸╻ ╻┏━╸┏━╸╻┏ ┏━┓
-# ┗━┓ ┃ ┣━┫┃╺┓┣╸     ┃    ╺━╸   ┃  ┣━┫┣╸ ┃  ┣┻┓┗━┓
-# ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ╺┻╸         ┗━╸╹ ╹┗━╸┗━╸╹ ╹┗━┛
+# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ╺┓
+# ┗━┓ ┃ ┣━┫┃╺┓┣╸     ┃
+# ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ╺┻╸
 check_root() {
 	if [[ $EUID -eq 0 ]]; then
 		print_status "OK" "Running as root"
@@ -103,32 +106,26 @@ check_internet() {
 
 check_git() {
 	if which git >/dev/null 2>&1; then
-		print_status "OK" "Git is available"
+		print_status "OK" "git is available"
 	else
 		print_status "FAILED" "Git is not available"
 		exit 1
 	fi
 }
 
-stage1_checks() {
-	clear
-	greeting_banner
-	echo -e "${D}Stage 1 - Checks${RST}" && echo ""
-
-	check_root
-	check_internet
-	check_git
-
-	echo "" && read -rp "$(echo -e "${D}Press Enter to continue...${RST}")"
+check_mkpasswd() {
+	if which mkpasswd >/dev/null 2>&1; then
+		print_status "OK" "mkpasswd is available"
+	else
+		print_status "FAILED" "mkpasswd not available"
+		exit 1
+	fi
 }
 
-# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓         ┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳╸┏━┓
-# ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┏━┛   ╺━╸   ┣━┛┣┳┛┃ ┃┃┃┃┣━┛ ┃ ┗━┓
-# ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━╸         ╹  ╹┗╸┗━┛╹ ╹╹   ╹ ┗━┛
+# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓
+# ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┏━┛
+# ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━╸
 prompt_host() {
-	# NOTE: Required files for a valid host are hardcoded here,
-	# as I'll never need these to be anything else.
-	local required_files=("configuration.nix" "disko.nix" "_hardware.nix")
 	local hosts_dir="${SCRIPT_DIR}/hosts"
 	local hosts=()
 	local choice
@@ -137,7 +134,7 @@ prompt_host() {
 	for dir in "$hosts_dir"/*/; do
 		[[ -d "$dir" ]] || continue
 		local valid=true
-		for file in "${required_files[@]}"; do
+		for file in "${REQUIRED_HOST_FILES[@]}"; do
 			[[ -f "${dir}${file}" ]] || {
 				valid=false
 				break
@@ -190,32 +187,20 @@ prompt_password() {
 	done
 }
 
-# This isn't a prompt, but there's no better place for this.
-resolve_host_config() {
-	USERNAME=$(nix eval --raw "${SCRIPT_DIR}#nixosConfigurations.${HOSTNAME}.config.nixorcism.username" 2>/dev/null)
+# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓
+# ┗━┓ ┃ ┣━┫┃╺┓┣╸    ╺━┫
+# ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━┛
+# NOTE: Hostname must be known before running this!
+resolve_config() {
+	USERNAME=$(nix_eval "nixorcism.username")
+	PRESERVATION=$(nix_eval "nixorcism.preservation.enable")
 }
 
-stage2_prompts() {
-	clear
-	greeting_banner
-	echo -e "${D}Stage 2 - Prompts${RST}" && echo ""
-
-	prompt_host && echo ""
-	print_status "PROMPT" "Password for user:"
-	prompt_password USER_PASS && echo ""
-	print_status "PROMPT" "Password for root:"
-	prompt_password ROOT_PASS && echo ""
-	print_status "INFO" "Resolving host config..."
-	resolve_host_config && print_status "OK" "Config resolved"
-
-	echo "" && read -rp "$(echo -e "${D}Press Enter to continue...${RST}")"
-}
-
-# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ┏━┓         ┏━╸┏━┓┏┓╻┏━╸╻┏━┓┏┳┓┏━┓╺┳╸╻┏━┓┏┓╻
-# ┗━┓ ┃ ┣━┫┃╺┓┣╸    ╺━┫   ╺━╸   ┃  ┃ ┃┃┗┫┣╸ ┃┣┳┛┃┃┃┣━┫ ┃ ┃┃ ┃┃┗┫
-# ┗━┛ ╹ ╹ ╹┗━┛┗━╸   ┗━┛         ┗━╸┗━┛╹ ╹╹  ╹╹┗╸╹ ╹╹ ╹ ╹ ╹┗━┛╹ ╹
-confirm_host() {
-	print_status "INFO" "Selected host: ${RST}${HOSTNAME}"
+confirm_config() {
+	print_status "PROMPT" "Details:"
+	print_status "INFO" "Host: ${RST}${HOSTNAME}"
+	print_status "INFO" "User: ${RST}${USERNAME}"
+	print_status "INFO" "Preservation: ${RST}${PRESERVATION}"
 	confirm_prompt "Correct?" || exit 0
 }
 
@@ -225,18 +210,9 @@ confirm_final() {
 	confirm_prompt "Proceed?" || exit 0
 }
 
-stage3_confirmation() {
-	clear
-	greeting_banner
-	echo -e "${D}Stage 3 - Confirmation${RST}" && echo ""
-
-	confirm_host && echo ""
-	confirm_final
-}
-
-# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ╻ ╻         ╻┏┓╻┏━┓╺┳╸┏━┓╻  ╻  ┏━┓╺┳╸╻┏━┓┏┓╻
-# ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┗━┫   ╺━╸   ┃┃┗┫┗━┓ ┃ ┣━┫┃  ┃  ┣━┫ ┃ ┃┃ ┃┃┗┫
-# ┗━┛ ╹ ╹ ╹┗━┛┗━╸     ╹         ╹╹ ╹┗━┛ ╹ ╹ ╹┗━╸┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹
+# ┏━┓╺┳╸┏━┓┏━╸┏━╸   ╻ ╻
+# ┗━┓ ┃ ┣━┫┃╺┓┣╸    ┗━┫
+# ┗━┛ ╹ ╹ ╹┗━┛┗━╸     ╹
 run_disko() {
 	nix run github:nix-community/disko/latest -- \
 		--mode destroy,format,mount \
@@ -254,7 +230,7 @@ regen_hwconfig() {
 
 write_passwords() {
 	local pass_dir
-	if mountpoint -q "/mnt/persistent"; then
+	if [[ "$PRESERVATION" == true ]]; then
 		pass_dir="/mnt/persistent/etc/passwords"
 	else
 		pass_dir="/mnt/etc/passwords"
@@ -263,10 +239,12 @@ write_passwords() {
 	mkdir -p "$pass_dir"
 	chmod 700 "$pass_dir"
 
-	echo -n "$USER_PASS" | mkpasswd -s | tr -d '\n' >"${pass_dir}/${USERNAME}"
+	if [[ -n "$USER_PASS" ]]; then
+		echo -n "$USER_PASS" | mkpasswd -s | tr -d '\n' >"${pass_dir}/${USERNAME}"
+	fi
 	echo -n "$ROOT_PASS" | mkpasswd -s | tr -d '\n' >"${pass_dir}/root"
 
-	chmod 600 "${pass_dir}/user" "${pass_dir}/root"
+	chmod 600 "${pass_dir}/${USERNAME}" "${pass_dir}/root"
 }
 
 install() {
@@ -276,9 +254,8 @@ install() {
 }
 
 copy_config() {
-	# /persistent and nixorcism dir name are hardcoded - I'll never use anything else.
 	local target
-	if mountpoint -q "/mnt/persistent"; then
+	if [[ "$PRESERVATION" == true ]]; then
 		target="/mnt/persistent/home/${USERNAME}/nixorcism"
 	else
 		target="/mnt/home/${USERNAME}/nixorcism"
@@ -291,33 +268,53 @@ copy_config() {
 	chown -R 1000:100 "$target"
 }
 
-stage4_installation() {
-	clear
-	greeting_banner
-	echo -e "${D}Stage 4 - Installation${RST}" && echo ""
+# ┏┳┓┏━┓╻┏┓╻
+# ┃┃┃┣━┫┃┃┗┫
+# ╹ ╹╹ ╹╹╹ ╹
+main() {
+	export NIX_CONFIG="extra-experimental-features = nix-command flakes pipe-operators"
+	trap 'print_status "FAILED" "Installation failed"; exit 1' ERR
 
-	print_status "INFO" "Running disko..."
-	run_disko && print_status "OK" "Disko done"
+	# Stage 1 - Checks
+	clear && main_banner
+	echo -e "${D}Stage 1 - Checks${RST}" && echo
 
-	print_status "INFO" "Regenerating hardware config..."
-	regen_hwconfig && print_status "OK" "Regeneration done"
+	check_root
+	check_internet
+	check_git
+	check_mkpasswd
 
-	print_status "INFO" "Writing passwords..."
-	write_passwords && print_status "OK" "Passwords written"
+	echo && read -rp "$(echo -e "${D}Press Enter to continue...${RST}")"
 
-	print_status "INFO" "Installing NixOS..."
-	install && print_status "OK" "NixOS installed"
+	# Stage 2 - Prompts
+	clear && main_banner
+	echo -e "${D}Stage 2 - Prompts${RST}" && echo
 
-	print_status "INFO" "Copying config..."
-	copy_config && print_status "OK" "Config copied"
+	prompt_host && echo
+	print_status "PROMPT" "Password for user:" && prompt_password USER_PASS && echo
+	print_status "PROMPT" "Password for root:" && prompt_password ROOT_PASS
 
-	completion_banner
+	echo && read -rp "$(echo -e "${D}Press Enter to continue...${RST}")"
+
+	# Stage 3 - Confirmation
+	clear && main_banner
+	echo -e "${D}Stage 3 - Confirmation${RST}" && echo
+
+	print_status "INFO" "Resolving host config..." && resolve_config && print_status "OK" "Config resolved" && echo
+	confirm_config && echo
+	confirm_final
+
+	# Stage 4 - Installation
+	clear && main_banner
+	echo -e "${D}Stage 4 - Installation${RST}" && echo
+
+	print_status "INFO" "Running disko..." && run_disko && print_status "OK" "Disko done"
+	print_status "INFO" "Regenerating hardware config..." && regen_hwconfig && print_status "OK" "Regeneration done"
+	print_status "INFO" "Writing passwords..." && write_passwords && print_status "OK" "Passwords written"
+	print_status "INFO" "Installing NixOS..." && install && print_status "OK" "NixOS installed"
+	print_status "INFO" "Copying config..." && copy_config && print_status "OK" "Config copied"
+
+	echo && done_banner && echo
 }
 
-# ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻   ┏━╸┏━┓╻  ╻  ┏━┓
-# ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┃  ┣━┫┃  ┃  ┗━┓
-# ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ┗━╸╹ ╹┗━╸┗━╸┗━┛
-stage1_checks
-stage2_prompts
-stage3_confirmation
-stage4_installation
+main "$@"
