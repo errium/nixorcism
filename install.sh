@@ -194,6 +194,7 @@ prompt_password() {
 resolve_config() {
 	USERNAME=$(nix_eval "nixorcism.username")
 	PRESERVATION=$(nix_eval "nixorcism.preservation.enable")
+	CONF_DIR=$(nix_eval "nixorcism.confDir")
 }
 
 confirm_config() {
@@ -201,6 +202,7 @@ confirm_config() {
 	print_status "INFO" "Host: ${RST}${HOSTNAME}"
 	print_status "INFO" "User: ${RST}${USERNAME}"
 	print_status "INFO" "Preservation: ${RST}${PRESERVATION}"
+	print_status "INFO" "Target config path: ${RST}${CONF_DIR}"
 	confirm_prompt "Correct?" || exit 0
 }
 
@@ -256,15 +258,14 @@ install() {
 copy_config() {
 	local target
 	if [[ "$PRESERVATION" == true ]]; then
-		target="/mnt/persistent/home/${USERNAME}/nixorcism"
+		target="/mnt/persistent${CONF_DIR}"
 	else
-		target="/mnt/home/${USERNAME}/nixorcism"
+		target="/mnt${CONF_DIR}"
 	fi
 
 	mkdir -p "$target"
 	cp -rT "${SCRIPT_DIR}" "$target"
 
-	# Chown on the real path, not the bind-mounted one.
 	chown -R 1000:100 "$target"
 }
 
