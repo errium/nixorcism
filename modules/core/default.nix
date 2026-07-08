@@ -8,13 +8,14 @@
   in {
     options.nixorcism.confDir = lib.mkOption {
       type = lib.types.str;
-      description = "Absolute path to the config directory. Automatically accounts for preservation. Must be /home.";
+      description = "Absolute path to the config directory. Automatically accounts for preservation. Must be in /home.";
       default = "/home/${username}/nixorcism";
     };
 
     config = {
+      nixorcism.preserve.user.directories = [(baseNameOf config.nixorcism.confDir)];
+
       # bash
-      nixorcism.preserve.user.files = [".bash_history"];
       programs.bash = {
         enable = true;
         completion.enable = true;
@@ -27,6 +28,7 @@
           '\[\e[1;2m\]\$\[\e[0m\] '
         '';
       };
+      nixorcism.preserve.user.files = [".bash_history"];
 
       # i18n
       i18n.defaultLocale = "en_US.UTF-8";

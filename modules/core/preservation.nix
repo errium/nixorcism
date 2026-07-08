@@ -81,7 +81,6 @@
               "Projects"
               "Videos"
             ]
-            ++ [(baseNameOf config.nixorcism.confDir)]
             ++ preserve.user.directories;
 
           files =
