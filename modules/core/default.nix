@@ -8,7 +8,7 @@
   in {
     options.nixorcism.confDir = lib.mkOption {
       type = lib.types.str;
-      description = "Absolute path to the config directory on the target system.";
+      description = "Absolute path to the config directory. Automatically accounts for preservation. Must be /home.";
       default = "/home/${username}/nixorcism";
     };
 
@@ -21,7 +21,7 @@
         promptInit = ''
           PS1='\[\e[1;2m\][ \[\e[0m\]'\
           '\[\e[92;1m\]\u'\
-          '\[\e[39;2m\] · '\
+          '\[\e[39;2m\] in '\
           '\[\e[0;1;96m\]\W'\
           '\[\e[0m\] \[\e[1;2m\]]\[\e[0m\] '\
           '\[\e[1;2m\]\$\[\e[0m\] '
