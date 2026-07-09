@@ -1,31 +1,33 @@
-{inputs, ...}: {
+{
   flake.modules.nixos.helix = {
     config,
     pkgs,
     ...
   }: {
-    imports = [
-      (inputs.wrappers.lib.getInstallModule {
-        name = "helix";
-        value = inputs.wrappers.lib.wrapperModules.helix;
-      })
-    ];
-
-    wrappers.helix = {
-      enable = true;
-      runtimePkgs = with pkgs; [
+    environment.systemPackages = let
+      helixPackages = with pkgs; [
         alejandra
         bash-language-server
         marksman
         nil
         nixd
-        nodePackages.prettier
+        prettier
         rust-analyzer
         rustfmt
-        shfm
+        shfmt
         taplo
       ];
-    };
+    in [
+      (pkgs.symlinkJoin {
+        name = "helix";
+        paths = [pkgs.helix];
+        nativeBuildInputs = [pkgs.makeWrapper];
+        postBuild = ''
+          wrapProgram $out/bin/hx --prefix PATH : \
+          ${pkgs.lib.makeBinPath helixPackages}
+        '';
+      })
+    ];
 
     hj.xdg.config.files."helix/config.toml".source =
       config.impureDir + "/helix/config.toml";

@@ -11,8 +11,8 @@
       |> toList;
   in
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      imports =
-        [inputs.flake-parts.flakeModules.modules]
+      imports = with inputs;
+        [flake-parts.flakeModules.modules]
         ++ (mkImport ./hosts)
         ++ (mkImport ./modules);
 
@@ -38,10 +38,6 @@
       url = "github:rexcrazy804/hjem-impure";
       inputs.nixpkgs.follows = "";
       inputs.hjem.follows = "";
-    };
-    wrappers = {
-      url = "github:birdeehub/nix-wrapper-modules";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

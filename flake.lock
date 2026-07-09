@@ -130,28 +130,7 @@
         "hjem": "hjem",
         "hjem-impure": "hjem-impure",
         "nixpkgs": "nixpkgs",
-        "preservation": "preservation",
-        "wrappers": "wrappers"
-      }
-    },
-    "wrappers": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1782135443,
-        "narHash": "sha256-vAmbArdCyjqpVW+37aCy/PMBOLIqukUXLQuEKLwUhA4=",
-        "owner": "birdeehub",
-        "repo": "nix-wrapper-modules",
-        "rev": "6e7f66fa2cdf4d63162580b438f7fcf87c28a46f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "birdeehub",
-        "repo": "nix-wrapper-modules",
-        "type": "github"
+        "preservation": "preservation"
       }
     }
   },
