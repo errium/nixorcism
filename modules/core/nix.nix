@@ -6,15 +6,15 @@
   }: let
     username = config.nixorcism.username;
   in {
-    nixpkgs.config = {
-      allowUnfree = true;
-    };
+    nixpkgs.config.allowUnfree = true;
 
     nix.settings = {
       auto-optimise-store = true;
       experimental-features = ["flakes" "nix-command" "pipe-operators"];
       trusted-users = ["root" "@wheel"];
     };
+
+    nix.channel.enable = false;
 
     nix.gc = {
       # automatic = !config.hm.programs.nh.clean.enable;
