@@ -7,7 +7,6 @@
     nixorcism = {
       bootloader = "systemd-boot";
       preservation.enable = true;
-      zfs.enable = true;
     };
   };
 }

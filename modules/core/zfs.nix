@@ -4,10 +4,11 @@
     lib,
     pkgs,
     ...
-  }: {
-    options.nixorcism.zfs = {enable = lib.mkEnableOption "ZFS additions";};
-
-    config = lib.mkIf config.nixorcism.zfs.enable (let
+  }: let
+    cfg = config.disko.devices.disk.main.content.partitions.root.content.type == "zfs";
+  in {
+    # Applies automatically.
+    config = lib.mkIf cfg (let
       latestZfsKernel =
         pkgs.linuxKernel.packages
         |> lib.filterAttrs (name: kernelPackages:
