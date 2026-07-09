@@ -1,0 +1,57 @@
+[editor]
+  auto-format             = true
+  auto-save               = true
+  bufferline              = "always"
+  color-modes             = true
+  cursorline              = true
+  end-of-line-diagnostics = "hint"
+  line-number             = "relative"
+  rulers                  = [120]
+  scrolloff               = 15
+
+  [editor.cursor-shape]
+    insert = "bar"
+    normal = "block"
+    select = "underline"
+
+  [editor.gutters.line-numbers]
+    min-width = 2
+
+  [editor.indent-guides]
+    character   = "·"
+    render      = true
+    skip-levels = 1
+
+  [editor.lsp]
+    display-inlay-hints = true
+    display-messages    = true
+
+  [editor.soft-wrap]
+    enable         = true
+    wrap-indicator = "↩ "
+
+  [editor.statusline]
+    center = ["file-modification-indicator", "file-name", "read-only-indicator"]
+    left = ["mode", "spacer", "spinner"]
+    right = [
+      "diagnostics",
+      "file-encoding",
+      "position",
+      "separator",
+      "total-line-numbers",
+    ]
+    separator = "|"
+
+    [editor.statusline.mode]
+      insert = "insert"
+      normal = "normal"
+      select = "select"
+
+[keys.normal.space]
+  S-tab = ":buffer-previous"
+  f     = "file_picker"
+  i     = ":toggle lsp.display-inlay-hints"
+  q     = ":q"
+  space = ":fmt"
+  tab   = ":buffer-next"
+  w     = ":w"
