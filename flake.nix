@@ -35,9 +35,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hjem-impure = {
-      url = "github:Rexcrazy804/hjem-impure";
+      url = "github:rexcrazy804/hjem-impure";
       inputs.nixpkgs.follows = "";
       inputs.hjem.follows = "";
+    };
+    wrappers = {
+      url = "github:birdeehub/nix-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

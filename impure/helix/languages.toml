@@ -1,0 +1,80 @@
+# bash
+[[language]]
+name = "bash"
+auto-format = true
+
+[language-server.bash-language-server]
+command = "bash-language-server"
+
+[language.formatter]
+command = "shfmt"
+
+
+# markdown
+[[language]]
+name = "markdown"
+auto-format = true
+language-servers = [
+  "marksman",
+  { name = "mpls", only-features = [
+    "workspace-command",
+  ] },
+]
+
+[language-server.marksman]
+command = "marksman"
+
+[language-server.mpls]
+command = "mpls"
+args = ["--no-auto", "--enable-emoji", "--dark-mode"]
+
+[language.formatter]
+command = "prettier"
+args = ["--parser", "markdown"]
+
+
+# nix
+[[language]]
+name = "nix"
+auto-format = true
+
+[language-server.nil]
+command = "nil"
+
+[language-server.nixd]
+command = "nixd"
+
+[language.formatter]
+command = "alejandra"
+
+
+# rust
+[[language]]
+name = "rust"
+auto-format = true
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language.formatter]
+command = "rustfmt"
+
+
+# toml
+[[language]]
+name = "toml"
+auto-format = true
+
+[language-server.taplo]
+command = "taplo"
+
+
+# yaml
+[[language]]
+name = "yaml"
+auto-format = true
+file-types = ["yaml", "yml", { glob = "templates/*.yaml" }]
+
+[language.formatter]
+command = "prettier"
+args = ["--parser", "yaml"]

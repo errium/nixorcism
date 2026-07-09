@@ -1,9 +1,18 @@
 {inputs, ...}: {
-  flake.modules.nixos.core = {config, ...}: let
+  flake.modules.nixos.core = {
+    config,
+    lib,
+    ...
+  }: let
     username = config.nixorcism.username;
     confDir = config.nixorcism.confDir;
   in {
-    imports = [inputs.hjem.nixosModules.default];
+    imports = [
+      inputs.hjem.nixosModules.default
+      (lib.mkAliasOptionModule ["hj"] ["hjem" "users" username])
+      (lib.mkAliasOptionModule ["impureDir"] ["hjem" "users" username "impure" "dotsDir"])
+    ];
+
     hjem.extraModules = [inputs.hjem-impure.hjemModules.default];
 
     hjem.users.${username} = {
@@ -13,13 +22,6 @@
         enable = true;
         dotsDir = "${../../impure}";
         dotsDirImpure = confDir + "/impure";
-      };
-
-      # TEST
-      xdg.config.files = let
-        impureDir = config.hjem.users.${username}.impure.dotsDir;
-      in {
-        "helix/config.toml".source = impureDir + "/helix/config.toml";
       };
     };
   };

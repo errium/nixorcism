@@ -66,13 +66,13 @@
       "locked": {
         "lastModified": 1780011779,
         "narHash": "sha256-nVA2sFfzDm97nuW2DMhN8fgCW+Eh7S5ZwMG3ICrD/Z0=",
-        "owner": "Rexcrazy804",
+        "owner": "rexcrazy804",
         "repo": "hjem-impure",
         "rev": "6a5e29c8cadc156258b71f251eb2abdb825cf286",
         "type": "github"
       },
       "original": {
-        "owner": "Rexcrazy804",
+        "owner": "rexcrazy804",
         "repo": "hjem-impure",
         "type": "github"
       }
@@ -130,7 +130,28 @@
         "hjem": "hjem",
         "hjem-impure": "hjem-impure",
         "nixpkgs": "nixpkgs",
-        "preservation": "preservation"
+        "preservation": "preservation",
+        "wrappers": "wrappers"
+      }
+    },
+    "wrappers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782135443,
+        "narHash": "sha256-vAmbArdCyjqpVW+37aCy/PMBOLIqukUXLQuEKLwUhA4=",
+        "owner": "birdeehub",
+        "repo": "nix-wrapper-modules",
+        "rev": "6e7f66fa2cdf4d63162580b438f7fcf87c28a46f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "birdeehub",
+        "repo": "nix-wrapper-modules",
+        "type": "github"
       }
     }
   },
