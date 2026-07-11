@@ -301,7 +301,10 @@ main() {
 	clear && main_banner
 	echo -e "${D}Stage 3 - Confirmation${RST}" && echo
 
-	print_status "INFO" "Resolving host config..." && resolve_config && print_status "OK" "Config resolved" && echo
+	print_status "INFO" "Resolving host config..."
+	resolve_config
+	print_status "OK" "Config resolved" && echo
+
 	confirm_config && echo
 	confirm_final
 
@@ -309,11 +312,25 @@ main() {
 	clear && main_banner
 	echo -e "${D}Stage 4 - Installation${RST}" && echo
 
-	print_status "INFO" "Running disko..." && run_disko && print_status "OK" "Disko done"
-	print_status "INFO" "Regenerating hardware config..." && regen_hwconfig && print_status "OK" "Regeneration done"
-	print_status "INFO" "Writing passwords..." && write_passwords && print_status "OK" "Passwords written"
-	print_status "INFO" "Installing NixOS..." && install && print_status "OK" "NixOS installed"
-	print_status "INFO" "Copying config..." && copy_config && print_status "OK" "Config copied"
+	print_status "INFO" "Running disko..."
+	run_disko
+	print_status "OK" "Disko done"
+
+	print_status "INFO" "Regenerating hardware config..."
+	regen_hwconfig
+	print_status "OK" "Regeneration done"
+
+	print_status "INFO" "Writing passwords..."
+	write_passwords
+	print_status "OK" "Passwords written"
+
+	print_status "INFO" "Installing NixOS..."
+	install
+	print_status "OK" "NixOS installed"
+
+	print_status "INFO" "Copying config..."
+	copy_config
+	print_status "OK" "Config copied"
 
 	echo && done_banner && echo
 }
