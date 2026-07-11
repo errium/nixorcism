@@ -23,7 +23,6 @@
       plasma-browser-integration
       plasma-keyboard
       qtvirtualkeyboard
-      union
     ];
   };
 }
