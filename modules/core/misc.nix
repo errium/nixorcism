@@ -20,12 +20,11 @@
         enable = true;
         completion.enable = true;
         promptInit = ''
-          PS1='\[\e[1;2m\]['\
-          '\[\e[0;1;92m\]\u'\
-          '\[\e[0;2m\]:'\
-          '\[\e[0;96;1m\]\W'\
-          '\[\e[39;2m\]]\$'\
-          '\[\e[0m\] '
+          PS1='\
+          \[\e[92;1m\]\u@\h\[\e[0m\] \
+          \[\e[94;1m\]\W\[\e[0m\] \
+          \[\e[1;2m\]\$\[\e[0m\] \
+          '
         '';
       };
       nixorcism.preserve.user.files = [".bash_history"];
