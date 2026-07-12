@@ -8,9 +8,12 @@
     environment.xfce.excludePackages = with pkgs; [
       mousepad
       parole
-      ristretto
-      xfce4-taskmanager
-      xfce4-terminal
+    ];
+
+    nixorcism.preserve.user.directories = [
+      ".config/xfce4"
+      ".config/Thunar"
+      ".local/share/recently-used.xbel"
     ];
 
     imports = [../_common.nix];
