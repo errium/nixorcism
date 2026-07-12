@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.xfce = {pkgs, ...}: {
+  flake.modules.nixos.desktop-environment'xfce = {pkgs, ...}: {
     services.xserver = {
       enable = true; # Legacy strikes again, yikes :/
       desktopManager.xfce.enable = true;

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.openrgb = {pkgs, ...}: {
+  flake.modules.nixos.program'openrgb = {pkgs, ...}: {
     services.hardware.openrgb = {
       enable = true;
       package = pkgs.openrgb-with-all-plugins;
