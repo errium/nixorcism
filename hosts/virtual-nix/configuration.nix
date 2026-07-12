@@ -5,7 +5,7 @@
     system.stateVersion = "25.11";
 
     nixorcism = {
-      bootloader = "systemd-boot";
+      bootloader = "limine";
       preservation.enable = true;
     };
   };
