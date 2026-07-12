@@ -16,6 +16,7 @@
       nixorcism.preserve.user.directories = [(baseNameOf config.nixorcism.confDir)];
 
       # bash
+      nixorcism.preserve.user.files = [".bash_history"];
       programs.bash = {
         enable = true;
         completion.enable = true;
@@ -27,7 +28,6 @@
           '
         '';
       };
-      nixorcism.preserve.user.files = [".bash_history"];
 
       # i18n
       i18n.defaultLocale = "en_US.UTF-8";
