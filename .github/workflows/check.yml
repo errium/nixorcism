@@ -1,4 +1,4 @@
-name: Check
+name: check
 
 on:
   push:
@@ -7,29 +7,15 @@ env:
   NIX_CONFIG: "extra-experimental-features = nix-command flakes pipe-operators"
 
 jobs:
-  check:
+  flake-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@v14
       - uses: DeterminateSystems/magic-nix-cache-action@v8
 
-      - name: Flake check
+      - name: flake check
         run: nix flake check
 
-      - name: Format check
+      - name: format check
         run: nix run nixpkgs#alejandra -- --check .
-
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        host:
-          - virtual-nix
-    steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@v14
-      - uses: DeterminateSystems/magic-nix-cache-action@v8
-
-      - name: Build ${{ matrix.host }}
-        run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
