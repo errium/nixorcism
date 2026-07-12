@@ -1,0 +1,32 @@
+name: Check
+
+on:
+  push:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v14
+      - uses: DeterminateSystems/magic-nix-cache-action@v8
+
+      - name: Flake check
+        run: nix flake check
+
+      - name: Format check
+        run: nix run nixpkgs#alejandra -- --check .
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        host:
+          - virtual-nix
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v14
+      - uses: DeterminateSystems/magic-nix-cache-action@v8
+
+      - name: Build ${{ matrix.host }}
+        run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
