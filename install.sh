@@ -242,9 +242,9 @@ write_passwords() {
 	chmod 700 "$pass_dir"
 
 	if [[ -n "$USER_PASS" ]]; then
-		echo -n "$USER_PASS" | mkpasswd -s | tr -d '\n' >"${pass_dir}/${USERNAME}"
+		echo -n "$USER_PASS" | mkpasswd -m yescrypt -s | tr -d '\n' >"${pass_dir}/${USERNAME}"
 	fi
-	echo -n "$ROOT_PASS" | mkpasswd -s | tr -d '\n' >"${pass_dir}/root"
+	echo -n "$ROOT_PASS" | mkpasswd -m yescrypt -s | tr -d '\n' >"${pass_dir}/root"
 
 	chmod 600 "${pass_dir}/${USERNAME}" "${pass_dir}/root"
 }
