@@ -1,9 +1,11 @@
 {
-  flake.modules.nixos.fish = {
+  flake.modules.nixos.shell'fish = {
     config,
     pkgs,
     ...
-  }: {
+  }: let
+    username = config.nixorcism.username;
+  in {
     users.defaultUserShell = pkgs.fish;
 
     programs.fish = {
@@ -12,7 +14,7 @@
       shellAbbrs = config.nixorcism.shellAliases;
     };
 
-    environment.systemPackages = with pkgs; [
+    users.users.${username}.packages = with pkgs; [
       fishPlugins.bang-bang
       fishPlugins.done
 
@@ -20,5 +22,10 @@
       jq
       libnotify
     ];
+
+    nixorcism.preserve.user = {
+      directories = [".cache/fish"];
+      files = [".local/share/fish/fish_history"];
+    };
   };
 }
