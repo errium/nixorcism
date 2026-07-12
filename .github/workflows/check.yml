@@ -3,6 +3,9 @@ name: Check
 on:
   push:
 
+env:
+  NIX_CONFIG: "extra-experimental-features = nix-command flakes pipe-operators"
+
 jobs:
   check:
     runs-on: ubuntu-latest
