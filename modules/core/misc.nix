@@ -7,6 +7,8 @@
   }: let
     username = config.nixorcism.username;
   in {
+    imports = [(lib.mkAliasOptionModule ["userPackages"] ["users" "users" username "packages"])];
+
     options.nixorcism.confDir = lib.mkOption {
       type = lib.types.str;
       description = "Absolute path to the config directory. Automatically accounts for preservation. Must be in /home.";
@@ -41,6 +43,7 @@
       services.openssh.enable = true;
 
       # sudo
+      nixorcism.preserve.directories = ["/var/db/sudo"];
       security.sudo = {
         enable = true;
         extraConfig = ''

@@ -52,6 +52,7 @@
         # System-level preservation + defaults
         directories =
           [
+            "/tmp"
             "/var/lib/nixos"
             "/var/lib/systemd/coredump"
             "/var/lib/systemd/timers"
@@ -87,14 +88,16 @@
       };
 
       # A little wacky script to find what's unpersistent
+      # TODO: Improve.
       environment.systemPackages = [
         (pkgs.writeShellScriptBin "find-unpersisted" ''
-          sudo ${pkgs.rsync}/bin/rsync -amvxx \
+          ${pkgs.rsync}/bin/rsync -amvxx \
             --dry-run \
             --no-links \
             --exclude '/dev/*' \
             --exclude '/proc/*' \
             --exclude '/root/*' \
+            --exclude '/run/*' \
             --exclude '/run/*' \
             --exclude '/sys/*' \
             --exclude '/tmp/*' \
