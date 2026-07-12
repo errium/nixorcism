@@ -51,8 +51,6 @@
         # System-level preservation + defaults
         directories =
           [
-            "/etc/NetworkManager/system-connections"
-            "/var/lib/bluetooth"
             "/var/lib/nixos"
             "/var/lib/systemd/coredump"
             "/var/lib/systemd/timers"
@@ -83,9 +81,7 @@
             ]
             ++ preserve.user.directories;
 
-          files =
-            []
-            ++ preserve.user.files;
+          files = preserve.user.files;
         };
       };
     };

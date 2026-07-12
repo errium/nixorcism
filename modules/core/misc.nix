@@ -33,6 +33,9 @@
       i18n.defaultLocale = "en_US.UTF-8";
       time.timeZone = "Europe/Vilnius";
 
+      # openssh
+      services.openssh.enable = true;
+
       # sudo
       security.sudo = {
         enable = true;
