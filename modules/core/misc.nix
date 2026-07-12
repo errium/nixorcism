@@ -2,6 +2,7 @@
   flake.modules.nixos.core = {
     config,
     lib,
+    pkgs,
     ...
   }: let
     username = config.nixorcism.username;
@@ -32,6 +33,9 @@
       # i18n
       i18n.defaultLocale = "en_US.UTF-8";
       time.timeZone = "Europe/Vilnius";
+
+      # kernel
+      boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
       # openssh
       services.openssh.enable = true;
