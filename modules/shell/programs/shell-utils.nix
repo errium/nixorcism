@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.program'shell-utils = {pkgs, ...}: {
+  flake.modules.nixos.programs'shell-utils = {pkgs, ...}: {
     userPackages = with pkgs; [
       bat
       btop

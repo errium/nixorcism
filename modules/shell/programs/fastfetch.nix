@@ -1,9 +1,9 @@
 {
-  flake.modules.nixos.program'fastfetch = {pkgs, ...}: {
+  flake.modules.nixos.programs'fastfetch = {pkgs, ...}: {
     userPackages = with pkgs; [fastfetch];
 
-    # I would've made it an impure config,
-    # but I refuse to touch json in any way, shape, or form.
+    # Could've done this with an impure config...
+    # But then I'd have to touch json. No thanks.
     hj.xdg.config.files."fastfetch/config.jsonc".text = let
       color = {
         accent1 = "blue"; # Main part of the logo

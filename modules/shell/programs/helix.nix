@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.program'helix = {
+  flake.modules.nixos.programs'helix = {
     config,
     pkgs,
     ...

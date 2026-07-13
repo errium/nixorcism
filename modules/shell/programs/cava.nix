@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.program'cava = {pkgs, ...}: {
+  flake.modules.nixos.programs'cava = {pkgs, ...}: {
     userPackages = with pkgs; [cava];
 
     hj.xdg.config.files."cava/config".text = ''

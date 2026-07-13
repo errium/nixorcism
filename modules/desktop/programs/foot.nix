@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.program'foot = {config, ...}: {
+  flake.modules.nixos.programs'foot = {config, ...}: {
     programs.foot = {
       enable = true;
       xdg.serverAutostart = true;

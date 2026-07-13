@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.program'git = {
+  flake.modules.nixos.programs'git = {
     programs.git.enable = true;
 
     hj.xdg.config.files."git/config".text = ''
