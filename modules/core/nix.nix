@@ -3,10 +3,10 @@
     config,
     lib,
     ...
-  }: let
-    username = config.nixorcism.username;
-  in {
+  }: {
     nixpkgs.config.allowUnfree = true;
+
+    nix.channel.enable = false;
 
     nix.settings = {
       auto-optimise-store = true;
@@ -14,10 +14,8 @@
       trusted-users = ["root" "@wheel"];
     };
 
-    nix.channel.enable = false;
-
     nix.gc = {
-      # automatic = !config.hm.programs.nh.clean.enable;
+      automatic = !config.programs.nh.clean.enable;
       dates = "daily";
       options = "--delete-older-than 2d";
     };
@@ -34,7 +32,8 @@
         hashedPasswordFile = lib.mkForce null;
         password = lib.mkForce "nixos";
       };
-      users.users.${username} = {
+
+      users.users.${config.nixorcism.username} = {
         hashedPasswordFile = lib.mkForce null;
         password = lib.mkForce "nixos";
       };
@@ -46,7 +45,8 @@
         hashedPasswordFile = lib.mkForce null;
         password = lib.mkForce "nixos";
       };
-      users.users.${username} = {
+
+      users.users.${config.nixorcism.username} = {
         hashedPasswordFile = lib.mkForce null;
         password = lib.mkForce "nixos";
       };

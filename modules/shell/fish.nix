@@ -3,9 +3,7 @@
     config,
     pkgs,
     ...
-  }: let
-    username = config.nixorcism.username;
-  in {
+  }: {
     users.defaultUserShell = pkgs.fish;
 
     programs.fish = {
@@ -14,7 +12,7 @@
       shellAbbrs = config.nixorcism.shellAliases;
     };
 
-    users.users.${username}.packages = with pkgs; [
+    userPackages = with pkgs; [
       fishPlugins.bang-bang
       fishPlugins.done
 
