@@ -10,12 +10,12 @@
     # I couldn't figure out a nice way to make this yell at me when it's not set
     # correctly, so I just removed the default.
     options.nixorcism.bootloader = lib.mkOption {
-      description = "Bootloader to use. Must be set explicitly per host.";
       type = lib.types.enum [
         "grub"
         "limine"
         "systemd-boot"
       ];
+      description = "Bootloader to use. Must be set explicitly per host.";
     };
 
     config = {
