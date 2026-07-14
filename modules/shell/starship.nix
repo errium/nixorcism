@@ -1,11 +1,11 @@
 {
-  flake.modules.nixos.shell'starship = {config, ...}: {
-    programs.starship = {
+  flake.modules.nixos.shell'starship = {
+    hm.programs.starship = {
       enable = true;
-      transientPrompt.enable = true;
+      enableTransience = true;
     };
 
-    hj.xdg.config.files."starship.toml".source =
-      config.impureDir + "/starship/starship.toml";
+    # TEST: home-manager linking.
+    nixorcism.mkImpureConf."starship.toml" = "starship/starship.toml";
   };
 }

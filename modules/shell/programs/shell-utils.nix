@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.programs'shell-utils = {pkgs, ...}: {
-    userPackages = with pkgs; [
+    hm.home.packages = with pkgs; [
       bat
       btop
       dysk
@@ -11,12 +11,11 @@
       tree
     ];
 
-    programs.zoxide = {
+    hm.programs.zoxide = {
       enable = true;
-      enableBashIntegration = false;
-      flags = ["--cmd cd"];
+      options = ["--cmd cd"];
     };
 
-    nixorcism.preserve.user.files = [".local/share/zoxide/db.zo"];
+    nixorcism.preserve.user.directories = [".local/share/zoxide"];
   };
 }

@@ -17,7 +17,7 @@
     };
 
     # nix-search-tv
-    userPackages = [
+    environment.systemPackages = [
       (pkgs.writeShellApplication {
         name = "nst";
         runtimeInputs = with pkgs; [

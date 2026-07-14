@@ -9,6 +9,12 @@
     programs.fish = {
       enable = true;
       shellInit = ''set -U fish_greeting ""'';
+    };
+
+    # TEST: home-manager.
+    hm.programs.fish = {
+      enable = true;
+      preferAbbrs = true;
       shellAbbrs = config.nixorcism.shellAliases;
     };
 
