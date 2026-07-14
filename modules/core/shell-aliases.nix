@@ -29,9 +29,7 @@
       };
 
       # User-only aliases
-      nixorcism.shellAliases = {
-        rmf = "rm -rf";
-      };
+      nixorcism.shellAliases.rmf = "rm -rf";
     };
   };
 }
