@@ -28,16 +28,9 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Home
-    hjem = {
-      url = "github:feel-co/hjem";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hjem-impure = {
-      url = "github:rexcrazy804/hjem-impure";
-      inputs.nixpkgs.follows = "";
-      inputs.hjem.follows = "";
     };
 
     # Programs

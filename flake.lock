@@ -38,42 +38,24 @@
         "type": "github"
       }
     },
-    "hjem": {
+    "home-manager": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1782267080,
-        "narHash": "sha256-so1hIImuLtTKTVUokJ/6C2D2b2D4znCx+/PAjMSAnpw=",
-        "owner": "feel-co",
-        "repo": "hjem",
-        "rev": "dd0ba9e22fb46581f843e6121de33ca7a4a80224",
+        "lastModified": 1783963347,
+        "narHash": "sha256-r376E2XpakiXwModDHIxlvB6qLq4iFVEq730vxOO4JY=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "a45a7c451455a51ae740ec3bce4024b312809c29",
         "type": "github"
       },
       "original": {
-        "owner": "feel-co",
-        "repo": "hjem",
-        "type": "github"
-      }
-    },
-    "hjem-impure": {
-      "inputs": {
-        "hjem": [],
-        "nixpkgs": []
-      },
-      "locked": {
-        "lastModified": 1780011779,
-        "narHash": "sha256-nVA2sFfzDm97nuW2DMhN8fgCW+Eh7S5ZwMG3ICrD/Z0=",
-        "owner": "rexcrazy804",
-        "repo": "hjem-impure",
-        "rev": "6a5e29c8cadc156258b71f251eb2abdb825cf286",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rexcrazy804",
-        "repo": "hjem-impure",
+        "owner": "nix-community",
+        "ref": "master",
+        "repo": "home-manager",
         "type": "github"
       }
     },
@@ -147,8 +129,7 @@
       "inputs": {
         "disko": "disko",
         "flake-parts": "flake-parts",
-        "hjem": "hjem",
-        "hjem-impure": "hjem-impure",
+        "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "preservation": "preservation"
