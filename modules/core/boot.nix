@@ -15,7 +15,7 @@
         "limine"
         "systemd-boot"
       ];
-      description = "Bootloader to use. Must be set explicitly per host.";
+      description = "Bootloader to use. Set explicitly per host.";
     };
 
     config = {

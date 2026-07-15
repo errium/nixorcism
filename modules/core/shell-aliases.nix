@@ -11,6 +11,7 @@
     options.nixorcism.shellAliases = lib.mkOption {
       type = lib.types.attrsOf lib.types.str;
       default = {};
+      description = "Shell aliases, per-module, merged into one big attrset.";
     };
 
     config = let
@@ -29,7 +30,10 @@
       };
 
       # User-only aliases
-      nixorcism.shellAliases.rmf = "rm -rf";
+      nixorcism.shellAliases = {
+        cc = "cd ~/.config";
+        rmf = "rm -rf";
+      };
     };
   };
 }

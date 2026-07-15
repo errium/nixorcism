@@ -36,7 +36,7 @@
       boot.initrd.systemd = lib.mkIf config.nixorcism.preservation.enable {
         enable = true;
         services.rollback = {
-          description = "Rollback root dataset";
+          description = "ZFS rollback to @blank";
           wantedBy = ["initrd.target"];
           after = ["zfs-import-zroot.service" "zfs-import.service"];
           before = ["sysroot.mount"];
