@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.shell'starship = {config, ...}: {
+  flake.modules.nixos.programs'starship = {config, ...}: {
     hj.rum.programs.starship = {
       enable = true;
       transience.enable = true;

@@ -1,5 +1,0 @@
-[config]
-
-[templates.helix]
-input_path = '~/.config/matugen/templates/helix.toml'
-output_path = '~/.config/helix/themes/matugen.toml'
