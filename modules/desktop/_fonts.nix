@@ -2,7 +2,7 @@
 # via _common.nix instead of mkImport (hence no fp module here).
 # It's a bit tangled, but it works and creates less noise overall.
 {pkgs, ...}: let
-  active = fontSets.go;
+  active = fontSets.ibm;
 
   fontSets = {
     go = {
@@ -42,8 +42,6 @@
     };
   };
 in {
-  fonts.enableDefaultPackages = true;
-
   fonts.packages = with active; [
     sansSerif.package
     serif.package
