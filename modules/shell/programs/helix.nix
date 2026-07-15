@@ -1,5 +1,10 @@
 {
-  flake.modules.nixos.programs'helix = {pkgs, ...}: {
+  flake.modules.nixos.programs'helix = {
+    config,
+    lib,
+    pkgs,
+    ...
+  }: {
     environment.systemPackages = let
       helixPackages = with pkgs; [
         alejandra
@@ -25,10 +30,11 @@
       })
     ];
 
-    # TEST: home-manager linking.
-    nixorcism.mkImpureConf = {
-      "helix/config.toml" = "helix/config.toml";
-      "helix/languages.toml" = "helix/languages.toml";
+    hj.environment.sessionVariables.EDITOR = lib.mkDefault "hx";
+
+    hj.xdg.config.files = {
+      "helix/config.toml".source = config.impureDir + "/helix/config.toml";
+      "helix/languages.toml".source = config.impureDir + "/helix/languages.toml";
     };
   };
 }

@@ -2,7 +2,7 @@
   flake.modules.nixos.programs'fastfetch = {
     nixorcism.shellAliases.ff = "fastfetch";
 
-    hm.programs.fastfetch = {
+    hj.rum.programs.fastfetch = {
       enable = true;
 
       # Could've done this with an impure config...

@@ -2,7 +2,7 @@
   flake.modules.nixos.programs'git = {
     programs.git.enable = true;
 
-    hm.programs.git = {
+    hj.rum.programs.git = {
       enable = true;
       settings = {
         user.name = "Errium";

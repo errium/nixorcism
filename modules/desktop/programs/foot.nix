@@ -1,11 +1,11 @@
 {
-  flake.modules.nixos.programs'foot = {
+  flake.modules.nixos.programs'foot = {config, ...}: {
     programs.foot = {
       enable = true;
       xdg.serverAutostart = true;
     };
 
-    # TEST: home-manager linking.
-    nixorcism.mkImpureConf."foot/foot.ini" = "foot/foot.ini";
+    hj.xdg.config.files."foot/foot.ini".source =
+      config.impureDir + "/foot/foot.ini";
   };
 }

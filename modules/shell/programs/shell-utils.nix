@@ -1,6 +1,10 @@
 {
-  flake.modules.nixos.programs'shell-utils = {pkgs, ...}: {
-    hm.home.packages = with pkgs; [
+  flake.modules.nixos.programs'shell-utils = {
+    config,
+    pkgs,
+    ...
+  }: {
+    hj.packages = with pkgs; [
       bat
       btop
       dysk
@@ -11,9 +15,15 @@
       tree
     ];
 
-    hm.programs.zoxide = {
+    hj.rum.programs.zoxide = {
       enable = true;
-      options = ["--cmd cd"];
+      flags = ["--cmd cd"];
+
+      integrations = {
+        fish.enable = config.hj.rum.programs.fish.enable;
+        nushell.enable = config.hj.rum.programs.nushell.enable;
+        zsh.enable = config.hj.rum.programs.zsh.enable;
+      };
     };
 
     nixorcism.preserve.user.directories = [".local/share/zoxide"];

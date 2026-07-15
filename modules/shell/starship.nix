@@ -1,11 +1,17 @@
 {
-  flake.modules.nixos.shell'starship = {
-    hm.programs.starship = {
+  flake.modules.nixos.shell'starship = {config, ...}: {
+    hj.rum.programs.starship = {
       enable = true;
-      enableTransience = true;
+      transience.enable = true;
+
+      integrations = {
+        fish.enable = config.hj.rum.programs.fish.enable;
+        nushell.enable = config.hj.rum.programs.nushell.enable;
+        zsh.enable = config.hj.rum.programs.zsh.enable;
+      };
     };
 
-    # TEST: home-manager linking.
-    nixorcism.mkImpureConf."starship.toml" = "starship/starship.toml";
+    hj.xdg.config.files."starship.toml".source =
+      config.impureDir + "/starship/starship.toml";
   };
 }

@@ -1,8 +1,12 @@
 {
-  flake.modules.nixos.desktop'matugen = {pkgs, ...}: {
-    hm.home.packages = with pkgs; [matugen];
+  flake.modules.nixos.desktop'matugen = {
+    config,
+    pkgs,
+    ...
+  }: {
+    hj.packages = with pkgs; [matugen];
 
-    # TEST: home-manager linking.
-    nixorcism.mkImpureConf."matugen/config.toml" = "matugen/config.toml";
+    hj.xdg.config.files."matugen".source =
+      config.impureDir + "/matugen";
   };
 }

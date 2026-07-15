@@ -4,32 +4,30 @@
     pkgs,
     ...
   }: {
-    users.defaultUserShell = pkgs.fish;
-
     programs.fish = {
       enable = true;
       shellInit = ''set -U fish_greeting ""'';
     };
 
-    # TEST: home-manager.
-    hm.programs.fish = {
+    hj.rum.programs.fish = {
       enable = true;
-      preferAbbrs = true;
-      shellAbbrs = config.nixorcism.shellAliases;
+      abbrs = config.nixorcism.shellAliases;
+      plugins = {
+        inherit (pkgs.fishPlugins) bang-bang done;
+      };
     };
 
-    userPackages = with pkgs; [
-      fishPlugins.bang-bang
-      fishPlugins.done
-
+    hj.packages = with pkgs; [
       # needed for done
       jq
       libnotify
     ];
 
-    nixorcism.preserve.user = {
-      directories = [".cache/fish"];
-      files = [".local/share/fish/fish_history"];
-    };
+    nixorcism.preserve.user.directories = [
+      ".cache/fish"
+      ".local/share/fish"
+    ];
+
+    users.defaultUserShell = pkgs.fish;
   };
 }

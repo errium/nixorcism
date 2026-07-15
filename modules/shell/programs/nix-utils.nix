@@ -28,5 +28,16 @@
         excludeShellChecks = ["SC2016"];
       })
     ];
+
+    # nix-your-shell
+    hj.rum.programs.nix-your-shell = {
+      enable = true;
+
+      integrations = {
+        fish.enable = config.hj.rum.programs.fish.enable;
+        nushell.enable = config.hj.rum.programs.nushell.enable;
+        zsh.enable = config.hj.rum.programs.zsh.enable;
+      };
+    };
   };
 }
