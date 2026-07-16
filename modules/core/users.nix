@@ -4,9 +4,9 @@
     lib,
     ...
   }: let
-    cfg = config.nixorcism.preservation;
+    preservation = config.nixorcism.preservation;
     passwordRoot =
-      if cfg.enable
+      if preservation.enable
       then "/persistent/etc/passwords"
       else "/etc/passwords";
   in {
@@ -22,7 +22,7 @@
 
       # This seems like a questionable move,
       # but without it you can't log in as any user.
-      fileSystems."/persistent".neededForBoot = lib.mkIf cfg.enable (lib.mkDefault true);
+      fileSystems."/persistent".neededForBoot = lib.mkIf preservation.enable (lib.mkDefault true);
       nixorcism.preserve.directories = ["/etc/passwords"];
 
       users.users = {

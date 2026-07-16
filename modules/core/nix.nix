@@ -26,7 +26,7 @@
       persistent = true;
     };
 
-    # FIXME: build-vm specific
+    # build-vm specific
     virtualisation.vmVariant = {
       users.users.root = {
         hashedPasswordFile = lib.mkForce null;
@@ -39,7 +39,7 @@
       };
     };
 
-    # FIXME: build-vm-with-bootloader specific
+    # build-vm-with-bootloader specific
     virtualisation.vmVariantWithBootLoader = {
       users.users.root = {
         hashedPasswordFile = lib.mkForce null;
