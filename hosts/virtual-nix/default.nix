@@ -1,10 +1,12 @@
 {config, ...}: {
   flake.modules.nixos.virtual-nix = {
     imports = with config.flake.modules.nixos; [
-      shell'fish
-
       desktop-environments'xfce
       display-managers'ly
+
+      shell'fish
+
+      system'theming
 
       programs'comma
       programs'fastfetch
