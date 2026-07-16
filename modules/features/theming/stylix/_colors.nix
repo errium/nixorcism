@@ -1,5 +1,5 @@
 rec {
-  palette = ayu-dark;
+  palette = sema;
 
   ayu-dark = {
     base00 = "#0b0e14";
