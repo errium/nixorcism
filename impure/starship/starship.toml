@@ -6,8 +6,8 @@
 add_newline = true
 continuation_prompt = "[·](dimmed)"
 
-format = '''\
-[\$](bold purple)\
+format = """\
+[\\$](bold purple)\
 $directory\
 $git_branch\
 $git_status\
@@ -20,7 +20,7 @@ $time\
 
 $line_break\ 
 $character\
-'''
+"""
 
 # ┏┳┓┏━┓╺┳┓╻ ╻╻  ┏━╸┏━┓
 # ┃┃┃┃ ┃ ┃┃┃ ┃┃  ┣╸ ┗━┓
