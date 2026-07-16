@@ -26,6 +26,14 @@
       };
     };
 
+    nixorcism.shellAliases = {
+      la = "eza -a";
+      lat = "eza -lahT";
+      ll = "eza -lh";
+      lla = "eza -lah";
+      lt = "eza -lhT";
+    };
+
     nixorcism.preserve.user.directories = [".local/share/zoxide"];
   };
 }

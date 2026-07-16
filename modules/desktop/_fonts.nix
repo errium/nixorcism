@@ -42,10 +42,11 @@
     };
   };
 in {
-  fonts.packages = with active; [
-    sansSerif.package
-    serif.package
-    monospace.package
+  fonts.packages = [
+    active.sansSerif.package
+    active.serif.package
+    active.monospace.package
+    pkgs.noto-fonts-color-emoji
   ];
 
   fonts.fontconfig.defaultFonts = {
