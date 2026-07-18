@@ -27,7 +27,6 @@
         theming_static
 
         # programs/cli/*
-        cli_packages
         cli_bat
         cli_btop
         cli_cava
@@ -36,10 +35,12 @@
         cli_fastfetch
         cli_fzf
         cli_git
+        cli_jujutsu
         cli_nh
         cli_nix-index
         cli_nix-search-tv
         cli_opencode
+        cli_packages
         cli_zoxide
 
         # programs/editors/*
