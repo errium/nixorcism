@@ -1,26 +1,33 @@
 {inputs, ...}: {
   flake.modules.nixos.system'theming = {
     config,
+    lib,
     pkgs,
     ...
-  }: {
+  }: let
+    registry = import ./_registry.nix {inherit config;};
+    active = lib.filterAttrs (_: v: v.enable) registry;
+  in {
     imports = [inputs.matugen.nixosModules.default];
 
     programs.matugen = {
       enable = true;
       package = pkgs.matugen;
-      # jsonFormat = "hex";
       type = "scheme-tonal-spot";
       variant = "dark";
 
-      templates = {
-        helix = {
-          input_path = "${./templates/helix.toml}";
-          output_path = "~/.config/helix/themes/matugen.toml";
-        };
-      };
+      templates =
+        lib.mapAttrs (_: v: {
+          input_path = v.input;
+          output_path = "~/${v.output}";
+        })
+        active;
     };
 
-    hj.xdg.config.files."helix/themes/matugen.toml".source = "${config.programs.matugen.theme.files}/.config/helix/themes/matugen.toml";
+    hj.xdg.config.files = lib.mapAttrs' (name: v:
+      lib.nameValuePair (lib.removePrefix ".config/" v.output) {
+        source = "${config.programs.matugen.theme.files}/${v.output}";
+      })
+    active;
   };
 }
