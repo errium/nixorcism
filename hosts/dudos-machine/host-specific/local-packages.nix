@@ -4,6 +4,7 @@
       # CLI & TUI
       gcc
       kew
+      openjdk
       terminal-toys
 
       # GUI
