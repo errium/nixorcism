@@ -22,7 +22,6 @@
         ".." = "cd ..";
         "..." = "cd ../..";
         "...." = "cd ../../..";
-        cf = "cd ${confDir}";
         exot = "exit"; # 🤡
         la = "ls -a";
         ll = "ls -lh";
@@ -32,6 +31,7 @@
       # User-only aliases
       nixorcism.shellAliases = {
         cc = "cd ~/.config";
+        cf = "cd ${confDir}";
         rmf = "rm -rf";
       };
     };

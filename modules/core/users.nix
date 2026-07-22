@@ -12,17 +12,15 @@
   in {
     options.nixorcism.username = lib.mkOption {
       type = lib.types.str;
-      description = "Primary user. Must be set explicitly.";
+      default = "errium"; # Personal default.
+      description = "Username of the primary user.";
     };
 
     config = {
-      # I'm setting my username right here, because I want it
-      # to be the same for all hosts.
-      nixorcism.username = "errium";
-
-      # This seems like a questionable move,
-      # but without it you can't log in as any user.
-      fileSystems."/persistent".neededForBoot = lib.mkIf preservation.enable (lib.mkDefault true);
+      # Feels a bit out of place in a users.nix file,
+      # but without it no user can log in.
+      fileSystems."/persistent".neededForBoot =
+        lib.mkIf preservation.enable (lib.mkDefault true);
       nixorcism.preserve.directories = ["/etc/passwords"];
 
       users.users = {
@@ -30,15 +28,9 @@
 
         ${config.nixorcism.username} = {
           isNormalUser = true;
-          description = "${config.nixorcism.username}";
+          description = config.nixorcism.username;
           hashedPasswordFile = "${passwordRoot}/${config.nixorcism.username}";
-          extraGroups = [
-            "dialout"
-            "networkmanager"
-            "render"
-            "video"
-            "wheel"
-          ];
+          extraGroups = ["dialout" "networkmanager" "render" "video" "wheel"];
         };
       };
     };

@@ -15,8 +15,6 @@
         [flake-parts.flakeModules.modules]
         ++ (mkImport ./hosts)
         ++ (mkImport ./modules);
-
-      systems = ["x86_64-linux"];
     };
 
   inputs = {

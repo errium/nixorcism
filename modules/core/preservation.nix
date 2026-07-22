@@ -12,7 +12,7 @@
     imports = [inputs.preservation.nixosModules.preservation];
 
     options.nixorcism = {
-      preservation = {enable = lib.mkEnableOption "preservation";};
+      preservation.enable = lib.mkEnableOption "preservation";
 
       # Traditional preservation syntax works inside of those.
       preserve = {
