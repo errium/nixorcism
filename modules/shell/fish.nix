@@ -12,9 +12,7 @@
     hj.rum.programs.fish = {
       enable = true;
       abbrs = config.nixorcism.shellAliases;
-      plugins = {
-        inherit (pkgs.fishPlugins) bang-bang done;
-      };
+      plugins = {inherit (pkgs.fishPlugins) bang-bang done;};
     };
 
     hj.packages = with pkgs; [

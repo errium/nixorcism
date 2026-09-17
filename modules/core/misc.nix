@@ -11,7 +11,11 @@
 
     options.nixorcism.confDir = lib.mkOption {
       type = lib.types.str;
-      description = "Absolute path to the config directory. Automatically accounts for preservation. Must be in /home.";
+      description = ''
+        Absolute path to the config directory.
+        Automatically accounts for preservation.
+        Must be in /home.
+      '';
       default = "/home/${username}/nixorcism";
     };
 
