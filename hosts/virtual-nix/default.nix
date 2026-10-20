@@ -6,8 +6,6 @@
 
       shell'fish
 
-      system'theming
-
       programs'comma
       programs'fastfetch
       programs'foot
