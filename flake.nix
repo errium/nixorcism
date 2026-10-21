@@ -40,8 +40,18 @@
     };
 
     # Programs
+    helium = {
+      url = "github:amaanq/helium-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # System
+    matugen = {
+      url = "github:InioX/Matugen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

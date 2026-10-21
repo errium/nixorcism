@@ -38,6 +38,26 @@
         "type": "github"
       }
     },
+    "helium": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792404668,
+        "narHash": "sha256-XwdSiAlJqXQ6+C+HRctfFfvk6AsAY12W7B/vlPtNRSA=",
+        "owner": "amaanq",
+        "repo": "helium-flake",
+        "rev": "b7363034277d42b7af9f3e2a75bbd51b7830d331",
+        "type": "github"
+      },
+      "original": {
+        "owner": "amaanq",
+        "repo": "helium-flake",
+        "type": "github"
+      }
+    },
     "hjem": {
       "inputs": {
         "nixpkgs": [
@@ -96,6 +116,27 @@
       "original": {
         "owner": "snugnug",
         "repo": "hjem-rum",
+        "type": "github"
+      }
+    },
+    "matugen": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1791473094,
+        "narHash": "sha256-MEyqLTD2jbRdbh9PQMe/ORdX5XUrczOEHIpzDh74Wqs=",
+        "owner": "InioX",
+        "repo": "Matugen",
+        "rev": "9f8c7fd583e44310a642772ff8f13b693949baf2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "InioX",
+        "repo": "Matugen",
         "type": "github"
       }
     },
@@ -169,15 +210,32 @@
       "inputs": {
         "disko": "disko",
         "flake-parts": "flake-parts",
+        "helium": "helium",
         "hjem": [
           "hjem-rum",
           "hjem"
         ],
         "hjem-impure": "hjem-impure",
         "hjem-rum": "hjem-rum",
+        "matugen": "matugen",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "preservation": "preservation"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1689347949,
+        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "type": "github"
       }
     }
   },

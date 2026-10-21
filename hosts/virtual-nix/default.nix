@@ -10,6 +10,7 @@
       programs'fastfetch
       programs'foot
       programs'git
+      programs'helium
       programs'helix
       programs'nix-utils
       programs'shell-utils
