@@ -3,6 +3,7 @@
     imports = with config.flake.modules.nixos; [
       desktop-environments'xfce
       display-managers'ly
+      window-managers'swayfx
 
       shell'fish
 
