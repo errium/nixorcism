@@ -19,8 +19,7 @@
     config = {
       # Feels a bit out of place in a users.nix file,
       # but without it no user can log in.
-      fileSystems."/persistent".neededForBoot =
-        lib.mkIf preservation.enable (lib.mkDefault true);
+      fileSystems."/persistent".neededForBoot = lib.mkIf preservation.enable (lib.mkDefault true);
       nixorcism.preserve.directories = ["/etc/passwords"];
 
       users.users = {

@@ -2,7 +2,6 @@
   flake.modules.nixos.virtual-nix = {
     imports = [inputs.disko.nixosModules.disko];
 
-    fileSystems."/persistent".neededForBoot = true;
     boot.zfs.devNodes = "/dev/disk/by-partlabel"; # VM specific
 
     disko.devices.disk.main = {

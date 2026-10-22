@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.hardening = {pkgs, ...}: {
+  flake.modules.nixos.system'hardening = {pkgs, ...}: {
     # General
     environment.systemPackages = with pkgs; [aide];
     networking.nftables.enable = true;

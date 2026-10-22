@@ -24,6 +24,6 @@
   # Misc
   environment.variables.NIXOS_OZONE_WL = "1";
   fonts.enableDefaultPackages = true;
-  imports = [./_fonts.nix];
   services.gvfs.enable = true;
+  imports = [./_fonts.nix];
 }

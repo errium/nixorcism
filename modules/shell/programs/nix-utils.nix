@@ -16,6 +16,9 @@
       };
     };
 
+    # nix-ld
+    programs.nix-ld.enable = true;
+
     # nix-search-tv
     environment.systemPackages = [
       (pkgs.writeShellApplication {
