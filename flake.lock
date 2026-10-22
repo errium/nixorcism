@@ -85,15 +85,15 @@
         "nixpkgs": []
       },
       "locked": {
-        "lastModified": 1786164166,
-        "narHash": "sha256-2S8BRs/a9ElePH7o7LSTib4t/oQ0p9sn/qjAP6BmTK8=",
-        "owner": "Rexcrazy804",
+        "lastModified": 1791632013,
+        "narHash": "sha256-xkatHz2jk+a9ItymU6zVob3LO5mOyGhYr4EAg38U4KM=",
+        "owner": "rexcrazy804",
         "repo": "hjem-impure",
-        "rev": "206320fa7d060232f19c4d2831e66471d8e5d161",
+        "rev": "9f54caff3b90d48e710dbadf523e181a549f09ee",
         "type": "github"
       },
       "original": {
-        "owner": "Rexcrazy804",
+        "owner": "rexcrazy804",
         "repo": "hjem-impure",
         "type": "github"
       }
@@ -129,14 +129,14 @@
       "locked": {
         "lastModified": 1791473094,
         "narHash": "sha256-MEyqLTD2jbRdbh9PQMe/ORdX5XUrczOEHIpzDh74Wqs=",
-        "owner": "InioX",
-        "repo": "Matugen",
+        "owner": "iniox",
+        "repo": "matugen",
         "rev": "9f8c7fd583e44310a642772ff8f13b693949baf2",
         "type": "github"
       },
       "original": {
-        "owner": "InioX",
-        "repo": "Matugen",
+        "owner": "iniox",
+        "repo": "matugen",
         "type": "github"
       }
     },
@@ -157,6 +157,26 @@
       "original": {
         "owner": "nix-community",
         "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
+    "nixos-hardware": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792491056,
+        "narHash": "sha256-6n1Dn+WYtD8lprnSi+0k4FjbKfIVNG8lblpJ5MiiqXs=",
+        "owner": "nixos",
+        "repo": "nixos-hardware",
+        "rev": "efb6d0d5e2394c3c5416a18652808aba206c0988",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixos-hardware",
         "type": "github"
       }
     },
@@ -219,6 +239,7 @@
         "hjem-rum": "hjem-rum",
         "matugen": "matugen",
         "nix-index-database": "nix-index-database",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "preservation": "preservation"
       }

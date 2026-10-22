@@ -18,6 +18,7 @@
           ]);
       };
   in {
+    dudos-machine = mkHost "dudos-machine";
     virtual-nix = mkHost "virtual-nix";
   };
 }

@@ -26,6 +26,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Hjem
     hjem.follows = "hjem-rum/hjem";
@@ -34,7 +38,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hjem-impure = {
-      url = "github:Rexcrazy804/hjem-impure";
+      url = "github:rexcrazy804/hjem-impure";
       inputs.nixpkgs.follows = "";
       inputs.hjem.follows = "";
     };
@@ -51,7 +55,7 @@
 
     # System
     matugen = {
-      url = "github:InioX/Matugen";
+      url = "github:iniox/matugen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
