@@ -1,5 +1,6 @@
 include appearance.conf
 include inputs.conf
 include keybinds.conf
-include matugen.conf
 include misc.conf
+
+include matugen.conf

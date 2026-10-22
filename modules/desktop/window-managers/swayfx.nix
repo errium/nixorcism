@@ -15,11 +15,12 @@
 
     hj.xdg.config.files = {
       "sway/config".source = config.impureDir + "/sway/config";
-      "sway/appearance.conf".source = config.impureDir + "/sway/config";
-      "sway/inputs.conf".source = config.impureDir + "/sway/config";
-      "sway/keybinds.conf".source = config.impureDir + "/sway/config";
+      "sway/appearance.conf".source = config.impureDir + "/sway/appearance.conf";
+      "sway/inputs.conf".source = config.impureDir + "/sway/inputs.conf";
+      "sway/keybinds.conf".source = config.impureDir + "/sway/keybinds.conf";
+      "sway/misc.conf".source = config.impureDir + "/sway/misc.conf";
+
       "sway/matugen.conf".source = "${config.programs.matugen.theme.files}/.config/sway/matugen.conf";
-      "sway/misc.conf".source = config.impureDir + "/sway/config";
     };
 
     imports = [../_common.nix];
