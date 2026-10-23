@@ -1,9 +1,14 @@
-{
+{inputs, ...}: {
   flake.modules.nixos.programs'nix-utils = {
     config,
     pkgs,
     ...
   }: {
+    # comma
+    imports = [inputs.nix-index-database.nixosModules.default];
+    programs.nix-index-database.comma.enable = true;
+    nixorcism.preserve.user.directories = [".local/state/comma"];
+
     # nh
     programs.nh = {
       enable = true;
