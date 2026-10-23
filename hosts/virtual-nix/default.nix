@@ -7,7 +7,6 @@
 
       shell'fish
 
-      programs'comma
       programs'fastfetch
       programs'foot
       programs'git

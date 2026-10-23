@@ -7,6 +7,7 @@
     nixorcism = {
       bootloader = "limine";
       preservation.enable = true;
+      sway.extraConfig = ''output Virtual-1 mode 2048x1152'';
     };
   };
 }

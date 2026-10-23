@@ -1,6 +1,0 @@
-include appearance.conf
-include inputs.conf
-include keybinds.conf
-include misc.conf
-
-include matugen.conf

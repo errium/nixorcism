@@ -2,9 +2,9 @@
   flake.modules.nixos.dudos-machine = {
     imports = with config.flake.modules.nixos; [
       display-managers'ly
+      window-managers'swayfx
 
       programs'cava
-      programs'comma
       programs'fastfetch
       programs'foot
       programs'git
