@@ -10,6 +10,7 @@
       programs'helium
       programs'helix
       programs'nix-utils
+      programs'opencode
       programs'shell-utils
       programs'starship
 
