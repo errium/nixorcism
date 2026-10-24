@@ -1,6 +1,7 @@
 {
   flake.modules.nixos.programs'shell-utils = {
     config,
+    lib,
     pkgs,
     ...
   }: {
@@ -24,13 +25,19 @@
     '';
 
     # eza
-    nixorcism.shellAliases = {
-      la = "eza -a";
-      lat = "eza -lahT";
-      ll = "eza -lh";
-      lla = "eza -lah";
-      lt = "eza -lhT";
-    };
+    nixorcism.shellAliases = let
+      extraOptions =
+        ["--group-directories-first" "--header"]
+        |> lib.concatStringsSep " ";
+    in
+      {
+        la = "eza -a";
+        lat = "eza -lahT";
+        ll = "eza -lh";
+        lla = "eza -lah";
+        lt = "eza -lhT";
+      }
+      |> lib.mapAttrs (_: cmd: "${cmd} ${extraOptions}");
 
     # zoxide
     hj.rum.programs.zoxide = {
