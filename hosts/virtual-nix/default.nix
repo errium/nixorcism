@@ -3,9 +3,6 @@
     imports = with config.flake.modules.nixos; [
       desktop-environments'xfce
       display-managers'ly
-      window-managers'swayfx
-
-      shell'fish
 
       programs'fastfetch
       programs'foot
@@ -15,6 +12,8 @@
       programs'nix-utils
       programs'shell-utils
       programs'starship
+
+      shell'fish
     ];
   };
 }
