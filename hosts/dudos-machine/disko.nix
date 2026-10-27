@@ -2,7 +2,7 @@
   flake.modules.nixos.dudos-machine = {
     imports = [inputs.disko.nixosModules.disko];
 
-    # main drive
+    # main drive:
     disko.devices.disk.main = {
       device = "/dev/disk/by-id/nvme-SKHynix_HFS512GEJ9X115N_SJB9N653014209N4Q_1";
       type = "disk";
@@ -22,7 +22,7 @@
 
       content.partitions.swap = {
         priority = 2;
-        size = "33G";
+        size = "8G";
         content.type = "swap";
       };
 
@@ -36,7 +36,7 @@
       };
     };
 
-    # main pool
+    # main pool:
     disko.devices.zpool.zroot = {
       type = "zpool";
 
