@@ -19,7 +19,7 @@
 
   inputs = {
     # Core
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     preservation.url = "github:nix-community/preservation";
     disko = {
@@ -27,7 +27,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware = {
-      url = "github:nixos/nixos-hardware";
+      url = "github:NixOS/nixos-hardware";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -38,7 +38,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hjem-impure = {
-      url = "github:rexcrazy804/hjem-impure";
+      url = "github:Rexcrazy804/hjem-impure";
       inputs.nixpkgs.follows = "";
       inputs.hjem.follows = "";
     };
@@ -52,10 +52,14 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # System
     matugen = {
-      url = "github:iniox/matugen";
+      url = "github:InioX/matugen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

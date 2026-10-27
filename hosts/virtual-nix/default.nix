@@ -12,6 +12,7 @@
       programs'nix-utils
       programs'opencode
       programs'shell-utils
+      programs'spicetify
       programs'starship
 
       shell'fish
