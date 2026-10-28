@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.programs'keepassxc = {config, ...}: {
+  flake.modules.nixos.programs'keepassxc = {
     hj.rum.programs.keepassxc = {
       enable = true;
 
@@ -29,22 +29,6 @@
       };
     };
 
-    # TODO: Finish
-    services.syncthing = let
-      username = config.nixorcism.username;
-      home = "/home/${username}";
-    in {
-      enable = true;
-      user = username;
-      group = "users";
-      dataDir = home;
-      configDir = "${home}/.config/syncthing";
-      openDefaultPorts = true;
-    };
-
-    nixorcism.preserve.user.directories = [
-      ".config/syncthing"
-      ".keepass"
-    ];
+    nixorcism.preserve.user.directories = [".keepass"];
   };
 }

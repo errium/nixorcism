@@ -13,15 +13,13 @@
       xfce4-terminal
     ];
 
-    nixorcism.preserve.user = {
-      directories = [
-        ".config/Thunar"
-        ".config/labwc"
-        ".config/xfce4"
-      ];
+    nixorcism.preserve.user.directories = [
+      ".config/Thunar"
+      ".config/labwc"
+      ".config/xfce4"
+    ];
 
-      files = [".local/share/recently-used.xbel"];
-    };
+    nixorcism.preserve.user.files = [".local/share/recently-used.xbel"];
 
     imports = [../_common.nix];
   };

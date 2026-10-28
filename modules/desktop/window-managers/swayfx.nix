@@ -26,7 +26,6 @@
         include keybinds.conf
         include misc.conf
         include extra.conf
-        include matugen.conf
       '';
 
       hj.xdg.config.files = {
@@ -34,7 +33,6 @@
         "sway/keybinds.conf".source = config.impureDir + "/sway/keybinds.conf";
         "sway/misc.conf".source = config.impureDir + "/sway/misc.conf";
         "sway/extra.conf".text = config.nixorcism.sway.extraConfig;
-        "sway/matugen.conf".source = "${config.programs.matugen.theme.files}/.config/sway/matugen.conf";
       };
     };
 

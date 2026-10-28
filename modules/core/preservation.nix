@@ -5,9 +5,8 @@
     pkgs,
     ...
   }: let
-    preserve = config.nixorcism.preserve;
+    inherit (config.nixorcism) preserve username;
     preserveType = lib.types.listOf (lib.types.either lib.types.str lib.types.attrs);
-    username = config.nixorcism.username;
   in {
     imports = [inputs.preservation.nixosModules.preservation];
 

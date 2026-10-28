@@ -56,11 +56,5 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # System
-    matugen = {
-      url = "github:InioX/matugen";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 }

@@ -4,7 +4,7 @@
     lib,
     ...
   }: let
-    preservation = config.nixorcism.preservation;
+    inherit (config.nixorcism) preservation;
     passwordRoot =
       if preservation.enable
       then "/persistent/etc/passwords"

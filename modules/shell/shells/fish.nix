@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.shell'fish = {
+  flake.modules.nixos.shells'fish = {
     config,
     pkgs,
     ...

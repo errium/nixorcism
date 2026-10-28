@@ -4,8 +4,7 @@
     lib,
     ...
   }: let
-    confDir = config.nixorcism.confDir;
-    username = config.nixorcism.username;
+    inherit (config.nixorcism) confDir username;
   in {
     imports = [
       inputs.hjem.nixosModules.default

@@ -1,5 +1,3 @@
-theme = "matugen"
-
 [editor]
 auto-format = true
 auto-save = true

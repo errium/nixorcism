@@ -5,7 +5,7 @@
     pkgs,
     ...
   }: let
-    username = config.nixorcism.username;
+    inherit (config.nixorcism) username;
   in {
     imports = [(lib.mkAliasOptionModule ["userPackages"] ["users" "users" username "packages"])];
 

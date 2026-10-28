@@ -35,7 +35,6 @@
     hj.xdg.config.files = {
       "helix/config.toml".source = config.impureDir + "/helix/config.toml";
       "helix/languages.toml".source = config.impureDir + "/helix/languages.toml";
-      "helix/themes/matugen.toml".source = "${config.programs.matugen.theme.files}/.config/helix/themes/matugen.toml";
     };
   };
 }

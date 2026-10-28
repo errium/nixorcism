@@ -15,7 +15,7 @@
     };
 
     config = let
-      confDir = config.nixorcism.confDir;
+      inherit (config.nixorcism) confDir;
     in {
       # Global aliases
       environment.shellAliases = {
