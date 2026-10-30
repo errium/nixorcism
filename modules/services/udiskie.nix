@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop-extras'udiskie = {
+  flake.modules.nixos.services'udiskie = {
     lib,
     pkgs,
     ...

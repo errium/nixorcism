@@ -2,7 +2,6 @@
   flake.modules.nixos.core = {
     config,
     lib,
-    pkgs,
     ...
   }: let
     inherit (config.nixorcism) preserve username;
@@ -84,25 +83,6 @@
           files = preserve.user.files;
         };
       };
-
-      # A little wacky script to find what's unpersistent
-      # TODO: Improve.
-      environment.systemPackages = [
-        (pkgs.writeShellScriptBin "find-unpersisted" ''
-          ${pkgs.rsync}/bin/rsync -amvxx \
-            --dry-run \
-            --no-links \
-            --exclude '/dev/*' \
-            --exclude '/proc/*' \
-            --exclude '/root/*' \
-            --exclude '/run/*' \
-            --exclude '/run/*' \
-            --exclude '/sys/*' \
-            --exclude '/tmp/*' \
-            / /persistent/ \
-            | ${pkgs.ripgrep}/bin/rg -v '^skipping|/$'
-        '')
-      ];
     };
   };
 }

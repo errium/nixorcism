@@ -19,7 +19,7 @@
     };
 
     nixorcism.preserve.user.directories = [
-      # ".config/syncthing"
+      ".config/syncthing"
       ".local/state/syncthing"
     ];
   };
