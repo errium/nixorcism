@@ -1,25 +1,14 @@
 {
-  flake.modules.nixos.desktop-environments'xfce = {pkgs, ...}: {
-    services.xserver.desktopManager.xfce = {
+  flake.modules.nixos.desktop-environments'xfce = {
+    services.xserver = {
       enable = true;
-      enableWaylandSession = true;
-      enableXfwm = false;
+      desktopManager.xfce.enable = true;
     };
 
-    environment.xfce.excludePackages = with pkgs; [
-      mousepad
-      parole
-      xfce4-taskmanager
-      xfce4-terminal
-    ];
-
-    nixorcism.preserve.user.directories = [
-      ".config/Thunar"
-      ".config/labwc"
-      ".config/xfce4"
-    ];
-
-    nixorcism.preserve.user.files = [".local/share/recently-used.xbel"];
+    nixorcism.preserve.user = {
+      directories = [".config/Thunar" ".config/xfce4"];
+      files = [".local/share/recently-used.xbel"];
+    };
 
     imports = [../_common.nix];
   };

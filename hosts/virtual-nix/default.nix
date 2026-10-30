@@ -14,7 +14,6 @@
       programs'nix-utils
       programs'opencode
       programs'shell-utils
-      programs'vesktop
 
       # modules/shell/
       prompts'starship

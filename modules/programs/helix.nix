@@ -25,7 +25,7 @@
         nativeBuildInputs = [pkgs.makeWrapper];
         postBuild = ''
           wrapProgram $out/bin/hx --prefix PATH : \
-          ${pkgs.lib.makeBinPath helixPackages}
+          ${lib.makeBinPath helixPackages}
         '';
       })
     ];
