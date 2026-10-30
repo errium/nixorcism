@@ -14,8 +14,7 @@
       programs'nix-utils
       programs'opencode
       programs'shell-utils
-
-      services'glance
+      programs'vesktop
 
       # modules/shell/
       prompts'starship
