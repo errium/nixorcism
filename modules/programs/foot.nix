@@ -6,7 +6,7 @@
       settings = {
         main = {
           dpi-aware = "no";
-          font = "Lilex Nerd Font:size=12";
+          # font = "Lilex Nerd Font:size=12";
           initial-color-theme = "dark";
           pad = "4x4 center-when-maximized-and-fullscreen";
         };
