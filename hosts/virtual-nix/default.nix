@@ -3,11 +3,11 @@
     imports = with config.flake.modules.nixos; [
       # modules/desktop/
       desktop-environments'xfce
-      display-managers'gdm
+      display-managers'ly
+      window-managers'swayfx
 
       # modules/programs/
       programs'fastfetch
-      programs'foot
       programs'git
       programs'helium
       programs'helix

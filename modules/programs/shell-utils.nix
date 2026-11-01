@@ -13,6 +13,7 @@
       fd
       fzf
       ripgrep
+      terminal-toys
       tree
     ];
 

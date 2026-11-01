@@ -36,6 +36,11 @@
       };
     };
 
-    imports = [../_common.nix];
+    imports =
+      [../_common.nix]
+      ++ (with config.flake.modules.nixos; [
+        programs'foot
+        programs'noctalia
+      ]);
   };
 }

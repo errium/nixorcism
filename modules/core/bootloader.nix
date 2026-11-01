@@ -21,7 +21,7 @@
     config = {
       # Common
       boot.loader = {
-        timeout = 2;
+        timeout = 1;
         efi.canTouchEfiVariables = true;
         efi.efiSysMountPoint = "/boot";
       };
