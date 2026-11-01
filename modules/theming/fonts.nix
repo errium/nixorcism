@@ -1,5 +1,9 @@
 {
-  flake.modules.nixos.theming = {pkgs, ...}: let
+  flake.modules.nixos.theming = {
+    lib,
+    pkgs,
+    ...
+  }: let
     active = fontSets.ibm;
 
     fontSets = {
@@ -40,18 +44,31 @@
       };
     };
   in {
-    fonts.packages = [
-      active.sansSerif.package
-      active.serif.package
-      active.monospace.package
-      pkgs.noto-fonts-color-emoji
-    ];
+    options.nixorcism.fonts =
+      ["sansSerif" "serif" "monospace" "emoji"]
+      |> lib.flip lib.genAttrs (_: lib.mkOption {type = lib.types.str;});
 
-    fonts.fontconfig.defaultFonts = {
-      sansSerif = [active.sansSerif.name];
-      serif = [active.serif.name];
-      monospace = [active.monospace.name];
-      emoji = ["Noto Color Emoji"];
+    config = {
+      nixorcism.fonts = {
+        sansSerif = active.sansSerif.name;
+        serif = active.serif.name;
+        monospace = active.monospace.name;
+        emoji = "Noto Color Emoji";
+      };
+
+      fonts.packages = [
+        active.sansSerif.package
+        active.serif.package
+        active.monospace.package
+        pkgs.noto-fonts-color-emoji
+      ];
+
+      fonts.fontconfig.defaultFonts = {
+        sansSerif = [active.sansSerif.name];
+        serif = [active.serif.name];
+        monospace = [active.monospace.name];
+        emoji = ["Noto Color Emoji"];
+      };
     };
   };
 }
