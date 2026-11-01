@@ -1,5 +1,7 @@
-{
-  flake.modules.nixos.window-managers'swayfx = {
+{config, ...}: let
+  modules = config.flake.modules.nixos;
+in {
+  flake.modules.nixos.window-managers'sway = {
     config,
     pkgs,
     lib,
@@ -38,7 +40,7 @@
 
     imports =
       [../_common.nix]
-      ++ (with config.flake.modules.nixos; [
+      ++ (with modules; [
         programs'foot
         programs'noctalia
       ]);

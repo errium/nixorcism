@@ -4,7 +4,7 @@
       # modules/desktop/
       desktop-environments'xfce
       display-managers'ly
-      window-managers'swayfx
+      window-managers'sway
 
       # modules/programs/
       programs'fastfetch
