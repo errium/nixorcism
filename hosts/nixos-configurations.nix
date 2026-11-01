@@ -14,6 +14,7 @@
           ]
           ++ (with config.flake.modules.nixos; [
             core
+            theming
           ]);
       };
   in {

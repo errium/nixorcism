@@ -22,25 +22,23 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     preservation.url = "github:nix-community/preservation";
+    hjem.follows = "hjem-rum/hjem";
     disko = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Hjem
-    hjem.follows = "hjem-rum/hjem";
-    hjem-rum = {
-      url = "github:snugnug/hjem-rum";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hjem-impure = {
       url = "github:Rexcrazy804/hjem-impure";
       inputs.nixpkgs.follows = "";
       inputs.hjem.follows = "";
+    };
+    hjem-rum = {
+      url = "github:snugnug/hjem-rum";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Programs
@@ -54,6 +52,12 @@
     };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Theming
+    matugen = {
+      url = "github:InioX/Matugen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
