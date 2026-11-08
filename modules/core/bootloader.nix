@@ -4,7 +4,7 @@
     lib,
     ...
   }: let
-    bootloader = config.nixorcism.bootloader;
+    inherit (config.nixorcism) bootloader;
   in {
     # No default here on purpose.
     # I couldn't figure out a nice way to make this yell at me when it's not set

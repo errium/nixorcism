@@ -19,10 +19,7 @@
 
     programs.virt-manager.enable = true;
 
-    users.users.${config.nixorcism.username}.extraGroups = [
-      "libvirtd"
-      "kvm"
-    ];
+    users.users.${config.nixorcism.username}.extraGroups = ["libvirtd" "kvm"];
 
     nixorcism.preserve.directories = ["/var/lib/libvirt"];
   };
