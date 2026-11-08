@@ -4,8 +4,6 @@
       enable = true;
 
       settings = {
-        main.include = "~/.config/foot/matugen.ini";
-
         main = {
           dpi-aware = "no";
           font = "${config.nixorcism.fonts.monospace}:size=12";
@@ -24,7 +22,5 @@
         };
       };
     };
-
-    hj.xdg.config.files."foot/matugen.ini".source = "${config.programs.matugen.theme.files}/.config/foot/matugen.ini";
   };
 }
