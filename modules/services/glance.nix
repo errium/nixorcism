@@ -25,14 +25,14 @@
           same-tab = true;
           links = [
             {
-              title = "Gmail";
-              url = "https://mail.google.com/mail/u/0/";
-              icon = "si:gmail";
-            }
-            {
               title = "GitHub";
               url = "https://github.com";
               icon = "si:github";
+            }
+            {
+              title = "Gmail";
+              url = "https://mail.google.com/mail/u/0/";
+              icon = "si:gmail";
             }
             {
               title = "Reddit";
