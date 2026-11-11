@@ -21,7 +21,7 @@
       |> lib.mapAttrs (name: _: ./templates + "/${name}")
       |> lib.mapAttrs (name: input_path: {
         inherit input_path;
-        output_path = "~/${name}";
+        output_path = ["~/${name}"];
       });
 
     hj.files =
