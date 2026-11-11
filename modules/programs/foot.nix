@@ -6,7 +6,8 @@
       settings = {
         main = {
           dpi-aware = "no";
-          font = "${config.nixorcism.fonts.monospace}:size=12";
+          font = "${config.nixorcism.theming.fonts.monospace.name}:size=12";
+          include = "~/.config/foot/matugen.ini";
           initial-color-theme = "dark";
           pad = "4x4 center-when-maximized-and-fullscreen";
         };
@@ -22,5 +23,7 @@
         };
       };
     };
+
+    nixorcism.theming.templates."foot.ini" = ".config/foot/matugen.ini";
   };
 }

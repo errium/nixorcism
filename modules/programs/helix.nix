@@ -36,5 +36,7 @@
       "helix/config.toml".source = config.impureDir + "/helix/config.toml";
       "helix/languages.toml".source = config.impureDir + "/helix/languages.toml";
     };
+
+    nixorcism.theming.templates."helix.toml" = ".config/helix/themes/matugen.toml";
   };
 }

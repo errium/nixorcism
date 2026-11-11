@@ -1,11 +1,10 @@
 {
   flake.modules.nixos.theming = {
+    config,
     lib,
     pkgs,
     ...
   }: let
-    active = fontSets.ibm;
-
     fontSets = {
       go = {
         sansSerif.name = "DejaVu Sans";
@@ -14,6 +13,8 @@
         serif.package = pkgs.dejavu_fonts;
         monospace.name = "GoMono Nerd Font";
         monospace.package = pkgs.nerd-fonts.go-mono;
+        emoji.name = "Noto Color Emoji";
+        emoji.package = pkgs.noto-fonts-color-emoji;
       };
 
       ibm = {
@@ -23,6 +24,8 @@
         serif.package = pkgs.ibm-plex;
         monospace.name = "Lilex Nerd Font";
         monospace.package = pkgs.nerd-fonts.lilex;
+        emoji.name = "Noto Color Emoji";
+        emoji.package = pkgs.noto-fonts-color-emoji;
       };
 
       jetbrains = {
@@ -32,6 +35,8 @@
         serif.package = pkgs.inter;
         monospace.name = "JetBrainsMono Nerd Font";
         monospace.package = pkgs.nerd-fonts.jetbrains-mono;
+        emoji.name = "Noto Color Emoji";
+        emoji.package = pkgs.noto-fonts-color-emoji;
       };
 
       source = {
@@ -41,34 +46,23 @@
         serif.package = pkgs.source-serif;
         monospace.name = "SauceCodePro Nerd Font";
         monospace.package = pkgs.nerd-fonts.sauce-code-pro;
+        emoji.name = "Noto Color Emoji";
+        emoji.package = pkgs.noto-fonts-color-emoji;
       };
     };
   in {
-    options.nixorcism.fonts =
-      ["sansSerif" "serif" "monospace" "emoji"]
-      |> lib.flip lib.genAttrs (_: lib.mkOption {type = lib.types.str;});
+    nixorcism.theming.fonts =
+      fontSets.jetbrains
+      |> lib.mapAttrs (_: lib.mapAttrs (_: lib.mkDefault));
 
-    config = {
-      nixorcism.fonts = {
-        sansSerif = active.sansSerif.name;
-        serif = active.serif.name;
-        monospace = active.monospace.name;
-        emoji = "Noto Color Emoji";
-      };
+    fonts.packages =
+      config.nixorcism.theming.fonts
+      |> lib.attrValues
+      |> map (font: font.package)
+      |> lib.filter (package: package != null);
 
-      fonts.packages = [
-        active.sansSerif.package
-        active.serif.package
-        active.monospace.package
-        pkgs.noto-fonts-color-emoji
-      ];
-
-      fonts.fontconfig.defaultFonts = {
-        sansSerif = [active.sansSerif.name];
-        serif = [active.serif.name];
-        monospace = [active.monospace.name];
-        emoji = ["Noto Color Emoji"];
-      };
-    };
+    fonts.fontconfig.defaultFonts =
+      config.nixorcism.theming.fonts
+      |> lib.mapAttrs (_: font: [font.name]);
   };
 }
