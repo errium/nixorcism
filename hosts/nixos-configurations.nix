@@ -19,6 +19,7 @@
       };
   in {
     dudos-machine = mkHost "dudos-machine";
+    probably-prod = mkHost "probably-prod";
     virtual-nix = mkHost "virtual-nix";
   };
 }
