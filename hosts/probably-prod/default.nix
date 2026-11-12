@@ -7,7 +7,7 @@
 
       # modules/programs/
       programs'cava
-      programs'codex
+      # programs'codex # WARN: Borked (11.10.2026)
       programs'fastfetch
       programs'git
       programs'helium
